@@ -1,0 +1,72 @@
+2012/12/15 17:07:04 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:08:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:08:28 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:09:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:09:24 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:10:06 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:10:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:11:05 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
+2012/12/15 17:13:51 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "favicon.ico".' in /mnt/host/yii/framework/web/CWebApplication.php:287
+Stack trace:
+#0 /mnt/host/yii/framework/web/CWebApplication.php(142): CWebApplication->runController('favicon.ico')
+#1 /mnt/host/yii/framework/base/CApplication.php(162): CWebApplication->processRequest()
+#2 /mnt/host/travelagency/index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/favicon.ico
+---
