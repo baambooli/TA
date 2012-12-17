@@ -9,14 +9,14 @@
     <SchemaVersion>2.0</SchemaVersion>
   </Properties>
   <Connection Name="localhost">
-    <ConnectionString>User Id=root;Host=localhost;Character Set=utf8</ConnectionString>
+    <ConnectionString>User Id=root;Host=localhost;Character Set=utf8;</ConnectionString>
     <Database>travelagency</Database>
   </Connection>
-  <Views ShowAdditionalViews="True" IsLayoutActiveAttribute="True" MainViewAttribute="Design" MainViewScale="75">
-    <View Name="Design" Visible="True">
+  <Views ShowAdditionalViews="True" IsLayoutActiveAttribute="True" MainViewAttribute="Design" MainViewScale="78">
+    <View Name="Design" Active="True" Visible="True">
       <Data>
         <ActiveQuery>0</ActiveQuery>
-        <SubQuery Id="0" Open="0" LocationX="-327.586205101089" LocationY="50.5747123664839" Scale="0.87">
+        <SubQuery Id="0" Open="0" LocationX="-391.95402084025" LocationY="77.0114938307823" Scale="0.87">
           <PageOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <HorizontalOverlap>0</HorizontalOverlap>
             <VerticalOverlap>0</VerticalOverlap>
@@ -34,18 +34,19 @@
             </PaperSize>
           </PageOptions>
           <Tables>
-            <Table Name="aireplane_specifications" Left="928" Top="144" Width="272" Height="228" Collapsed="False" />
-            <Table Name="airplane" Left="608" Top="320" Width="223.3129" Height="156" Collapsed="False" />
-            <Table Name="cities" Left="347.1264" Top="79.31034" Width="203.4952" Height="102" Collapsed="False" />
-            <Table Name="flight_passengers" Left="-72" Top="368" Width="290.2335" Height="246" Collapsed="False" />
-            <Table Name="flightes" Left="288" Top="256" Width="218.9379" Height="174" Collapsed="False" />
-            <Table Name="hotel_clients" Left="-424" Top="272" Width="256.3012" Height="210" Collapsed="False" />
-            <Table Name="hotels" Left="-112" Top="160" Width="209.3741" Height="156" Collapsed="False" />
+            <Table Name="aireplane_specifications" Left="952" Top="264" Width="272" Height="228" Collapsed="False" />
+            <Table Name="airplane" Left="664" Top="312" Width="203.0838" Height="156" Collapsed="False" />
+            <Table Name="cities_destination" Left="88" Top="120" Width="203.0838" Height="102" Collapsed="False" />
+            <Table Name="flight_passengers" Left="56" Top="304" Width="214.1905" Height="246" Collapsed="False" />
+            <Table Name="flights" Left="360" Top="168" Width="203.0838" Height="174" Collapsed="False" />
+            <Table Name="hotel_clients" Left="-464" Top="160" Width="214.1905" Height="210" Collapsed="False" />
+            <Table Name="hotels" Left="-176" Top="160" Width="203.0838" Height="156" Collapsed="False" />
+            <Table Name="cities_departure" Left="688" Top="152" Width="168.3585" Height="102" Collapsed="False" />
           </Tables>
         </SubQuery>
       </Data>
     </View>
-    <View Name="Code" Active="True" Visible="True">
+    <View Name="Code" Visible="True">
       <Data />
     </View>
     <View Name="Data" Visible="False" />

@@ -130,3 +130,182 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/favicon.ico
 ---
+2012/12/17 21:14:45 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1130] Host '192.168.2.11' is not allowed to connect to this MySQL server' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+HTTP_REFERER=http://kamran.dev.travelagency.com:81/index.php/gii/default/index
+---
+2012/12/17 21:16:57 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'user1'@'192.168.2.11' (using password: YES)' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:17:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[42000] [1044] Access denied for user 'user1'@'192.168.2.11' to database 'travelagency'' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:19:06 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'user1@192.168.2.11'@'192.168.2.11' (using password: YES)' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:19:23 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'user1@192.168.2.11'@'192.168.2.11' (using password: YES)' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:19:44 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1130] Host '192.168.2.11' is not allowed to connect to this MySQL server' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:21:48 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[28000] [1045] Access denied for user 'user1@192.168.2.11'@'192.168.2.11' (using password: YES)' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:22:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[42000] [1044] Access denied for user 'user1'@'' to database 'travelagency'' in G:\GitHub\yii\framework\db\CDbConnection.php:382
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive(true)
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CModule.php(104): CModule->getComponent('db')
+#4 G:\GitHub\yii\framework\gii\generators\model\ModelCode.php(57): CModule->__get('db')
+#5 G:\GitHub\yii\framework\web\CFormModel.php(40): ModelCode->init()
+#6 G:\GitHub\yii\framework\gii\CCodeGenerator.php(154): CFormModel->__construct()
+#7 G:\GitHub\yii\framework\gii\CCodeGenerator.php(64): CCodeGenerator->prepare()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CCodeGenerator->actionIndex()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('gii/model')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php/gii/model
+---
+2012/12/17 21:29:14 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "admin".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('admin')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php/admin
+---
+2012/12/17 21:41:03 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'travelagency.flight_passenger' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `flight_passenger`.
+in g:\GitHub\travelagency\index.php (13)
