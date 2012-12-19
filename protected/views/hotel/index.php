@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Cities',
+	'Hotels',
 );
 
 $this->menu=array(
-	array('label'=>'Create City','url'=>array('create')),
-	array('label'=>'Manage City','url'=>array('admin')),
+	array('label'=>'Create Hotel','url'=>array('create')),
+	array('label'=>'Manage Hotel','url'=>array('admin')),
 );
 ?>
 
-<h1>Cities</h1>
+<h1>Hotels</h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,

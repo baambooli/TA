@@ -1,6 +1,6 @@
 <?php
 
-class CityController extends Controller
+class HotelController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,16 +61,16 @@ class CityController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new City;
+		$model=new Hotel;
 
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['City']))
+		if(isset($_POST['Hotel']))
 		{
-			$model->attributes=$_POST['City'];
+			$model->attributes=$_POST['Hotel'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->Id));
+				$this->redirect(array('view','id'=>$model->ID));
 		}
 
 		$this->render('create',array(
@@ -90,11 +90,11 @@ class CityController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['City']))
+		if(isset($_POST['Hotel']))
 		{
-			$model->attributes=$_POST['City'];
+			$model->attributes=$_POST['Hotel'];
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->Id));
+				$this->redirect(array('view','id'=>$model->ID));
 		}
 
 		$this->render('update',array(
@@ -127,7 +127,7 @@ class CityController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('City');
+		$dataProvider=new CActiveDataProvider('Hotel');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class CityController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new City('search');
+		$model=new Hotel('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['City']))
-			$model->attributes=$_GET['City'];
+		if(isset($_GET['Hotel']))
+			$model->attributes=$_GET['Hotel'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class CityController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=City::model()->findByPk($id);
+		$model=Hotel::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +167,7 @@ class CityController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='city-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='hotel-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

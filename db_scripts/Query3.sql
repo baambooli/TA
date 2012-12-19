@@ -16,7 +16,7 @@ FROM
   airplane
 INNER JOIN aireplane_specifications
 ON airplane.specificationId = aireplane_specifications.Id
-INNER JOIN flights 
+INNER JOIN flights flights
 ON flights.Id = airplane.FlightId
 INNER JOIN flight_passengers
 ON flights.Id = flight_passengers.FlightId

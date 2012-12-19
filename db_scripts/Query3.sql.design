@@ -12,7 +12,7 @@
     <ConnectionString>User Id=root;Host=localhost;Character Set=utf8;</ConnectionString>
     <Database>travelagency</Database>
   </Connection>
-  <Views ShowAdditionalViews="True" IsLayoutActiveAttribute="True" MainViewAttribute="Design" MainViewScale="58">
+  <Views ShowAdditionalViews="True" IsLayoutActiveAttribute="True" MainViewAttribute="Design" MainViewScale="75">
     <View Name="Design" Visible="True" />
     <View Name="Code" Active="True" Visible="True">
       <Data />

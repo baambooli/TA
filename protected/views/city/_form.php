@@ -7,8 +7,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'Id',array('class'=>'span5')); ?>
-
 	<?php echo $form->textFieldRow($model,'Name',array('class'=>'span5','maxlength'=>50)); ?>
 
 	<div class="form-actions">

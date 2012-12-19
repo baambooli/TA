@@ -8,7 +8,8 @@
  * @property string $Name
  *
  * The followings are the available model relations:
- * @property Hotels $id
+ * @property Airports[] $airports
+ * @property Hotels[] $hotels
  */
 class City extends CActiveRecord
 {
@@ -38,8 +39,6 @@ class City extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Id', 'required'),
-			array('Id', 'numerical', 'integerOnly'=>true),
 			array('Name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -55,7 +54,8 @@ class City extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'id' => array(self::BELONGS_TO, 'Hotels', 'Id'),
+			'airports' => array(self::HAS_MANY, 'Airports', 'CityId'),
+			'hotels' => array(self::HAS_MANY, 'Hotels', 'CityId'),
 		);
 	}
 
