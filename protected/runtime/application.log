@@ -1982,3 +1982,13 @@ Stack trace:
 #33 {main}
 REQUEST_URI=/index.php?r=hotel/admin
 ---
+2012/12/20 05:04:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 05:04:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 05:04:32 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 05:04:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 05:04:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
