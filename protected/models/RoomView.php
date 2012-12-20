@@ -29,6 +29,7 @@ class RoomView extends CActiveRecord
 	{
 		return 'rooms_view';
 	}
+   
 
 	/**
 	 * @return array validation rules for model attributes.
@@ -69,7 +70,7 @@ class RoomView extends CActiveRecord
 		return array(
 			'Id' => 'ID',
 			'HotelName' => 'Hotel Name',
-			'RoomTypeName' => 'Room Name',
+			'RoomTypeName' => 'Room Type Name',
 			'RoomNumber' => 'Room Number',
 			'Tell' => 'Tell',
 		);
@@ -96,4 +97,10 @@ class RoomView extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+    
+    // added By kamran
+    public function primaryKey()
+    {
+        return 'Id';
+    }
 }
