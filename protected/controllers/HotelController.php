@@ -65,7 +65,7 @@ class HotelController extends Controller
         $model = new Hotel;
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if (isset($_POST['Hotel']))
         {
@@ -90,7 +90,7 @@ class HotelController extends Controller
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
-        // $this->performAjaxValidation($model);
+        $this->performAjaxValidation($model);
 
         if (isset($_POST['Hotel']))
         {

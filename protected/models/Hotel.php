@@ -43,8 +43,9 @@ class Hotel extends CActiveRecord
         // will receive user inputs.
         return array(
             array('Name, Category, CityId', 'required'),
-            array('Category, CityId', 'numerical', 'integerOnly' => true),
+            array('CityId', 'numerical', 'integerOnly' => true),
             array('Name', 'length', 'max' => 255),
+            array('Category', 'numerical', 'max' => 7, 'min' => 1, 'integerOnly' => true),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('ID, Name, Category, CityId', 'safe', 'on' => 'search'),

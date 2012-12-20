@@ -6,6 +6,8 @@
  * The followings are the available columns in table 'roomtypes':
  * @property integer $Id
  * @property string $Name
+ * @property integer $Capacity
+ * @property string $PricePerDay
  *
  * The followings are the available model relations:
  * @property Rooms[] $rooms
@@ -38,10 +40,13 @@ class RoomType extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('Name, Capacity, PricePerDay', 'required'),
+			array('Capacity', 'numerical', 'integerOnly'=>true),
 			array('Name', 'length', 'max'=>50),
+			array('PricePerDay', 'length', 'max'=>10),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name', 'safe', 'on'=>'search'),
+			array('Id, Name, Capacity, PricePerDay', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -65,6 +70,8 @@ class RoomType extends CActiveRecord
 		return array(
 			'Id' => 'ID',
 			'Name' => 'Name',
+			'Capacity' => 'Capacity',
+			'PricePerDay' => 'Price Per Day',
 		);
 	}
 
@@ -81,6 +88,8 @@ class RoomType extends CActiveRecord
 
 		$criteria->compare('Id',$this->Id);
 		$criteria->compare('Name',$this->Name,true);
+		$criteria->compare('Capacity',$this->Capacity);
+		$criteria->compare('PricePerDay',$this->PricePerDay,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

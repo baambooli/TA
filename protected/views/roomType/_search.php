@@ -7,6 +7,10 @@
 
 	<?php echo $form->textFieldRow($model,'Name',array('class'=>'span5','maxlength'=>50)); ?>
 
+	<?php echo $form->textFieldRow($model,'Capacity',array('class'=>'span5')); ?>
+
+	<?php echo $form->textFieldRow($model,'PricePerDay',array('class'=>'span5','maxlength'=>10)); ?>
+
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType' => 'submit',

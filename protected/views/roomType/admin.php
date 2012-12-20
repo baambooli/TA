@@ -31,6 +31,8 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'Id',
 		'Name',
+		'Capacity',
+		'PricePerDay',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
