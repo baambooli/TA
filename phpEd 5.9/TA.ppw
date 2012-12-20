@@ -10,4 +10,4 @@ TA:TA_prj:protected:components=1
 TA:TA_prj:protected:controllers=1
 TA:TA_prj:protected:models=1
 TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:airPlaneSpecification=1
+TA:TA_prj:protected:views:airplane=1
