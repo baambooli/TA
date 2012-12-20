@@ -2497,3 +2497,40 @@ in g:\GitHub\travelagency\index.php (13)
 in g:\GitHub\travelagency\index.php (13)
 2012/12/20 16:23:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
 in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:02:04 [error] [php] include(RoomView.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\RoomController.php(141): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): RoomController->actionAdmin()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): RoomController->runAction()
+#4 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RoomController->filterAccessControl()
+#7 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 G:\GitHub\yii\framework\web\CController.php(266): RoomController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(283): RoomController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=room/admin
+in G:\GitHub\travelagency\protected\controllers\RoomController.php (141)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:02:41 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:02:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:02:58 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:03:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:03:07 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/20 19:12:03 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "hotels".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('hotels')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=hotels
+---
