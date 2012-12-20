@@ -21,8 +21,9 @@ $this->menu=array(
 		'ID',
 		'Name',
 		'Category',
-		'PricePerDay',
-		'CityId',
-		'RoomId',
+		array(
+            'name' => 'CityId',
+            'value'=>CHtml::encode($model->getCityName($model->CityId)),
+        ),
 	),
 )); ?>

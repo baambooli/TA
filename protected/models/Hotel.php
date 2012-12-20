@@ -7,9 +7,7 @@
  * @property integer $ID
  * @property string $Name
  * @property integer $Category
- * @property string $PricePerDay
  * @property integer $CityId
- * @property integer $RoomId
  *
  * The followings are the available model relations:
  * @property Rooms $room
@@ -44,13 +42,12 @@ class Hotel extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Name, PricePerDay, Category, CityId', 'required'),
+            array('Name, Category, CityId', 'required'),
             array('Category, CityId', 'numerical', 'integerOnly' => true),
             array('Name', 'length', 'max' => 255),
-            array('PricePerDay', 'length', 'max' => 10),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('ID, Name, Category, PricePerDay, CityId', 'safe', 'on' => 'search'),
+            array('ID, Name, Category, CityId', 'safe', 'on' => 'search'),
         );
     }
 
@@ -75,7 +72,6 @@ class Hotel extends CActiveRecord
             'ID' => 'ID',
             'Name' => 'Name',
             'Category' => 'Category',
-            'PricePerDay' => 'Price Per Day',
             'CityId' => 'City',
         );
     }
@@ -92,13 +88,11 @@ class Hotel extends CActiveRecord
         $criteria = new CDbCriteria;
 
         $criteria->compare('ID', $this->ID);
-        $criteria->compare('Name', $this->Name, true);
+        $criteria->compare('HotelName', $this->Name, true);
         $criteria->compare('Category', $this->Category);
-        $criteria->compare('PricePerDay', $this->PricePerDay, true);
-        $criteria->compare('CityId', $this->CityId);
-        $criteria->compare('RoomId', $this->RoomId);
+        $criteria->compare('CityName', $this->CityId);
 
-        return new CActiveDataProvider($this, array(
+        return new CActiveDataProvider('HotlesView', array(
             'criteria' => $criteria,
             ));
     }
@@ -115,6 +109,14 @@ class Hotel extends CActiveRecord
         // convert them to suitable format for comboBox or listbox
         $citiesArray = CHtml::listData($cities, 'Id', 'Name');
         return $citiesArray;
+    }
+    
+    // get the name of the city related to the specific Id
+    public function getCityName($id)
+    {
+        // get the name of city
+        $cityName = City::model()->findByPK($id)->Name;
+        return $cityName;
     }
 
 }

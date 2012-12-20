@@ -11,8 +11,6 @@
 
 	<?php echo $form->textFieldRow($model,'Category',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'PricePerDay',array('class'=>'span5','maxlength'=>10)); ?>
-
 	<?php echo $form->dropDownListRow($model,'CityId',$model->getCities(), array('class'=>'span5')); ?>
 
 

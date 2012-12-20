@@ -12,17 +12,8 @@
 	<?php echo CHtml::encode($data->Category); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('PricePerDay')); ?>:</b>
-	<?php echo CHtml::encode($data->PricePerDay); ?>
-	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CityId')); ?>:</b>
-	<?php echo CHtml::encode($data->CityId); ?>
+	<?php echo CHtml::encode($data->getCityName($data->CityId)); ?>
 	<br />
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('RoomId')); ?>:</b>
-	<?php echo CHtml::encode($data->RoomId); ?>
-	<br />
-
-
 </div>
