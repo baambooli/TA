@@ -1,6 +1,10 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'city-form',
-	'enableAjaxValidation'=>false,
+	'enableClientValidation' => true,
+    'enableAjaxValidation' => true,
+    'clientOptions' => array(
+        'validateOnSubmit' => true,
+    ),
 )); ?>
 
 	<p class="help-block">Fields with <span class="required">*</span> are required.</p>

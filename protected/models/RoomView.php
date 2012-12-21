@@ -98,7 +98,10 @@ class RoomView extends CActiveRecord
 		));
 	}
     
-    // added By kamran
+    // added By kamran   
+    // IMPORTANT: if we do not add a primary key to view, Gii does not create
+    // corect code for us, and update, edit, delete icons does not work correctly
+    
     public function primaryKey()
     {
         return 'Id';
