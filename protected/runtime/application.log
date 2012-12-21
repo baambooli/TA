@@ -2913,3 +2913,119 @@ Stack trace:
 #33 {main}
 REQUEST_URI=/index.php?r=airport/admin
 ---
+2012/12/21 17:01:10 [error] [php] include() [<a href='function.include'>function.include</a>]: apc failed to locate User.php - bailing (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:01:45 [error] [php] include() [<a href='function.include'>function.include</a>]: apc failed to locate User.php - bailing (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:05:19 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:07:37 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:09:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'travelagency.{{user}}' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `{{user}}`.
+in G:\GitHub\travelagency\protected\models\User.php (21)
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+2012/12/21 17:09:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{user}}" for active record class "User" cannot be found in the database.' in G:\GitHub\yii\framework\yii.php:7786
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6895): CActiveRecordMetaData->__construct(Object(User))
+#1 G:\GitHub\travelagency\protected\models\User.php(21): CActiveRecord::model('User')
+#2 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): User::model()
+#3 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#5 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 G:\GitHub\yii\framework\yii.php(6483): CValidator->validate(Object(LoginForm), NULL)
+#7 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): CModel->validate()
+#8 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#9 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\yii.php(3309): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\yii.php(1699): CController->run('login')
+#13 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('site/login')
+#14 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---
+2012/12/21 17:13:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in G:\GitHub\yii\framework\yii.php:3422
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(3304): CController->missingAction('view')
+#1 G:\GitHub\yii\framework\yii.php(1699): CController->run('view')
+#2 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('site/view')
+#3 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view
+---
