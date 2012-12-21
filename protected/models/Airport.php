@@ -130,5 +130,4 @@ class Airport extends CActiveRecord
         $cityName = City::model()->findByPK($id)->Name;
         return $cityName;
     }
-    
 }

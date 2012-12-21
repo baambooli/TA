@@ -138,13 +138,13 @@ class CityController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new City('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['City']))
-			$model->attributes=$_GET['City'];
+		$modelCityView=new CityView('search');
+		$modelCityView->unsetAttributes();  // clear any default values
+		if(isset($_GET['CityView']))
+			$modelCitiesView->attributes=$_GET['CityView'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+			'modelCityView'=>$modelCityView,
 		));
 	}
 

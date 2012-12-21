@@ -24,14 +24,14 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Manage Cities</h1>
-
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'city-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	'dataProvider'=>$modelCityView->search(),
+	'filter'=>$modelCityView,
 	'columns'=>array(
 		'Id',
-		'Name',
+		'CityName',
+		'CountryName',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
