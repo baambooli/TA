@@ -9,11 +9,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('StartDateOfWork')); ?>:</b>
-	<?php echo CHtml::encode($data->Date); ?>
+	<?php echo CHtml::encode($data->StartDateOfWork); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('AirlineId')); ?>:</b>
-	<?php echo CHtml::encode($data->AirlineId); ?>
+	<?php echo CHtml::encode($data->getAirlineName($data->AirlineId)); ?>
 	<br />
 
 

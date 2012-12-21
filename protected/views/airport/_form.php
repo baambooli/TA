@@ -1,5 +1,5 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'airplane-form',
+	'id'=>'airport-form',
 	'enableClientValidation' => true,
     'enableAjaxValidation' => true,
     'clientOptions' => array(
@@ -11,11 +11,17 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'Name',array('class'=>'span5','maxlength'=>50)); ?>
+	<?php echo $form->textFieldRow($model,'Name',array('class'=>'span5','maxlength'=>100)); ?>
 
-	<?php echo $form->textFieldRow($model,'StartDateOfWork',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'Address',array('class'=>'span5','maxlength'=>255)); ?>
 
-    <?php echo $form->dropDownListRow($model,'AirlineId',$model->getAirLines(), array('class'=>'span5')); ?>
+	<?php echo $form->dropDownListRow($model,'CityId',$model->getCities(), array('class'=>'span5')); ?> 
+
+	<?php echo $form->textFieldRow($model,'Tel1',array('class'=>'span5','maxlength'=>25)); ?>
+
+	<?php echo $form->textFieldRow($model,'Tel2',array('class'=>'span5','maxlength'=>255)); ?>
+
+	<?php echo $form->textFieldRow($model,'Fax',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

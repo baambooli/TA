@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Airlines'=>array('index'),
+	'Airports'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Airline','url'=>array('index')),
-	array('label'=>'Create Airline','url'=>array('create')),
+	array('label'=>'List Airport','url'=>array('index')),
+	array('label'=>'Create Airport','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('airline-grid', {
+	$.fn.yiiGridView.update('airport-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -23,16 +23,16 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Airlines</h1>
+<h1>Manage Airports</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'airline-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	'id'=>'airport-grid',
+	'dataProvider'=>$modelAirportView->search(),
+	'filter'=>$modelAirportView,
 	'columns'=>array(
-		'Name',
-		'Address',
-		'Tell1',
-		'Email',
+		'Id',
+		'AirportName',
+		'Tel1',
+        'CityName',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

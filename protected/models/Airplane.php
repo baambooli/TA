@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'airplanes':
  * @property integer $Id
  * @property string $Name
- * @property string $Date
+ * @property string $StartDateOfWork
  * @property integer $AirlineId
  *
  * The followings are the available model relations:
@@ -42,8 +42,9 @@ class Airplane extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('AirlineId', 'required'),
+			array('Name, AirlineId', 'required'),
 			array('AirlineId', 'numerical', 'integerOnly'=>true),
+            array('StartDateOfWork', 'date'),
 			array('Name', 'length', 'max'=>50),
 			array('StartDateOfWork', 'safe'),
 			// The following rule is used by search().
@@ -99,4 +100,42 @@ class Airplane extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+     /**
+     * Creates list of AirPlaneSpecifications and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getAirPlaneSpecifications()
+    {
+        // get list of AirPlaneSpecifications
+        $airplaneSpecifications = AirPlaneSpecification::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $airplaneSpecificationsArray = CHtml::listData($airplaneSpecifications, 'Id', 'Name');
+        return $airplaneSpecificationsArray;
+    }
+    
+    // get name of the AirPlaneSpecification related to the specific Id
+    public function getAirPlaneSpecificationName($id)
+    {
+        // get name of AirPlaneSpecification
+        $airPlaneSpecificationName = AirPlaneSpecification::model()->findByPK($id)->Name;
+        return $airPlaneSpecificationName;
+    }
+    
+    public function getAirlines()
+    {
+        // get list of Airlines
+        $airlines = Airline::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $airlinesArray = CHtml::listData($airlines, 'Id', 'Name');
+        return $airlinesArray;
+    }
+    
+    // get name of the Airline related to the specific Id
+    public function getAirlineName($id)
+    {
+        // get name of Airline
+        $airLineName = Airline::model()->findByPK($id)->Name;
+        return $airLineName;
+    }
 }

@@ -26,13 +26,13 @@ $('.search-form form').submit(function(){
 <h1>Manage Airplanes</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'airplane-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	'dataProvider'=>$modelAirplaneView->search(),
+	'filter'=>$modelAirplaneView,
 	'columns'=>array(
 		'Id',
-		'Name',
+		'AirplaneName',
 		'StartDateOfWork',
-		'AirlineId',
+        'AirlineName',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

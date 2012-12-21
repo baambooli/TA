@@ -1,27 +1,28 @@
 <?php
 
 /**
- * This is the model class for table "airlines".
+ * This is the model class for table "airports".
  *
- * The followings are the available columns in table 'airlines':
+ * The followings are the available columns in table 'airports':
  * @property integer $Id
  * @property string $Name
- * @property string $Country
  * @property string $Address
- * @property string $Tell1
- * @property string $Tell2
+ * @property integer $CityId
+ * @property string $Tel1
+ * @property string $Tel2
  * @property string $Fax
- * @property string $Email
  *
  * The followings are the available model relations:
- * @property Airplanes[] $airplanes
+ * @property Cities $city
+ * @property Flights[] $flights
+ * @property Flights[] $flights1
  */
-class Airline extends CActiveRecord
+class Airport extends CActiveRecord
 {
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
-	 * @return Airline the static model class
+	 * @return Airport the static model class
 	 */
 	public static function model($className=__CLASS__)
 	{
@@ -33,7 +34,7 @@ class Airline extends CActiveRecord
 	 */
 	public function tableName()
 	{
-		return 'airlines';
+		return 'airports';
 	}
 
 	/**
@@ -44,13 +45,14 @@ class Airline extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, Tell1', 'required'),
-			array('Name, Country, Address, Fax', 'length', 'max'=>255),
-			array('Tell1, Tell2', 'length', 'max'=>25),
-			array('Email', 'length', 'max'=>100),
+			array('CityId, Tel1', 'required'),
+			array('CityId', 'numerical', 'integerOnly'=>true),
+			array('Name', 'length', 'max'=>100),
+			array('Address, Tel2, Fax', 'length', 'max'=>255),
+			array('Tel1', 'length', 'max'=>25),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Country, Address, Tell1, Tell2, Fax, Email', 'safe', 'on'=>'search'),
+			array('Id, Name, Address, CityId, Tel1, Tel2, Fax', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +64,9 @@ class Airline extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'airplanes' => array(self::HAS_MANY, 'Airplanes', 'AirlineId'),
+			'city' => array(self::BELONGS_TO, 'Cities', 'CityId'),
+			'flights' => array(self::HAS_MANY, 'Flights', 'DepartureAirportId'),
+			'flights1' => array(self::HAS_MANY, 'Flights', 'DestinationAirportId'),
 		);
 	}
 
@@ -74,12 +78,11 @@ class Airline extends CActiveRecord
 		return array(
 			'Id' => 'ID',
 			'Name' => 'Name',
-			'Country' => 'Country',
 			'Address' => 'Address',
-			'Tell1' => 'Telephone1',
-			'Tell2' => 'Telephone2',
+			'CityId' => 'City',
+			'Tel1' => 'Telephone1',
+			'Tel2' => 'Telephone2',
 			'Fax' => 'Fax',
-			'Email' => 'Email',
 		);
 	}
 
@@ -96,15 +99,36 @@ class Airline extends CActiveRecord
 
 		$criteria->compare('Id',$this->Id);
 		$criteria->compare('Name',$this->Name,true);
-		$criteria->compare('Country',$this->Country,true);
 		$criteria->compare('Address',$this->Address,true);
-		$criteria->compare('Tell1',$this->Tell1,true);
-		$criteria->compare('Tell2',$this->Tell2,true);
+		$criteria->compare('CityId',$this->CityId);
+		$criteria->compare('Tel1',$this->Tel1,true);
+		$criteria->compare('Tel2',$this->Tel2,true);
 		$criteria->compare('Fax',$this->Fax,true);
-		$criteria->compare('Email',$this->Email,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+    /**
+     * Create list of cities and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCities()
+    {
+        // get list of cities
+        $cities = City::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $citiesArray = CHtml::listData($cities, 'Id', 'Name');
+        return $citiesArray;
+    }
+    
+    // get name of the city related to the specific Id
+    public function getCityName($id)
+    {
+        // get name of city
+        $cityName = City::model()->findByPK($id)->Name;
+        return $cityName;
+    }
+    
 }

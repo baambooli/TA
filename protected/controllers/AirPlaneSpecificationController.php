@@ -64,7 +64,7 @@ class AirPlaneSpecificationController extends Controller
 		$model=new AirPlaneSpecification;
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['AirPlaneSpecification']))
 		{
@@ -88,7 +88,7 @@ class AirPlaneSpecificationController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		// $this->performAjaxValidation($model);
+		$this->performAjaxValidation($model);
 
 		if(isset($_POST['AirPlaneSpecification']))
 		{
