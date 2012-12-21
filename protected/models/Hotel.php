@@ -42,6 +42,7 @@ class Hotel extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
+            array('Name','unique'),
             array('Name, Category, CityId', 'required'),
             array('CityId', 'numerical', 'integerOnly' => true),
             array('Name', 'length', 'max' => 255),
@@ -105,19 +106,18 @@ class Hotel extends CActiveRecord
      */
     public function getCities()
     {
-        // get the list of cities
+        // get list of cities
         $cities = City::model()->findAll();
         // convert them to suitable format for comboBox or listbox
         $citiesArray = CHtml::listData($cities, 'Id', 'Name');
         return $citiesArray;
     }
     
-    // get the name of the city related to the specific Id
+    // get name of the city related to the specific Id
     public function getCityName($id)
     {
-        // get the name of city
+        // get name of city
         $cityName = City::model()->findByPK($id)->Name;
         return $cityName;
     }
-
 }

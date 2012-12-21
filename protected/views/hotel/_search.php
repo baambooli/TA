@@ -9,7 +9,7 @@
 
 	<?php echo $form->textFieldRow($model,'Category',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'CityId',array('class'=>'span5')); ?>
+	<?php echo $form->dropDownListRow($model,'CityId',$model->getCities(), array('class'=>'span5')); ?> 
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
