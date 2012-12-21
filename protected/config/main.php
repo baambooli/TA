@@ -32,6 +32,11 @@ return array(
             'allowAutoLogin' => true,
             // 'class' => 'WebUser',
         ),
+        
+        // enable APC cache (By Kamran)
+        'cache'=>array(
+            'class'=>'system.caching.CApcCache',
+        ),
         // uncomment the following to enable URLs in path-format
         /* 'urlManager' => array(
           'urlFormat' => 'path',
@@ -42,7 +47,7 @@ return array(
           'showScriptName' => false,
           ),
          */
-        // Yii booster
+        // Yii booster (By Kamran)  
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
             'responsiveCss' => true,
