@@ -15,7 +15,7 @@
 
 	<?php echo $form->textFieldRow($model,'PassportExpirey',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'Nationality',array('class'=>'span5','maxlength'=>50)); ?>
+	<?php echo $form->textFieldRow($model,'CountryId',array('class'=>'span5','maxlength'=>50)); ?>
 
 	<?php echo $form->textFieldRow($model,'Tell',array('class'=>'span5','maxlength'=>20)); ?>
 

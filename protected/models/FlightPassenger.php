@@ -46,16 +46,16 @@ class FlightPassenger extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Id', 'required'),
-            array('Id, FlightId', 'numerical', 'integerOnly'=>true),
-            array('Name, Family, PassportNumber, Nationality', 'length', 'max'=>50),
+            array('Name, Family, Address, PassportNumber, PassportExpirey, CountryId, Tell, FlightId, SeatId', 'required'),
+            array('Id, FlightId, CountryId', 'numerical', 'integerOnly'=>true),
+            array('Name, Family, PassportNumber', 'length', 'max'=>50),
             array('Address', 'length', 'max'=>200),
+            array('PassportExpirey', 'date'),
             array('Tell', 'length', 'max'=>20),
             array('SeatId', 'length', 'max'=>25),
-            array('PassportExpirey', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, Name, Family, Address, PassportNumber, PassportExpirey, Nationality, Tell, FlightId, SeatId', 'safe', 'on'=>'search'),
+            array('Id, Name, Family, Address, PassportNumber, PassportExpirey, CountryId, Tell, FlightId, SeatId', 'safe', 'on'=>'search'),
         );
     }
 
@@ -82,8 +82,8 @@ class FlightPassenger extends CActiveRecord
             'Family' => 'Family',
             'Address' => 'Address',
             'PassportNumber' => 'Passport Number',
-            'PassportExpirey' => 'Passport Expirey',
-            'Nationality' => 'Nationality',
+            'PassportExpirey' => 'Passport Expiry',
+            'CountryId' => 'Country',
             'Tell' => 'Telephone',
             'FlightId' => 'Flight',
             'SeatId' => 'Seat',
@@ -107,7 +107,7 @@ class FlightPassenger extends CActiveRecord
         $criteria->compare('Address',$this->Address,true);
         $criteria->compare('PassportNumber',$this->PassportNumber,true);
         $criteria->compare('PassportExpirey',$this->PassportExpirey,true);
-        $criteria->compare('Nationality',$this->Nationality,true);
+        $criteria->compare('CountryId',$this->CountryId,true);
         $criteria->compare('Tell',$this->Tell,true);
         $criteria->compare('FlightId',$this->FlightId);
         $criteria->compare('SeatId',$this->SeatId,true);
@@ -133,4 +133,25 @@ class FlightPassenger extends CActiveRecord
         $flightNumber = City::model()->findByPK($id)->FlightNumber;
         return $flightNumber;
     }
+     /**
+     * Create list of countries and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCountries()
+    {
+        // get list of countries
+        $countries = Country::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        return $countriesArray;
+    }
+    
+    // get name of the Country related to the specific Id
+    public function getCountryName($id)
+    {
+        // get name of Country
+        $CountryName = Country::model()->findByPK($id)->Name;
+        return $CountryName;
+    }  
 }

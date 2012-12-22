@@ -11,8 +11,6 @@
 
 	<?php echo $form->errorSummary($model); ?>
 
-	<?php echo $form->textFieldRow($model,'Id',array('class'=>'span5')); ?>
-
 	<?php echo $form->textFieldRow($model,'Name',array('class'=>'span5','maxlength'=>50)); ?>
 
 	<?php echo $form->textFieldRow($model,'Family',array('class'=>'span5','maxlength'=>50)); ?>
@@ -23,7 +21,7 @@
 
 	<?php echo $form->textFieldRow($model,'PassportExpirey',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'Nationality',array('class'=>'span5','maxlength'=>50)); ?>
+    <?php echo $form->dropDownListRow($model,'CountryId',$model->getCountries(), array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldRow($model,'Tell',array('class'=>'span5','maxlength'=>20)); ?>
 

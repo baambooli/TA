@@ -24,7 +24,7 @@
 	<?php echo CHtml::encode($data->PassportExpirey); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('Nationality')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('CountryId')); ?>:</b>
 	<?php echo CHtml::encode($data->Nationality); ?>
 	<br />
 

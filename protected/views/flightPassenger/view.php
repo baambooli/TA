@@ -24,7 +24,7 @@ $this->menu=array(
 		'Address',
 		'PassportNumber',
 		'PassportExpirey',
-		'Nationality',
+		'CountryId',
 		'Tell',
 		array(
             'name' => 'FlightId',
