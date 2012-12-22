@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Flights'=>array('index'),
+	'Clients'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Flight','url'=>array('index')),
-	array('label'=>'Create Flight','url'=>array('create')),
+	array('label'=>'List Client','url'=>array('index')),
+	array('label'=>'Create Client','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('flight-grid', {
+	$.fn.yiiGridView.update('client-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -23,24 +23,25 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Flights</h1>
+<h1>Manage Clients</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'flight-grid',
+	'id'=>'client-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'Id',
-		'FlightNumber',
-		'AirlineId',
-		'AirplaneId',
-		'TakeoffDate',
-		'LandingDate',
+		'Name',
+		'Family',
+		'Address',
+		'tell',
+		'PassportNumber',
 		/*
-		'DepartureAirportId',
-		'DestinationAirportId',
-		'PriceOfFirstClassSeats',
-		'PriceOfBusinessClassSeats',
-		'PriceOfEconomyClassSeats',
+		'RoomlId',
+		'CreditCardType',
+		'CreditCardExpiryDate',
+		'CreditCardHolderName',
+		'CreditCardSecurityNumber',
+		'CreditCardNumber',
 		*/
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',

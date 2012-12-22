@@ -102,7 +102,7 @@
             </Location>
             <Size>
               <Width>273 px</Width>
-              <Height>246 px</Height>
+              <Height>195 px</Height>
             </Size>
             <DbOid>
               <Path>travelagency.aireplane_specifications</Path>
@@ -1005,7 +1005,7 @@
               <Port xsi:type="LinkPort">
                 <Location>
                   <X>67.5 px</X>
-                  <Y>21.1487179487174 px</Y>
+                  <Y>21.148717948717 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
@@ -1114,7 +1114,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>122.5 px</Y>
+                  <Y>97.1036585365854 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Left</Align>
@@ -1139,7 +1139,7 @@
             <BendPoints>
               <PointD>
                 <X>1632 px</X>
-                <Y>512.5 px</Y>
+                <Y>487.103658536585 px</Y>
               </PointD>
               <PointD>
                 <X>1632 px</X>
@@ -1162,8 +1162,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>24 px</X>
-                  <Y>0 px</Y>
+                  <X>48 px</X>
+                  <Y>-12.4481755698599 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
@@ -1242,7 +1242,7 @@
               <Port xsi:type="LinkPort">
                 <Location>
                   <X>-80 px</X>
-                  <Y>1.19512195121956 px</Y>
+                  <Y>1.19512195122002 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Right</Align>
@@ -1541,13 +1541,192 @@
               <TypeName>ForeignKey</TypeName>
             </DbOid>
           </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>91</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>1710 px</X>
+              <Y>160 px</Y>
+            </Location>
+            <Size>
+              <Width>185 px</Width>
+              <Height>144 px</Height>
+            </Size>
+            <DbOid>
+              <Path>travelagency.seats</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>92</OID>
+              <Comment>93</Comment>
+              <OutModel>2</OutModel>
+              <InModel>91</InModel>
+              <OutPort>94</OutPort>
+              <InPort>95</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>203 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>94</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>56.2909090909091 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>95</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>1135 px</X>
+                <Y>203 px</Y>
+              </PointD>
+              <PointD>
+                <X>1135 px</X>
+                <Y>329 px</Y>
+              </PointD>
+              <PointD>
+                <X>1690 px</X>
+                <Y>329 px</Y>
+              </PointD>
+              <PointD>
+                <X>1690 px</X>
+                <Y>216.290909090909 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>travelagency.flight_passengers.fk_flight_passengers_seats_id</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>93</OID>
+              <HolderModel>92</HolderModel>
+              <Port>96</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-297.5 px</X>
+                  <Y>-126 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>96</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>97</OID>
+              <Comment>98</Comment>
+              <OutModel>91</OutModel>
+              <InModel>3</InModel>
+              <OutPort>99</OutPort>
+              <InPort>100</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>92.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>99</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>122.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>100</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>travelagency.seats.fk_seats_aireplane_specifications_id</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>98</OID>
+              <HolderModel>97</HolderModel>
+              <Port>101</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>0 px</X>
+                  <Y>-43 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>101</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
           <Scale>1</Scale>
           <Location>
-            <X>410 px</X>
-            <Y>177 px</Y>
+            <X>881 px</X>
+            <Y>85 px</Y>
           </Location>
         </ViewPort>
       </Model>

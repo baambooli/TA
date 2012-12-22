@@ -3421,3 +3421,201 @@ in g:\GitHub\travelagency\index.php (13)
 in g:\GitHub\travelagency\index.php (13)
 2012/12/22 00:02:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
 in g:\GitHub\travelagency\index.php (13)
+2012/12/22 02:02:56 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 02:03:55 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 02:04:34 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 02:04:53 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 19:03:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:08:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:08:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:17:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'travelagency.{{user}}' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `{{user}}`.
+in G:\GitHub\travelagency\protected\models\User.php (21)
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+2012/12/22 19:17:06 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{user}}" for active record class "User" cannot be found in the database.' in G:\GitHub\yii\framework\yii.php:7786
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6895): CActiveRecordMetaData->__construct(Object(User))
+#1 G:\GitHub\travelagency\protected\models\User.php(21): CActiveRecord::model('User')
+#2 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): User::model()
+#3 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#5 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 G:\GitHub\yii\framework\yii.php(6483): CValidator->validate(Object(LoginForm), NULL)
+#7 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): CModel->validate()
+#8 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#9 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\yii.php(3309): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\yii.php(1699): CController->run('login')
+#13 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('site/login')
+#14 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---
+2012/12/22 19:22:10 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\CityController.php:144)
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6255): CityController->runAction()
+#1 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#2 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\yii.php(6297): CityController->filterAccessControl()
+#4 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#6 G:\GitHub\yii\framework\yii.php(3299): CityController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\yii.php(1699): CityController->run()
+#8 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city%2Fadmin&CityView%5BId%5D=&CityView%5BCityName%5D=mon&CityView%5BCountryName%5D=&CityView_page=1&ajax=city-grid
+in G:\GitHub\travelagency\protected\controllers\CityController.php (144)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:24:42 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\CityController.php:144)
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6255): CityController->runAction()
+#1 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#2 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\yii.php(6297): CityController->filterAccessControl()
+#4 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#6 G:\GitHub\yii\framework\yii.php(3299): CityController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\yii.php(1699): CityController->run()
+#8 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city%2Fadmin&CityView%5BId%5D=&CityView%5BCityName%5D=&CityView%5BCountryName%5D=canada&CityView_page=1&ajax=city-grid
+in G:\GitHub\travelagency\protected\controllers\CityController.php (144)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "seat/admin".' in G:\GitHub\yii\framework\yii.php:1703
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('seat/admin')
+#1 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=seat/admin
+---
+2012/12/22 19:32:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "seat/admin".' in G:\GitHub\yii\framework\yii.php:1703
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('seat/admin')
+#1 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=seat/admin
+---
+2012/12/22 19:33:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:33:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:36:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:36:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:36:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:37:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:37:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)

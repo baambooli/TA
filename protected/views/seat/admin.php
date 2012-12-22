@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Flights'=>array('index'),
+	'Seats'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List Flight','url'=>array('index')),
-	array('label'=>'Create Flight','url'=>array('create')),
+	array('label'=>'List Seat','url'=>array('index')),
+	array('label'=>'Create Seat','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('flight-grid', {
+	$.fn.yiiGridView.update('seat-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -23,25 +23,16 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Flights</h1>
+<h1>Manage Seats</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'flight-grid',
+	'id'=>'seat-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
 		'Id',
-		'FlightNumber',
-		'AirlineId',
-		'AirplaneId',
-		'TakeoffDate',
-		'LandingDate',
-		/*
-		'DepartureAirportId',
-		'DestinationAirportId',
-		'PriceOfFirstClassSeats',
-		'PriceOfBusinessClassSeats',
-		'PriceOfEconomyClassSeats',
-		*/
+		'SeatNumber',
+		'SeatType',
+		'AirplaneSpecId',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),
