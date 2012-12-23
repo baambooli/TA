@@ -2913,3 +2913,1422 @@ Stack trace:
 #33 {main}
 REQUEST_URI=/index.php?r=airport/admin
 ---
+2012/12/21 17:01:10 [error] [php] include() [<a href='function.include'>function.include</a>]: apc failed to locate User.php - bailing (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:01:45 [error] [php] include() [<a href='function.include'>function.include</a>]: apc failed to locate User.php - bailing (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:05:19 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:07:37 [error] [php] include(User.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\yii.php(6483): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\yii.php(3309): SiteController->runAction()
+#9 G:\GitHub\yii\framework\yii.php(3299): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\yii.php(1699): SiteController->run()
+#11 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/21 17:09:45 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'travelagency.{{user}}' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `{{user}}`.
+in G:\GitHub\travelagency\protected\models\User.php (21)
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+2012/12/21 17:09:45 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{user}}" for active record class "User" cannot be found in the database.' in G:\GitHub\yii\framework\yii.php:7786
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6895): CActiveRecordMetaData->__construct(Object(User))
+#1 G:\GitHub\travelagency\protected\models\User.php(21): CActiveRecord::model('User')
+#2 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): User::model()
+#3 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#5 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 G:\GitHub\yii\framework\yii.php(6483): CValidator->validate(Object(LoginForm), NULL)
+#7 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): CModel->validate()
+#8 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#9 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\yii.php(3309): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\yii.php(1699): CController->run('login')
+#13 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('site/login')
+#14 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---
+2012/12/21 17:13:31 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "view".' in G:\GitHub\yii\framework\yii.php:3422
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(3304): CController->missingAction('view')
+#1 G:\GitHub\yii\framework\yii.php(1699): CController->run('view')
+#2 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('site/view')
+#3 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/view
+---
+2012/12/21 17:59:27 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 17:59:27 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:00:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:13:23 [error] [php] include(Flight.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\yii.php:238)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\models\FlightPassenger.php(123): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\views\flightPassenger\_form.php(30): FlightPassenger->getFlights()
+#2 G:\GitHub\yii\framework\yii.php(3173): require()
+#3 G:\GitHub\yii\framework\yii.php(3152): FlightPassengerController->renderInternal()
+#4 G:\GitHub\yii\framework\yii.php(3576): FlightPassengerController->renderFile()
+#5 G:\GitHub\travelagency\protected\views\flightPassenger\create.php(15): FlightPassengerController->renderPartial()
+#6 G:\GitHub\yii\framework\yii.php(3173): require()
+#7 G:\GitHub\yii\framework\yii.php(3152): FlightPassengerController->renderInternal()
+#8 G:\GitHub\yii\framework\yii.php(3576): FlightPassengerController->renderFile()
+#9 G:\GitHub\yii\framework\yii.php(3544): FlightPassengerController->renderPartial()
+#10 G:\GitHub\travelagency\protected\controllers\FlightPassengerController.php(78): FlightPassengerController->render()
+#11 G:\GitHub\yii\framework\yii.php(3812): FlightPassengerController->actionCreate()
+#12 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#13 G:\GitHub\yii\framework\yii.php(6255): FlightPassengerController->runAction()
+#14 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#15 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#16 G:\GitHub\yii\framework\yii.php(6297): FlightPassengerController->filterAccessControl()
+#17 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#18 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#19 G:\GitHub\yii\framework\yii.php(3299): FlightPassengerController->runActionWithFilters()
+#20 G:\GitHub\yii\framework\yii.php(1699): FlightPassengerController->run()
+#21 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#22 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#23 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightPassenger/create
+in G:\GitHub\travelagency\protected\models\FlightPassenger.php (123)
+in G:\GitHub\travelagency\protected\views\flightPassenger\_form.php (30)
+in G:\GitHub\travelagency\protected\views\flightPassenger\create.php (15)
+2012/12/21 18:16:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:16:02 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:16:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:16:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:16:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:16:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:16 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:17:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 18:33:55 [error] [php] Undefined variable: flight (G:\GitHub\travelagency\protected\models\FlightPassenger.php:125)
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(3152): FlightPassengerController->renderInternal()
+#1 G:\GitHub\yii\framework\yii.php(3576): FlightPassengerController->renderFile()
+#2 G:\GitHub\travelagency\protected\views\flightPassenger\create.php(15): FlightPassengerController->renderPartial()
+#3 G:\GitHub\yii\framework\yii.php(3173): require()
+#4 G:\GitHub\yii\framework\yii.php(3152): FlightPassengerController->renderInternal()
+#5 G:\GitHub\yii\framework\yii.php(3576): FlightPassengerController->renderFile()
+#6 G:\GitHub\yii\framework\yii.php(3544): FlightPassengerController->renderPartial()
+#7 G:\GitHub\travelagency\protected\controllers\FlightPassengerController.php(78): FlightPassengerController->render()
+#8 G:\GitHub\yii\framework\yii.php(3812): FlightPassengerController->actionCreate()
+#9 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams()
+#10 G:\GitHub\yii\framework\yii.php(6255): FlightPassengerController->runAction()
+#11 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#12 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#13 G:\GitHub\yii\framework\yii.php(6297): FlightPassengerController->filterAccessControl()
+#14 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#15 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#16 G:\GitHub\yii\framework\yii.php(3299): FlightPassengerController->runActionWithFilters()
+#17 G:\GitHub\yii\framework\yii.php(1699): FlightPassengerController->run()
+#18 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#19 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#20 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightPassenger/create
+in G:\GitHub\travelagency\protected\models\FlightPassenger.php (125)
+in G:\GitHub\travelagency\protected\views\flightPassenger\_form.php (30)
+in G:\GitHub\travelagency\protected\views\flightPassenger\create.php (15)
+2012/12/21 19:27:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:27:56 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:18 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 19:28:26 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:18:36 [error] [exception.CException] exception 'CException' with message 'Property "City.CountryId" is not defined.' in G:\GitHub\yii\framework\yii.php:596
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6762): CComponent->__get('CountryId')
+#1 G:\GitHub\yii\framework\yii.php(5425): CActiveRecord->__get('CountryId')
+#2 G:\GitHub\yii\framework\yii.php(5071): CHtml::resolveValue(Object(City), 'CountryId')
+#3 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(764): CHtml::activeDropDownList(Object(City), 'CountryId', Array, Array)
+#4 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\input\TbInputVertical.php(84): CActiveForm->dropDownList(Object(City), 'CountryId', Array, Array)
+#5 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\input\TbInput.php(205): TbInputVertical->dropDownList()
+#6 G:\GitHub\yii\framework\yii.php(3198): TbInput->run()
+#7 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbActiveForm.php(681): CBaseController->widget('bootstrap.widge...', Array)
+#8 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbActiveForm.php(124): TbActiveForm->inputRow('dropdownlist', Object(City), 'CountryId', Array, Array)
+#9 G:\GitHub\travelagency\protected\views\city\_form.php(16): TbActiveForm->dropDownListRow(Object(City), 'CountryId', Array, Array)
+#10 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#11 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#12 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\travelagency\protected\views\city\update.php(18): CController->renderPartial('_form', Array)
+#14 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#15 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#16 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#17 G:\GitHub\yii\framework\yii.php(3544): CController->renderPartial('update', Array, true)
+#18 G:\GitHub\travelagency\protected\controllers\CityController.php(102): CController->render('update', Array)
+#19 [internal function]: CityController->actionUpdate('2')
+#20 G:\GitHub\yii\framework\yii.php(3793): ReflectionMethod->invokeArgs(Object(CityController), Array)
+#21 G:\GitHub\yii\framework\yii.php(3810): CAction->runWithParamsInternal(Object(CityController), Object(ReflectionMethod), Array)
+#22 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#23 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#24 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#25 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#26 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#27 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#28 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#29 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#30 G:\GitHub\yii\framework\yii.php(1699): CController->run('update')
+#31 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/update')
+#32 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#33 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#34 {main}
+REQUEST_URI=/index.php?r=city/update&id=2
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=city/admin
+---
+2012/12/21 23:20:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:20:51 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:05 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:21:17 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:38:56 [error] [exception.CException] exception 'CException' with message 'City and its behaviors do not have a method or closure named "getCities".' in G:\GitHub\yii\framework\yii.php:690
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6811): CComponent->__call('getCities', Array)
+#1 G:\GitHub\travelagency\protected\views\city\_form.php(16): CActiveRecord->__call('getCities', Array)
+#2 G:\GitHub\travelagency\protected\views\city\_form.php(16): City->getCities()
+#3 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\travelagency\protected\views\city\update.php(18): CController->renderPartial('_form', Array)
+#7 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#8 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#10 G:\GitHub\yii\framework\yii.php(3544): CController->renderPartial('update', Array, true)
+#11 G:\GitHub\travelagency\protected\controllers\CityController.php(102): CController->render('update', Array)
+#12 [internal function]: CityController->actionUpdate('2')
+#13 G:\GitHub\yii\framework\yii.php(3793): ReflectionMethod->invokeArgs(Object(CityController), Array)
+#14 G:\GitHub\yii\framework\yii.php(3810): CAction->runWithParamsInternal(Object(CityController), Object(ReflectionMethod), Array)
+#15 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#16 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#17 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#18 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#19 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#20 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#21 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#22 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 G:\GitHub\yii\framework\yii.php(1699): CController->run('update')
+#24 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/update')
+#25 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#26 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/index.php?r=city/update&id=2
+---
+2012/12/21 23:39:33 [error] [exception.CException] exception 'CException' with message 'City and its behaviors do not have a method or closure named "getCities".' in G:\GitHub\yii\framework\yii.php:690
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6811): CComponent->__call('getCities', Array)
+#1 G:\GitHub\travelagency\protected\views\city\_form.php(16): CActiveRecord->__call('getCities', Array)
+#2 G:\GitHub\travelagency\protected\views\city\_form.php(16): City->getCities()
+#3 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\travelagency\protected\views\city\update.php(18): CController->renderPartial('_form', Array)
+#7 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#8 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#10 G:\GitHub\yii\framework\yii.php(3544): CController->renderPartial('update', Array, true)
+#11 G:\GitHub\travelagency\protected\controllers\CityController.php(102): CController->render('update', Array)
+#12 [internal function]: CityController->actionUpdate('2')
+#13 G:\GitHub\yii\framework\yii.php(3793): ReflectionMethod->invokeArgs(Object(CityController), Array)
+#14 G:\GitHub\yii\framework\yii.php(3810): CAction->runWithParamsInternal(Object(CityController), Object(ReflectionMethod), Array)
+#15 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#16 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#17 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#18 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#19 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#20 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#21 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#22 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 G:\GitHub\yii\framework\yii.php(1699): CController->run('update')
+#24 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/update')
+#25 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#26 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/index.php?r=city/update&id=2
+---
+2012/12/21 23:40:29 [error] [exception.CException] exception 'CException' with message 'City and its behaviors do not have a method or closure named "getCities".' in G:\GitHub\yii\framework\yii.php:690
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6811): CComponent->__call('getCities', Array)
+#1 G:\GitHub\travelagency\protected\views\city\_form.php(16): CActiveRecord->__call('getCities', Array)
+#2 G:\GitHub\travelagency\protected\views\city\_form.php(16): City->getCities()
+#3 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\travelagency\protected\views\city\update.php(18): CController->renderPartial('_form', Array)
+#7 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#8 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#10 G:\GitHub\yii\framework\yii.php(3544): CController->renderPartial('update', Array, true)
+#11 G:\GitHub\travelagency\protected\controllers\CityController.php(102): CController->render('update', Array)
+#12 [internal function]: CityController->actionUpdate('2')
+#13 G:\GitHub\yii\framework\yii.php(3793): ReflectionMethod->invokeArgs(Object(CityController), Array)
+#14 G:\GitHub\yii\framework\yii.php(3810): CAction->runWithParamsInternal(Object(CityController), Object(ReflectionMethod), Array)
+#15 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#16 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#17 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#18 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#19 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#20 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#21 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#22 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#23 G:\GitHub\yii\framework\yii.php(1699): CController->run('update')
+#24 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/update')
+#25 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#26 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#27 {main}
+REQUEST_URI=/index.php?r=city/update&id=2
+---
+2012/12/21 23:43:00 [error] [exception.CException] exception 'CException' with message 'City and its behaviors do not have a method or closure named "getCityName".' in G:\GitHub\yii\framework\yii.php:690
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6811): CComponent->__call('getCityName', Array)
+#1 G:\GitHub\travelagency\protected\views\city\view.php(25): CActiveRecord->__call('getCityName', Array)
+#2 G:\GitHub\travelagency\protected\views\city\view.php(25): City->getCityName('1')
+#3 G:\GitHub\yii\framework\yii.php(3173): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\yii.php(3152): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\yii.php(3576): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\yii.php(3544): CController->renderPartial('view', Array, true)
+#7 G:\GitHub\travelagency\protected\controllers\CityController.php(55): CController->render('view', Array)
+#8 [internal function]: CityController->actionView('2')
+#9 G:\GitHub\yii\framework\yii.php(3793): ReflectionMethod->invokeArgs(Object(CityController), Array)
+#10 G:\GitHub\yii\framework\yii.php(3810): CAction->runWithParamsInternal(Object(CityController), Object(ReflectionMethod), Array)
+#11 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#12 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#13 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#14 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#18 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 G:\GitHub\yii\framework\yii.php(1699): CController->run('view')
+#20 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/view')
+#21 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#22 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/index.php?r=city/view&id=2
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=city/index
+---
+2012/12/21 23:45:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'New York' for key 'Name'. The SQL statement executed was: INSERT INTO `cities` (`Name`, `countryId`) VALUES (:yp0, :yp1).
+in G:\GitHub\travelagency\protected\controllers\CityController.php (72)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:45:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'New York' for key 'Name'. The SQL statement executed was: INSERT INTO `cities` (`Name`, `countryId`) VALUES (:yp0, :yp1)' in G:\GitHub\yii\framework\yii.php:8713
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(7145): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\yii.php(7047): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(72): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\yii.php(3812): CityController->actionCreate()
+#4 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#7 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#11 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\yii.php(1699): CController->run('create')
+#13 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/create')
+#14 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=city/create
+---
+2012/12/21 23:45:39 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'New York' for key 'Name'. The SQL statement executed was: INSERT INTO `cities` (`Name`, `countryId`) VALUES (:yp0, :yp1).
+in G:\GitHub\travelagency\protected\controllers\CityController.php (72)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/21 23:45:39 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 'New York' for key 'Name'. The SQL statement executed was: INSERT INTO `cities` (`Name`, `countryId`) VALUES (:yp0, :yp1)' in G:\GitHub\yii\framework\yii.php:8713
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(7145): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\yii.php(7047): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(72): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\yii.php(3812): CityController->actionCreate()
+#4 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\yii.php(6255): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#7 G:\GitHub\yii\framework\yii.php(3702): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\yii.php(6297): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#11 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\yii.php(1699): CController->run('create')
+#13 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('city/create')
+#14 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=city/create
+---
+2012/12/22 00:02:12 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:13 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 00:02:47 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 02:02:56 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 02:03:55 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 02:04:34 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 02:04:53 [error] [php] Undefined index: SCRIPT_FILENAME (G:\GitHub\yii\framework\yii.php:2491)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish()
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#4 G:\GitHub\yii\framework\yii.php(1046): Bootstrap->init()
+#5 G:\GitHub\yii\framework\yii.php(1092): CWebApplication->getComponent()
+#6 G:\GitHub\yii\framework\yii.php(1137): CWebApplication->preloadComponents()
+#7 G:\GitHub\yii\framework\yii.php(55): CWebApplication->__construct()
+#8 G:\GitHub\yii\framework\yii.php(47): createApplication()
+#9 G:\GitHub\travelagency\index.php(13): createWebApplication()
+
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (458)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (163)
+in G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php (124)
+2012/12/22 19:03:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:15 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:39 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:03:48 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:08:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:08:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:21 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:09:31 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.view2' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `view2`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:17:06 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'travelagency.{{user}}' doesn't exist. The SQL statement executed was: SHOW COLUMNS FROM `{{user}}`.
+in G:\GitHub\travelagency\protected\models\User.php (21)
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (8)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+2012/12/22 19:17:06 [error] [exception.CDbException] exception 'CDbException' with message 'The table "{{user}}" for active record class "User" cannot be found in the database.' in G:\GitHub\yii\framework\yii.php:7786
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6895): CActiveRecordMetaData->__construct(Object(User))
+#1 G:\GitHub\travelagency\protected\models\User.php(21): CActiveRecord::model('User')
+#2 G:\GitHub\travelagency\protected\components\UserIdentity.php(8): User::model()
+#3 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#5 G:\GitHub\yii\framework\yii.php(9414): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 G:\GitHub\yii\framework\yii.php(6483): CValidator->validate(Object(LoginForm), NULL)
+#7 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): CModel->validate()
+#8 G:\GitHub\yii\framework\yii.php(3812): SiteController->actionLogin()
+#9 G:\GitHub\yii\framework\yii.php(3324): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\yii.php(3309): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\yii.php(3299): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\yii.php(1699): CController->run('login')
+#13 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('site/login')
+#14 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---
+2012/12/22 19:22:10 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\CityController.php:144)
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6255): CityController->runAction()
+#1 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#2 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\yii.php(6297): CityController->filterAccessControl()
+#4 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#6 G:\GitHub\yii\framework\yii.php(3299): CityController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\yii.php(1699): CityController->run()
+#8 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city%2Fadmin&CityView%5BId%5D=&CityView%5BCityName%5D=mon&CityView%5BCountryName%5D=&CityView_page=1&ajax=city-grid
+in G:\GitHub\travelagency\protected\controllers\CityController.php (144)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:24:42 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\CityController.php:144)
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6255): CityController->runAction()
+#1 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#2 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\yii.php(6297): CityController->filterAccessControl()
+#4 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#6 G:\GitHub\yii\framework\yii.php(3299): CityController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\yii.php(1699): CityController->run()
+#8 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city%2Fadmin&CityView%5BId%5D=&CityView%5BCityName%5D=&CityView%5BCountryName%5D=canada&CityView_page=1&ajax=city-grid
+in G:\GitHub\travelagency\protected\controllers\CityController.php (144)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:14 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:38 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:32:47 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "seat/admin".' in G:\GitHub\yii\framework\yii.php:1703
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('seat/admin')
+#1 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=seat/admin
+---
+2012/12/22 19:32:49 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "seat/admin".' in G:\GitHub\yii\framework\yii.php:1703
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController('seat/admin')
+#1 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=seat/admin
+---
+2012/12/22 19:33:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:33:09 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:36:29 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:36:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:36:50 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:37:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/22 19:37:00 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 03:33:53 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\CityController.php:144)
+Stack trace:
+#0 G:\GitHub\yii\framework\yii.php(6255): CityController->runAction()
+#1 G:\GitHub\yii\framework\yii.php(6264): CFilterChain->run()
+#2 G:\GitHub\yii\framework\yii.php(3702): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\yii.php(6297): CityController->filterAccessControl()
+#4 G:\GitHub\yii\framework\yii.php(6252): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\yii.php(3314): CFilterChain->run()
+#6 G:\GitHub\yii\framework\yii.php(3299): CityController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\yii.php(1699): CityController->run()
+#8 G:\GitHub\yii\framework\yii.php(1619): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\yii.php(1144): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city%2Fadmin&CityView%5BId%5D=&CityView%5BCityName%5D=mon&CityView%5BCountryName%5D=&CityView_page=1&ajax=city-grid
+in G:\GitHub\travelagency\protected\controllers\CityController.php (144)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 05:34:56 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(22): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(142): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('city/admin')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/admin
+---
+2012/12/23 05:36:49 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(22): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(142): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('city/admin')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/admin
+---
+2012/12/23 05:39:20 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(23): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(141): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('city/admin')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/admin
+---
+2012/12/23 05:40:26 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(23): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(141): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('city/admin')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/admin
+---
+2012/12/23 05:45:22 [error] [php] Declaration of AES256::encrypt() should be compatible with that of CSecurityManager::encrypt() (G:\GitHub\travelagency\protected\components\AES256.php:19)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\CityController.php(141): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CityController->runAction()
+#4 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CityController->filterAccessControl()
+#7 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 G:\GitHub\yii\framework\web\CController.php(266): CityController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(283): CityController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city/admin
+in G:\GitHub\travelagency\protected\components\AES256.php (19)
+in G:\GitHub\travelagency\protected\controllers\CityController.php (141)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 05:51:59 [error] [php] Non-static method AES256::encrypt() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\controllers\CityController.php:141)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CityController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CityController->filterAccessControl()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CityController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CityController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city/admin
+in G:\GitHub\travelagency\protected\controllers\CityController.php (141)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 05:52:53 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(27): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CityController.php(141): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('city/admin')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=city/admin
+---
+2012/12/23 06:00:31 [error] [php] include(AES256.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\CityController.php(142): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CityController->actionAdmin()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CityController->runAction()
+#4 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CityController->filterAccessControl()
+#7 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 G:\GitHub\yii\framework\web\CController.php(266): CityController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(283): CityController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=city/admin
+in G:\GitHub\travelagency\protected\controllers\CityController.php (142)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:49:29 [error] [exception.CException] exception 'CException' with message 'TbActiveForm and its behaviors do not have a method or closure named "labelExRow".' in G:\GitHub\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\country\_form.php(23): CComponent->__call('labelExRow', Array)
+#1 G:\GitHub\travelagency\protected\views\country\_form.php(23): TbActiveForm->labelExRow(Object(Country), 'FlagURL')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\travelagency\protected\views\country\create.php(15): CController->renderPartial('_form', Array)
+#6 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#7 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#8 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('create', Array, true)
+#10 G:\GitHub\travelagency\protected\controllers\CountryController.php(88): CController->render('create', Array)
+#11 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionCreate()
+#12 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/create')
+#22 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=country/create
+---
+2012/12/23 18:50:26 [error] [exception.CException] exception 'CException' with message 'Property "Country.image" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:174
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(160): CComponent->__set('image', '97457-2.jpg')
+#1 G:\GitHub\travelagency\protected\controllers\CountryController.php(76): CActiveRecord->__set('image', '97457-2.jpg')
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionCreate()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/create')
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=country/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=country/create
+---
+2012/12/23 18:52:32 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:52:34 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:52:39 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (107)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:53:15 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:53:15 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:53:20 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:53:21 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (107)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:54:37 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:54:41 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:54:43 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (192)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 18:54:45 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (107)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:00:03 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:00:08 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:00:12 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:00:33 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (111)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:09:26 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:09:29 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:09:34 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:09:34 [error] [php] move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: The second argument to copy() function cannot be a directory (G:\GitHub\yii\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 unknown(0): CountryController->actionUpdate()
+#1 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/update&id=1
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (116)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:11:18 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:11:22 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:11:27 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:11:27 [error] [php] move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: The second argument to copy() function cannot be a directory (G:\GitHub\yii\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 unknown(0): CountryController->actionUpdate()
+#1 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/update&id=1
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (116)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:12:21 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:12:23 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:12:27 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:16:42 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:16:46 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:53:22 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:53:27 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 19:53:27 [error] [php] move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: The second argument to copy() function cannot be a directory (G:\GitHub\yii\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 unknown(0): CountryController->actionUpdate()
+#1 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/update&id=3
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (116)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:09:59 [error] [php] Undefined variable: model (G:\GitHub\travelagency\protected\views\country\_view.php:13)
+Stack trace:
+#0 G:\GitHub\yii\framework\zii\widgets\CListView.php(260): CountryController->renderFile()
+#1 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(161): TbListView->renderItems()
+#2 unknown(0): TbListView->renderSection()
+#3 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#4 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(129): TbListView->renderContent()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(174): TbListView->run()
+#6 G:\GitHub\travelagency\protected\views\country\index.php(17): CountryController->widget()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(96): CountryController->renderInternal()
+#9 G:\GitHub\yii\framework\web\CController.php(870): CountryController->renderFile()
+#10 G:\GitHub\yii\framework\web\CController.php(783): CountryController->renderPartial()
+#11 G:\GitHub\travelagency\protected\controllers\CountryController.php(155): CountryController->render()
+#12 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#13 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#15 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#17 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#19 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/index
+in G:\GitHub\travelagency\protected\views\country\_view.php (13)
+in G:\GitHub\travelagency\protected\views\country\index.php (17)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (155)
+2012/12/23 20:13:13 [error] [php] Undefined variable: model (G:\GitHub\travelagency\protected\views\country\_view.php:13)
+Stack trace:
+#0 G:\GitHub\yii\framework\zii\widgets\CListView.php(260): CountryController->renderFile()
+#1 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(161): TbListView->renderItems()
+#2 unknown(0): TbListView->renderSection()
+#3 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#4 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(129): TbListView->renderContent()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(174): TbListView->run()
+#6 G:\GitHub\travelagency\protected\views\country\index.php(17): CountryController->widget()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(96): CountryController->renderInternal()
+#9 G:\GitHub\yii\framework\web\CController.php(870): CountryController->renderFile()
+#10 G:\GitHub\yii\framework\web\CController.php(783): CountryController->renderPartial()
+#11 G:\GitHub\travelagency\protected\controllers\CountryController.php(155): CountryController->render()
+#12 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#13 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#15 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#17 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#19 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/index
+in G:\GitHub\travelagency\protected\views\country\_view.php (13)
+in G:\GitHub\travelagency\protected\views\country\index.php (17)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (155)
+2012/12/23 20:13:21 [error] [php] Undefined variable: model (G:\GitHub\travelagency\protected\views\country\_view.php:13)
+Stack trace:
+#0 G:\GitHub\yii\framework\zii\widgets\CListView.php(260): CountryController->renderFile()
+#1 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(161): TbListView->renderItems()
+#2 unknown(0): TbListView->renderSection()
+#3 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(144): preg_replace_callback()
+#4 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(129): TbListView->renderContent()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(174): TbListView->run()
+#6 G:\GitHub\travelagency\protected\views\country\index.php(17): CountryController->widget()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(96): CountryController->renderInternal()
+#9 G:\GitHub\yii\framework\web\CController.php(870): CountryController->renderFile()
+#10 G:\GitHub\yii\framework\web\CController.php(783): CountryController->renderPartial()
+#11 G:\GitHub\travelagency\protected\controllers\CountryController.php(155): CountryController->render()
+#12 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#13 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#15 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#17 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#19 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#23 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/index
+in G:\GitHub\travelagency\protected\views\country\_view.php (13)
+in G:\GitHub\travelagency\protected\views\country\index.php (17)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (155)
+2012/12/23 20:19:59 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:20:00 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:20:05 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:25:44 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:25:47 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:26:04 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:26:18 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:26:24 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:26:46 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (194)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:26:51 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (108)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:26:52 [error] [php] move_uploaded_file() [<a href='function.move-uploaded-file'>function.move-uploaded-file</a>]: The second argument to copy() function cannot be a directory (G:\GitHub\yii\framework\web\CUploadedFile.php:197)
+Stack trace:
+#0 unknown(0): CountryController->actionUpdate()
+#1 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/update&id=1
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (116)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:28:07 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (195)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:28:16 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (195)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:30:03 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:30:05 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (101)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:34:47 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (103)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:34:51 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (103)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:34:56 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (110)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:35:49 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (103)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:35:51 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (103)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:35:55 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (110)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:58:43 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 're' for key 'Name'. The SQL statement executed was: INSERT INTO `countries` (`Name`, `FlagURL`) VALUES (:yp0, :yp1).
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (87)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 20:58:43 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry 're' for key 'Name'. The SQL statement executed was: INSERT INTO `countries` (`Name`, `FlagURL`) VALUES (:yp0, :yp1)' in G:\GitHub\yii\framework\db\CDbCommand.php:354
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1017): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(796): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\CountryController.php(87): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/create')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=country/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=country/create
+---
+2012/12/23 20:59:55 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (208)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (114)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 21:00:00 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (121)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 21:00:22 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (208)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (114)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 21:00:24 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (208)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (114)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 21:00:29 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (121)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 21:05:24 [error] [php] Use of undefined constant file - assumed 'file' (G:\GitHub\travelagency\protected\controllers\CountryController.php:82)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/create
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (82)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:12:55 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:12:58 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:03 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (127)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:45 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:46 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:52 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (127)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:02 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:03 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:19 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:19 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:38 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:59 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:30:21 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:30:22 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:34:51 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:35:10 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:35:55 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (71)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:41:40 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (213)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:41:42 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (213)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:41:46 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (126)
+in g:\GitHub\travelagency\index.php (13)
