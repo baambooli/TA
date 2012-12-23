@@ -6,9 +6,11 @@
  * The followings are the available columns in table 'cities':
  * @property integer $Id
  * @property string $Name
+ * @property integer $countryId
  *
  * The followings are the available model relations:
  * @property Airports[] $airports
+ * @property Countries $country
  * @property Hotels[] $hotels
  */
 class City extends CActiveRecord
@@ -39,10 +41,12 @@ class City extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
+			array('Name, countryId', 'required'),
+			array('countryId', 'numerical', 'integerOnly'=>true),
 			array('Name', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name', 'safe', 'on'=>'search'),
+			array('Id, Name, countryId', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -55,6 +59,7 @@ class City extends CActiveRecord
 		// class name for the relations automatically generated below.
 		return array(
 			'airports' => array(self::HAS_MANY, 'Airports', 'CityId'),
+			'country' => array(self::BELONGS_TO, 'Countries', 'countryId'),
 			'hotels' => array(self::HAS_MANY, 'Hotels', 'CityId'),
 		);
 	}
@@ -67,6 +72,7 @@ class City extends CActiveRecord
 		return array(
 			'Id' => 'ID',
 			'Name' => 'Name',
+			'countryId' => 'Country',
 		);
 	}
 
@@ -83,9 +89,31 @@ class City extends CActiveRecord
 
 		$criteria->compare('Id',$this->Id);
 		$criteria->compare('Name',$this->Name,true);
+		$criteria->compare('countryId',$this->countryId);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+       /**
+     * Create list of countries and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCountries()
+    {
+        // get list of countries
+        $countries = Country::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        return $countriesArray;
+    }
+    
+    // get name of the Country related to the specific Id
+    public function getCountryName($id)
+    {
+        // get name of Country
+        $CountryName = Country::model()->findByPK($id)->Name;
+        return $CountryName;
+    }  
 }

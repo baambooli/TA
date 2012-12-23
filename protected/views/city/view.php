@@ -20,5 +20,9 @@ $this->menu=array(
 	'attributes'=>array(
 		'Id',
 		'Name',
+		array(
+            'name' => 'countryId',
+            'value'=>CHtml::encode($model->getCountryName($model->countryId)),
+        ),
 	),
 )); ?>

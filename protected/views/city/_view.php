@@ -8,5 +8,9 @@
 	<?php echo CHtml::encode($data->Name); ?>
 	<br />
 
+	<b><?php echo CHtml::encode($data->getAttributeLabel('countryId')); ?>:</b>
+	<?php echo CHtml::encode($data->getCountryName($data->countryId)); ?>
+	<br />
+
 
 </div>

@@ -5,8 +5,8 @@
   <SchemaVersion>1.2</SchemaVersion>
   <DatabaseProvider>59f90733-4d68-4fdf-82a7-f0fcbf5460aa</DatabaseProvider>
   <Connection>
-    <Name>localhost</Name>
-    <ConnectionString>User Id=root;Host=localhost;Character Set=utf8;</ConnectionString>
+    <Name>travelagency.localhost</Name>
+    <ConnectionString>User Id=root;Host=localhost;Database=travelagency;Character Set=utf8;</ConnectionString>
   </Connection>
   <Settings>
     <DbDiagramOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -51,19 +51,19 @@
               <Parent>0</Parent>
             </CustomProperties>
             <Location>
-              <X>567 px</X>
-              <Y>371 px</Y>
+              <X>570 px</X>
+              <Y>370 px</Y>
             </Location>
             <Size>
-              <Width>150 px</Width>
-              <Height>110 px</Height>
+              <Width>153 px</Width>
+              <Height>163 px</Height>
             </Size>
             <DbOid>
               <Path>travelagency.cities</Path>
               <TypeName>Table</TypeName>
             </DbOid>
             <Compartments>
-              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <ConstraintsCollapsed>False</ConstraintsCollapsed>
               <IndexesCollapsed>True</IndexesCollapsed>
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
@@ -125,14 +125,14 @@
             </Location>
             <Size>
               <Width>200 px</Width>
-              <Height>144 px</Height>
+              <Height>180 px</Height>
             </Size>
             <DbOid>
               <Path>travelagency.hotels</Path>
               <TypeName>Table</TypeName>
             </DbOid>
             <Compartments>
-              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <ConstraintsCollapsed>False</ConstraintsCollapsed>
               <IndexesCollapsed>True</IndexesCollapsed>
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
@@ -286,7 +286,7 @@
             </Location>
             <Size>
               <Width>259 px</Width>
-              <Height>161 px</Height>
+              <Height>144 px</Height>
             </Size>
             <DbOid>
               <Path>travelagency.room_clients</Path>
@@ -502,7 +502,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>86 px</Y>
+                  <Y>107.5 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Right</Align>
@@ -514,7 +514,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>55 px</Y>
+                  <Y>81.5 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Left</Align>
@@ -524,6 +524,16 @@
                 </CustomProperties>
               </Port>
             </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>530 px</X>
+                <Y>447.5 px</Y>
+              </PointD>
+              <PointD>
+                <X>530 px</X>
+                <Y>451.5 px</Y>
+              </PointD>
+            </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
             <DbOid>
               <Path>travelagency.hotels.fk_hotels_cities</Path>
@@ -540,8 +550,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>-28.5 px</X>
-                  <Y>0 px</Y>
+                  <X>-40 px</X>
+                  <Y>-4 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Right</Align>
@@ -583,7 +593,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>72 px</Y>
+                  <Y>90 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Left</Align>
@@ -593,6 +603,16 @@
                 </CustomProperties>
               </Port>
             </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>224 px</X>
+                <Y>412 px</Y>
+              </PointD>
+              <PointD>
+                <X>224 px</X>
+                <Y>430 px</Y>
+              </PointD>
+            </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
             <DbOid>
               <Path>travelagency.rooms.fk_rooms_hotels</Path>
@@ -609,8 +629,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>-53 px</X>
-                  <Y>0 px</Y>
+                  <X>-63 px</X>
+                  <Y>-18 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Right</Align>
@@ -640,24 +660,24 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>75.5 px</Y>
-                </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Right</Align>
-                <CustomProperties>
-                  <OID>34</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>0 px</X>
                   <Y>85.5 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Left</Align>
                 <CustomProperties>
                   <OID>35</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>75.5 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>34</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
@@ -709,24 +729,24 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>80.5 px</Y>
-                </Location>
-                <Anchors>Top Bottom</Anchors>
-                <Align>Left</Align>
-                <CustomProperties>
-                  <OID>39</OID>
-                  <PortType>FloatAnchor</PortType>
-                </CustomProperties>
-              </Port>
-              <Port>
-                <Location>
-                  <X>0 px</X>
                   <Y>110.5 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Right</Align>
                 <CustomProperties>
                   <OID>40</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>80.5 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Left</Align>
+                <CustomProperties>
+                  <OID>39</OID>
                   <PortType>FloatAnchor</PortType>
                 </CustomProperties>
               </Port>
@@ -790,7 +810,7 @@
               <Port>
                 <Location>
                   <X>0 px</X>
-                  <Y>55 px</Y>
+                  <Y>81.5 px</Y>
                 </Location>
                 <Anchors>Top Bottom</Anchors>
                 <Align>Right</Align>
@@ -807,7 +827,7 @@
               </PointD>
               <PointD>
                 <X>770 px</X>
-                <Y>426 px</Y>
+                <Y>451.5 px</Y>
               </PointD>
             </BendPoints>
             <IsManuallyRouted>false</IsManuallyRouted>
@@ -826,8 +846,8 @@
             <PortAnchors>
               <Port xsi:type="LinkPort">
                 <Location>
-                  <X>46.5 px</X>
-                  <Y>4 px</Y>
+                  <X>43.5 px</X>
+                  <Y>-21.5 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
@@ -906,7 +926,7 @@
               <Port xsi:type="LinkPort">
                 <Location>
                   <X>67.5 px</X>
-                  <Y>21.4461538461538 px</Y>
+                  <Y>21.446153846154 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
@@ -985,7 +1005,7 @@
               <Port xsi:type="LinkPort">
                 <Location>
                   <X>67.5 px</X>
-                  <Y>30.8615384615384 px</Y>
+                  <Y>30.861538461538 px</Y>
                 </Location>
                 <Anchors>None</Anchors>
                 <Align>Left</Align>
@@ -1228,13 +1248,249 @@
               <Y>128 px</Y>
             </CommentOffset>
           </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>72</OID>
+              <Comment>73</Comment>
+              <OutModel>6</OutModel>
+              <InModel>5</InModel>
+              <OutPort>74</OutPort>
+              <InPort>75</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>61.5 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>74</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>36.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>75</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>1426.5 px</X>
+                <Y>401.5 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>travelagency.flights.fk_flights_airlines</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>73</OID>
+              <HolderModel>72</HolderModel>
+              <Port>76</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-78.25 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>76</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>77</OID>
+              <Comment>78</Comment>
+              <OutModel>2</OutModel>
+              <InModel>6</InModel>
+              <OutPort>79</OutPort>
+              <InPort>80</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>175 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>79</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>50 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>80</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>travelagency.flight_passengers.fk_flight_passengers_flights</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>78</OID>
+              <HolderModel>77</HolderModel>
+              <Port>81</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>0 px</X>
+                  <Y>-27 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>81</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
+          <Model xsi:type="TableModel">
+            <CustomProperties>
+              <OID>82</OID>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <Location>
+              <X>580 px</X>
+              <Y>600 px</Y>
+            </Location>
+            <Size>
+              <Width>160 px</Width>
+              <Height>127 px</Height>
+            </Size>
+            <DbOid>
+              <Path>travelagency.countries</Path>
+              <TypeName>Table</TypeName>
+            </DbOid>
+            <Compartments>
+              <ConstraintsCollapsed>True</ConstraintsCollapsed>
+              <IndexesCollapsed>True</IndexesCollapsed>
+              <TriggersCollapsed>True</TriggersCollapsed>
+            </Compartments>
+          </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>83</OID>
+              <Comment>84</Comment>
+              <OutModel>1</OutModel>
+              <InModel>82</InModel>
+              <OutPort>85</OutPort>
+              <InPort>86</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>81.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>85</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>71.5 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Top</Align>
+                <CustomProperties>
+                  <OID>86</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>travelagency.cities.fk_cities_countries</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>84</OID>
+              <HolderModel>83</HolderModel>
+              <Port>87</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>0 px</X>
+                  <Y>-33.5 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>87</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>0.92</Scale>
+          <Scale>1</Scale>
           <Location>
-            <X>598.913032613653 px</X>
-            <Y>101.086954687967 px</Y>
+            <X>39 px</X>
+            <Y>390 px</Y>
           </Location>
         </ViewPort>
       </Model>

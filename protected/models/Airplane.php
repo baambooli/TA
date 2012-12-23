@@ -122,6 +122,7 @@ class Airplane extends CActiveRecord
         return $airPlaneSpecificationName;
     }
     
+    // kamran
     public function getAirlines()
     {
         // get list of Airlines
