@@ -40,7 +40,7 @@ class Country extends CActiveRecord
 		// will receive user inputs.
 		return array(
 			array('Name', 'required'),
-            array('FlagURL', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'), 
+            array('FlagURL', 'file','types'=>'jpg, gif, png', 'allowEmpty'=>true, 'on'=>'update'),
 			array('Name', 'length', 'max'=>50),
 			array('FlagURL', 'length', 'max'=>255),
 			// The following rule is used by search().

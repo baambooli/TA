@@ -4256,3 +4256,79 @@ Stack trace:
 REQUEST_URI=/index.php?r=country/create
 in G:\GitHub\travelagency\protected\controllers\CountryController.php (82)
 in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:12:55 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:12:58 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:03 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (127)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:45 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:46 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (214)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (120)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:13:52 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (127)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:02 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:03 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:19 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:19 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:38 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:29:59 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:30:21 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:30:22 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (196)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:34:51 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:35:10 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (198)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (67)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:35:55 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (71)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:41:40 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (213)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:41:42 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (213)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/23 23:41:46 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (126)
+in g:\GitHub\travelagency\index.php (13)

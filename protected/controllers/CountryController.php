@@ -70,8 +70,9 @@ class CountryController extends Controller
 		{
             $hasFlagPicture = true;
 			$model->attributes=$_POST['Country'];
-            
-            if($model->FlagURL === NULL || empty($model->FlagURL))
+            $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
+                    
+            if($uploadedFile === NULL || empty($uploadedFile))
             {
                 $model->FlagURL = $model->Name;
                 
@@ -84,7 +85,6 @@ class CountryController extends Controller
             }
             else
             {
-                $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
                 $fileName = $model->Name.'_'.$uploadedFile;  
                 $model->FlagURL = $fileName;
             }
