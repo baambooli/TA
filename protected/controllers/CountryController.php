@@ -68,9 +68,37 @@ class CountryController extends Controller
 
 		if(isset($_POST['Country']))
 		{
+            $hasFlagPicture = true;
 			$model->attributes=$_POST['Country'];
+            
+            if($model->FlagURL === NULL || empty($model->FlagURL))
+            {
+                $model->FlagURL = $model->Name;
+                
+                // create a default flag picture
+                $file = Yii::app()->basePath.'/../banner/'.'countryFlag.jpg';
+                $toFile = Yii::app()->basePath.'/../banner/'.$model->Name;
+                copy($file,$toFile);
+                
+                $hasFlagPicture = false;   
+            }
+            else
+            {
+                $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
+                $fileName = $model->Name.'_'.$uploadedFile;  
+                $model->FlagURL = $fileName;
+            }
+            
 			if($model->save())
+            {
+                if ($hasFlagPicture)
+                {
+                    $flag = Yii::app()->basePath.'/../banner/'.$fileName;
+                    // image will uplode to rootDirectory/banner/
+                    $uploadedFile->saveAs($flag);
+                }  
 				$this->redirect(array('view','id'=>$model->Id));
+            }
 		}
 
 		$this->render('create',array(
@@ -90,11 +118,24 @@ class CountryController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
+        
 		if(isset($_POST['Country']))
 		{
+            $_POST['Country']['FlagURL'] = $model->FlagURL;
+
 			$model->attributes=$_POST['Country'];
+
+            $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
+            
 			if($model->save())
-				$this->redirect(array('view','id'=>$model->Id));
+            {
+                if(!empty($uploadedFile))  // check if uploaded file is set or not
+                {
+                    $flag = Yii::app()->basePath.'/../banner/'.$model->FlagURL;
+                    $uploadedFile->saveAs($flag);
+                }
+                $this->redirect(array('view','id'=>$model->Id));
+            }
 		}
 
 		$this->render('update',array(

@@ -31,7 +31,7 @@ $('.search-form form').submit(function(){
 	'columns'=>array(
 		'Id',
 		'Name',
-		'FlagURL',
+		//'FlagURL',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

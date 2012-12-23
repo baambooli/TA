@@ -23,3 +23,5 @@ $this->menu=array(
 		'FlagURL',
 	),
 )); ?>
+<!-- show flag here-->
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/banner/'.$model->FlagURL,'FlagURL',array('width'=>200)); 
