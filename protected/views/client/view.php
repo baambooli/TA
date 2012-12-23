@@ -24,7 +24,7 @@ $this->menu=array(
 		'Address',
 		'tell',
 		'PassportNumber',
-		'RoomlId',
+		'RoomId',
 		'CreditCardType',
 		'CreditCardExpiryDate',
 		'CreditCardHolderName',

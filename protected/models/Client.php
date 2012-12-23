@@ -48,7 +48,8 @@ class Client extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('RoomlId', 'numerical', 'integerOnly'=>true),
+            array('Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
+			array('RoomId', 'numerical', 'integerOnly'=>true),
 			array('Name, PassportNumber', 'length', 'max'=>50),
 			array('Family', 'length', 'max'=>70),
 			array('Address', 'length', 'max'=>200),
@@ -56,7 +57,7 @@ class Client extends CActiveRecord
 			array('CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Family, Address, tell, PassportNumber, RoomlId, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'safe', 'on'=>'search'),
+			array('Id, Name, Family, Address, tell, PassportNumber, RoomId, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -82,9 +83,9 @@ class Client extends CActiveRecord
 			'Name' => 'Name',
 			'Family' => 'Family',
 			'Address' => 'Address',
-			'tell' => 'Tell',
+			'tell' => 'Telephone',
 			'PassportNumber' => 'Passport Number',
-			'RoomlId' => 'Rooml',
+			'RoomId' => 'Room',
 			'CreditCardType' => 'Credit Card Type',
 			'CreditCardExpiryDate' => 'Credit Card Expiry Date',
 			'CreditCardHolderName' => 'Credit Card Holder Name',
@@ -110,7 +111,7 @@ class Client extends CActiveRecord
 		$criteria->compare('Address',$this->Address,true);
 		$criteria->compare('tell',$this->tell,true);
 		$criteria->compare('PassportNumber',$this->PassportNumber,true);
-		$criteria->compare('RoomlId',$this->RoomlId);
+		$criteria->compare('RoomId',$this->RoomId);
 		$criteria->compare('CreditCardType',$this->CreditCardType,true);
 		$criteria->compare('CreditCardExpiryDate',$this->CreditCardExpiryDate,true);
 		$criteria->compare('CreditCardHolderName',$this->CreditCardHolderName,true);

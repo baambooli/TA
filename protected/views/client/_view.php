@@ -24,7 +24,7 @@
 	<?php echo CHtml::encode($data->PassportNumber); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('RoomlId')); ?>:</b>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('RoomId')); ?>:</b>
 	<?php echo CHtml::encode($data->RoomlId); ?>
 	<br />
 

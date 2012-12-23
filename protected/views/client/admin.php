@@ -36,7 +36,7 @@ $('.search-form form').submit(function(){
 		'tell',
 		'PassportNumber',
 		/*
-		'RoomlId',
+		'RoomId',
 		'CreditCardType',
 		'CreditCardExpiryDate',
 		'CreditCardHolderName',

@@ -138,10 +138,14 @@ class CityController extends Controller
 	 */
 	public function actionAdmin()
 	{
+        $a = AES::aes256Encrypt("1123", 'kamran');
+        $b= AES::aes256Decrypt("1123",$a);
+        DebugBreak();
+        
 		$modelCityView=new CityView('search');
 		$modelCityView->unsetAttributes();  // clear any default values
 		if(isset($_GET['CityView']))
-			$modelCitiesView->attributes=$_GET['CityView'];
+			$modelCityView->attributes=$_GET['CityView'];
 
 		$this->render('admin',array(
 			'modelCityView'=>$modelCityView,
