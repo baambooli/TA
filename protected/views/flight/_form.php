@@ -1,7 +1,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'flight-form',
 	'enableClientValidation' => true,
-    'enableAjaxValidation' => true,
+    'enableAjaxValidation' => false,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
@@ -17,10 +17,14 @@
 
 	<?php echo $form->textFieldRow($model,'AirplaneId',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'TakeoffDate',array('class'=>'span5')); ?>
-
-	<?php echo $form->textFieldRow($model,'LandingDate',array('class'=>'span5')); ?>
-
+    <?php echo $form->datepickerRow($model, 'TakeoffDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
+    
+    <?php echo $form->timepickerRow($model, 'TakeoffTime', array('hint'=>'Select Takeoff time', 'append'=>'<i class="icon-time" style="cursor:pointer"></i>'));?>
+    
+     <?php echo $form->datepickerRow($model, 'LandingDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
+    
+    <?php echo $form->timepickerRow($model, 'LandingTime', array('hint'=>'Select Landing time', 'append'=>'<i class="icon-time" style="cursor:pointer"></i>'));?>
+      
 	<?php echo $form->textFieldRow($model,'DepartureAirportId',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldRow($model,'DestinationAirportId',array('class'=>'span5')); ?>

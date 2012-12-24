@@ -20,8 +20,12 @@
     <!-- <?php echo $form->textFieldRow($model,'FlagURL',array('class'=>'span5','maxlength'=>255)); ?> -->
     
     <div >
-        <?php echo $form->labelEx($model,'FlagURL'); ?>
-        <?php echo CHtml::activeFileField($model, 'FlagURL'); // by this we can upload image ?>  
+        <!--this is Yii's method-->
+        <!--<?php echo $form->labelEx($model,'FlagURL'); ?>-->
+        <!-- <?php echo CHtml::activeFileField($model, 'FlagURL'); // by this we can upload image ?>  -->
+        
+        <!--this is YiiBoosters' method--> 
+        <?php echo $form->fileFieldRow($model, 'FlagURL'); ?>
     </div>
     
     <?php if(!$model->isNewRecord) {

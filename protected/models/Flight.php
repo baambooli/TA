@@ -51,7 +51,7 @@ class Flight extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'required'),
+			array('FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, TakeoffTime, LandingTime, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'required'),
 			array('AirlineId, AirplaneId, DepartureAirportId, DestinationAirportId', 'numerical', 'integerOnly'=>true),
 			array('PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'numerical'),
 			array('FlightNumber', 'length', 'max'=>50),
