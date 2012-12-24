@@ -26,5 +26,9 @@ $this->menu=array(
             'name' => 'AirlineId',
             'value'=>CHtml::encode($model->getAirLineName($model->AirlineId)),
         ),
+        array(
+            'name' => 'AirplaneSpecificationId',
+            'value'=>CHtml::encode($model->getAirplaneSpecificationName($model->AirplaneSpecificationId)),
+        ),
 	),
 )); ?>

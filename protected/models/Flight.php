@@ -89,11 +89,13 @@ class Flight extends CActiveRecord
 			'AirplaneId' => 'Airplane',
 			'TakeoffDate' => 'Takeoff Date',
 			'LandingDate' => 'Landing Date',
+            'TakeoffTime' => 'Takeoff Time',
+            'LandingTime' => 'Landing Time',
 			'DepartureAirportId' => 'Departure Airport',
 			'DestinationAirportId' => 'Destination Airport',
-			'PriceOfFirstClassSeats' => 'Price Of First Class Seats',
-			'PriceOfBusinessClassSeats' => 'Price Of Business Class Seats',
-			'PriceOfEconomyClassSeats' => 'Price Of Economy Class Seats',
+			'PriceOfFirstClassSeats' => 'Price Of First Class Seats (US$)',
+			'PriceOfBusinessClassSeats' => 'Price Of Business Class Seats (US$)',
+			'PriceOfEconomyClassSeats' => 'Price Of Economy Class Seats (US$)',
 		);
 	}
 

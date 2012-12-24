@@ -21,7 +21,7 @@
     
     <?php echo $form->timepickerRow($model, 'TakeoffTime', array('hint'=>'Select Takeoff time', 'append'=>'<i class="icon-time" style="cursor:pointer"></i>'));?>
     
-     <?php echo $form->datepickerRow($model, 'LandingDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
+    <?php echo $form->datepickerRow($model, 'LandingDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
     
     <?php echo $form->timepickerRow($model, 'LandingTime', array('hint'=>'Select Landing time', 'append'=>'<i class="icon-time" style="cursor:pointer"></i>'));?>
       

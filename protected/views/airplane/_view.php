@@ -15,6 +15,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('AirlineId')); ?>:</b>
 	<?php echo CHtml::encode($data->getAirlineName($data->AirlineId)); ?>
 	<br />
+    
+    <b><?php echo CHtml::encode($data->getAttributeLabel('AirplaneSpecificationId')); ?>:</b>
+    <?php echo CHtml::encode($data->getAirplaneSpecificationName($data->AirplaneSpecificationId)); ?>
+    <br />
 
 
 </div>

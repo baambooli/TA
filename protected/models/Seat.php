@@ -73,7 +73,7 @@ class Seat extends CActiveRecord
 			'Id' => 'ID',
 			'SeatNumber' => 'Seat Number',
 			'SeatType' => 'Seat Type',
-			'AirplaneSpecId' => 'Airplane Spec',
+			'AirplaneSpecId' => 'Airplane Specification',
 		);
 	}
 
@@ -97,4 +97,42 @@ class Seat extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+    // Kamran
+    public function getTypes()
+    {
+        return array(
+            'FirstClass' => 'First Class',
+            'BusinessClass' => 'Business Class',
+            'EconomyClass' => 'Economy Class',
+        );
+    }
+    public function getTypeName($id)
+    {
+        $types = array(
+            'FirstClass' => 'First Class',
+            'BusinessClass' => 'Business Class',
+            'EconomyClass' => 'Economy Class',
+        );
+        return $types[$id];
+    }
+    
+     /**
+     * Create list of AirplaneSpecifications and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getAirplaneSpecifications()
+    {
+        $airplaneSpecifications = AirplaneSpecification::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $airplaneSpecificationsArray = CHtml::listData($airplaneSpecifications, 'Id', 'Name');
+        return $airplaneSpecificationsArray;
+    }
+    
+    // get name of the AirplaneSpecification related to the specific Id
+    public function getAirplaneSpecificationName($id)
+    {
+        $AirplaneSpecificationName = AirplaneSpecification::model()->findByPK($id)->Name;
+        return $AirplaneSpecificationName;
+    }
 }

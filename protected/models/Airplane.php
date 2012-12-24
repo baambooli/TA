@@ -42,9 +42,8 @@ class Airplane extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('Name, AirlineId', 'required'),
+			array('Name, AirlineId, AirplaneSpecificationId', 'required'),
 			array('AirlineId', 'numerical', 'integerOnly'=>true),
-            array('StartDateOfWork', 'date'),
 			array('Name', 'length', 'max'=>50),
 			array('StartDateOfWork', 'safe'),
 			// The following rule is used by search().
@@ -61,7 +60,7 @@ class Airplane extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'aireplaneSpecifications' => array(self::HAS_MANY, 'AireplaneSpecifications', 'AirplaneId'),
+			'aireplaneSpecifications' => array(self::BELONGS_TO, 'AirplaneSpecifications', 'AirplaneSpecificationId'),
 			'airline' => array(self::BELONGS_TO, 'Airlines', 'AirlineId'),
 			'flights' => array(self::HAS_MANY, 'Flights', 'AirplaneId'),
 		);
@@ -77,6 +76,7 @@ class Airplane extends CActiveRecord
 			'Name' => 'Name',
 			'StartDateOfWork' => 'Start Date Of Work',
 			'AirlineId' => 'Airline',
+            'AirplaneSpecificationId' =>'Airplane Specification'
 		);
 	}
 
