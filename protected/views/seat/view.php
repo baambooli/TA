@@ -20,7 +20,13 @@ $this->menu=array(
 	'attributes'=>array(
 		'Id',
 		'SeatNumber',
-		'SeatType',
-		'AirplaneSpecId',
+        array(
+            'name' => 'SeatType',
+            'value'=>CHtml::encode($model->getTypeName($model->SeatType)),
+        ),
+        array(
+            'name' => 'AirplaneSpecId',
+            'value'=>CHtml::encode($model->getAirplaneSpecificationName($model->AirplaneSpecId)),
+        ),
 	),
 )); ?>

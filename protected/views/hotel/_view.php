@@ -12,8 +12,7 @@
 	<?php echo CHtml::encode($data->Category); ?>
 	<br />
 
-
-	<b><?php echo CHtml::encode($data->getAttributeLabel('CityId')); ?>:</b>
-	<?php echo CHtml::encode($data->getCityName($data->CityId)); ?>
-	<br />
+    <b><?php echo CHtml::encode($data->getAttributeLabel('CityId')); ?>:</b>
+    <?php echo CHtml::encode($data->getCityName($data->CityId)); ?>
+    <br /> 
 </div>

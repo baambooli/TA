@@ -138,13 +138,13 @@ class SeatController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new Seat('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Seat']))
-			$model->attributes=$_GET['Seat'];
+		$modelSeatView=new SeatView('search');
+		$modelSeatView->unsetAttributes();  // clear any default values
+		if(isset($_GET['SeatView']))
+			$modelSeatView->attributes=$_GET['SeatView'];
 
 		$this->render('admin',array(
-			'model'=>$model,
+			'modelSeatView'=>$modelSeatView,
 		));
 	}
 
