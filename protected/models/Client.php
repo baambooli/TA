@@ -48,7 +48,7 @@ class Client extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('Name, Family, email, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
+            array('Name, Family, email, CountryId, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
 			array('PassportNumber, email','unique'),
             array('email','email'),
             array('Name, PassportNumber', 'length', 'max'=>50),
@@ -85,6 +85,7 @@ class Client extends CActiveRecord
 			'Family' => 'Family',
 			'Address' => 'Address',
 			'tell' => 'Telephone',
+            'CountryId' => 'Country',
 			'PassportNumber' => 'Passport Number',
 			'CreditCardType' => 'Credit Card Type',
 			'CreditCardExpiryDate' => 'Credit Card Expiry Date',
