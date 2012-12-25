@@ -15,8 +15,6 @@
 
 	<?php echo $form->textFieldRow($model,'PassportNumber',array('class'=>'span5','maxlength'=>50)); ?>
 
-	<?php echo $form->textFieldRow($model,'RoomId',array('class'=>'span5')); ?>
-
 	<?php echo $form->textFieldRow($model,'CreditCardType',array('class'=>'span5','maxlength'=>255)); ?>
 
 	<?php echo $form->textFieldRow($model,'CreditCardExpiryDate',array('class'=>'span5','maxlength'=>255)); ?>

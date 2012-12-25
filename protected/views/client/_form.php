@@ -1,7 +1,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'client-form',
 	'enableClientValidation' => true,
-    'enableAjaxValidation' => true,
+    'enableAjaxValidation' => false,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
@@ -20,8 +20,6 @@
 	<?php echo $form->textFieldRow($model,'tell',array('class'=>'span5','maxlength'=>20)); ?>
 
 	<?php echo $form->textFieldRow($model,'PassportNumber',array('class'=>'span5','maxlength'=>50)); ?>
-
-	<?php echo $form->textFieldRow($model,'RoomId',array('class'=>'span5')); ?>
 
 	<?php echo $form->textFieldRow($model,'CreditCardType',array('class'=>'span5','maxlength'=>255)); ?>
 

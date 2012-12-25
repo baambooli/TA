@@ -21,6 +21,7 @@ $this->menu=array(
 		'Id',
 		'RoomId',
 		'ClientId',
-		'OccupationDate',
+		'StartDate',
+		'EndDate',
 	),
 )); ?>

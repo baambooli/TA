@@ -9,7 +9,9 @@
 
 	<?php echo $form->textFieldRow($model,'ClientId',array('class'=>'span5')); ?>
 
-	<?php echo $form->textFieldRow($model,'OccupationDate',array('class'=>'span5')); ?>
+	<?php echo $form->textFieldRow($model,'StartDate',array('class'=>'span5')); ?>
+
+	<?php echo $form->textFieldRow($model,'EndDate',array('class'=>'span5')); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
