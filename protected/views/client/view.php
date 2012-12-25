@@ -15,7 +15,10 @@ $this->menu=array(
 
 <h1>View Client #<?php echo $model->Id; ?></h1>
 
-<?php $this->widget('bootstrap.widgets.TbDetailView',array(
+<?php 
+    $this->_decryptClient($model);
+    
+    $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
 	'attributes'=>array(
 		'Id',
@@ -24,7 +27,6 @@ $this->menu=array(
 		'Address',
 		'tell',
 		'PassportNumber',
-		'RoomId',
 		'CreditCardType',
 		'CreditCardExpiryDate',
 		'CreditCardHolderName',

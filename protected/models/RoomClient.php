@@ -7,7 +7,8 @@
  * @property integer $Id
  * @property integer $RoomId
  * @property integer $ClientId
- * @property string $OccupationDate
+ * @property string $StartDate
+ * @property string $EndDate
  *
  * The followings are the available model relations:
  * @property Clients $client
@@ -41,11 +42,11 @@ class RoomClient extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('RoomId, ClientId, OccupationDate', 'required'),
+			array('RoomId, ClientId, StartDate, EndDate', 'required'),
 			array('RoomId, ClientId', 'numerical', 'integerOnly'=>true),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, RoomId, ClientId, OccupationDate', 'safe', 'on'=>'search'),
+			array('Id, RoomId, ClientId, StartDate, EndDate', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -71,7 +72,8 @@ class RoomClient extends CActiveRecord
 			'Id' => 'ID',
 			'RoomId' => 'Room',
 			'ClientId' => 'Client',
-			'OccupationDate' => 'Occupation Date',
+			'StartDate' => 'Start Date',
+			'EndDate' => 'End Date',
 		);
 	}
 
@@ -89,7 +91,8 @@ class RoomClient extends CActiveRecord
 		$criteria->compare('Id',$this->Id);
 		$criteria->compare('RoomId',$this->RoomId);
 		$criteria->compare('ClientId',$this->ClientId);
-		$criteria->compare('OccupationDate',$this->OccupationDate,true);
+		$criteria->compare('StartDate',$this->StartDate,true);
+		$criteria->compare('EndDate',$this->EndDate,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

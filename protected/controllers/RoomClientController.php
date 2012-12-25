@@ -62,15 +62,26 @@ class RoomClientController extends Controller
 	public function actionCreate()
 	{
 		$model=new RoomClient;
-
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
 		if(isset($_POST['RoomClient']))
 		{
 			$model->attributes=$_POST['RoomClient'];
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->Id));
+            
+            $result = $this->_checkDates($_POST['RoomClient']['StartDate'], $_POST['RoomClient']['EndDate']);
+            if (!$result)
+            {
+                // add flash message error to start date field and end date field
+                $model->addError('StartDate', 'Start date should not be greater than end date.');
+                $model->addError('EndDate', 'Start date should not be greater than end date.');
+        
+            }
+            else
+            {
+			    if($model->save())
+				    $this->redirect(array('view','id'=>$model->Id));
+            }
 		}
 
 		$this->render('create',array(
@@ -88,7 +99,7 @@ class RoomClientController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		//$this->performAjaxValidation($model);
 
 		if(isset($_POST['RoomClient']))
 		{
@@ -173,4 +184,16 @@ class RoomClientController extends Controller
 			Yii::app()->end();
 		}
 	}
+    
+    private function _checkDates($startDate, $endDate)
+    {
+        if ($startDate > $endDate)
+        {
+             return false;
+        }
+        else
+        {
+            return true;
+        }
+    }
 }

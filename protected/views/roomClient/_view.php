@@ -12,8 +12,12 @@
 	<?php echo CHtml::encode($data->ClientId); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('OccupationDate')); ?>:</b>
-	<?php echo CHtml::encode($data->OccupationDate); ?>
+	<b><?php echo CHtml::encode($data->getAttributeLabel('StartDate')); ?>:</b>
+	<?php echo CHtml::encode($data->StartDate); ?>
+	<br />
+
+	<b><?php echo CHtml::encode($data->getAttributeLabel('EndDate')); ?>:</b>
+	<?php echo CHtml::encode($data->EndDate); ?>
 	<br />
 
 

@@ -32,7 +32,8 @@ $('.search-form form').submit(function(){
 		'Id',
 		'RoomId',
 		'ClientId',
-		'OccupationDate',
+		'StartDate',
+		'EndDate',
 		array(
 			'class'=>'bootstrap.widgets.TbButtonColumn',
 		),

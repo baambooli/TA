@@ -29,14 +29,12 @@ $('.search-form form').submit(function(){
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'Id',
 		'Name',
 		'Family',
 		'Address',
 		'tell',
-		'PassportNumber',
+		//'PassportNumber',
 		/*
-		'RoomId',
 		'CreditCardType',
 		'CreditCardExpiryDate',
 		'CreditCardHolderName',

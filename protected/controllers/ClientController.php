@@ -69,6 +69,10 @@ class ClientController extends Controller
 		if(isset($_POST['Client']))
 		{
 			$model->attributes=$_POST['Client'];
+            
+            // encrypt critical data before save
+            $this->_encryptClient($model);
+            
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->Id));
 		}
@@ -86,16 +90,23 @@ class ClientController extends Controller
 	public function actionUpdate($id)
 	{
 		$model=$this->loadModel($id);
-
+        
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
 		if(isset($_POST['Client']))
 		{
 			$model->attributes=$_POST['Client'];
+            
+            // encrypt critical data before save
+            $this->_encryptClient($model);
+
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->Id));
 		}
+
+        // decrypt critical data before save
+        $this->_decryptClient($model);
 
 		$this->render('update',array(
 			'model'=>$model,
@@ -173,4 +184,32 @@ class ClientController extends Controller
 			Yii::app()->end();
 		}
 	}
+    
+    // Encrypt some private data of user
+    public function _encryptClient(&$model)
+    {
+        // read global variable from /protected/config/main.php file
+        $key = Yii::app()->params['key'];
+        
+        $model->PassportNumber = AES::aes256Encrypt($key,$model->PassportNumber);
+        $model->CreditCardType = AES::aes256Encrypt($key,$model->CreditCardType);
+        $model->CreditCardExpiryDate = AES::aes256Encrypt($key,$model->CreditCardExpiryDate);
+        $model->CreditCardHolderName = AES::aes256Encrypt($key,$model->CreditCardHolderName);
+        $model->CreditCardSecurityNumber = AES::aes256Encrypt($key,$model->CreditCardSecurityNumber);
+        $model->CreditCardNumber = AES::aes256Encrypt($key,$model->CreditCardNumber);
+    }
+    
+    // Decrypt some private data of user
+    public function _decryptClient(&$model)
+    {
+        // read global variable from /protected/config/main.php file
+        $key = Yii::app()->params['key'];
+        
+        $model->PassportNumber = AES::aes256Decrypt($key,$model->PassportNumber);
+        $model->CreditCardType = AES::aes256Decrypt($key,$model->CreditCardType);
+        $model->CreditCardExpiryDate = AES::aes256Decrypt($key,$model->CreditCardExpiryDate);
+        $model->CreditCardHolderName = AES::aes256Decrypt($key,$model->CreditCardHolderName);
+        $model->CreditCardSecurityNumber = AES::aes256Decrypt($key,$model->CreditCardSecurityNumber);
+        $model->CreditCardNumber = AES::aes256Decrypt($key,$model->CreditCardNumber);
+    }
 }
