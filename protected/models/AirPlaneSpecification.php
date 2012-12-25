@@ -50,7 +50,7 @@ class AirPlaneSpecification extends CActiveRecord
 			array('Name, Type', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Type, NoOfFirstClassSeats, NoOfBusinessClassSeats, NoOfEconomyClassSeats, AirplaneId', 'safe', 'on'=>'search'),
+			array('Id, AirplaneId, Name, Type, NoOfFirstClassSeats, NoOfBusinessClassSeats, NoOfEconomyClassSeats, AirplaneId', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -106,13 +106,15 @@ class AirPlaneSpecification extends CActiveRecord
 		));
 	}
     
+    // Kamran
     public function getTypes()
     {
         return array(
-            'comercial' => 'Comercial',
-            'navy' => 'Navy',
-            'private' => 'Private',
-            );
+            'Comercial' => 'Comercial',
+            'Charter' => 'Charter',
+            'Navy' => 'Navy',
+            'Private' => 'Private',
             
+            );
     }
 }
