@@ -10,6 +10,4 @@ TA:TA_prj:protected:config=1
 TA:TA_prj:protected:controllers=1
 TA:TA_prj:protected:models=1
 TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:city=1
-TA:TA_prj:protected:views:client=1
-TA:TA_prj:protected:views:flightClient=1
+TA:TA_prj:protected:views:layouts=1
