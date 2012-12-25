@@ -5153,3 +5153,253 @@ Stack trace:
 REQUEST_URI=/index.php?r=client/index
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/view&id=2
 ---
+2012/12/25 18:44:55 [error] [exception.CException] exception 'CException' with message 'Property "Client.RoomId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('RoomId')
+#1 G:\GitHub\yii\framework\validators\CNumberValidator.php(79): CActiveRecord->__get('RoomId')
+#2 G:\GitHub\yii\framework\validators\CValidator.php(214): CNumberValidator->validateAttribute(Object(Client), 'RoomId')
+#3 G:\GitHub\yii\framework\base\CModel.php(158): CValidator->validate(Object(Client), NULL)
+#4 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CModel->validate(NULL)
+#5 G:\GitHub\travelagency\protected\controllers\ClientController.php(76): CActiveRecord->save()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): ClientController->actionCreate()
+#7 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#9 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#11 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#12 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#13 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('create')
+#16 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/create')
+#17 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#19 {main}
+REQUEST_URI=/index.php?r=client/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/create
+---
+2012/12/25 19:15:07 [error] [exception.CException] exception 'CException' with message 'The column must be specified in the format of "Name:Type:Label", where "Type" and "Label" are optional.' in G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbGridView.php:124
+Stack trace:
+#0 G:\GitHub\yii\framework\zii\widgets\grid\CGridView.php(331): TbGridView->createDataColumn('??%')
+#1 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbGridView.php(109): CGridView->initColumns()
+#2 G:\GitHub\yii\framework\zii\widgets\grid\CGridView.php(307): TbGridView->initColumns()
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbGridView.php(54): CGridView->init()
+#4 G:\GitHub\yii\framework\web\CBaseController.php(148): TbGridView->init()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#6 G:\GitHub\travelagency\protected\views\client\admin.php(53): CBaseController->widget('bootstrap.widge...', Array)
+#7 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#8 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#10 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#11 G:\GitHub\travelagency\protected\controllers\ClientController.php(159): CController->render('admin', Array)
+#12 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): ClientController->actionAdmin()
+#13 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#15 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#16 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#19 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/admin')
+#23 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#24 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/index.php?r=client/admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/view&id=6
+---
+2012/12/25 19:16:02 [error] [exception.CException] exception 'CException' with message 'The attribute must be specified in the format of "Name:Type:Label", where "Type" and "Label" are optional.' in G:\GitHub\yii\framework\zii\widgets\CDetailView.php:181
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CBaseController.php(174): CDetailView->run()
+#1 G:\GitHub\travelagency\protected\views\client\view.php(36): CBaseController->widget('bootstrap.widge...', Array)
+#2 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\ClientController.php(55): CController->render('view', Array)
+#7 [internal function]: ClientController->actionView('6')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ClientController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ClientController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=client/view&id=6
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/create
+---
+2012/12/25 19:25:35 [error] [php] Undefined variable: key (G:\GitHub\travelagency\protected\models\Client.php:118)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CBaseController.php(96): ClientController->renderInternal()
+#1 G:\GitHub\yii\framework\web\CController.php(870): ClientController->renderFile()
+#2 G:\GitHub\yii\framework\web\CController.php(783): ClientController->renderPartial()
+#3 G:\GitHub\travelagency\protected\controllers\ClientController.php(159): ClientController->render()
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): ClientController->actionAdmin()
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#6 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): ClientController->runAction()
+#7 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#9 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): ClientController->filterAccessControl()
+#10 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#11 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 G:\GitHub\yii\framework\web\CController.php(266): ClientController->runActionWithFilters()
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(283): ClientController->run()
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#15 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=client/admin
+in G:\GitHub\travelagency\protected\models\Client.php (118)
+in G:\GitHub\travelagency\protected\views\client\admin.php (33)
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (159)
+2012/12/25 19:26:26 [error] [php] base64_decode() expects parameter 1 to be string, object given (G:\GitHub\travelagency\protected\components\AES.php:30)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\client\admin.php(33): Client->search()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(96): ClientController->renderInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(870): ClientController->renderFile()
+#4 G:\GitHub\yii\framework\web\CController.php(783): ClientController->renderPartial()
+#5 G:\GitHub\travelagency\protected\controllers\ClientController.php(159): ClientController->render()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): ClientController->actionAdmin()
+#7 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): ClientController->runAction()
+#9 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): ClientController->filterAccessControl()
+#12 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 G:\GitHub\yii\framework\web\CController.php(266): ClientController->runActionWithFilters()
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(283): ClientController->run()
+#16 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=client/admin
+in G:\GitHub\travelagency\protected\components\AES.php (30)
+in G:\GitHub\travelagency\protected\models\Client.php (121)
+in G:\GitHub\travelagency\protected\views\client\admin.php (33)
+2012/12/25 19:30:47 [error] [exception.CException] exception 'CException' with message 'ClientController and its behaviors do not have a method or closure named "_decryptClient".' in G:\GitHub\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\client\view.php(19): CComponent->__call('_decryptClient', Array)
+#1 G:\GitHub\travelagency\protected\views\client\view.php(19): ClientController->_decryptClient(Object(Client))
+#2 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\ClientController.php(55): CController->render('view', Array)
+#7 [internal function]: ClientController->actionView('1')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ClientController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ClientController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=client/view&id=1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/update&id=1
+---
+2012/12/25 19:31:56 [error] [exception.CException] exception 'CException' with message 'Please specify the "data" property.' in G:\GitHub\yii\framework\zii\widgets\CDetailView.php:138
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbDetailView.php(38): CDetailView->init()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(148): TbDetailView->init()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 G:\GitHub\travelagency\protected\views\client\view.php(33): CBaseController->widget('bootstrap.widge...', Array)
+#4 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#5 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#8 G:\GitHub\travelagency\protected\controllers\ClientController.php(55): CController->render('view', Array)
+#9 [internal function]: ClientController->actionView('1')
+#10 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ClientController), Array)
+#11 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ClientController), Object(ReflectionMethod), Array)
+#12 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('view')
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/view')
+#22 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=client/view&id=1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/update&id=1
+---
+2012/12/25 19:33:21 [error] [exception.CException] exception 'CException' with message 'Please specify the "data" property.' in G:\GitHub\yii\framework\zii\widgets\CDetailView.php:138
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbDetailView.php(38): CDetailView->init()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(148): TbDetailView->init()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 G:\GitHub\travelagency\protected\views\client\view.php(33): CBaseController->widget('bootstrap.widge...', Array)
+#4 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#5 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#8 G:\GitHub\travelagency\protected\controllers\ClientController.php(55): CController->render('view', Array)
+#9 [internal function]: ClientController->actionView('2')
+#10 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ClientController), Array)
+#11 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ClientController), Object(ReflectionMethod), Array)
+#12 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('view')
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/view')
+#22 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=client/view&id=2
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/index
+---
+2012/12/25 19:43:47 [error] [exception.CException] exception 'CException' with message 'Please specify the "data" property.' in G:\GitHub\yii\framework\zii\widgets\CDetailView.php:138
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbDetailView.php(38): CDetailView->init()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(148): TbDetailView->init()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('bootstrap.widge...', Array)
+#3 G:\GitHub\travelagency\protected\views\client\view.php(37): CBaseController->widget('bootstrap.widge...', Array)
+#4 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#5 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('view', Array, true)
+#8 G:\GitHub\travelagency\protected\controllers\ClientController.php(55): CController->render('view', Array)
+#9 [internal function]: ClientController->actionView('2')
+#10 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(ClientController), Array)
+#11 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(ClientController), Object(ReflectionMethod), Array)
+#12 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#13 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#14 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#15 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#19 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('view')
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('client/view')
+#22 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=client/view&id=2
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/index
+---

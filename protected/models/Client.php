@@ -49,15 +49,15 @@ class Client extends CActiveRecord
 		// will receive user inputs.
 		return array(
             array('Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
-			array('RoomId', 'numerical', 'integerOnly'=>true),
-			array('Name, PassportNumber', 'length', 'max'=>50),
+			array('PassportNumber','unique'),
+            array('Name, PassportNumber', 'length', 'max'=>50),
 			array('Family', 'length', 'max'=>70),
 			array('Address', 'length', 'max'=>200),
 			array('tell', 'length', 'max'=>20),
 			array('CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Family, Address, tell, PassportNumber, RoomId, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'safe', 'on'=>'search'),
+			array('Id, Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -85,7 +85,6 @@ class Client extends CActiveRecord
 			'Address' => 'Address',
 			'tell' => 'Telephone',
 			'PassportNumber' => 'Passport Number',
-			'RoomId' => 'Room',
 			'CreditCardType' => 'Credit Card Type',
 			'CreditCardExpiryDate' => 'Credit Card Expiry Date',
 			'CreditCardHolderName' => 'Credit Card Holder Name',
@@ -103,7 +102,10 @@ class Client extends CActiveRecord
 		// Warning: Please modify the following code to remove attributes that
 		// should not be searched.
 
-		$criteria=new CDbCriteria;
+		// read global variable from /protected/config/main.php file
+        $key = Yii::app()->params['key'];
+        
+        $criteria=new CDbCriteria;
 
 		$criteria->compare('Id',$this->Id);
 		$criteria->compare('Name',$this->Name,true);
@@ -111,12 +113,11 @@ class Client extends CActiveRecord
 		$criteria->compare('Address',$this->Address,true);
 		$criteria->compare('tell',$this->tell,true);
 		$criteria->compare('PassportNumber',$this->PassportNumber,true);
-		$criteria->compare('RoomId',$this->RoomId);
 		$criteria->compare('CreditCardType',$this->CreditCardType,true);
 		$criteria->compare('CreditCardExpiryDate',$this->CreditCardExpiryDate,true);
 		$criteria->compare('CreditCardHolderName',$this->CreditCardHolderName,true);
 		$criteria->compare('CreditCardSecurityNumber',$this->CreditCardSecurityNumber,true);
-		$criteria->compare('CreditCardNumber',$this->CreditCardNumber,true);
+		$criteria->compare('CreditCardNumber',AES::aes256Decrypt($key,$this->CreditCardNumber),true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,

@@ -20,33 +20,33 @@
 	<?php echo CHtml::encode($data->tell); ?>
 	<br />
 
+    <?php 
+        // read global variable from /protected/config/main.php file
+        $key = Yii::app()->params['key'];
+    ?>
+    
 	<b><?php echo CHtml::encode($data->getAttributeLabel('PassportNumber')); ?>:</b>
-	<?php echo CHtml::encode($data->PassportNumber); ?>
+	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->PassportNumber)); ?>
 	<br />
 
-	<b><?php echo CHtml::encode($data->getAttributeLabel('RoomId')); ?>:</b>
-	<?php echo CHtml::encode($data->RoomId); ?>
-	<br />
-
-	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CreditCardType')); ?>:</b>
-	<?php echo CHtml::encode($data->CreditCardType); ?>
+	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->CreditCardType)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CreditCardExpiryDate')); ?>:</b>
-	<?php echo CHtml::encode($data->CreditCardExpiryDate); ?>
+	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->CreditCardExpiryDate)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CreditCardHolderName')); ?>:</b>
-	<?php echo CHtml::encode($data->CreditCardHolderName); ?>
+	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->CreditCardHolderName)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CreditCardSecurityNumber')); ?>:</b>
-	<?php echo CHtml::encode($data->CreditCardSecurityNumber); ?>
+	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->CreditCardSecurityNumber)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CreditCardNumber')); ?>:</b>
-	<?php echo CHtml::encode($data->CreditCardNumber); ?>
+	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->CreditCardNumber)); ?>
 	<br />
 
 	
