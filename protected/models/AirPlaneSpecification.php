@@ -50,7 +50,7 @@ class AirPlaneSpecification extends CActiveRecord
 			array('Name, Type', 'length', 'max'=>50),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Type, NoOfFirstClassSeats, NoOfBusinessClassSeats, NoOfEconomyClassSeats, AirplaneId', 'safe', 'on'=>'search'),
+			array('Id, Name, Type, NoOfFirstClassSeats, NoOfBusinessClassSeats, NoOfEconomyClassSeats', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -62,7 +62,6 @@ class AirPlaneSpecification extends CActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'airplane' => array(self::BELONGS_TO, 'Airplanes', 'AirplaneId'),
 		);
 	}
 
@@ -78,7 +77,6 @@ class AirPlaneSpecification extends CActiveRecord
 			'NoOfFirstClassSeats' => 'No Of First Class Seats',
 			'NoOfBusinessClassSeats' => 'No Of Business Class Seats',
 			'NoOfEconomyClassSeats' => 'No Of Economy Class Seats',
-			'AirplaneId' => 'Airplane',
 		);
 	}
 
@@ -99,20 +97,21 @@ class AirPlaneSpecification extends CActiveRecord
 		$criteria->compare('NoOfFirstClassSeats',$this->NoOfFirstClassSeats);
 		$criteria->compare('NoOfBusinessClassSeats',$this->NoOfBusinessClassSeats);
 		$criteria->compare('NoOfEconomyClassSeats',$this->NoOfEconomyClassSeats);
-		$criteria->compare('AirplaneId',$this->AirplaneId);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
     
+    // Kamran
     public function getTypes()
     {
         return array(
-            'comercial' => 'Comercial',
-            'navy' => 'Navy',
-            'private' => 'Private',
-            );
+            'Comercial' => 'Comercial',
+            'Charter' => 'Charter',
+            'Navy' => 'Navy',
+            'Private' => 'Private',
             
+            );
     }
 }

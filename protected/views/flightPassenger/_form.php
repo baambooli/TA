@@ -33,8 +33,16 @@
 		<?php $this->widget('bootstrap.widgets.TbButton', array(
 			'buttonType'=>'submit',
 			'type'=>'primary',
+            'id'=>'save_update',
 			'label'=>$model->isNewRecord ? 'Create' : 'Save',
 		)); ?>
 	</div>
 
 <?php $this->endWidget(); ?>
+<script>
+
+// jQuery function to change the caption of key after click
+$('#save_update').click(function() {
+    $('#save_update').html('Saving, Please wait ....');
+});
+</script>
