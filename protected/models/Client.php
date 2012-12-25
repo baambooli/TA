@@ -122,4 +122,24 @@ class Client extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+    
+    /**
+     * Create list of EmptyRooms and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getEmptyRooms($startDate, $endDate)
+    {
+        $rooms = Room::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $romsArray = CHtml::listData($rooms, 'Id', 'RoomNumber');
+        return $roomsArray;
+    }
+    
+    // get number of the Room related to the specific Id
+    public function getRoomNumber($id)
+    {
+        $roomNumber = Room::model()->findByPK($id)->RoomNumber;
+        return $roomNumber;
+    }
 }

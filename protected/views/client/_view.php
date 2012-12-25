@@ -25,10 +25,10 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('RoomId')); ?>:</b>
-	<?php echo CHtml::encode($data->RoomlId); ?>
+	<?php echo CHtml::encode($data->RoomId); ?>
 	<br />
 
-	<?php /*
+	
 	<b><?php echo CHtml::encode($data->getAttributeLabel('CreditCardType')); ?>:</b>
 	<?php echo CHtml::encode($data->CreditCardType); ?>
 	<br />
@@ -49,6 +49,6 @@
 	<?php echo CHtml::encode($data->CreditCardNumber); ?>
 	<br />
 
-	*/ ?>
+	
 
 </div>

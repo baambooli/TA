@@ -1,7 +1,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'client-form',
 	'enableClientValidation' => true,
-    'enableAjaxValidation' => true,
+    'enableAjaxValidation' => false,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
