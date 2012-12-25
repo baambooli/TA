@@ -5444,3 +5444,61 @@ REQUEST_URI=/index.php?r=client/view&id=7
 in G:\GitHub\travelagency\protected\models\Client.php (167)
 in G:\GitHub\travelagency\protected\views\client\view.php (29)
 in G:\GitHub\travelagency\protected\controllers\ClientController.php (55)
+2012/12/25 22:41:42 [error] [php] PDO::__construct() [<a href='pdo.--construct'>pdo.--construct</a>]: [2002] No connection could be made because the target machine actively refused it.
+ (trying to connect via tcp://192.168.2.11:3306) (G:\GitHub\yii\framework\db\CDbConnection.php:422)
+Stack trace:
+#0 G:\GitHub\yii\framework\db\CDbConnection.php(331): CDbConnection->open()
+#1 G:\GitHub\yii\framework\db\CDbConnection.php(309): CDbConnection->setActive()
+#2 G:\GitHub\yii\framework\base\CModule.php(388): CDbConnection->init()
+#3 G:\GitHub\yii\framework\base\CApplication.php(431): CWebApplication->getComponent()
+#4 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(624): CWebApplication->getDb()
+#5 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(2311): Client->getDbConnection()
+#6 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(388): CActiveRecordMetaData->__construct()
+#7 G:\GitHub\yii\framework\web\CActiveDataProvider.php(75): model()
+#8 G:\GitHub\travelagency\protected\controllers\ClientController.php(141): CActiveDataProvider->__construct()
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): ClientController->actionIndex()
+#10 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): ClientController->runAction()
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#13 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): ClientController->filterAccessControl()
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#16 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(266): ClientController->runActionWithFilters()
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(283): ClientController->run()
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#20 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=client/index
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (141)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 22:51:29 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "subsub1" was not found.' in G:\GitHub\yii\framework\web\actions\CViewAction.php:113
+Stack trace:
+#0 G:\GitHub\yii\framework\web\actions\CViewAction.php(124): CViewAction->resolveView('subsub1')
+#1 G:\GitHub\yii\framework\web\actions\CAction.php(75): CViewAction->run()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CViewAction))
+#4 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('page')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/page')
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/page&view=subsub1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/index
+---
+2012/12/25 22:56:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The requested view "subsub1" was not found.' in G:\GitHub\yii\framework\web\actions\CViewAction.php:113
+Stack trace:
+#0 G:\GitHub\yii\framework\web\actions\CViewAction.php(124): CViewAction->resolveView('subsub1')
+#1 G:\GitHub\yii\framework\web\actions\CAction.php(75): CViewAction->run()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CViewAction))
+#4 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CViewAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('page')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/page')
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/page&view=subsub1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/index
+---
