@@ -11,10 +11,18 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Family')); ?>:</b>
 	<?php echo CHtml::encode($data->Family); ?>
 	<br />
+    
+    <b><?php echo CHtml::encode($data->getAttributeLabel('CountryId')); ?>:</b>
+    <?php echo CHtml::encode($data->getCountryName($data->CountryId)); ?>
+    <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Address')); ?>:</b>
 	<?php echo CHtml::encode($data->Address); ?>
 	<br />
+    
+    <b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
+    <?php echo CHtml::encode($data->email); ?>
+    <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tell')); ?>:</b>
 	<?php echo CHtml::encode($data->tell); ?>
