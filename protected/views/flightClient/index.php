@@ -1,15 +1,15 @@
 <?php
 $this->breadcrumbs=array(
-	'Flight Passengers',
+	'Flight Clients',
 );
 
 $this->menu=array(
-	array('label'=>'Create FlightPassenger','url'=>array('create')),
-	array('label'=>'Manage FlightPassenger','url'=>array('admin')),
+	array('label'=>'Create FlightClient','url'=>array('create')),
+	array('label'=>'Manage FlightClient','url'=>array('admin')),
 );
 ?>
 
-<h1>Flight Passengers</h1>
+<h1>Flight Clients</h1>
 
 <?php $this->widget('bootstrap.widgets.TbListView',array(
 	'dataProvider'=>$dataProvider,

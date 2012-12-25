@@ -11,6 +11,8 @@
 
 	<?php echo $form->textFieldRow($model,'Address',array('class'=>'span5','maxlength'=>200)); ?>
 
+    <?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>200)); ?>
+
 	<?php echo $form->textFieldRow($model,'tell',array('class'=>'span5','maxlength'=>20)); ?>
 
 	<?php echo $form->textFieldRow($model,'PassportNumber',array('class'=>'span5','maxlength'=>50)); ?>

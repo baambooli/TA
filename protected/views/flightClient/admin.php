@@ -1,12 +1,12 @@
 <?php
 $this->breadcrumbs=array(
-	'Flight Passengers'=>array('index'),
+	'Flight Clients'=>array('index'),
 	'Manage',
 );
 
 $this->menu=array(
-	array('label'=>'List FlightPassenger','url'=>array('index')),
-	array('label'=>'Create FlightPassenger','url'=>array('create')),
+	array('label'=>'List FlightClient','url'=>array('index')),
+	array('label'=>'Create FlightClient','url'=>array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -15,7 +15,7 @@ $('.search-button').click(function(){
 	return false;
 });
 $('.search-form form').submit(function(){
-	$.fn.yiiGridView.update('flight-passenger-grid', {
+	$.fn.yiiGridView.update('flight-client-grid', {
 		data: $(this).serialize()
 	});
 	return false;
@@ -23,16 +23,14 @@ $('.search-form form').submit(function(){
 ");
 ?>
 
-<h1>Manage Flight Passengers</h1>
+<h1>Manage Flight Clients</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'flight-passenger-grid',
+	'id'=>'flight-client-grid',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(
-		'Name',
-		'Family',
-		'PassportNumber',
-		'Tell',
+		'Id',
+		'ClientId',
 		'FlightId',
 		'SeatId',
 		array(

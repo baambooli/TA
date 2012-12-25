@@ -1,6 +1,6 @@
 <?php
 
-class FlightPassengerController extends Controller
+class FlightClientController extends Controller
 {
 	/**
 	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
@@ -61,14 +61,14 @@ class FlightPassengerController extends Controller
 	 */
 	public function actionCreate()
 	{
-		$model=new FlightPassenger;
+		$model=new FlightClient;
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['FlightPassenger']))
+		if(isset($_POST['FlightClient']))
 		{
-			$model->attributes=$_POST['FlightPassenger'];
+			$model->attributes=$_POST['FlightClient'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->Id));
 		}
@@ -88,11 +88,11 @@ class FlightPassengerController extends Controller
 		$model=$this->loadModel($id);
 
 		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+		// $this->performAjaxValidation($model);
 
-		if(isset($_POST['FlightPassenger']))
+		if(isset($_POST['FlightClient']))
 		{
-			$model->attributes=$_POST['FlightPassenger'];
+			$model->attributes=$_POST['FlightClient'];
 			if($model->save())
 				$this->redirect(array('view','id'=>$model->Id));
 		}
@@ -127,7 +127,7 @@ class FlightPassengerController extends Controller
 	 */
 	public function actionIndex()
 	{
-		$dataProvider=new CActiveDataProvider('FlightPassenger');
+		$dataProvider=new CActiveDataProvider('FlightClient');
 		$this->render('index',array(
 			'dataProvider'=>$dataProvider,
 		));
@@ -138,10 +138,10 @@ class FlightPassengerController extends Controller
 	 */
 	public function actionAdmin()
 	{
-		$model=new FlightPassenger('search');
+		$model=new FlightClient('search');
 		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['FlightPassenger']))
-			$model->attributes=$_GET['FlightPassenger'];
+		if(isset($_GET['FlightClient']))
+			$model->attributes=$_GET['FlightClient'];
 
 		$this->render('admin',array(
 			'model'=>$model,
@@ -155,7 +155,7 @@ class FlightPassengerController extends Controller
 	 */
 	public function loadModel($id)
 	{
-		$model=FlightPassenger::model()->findByPk($id);
+		$model=FlightClient::model()->findByPk($id);
 		if($model===null)
 			throw new CHttpException(404,'The requested page does not exist.');
 		return $model;
@@ -167,7 +167,7 @@ class FlightPassengerController extends Controller
 	 */
 	protected function performAjaxValidation($model)
 	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='flight-passenger-form')
+		if(isset($_POST['ajax']) && $_POST['ajax']==='flight-client-form')
 		{
 			echo CActiveForm::validate($model);
 			Yii::app()->end();

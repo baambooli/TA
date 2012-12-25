@@ -48,8 +48,9 @@ class Client extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
-			array('PassportNumber','unique'),
+            array('Name, Family, email, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
+			array('PassportNumber, email','unique'),
+            array('email','email'),
             array('Name, PassportNumber', 'length', 'max'=>50),
 			array('Family', 'length', 'max'=>70),
 			array('Address', 'length', 'max'=>200),
@@ -143,4 +144,26 @@ class Client extends CActiveRecord
         $roomNumber = Room::model()->findByPK($id)->RoomNumber;
         return $roomNumber;
     }
+    
+     /**
+     * Create list of countries and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCountries()
+    {
+        // get list of countries
+        $countries = Country::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        return $countriesArray;
+    }
+    
+    // get name of the Country related to the specific Id
+    public function getCountryName($id)
+    {
+        // get name of Country
+        $CountryName = Country::model()->findByPK($id)->Name;
+        return $CountryName;
+    }  
 }
