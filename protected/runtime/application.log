@@ -5403,3 +5403,44 @@ Stack trace:
 REQUEST_URI=/index.php?r=client/view&id=2
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/index
 ---
+2012/12/25 20:44:49 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 20:45:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 20:45:11 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 20:45:19 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 20:45:20 [error] [system.db.CDbCommand] CDbCommand::fetchAll() failed: SQLSTATE[HY000]: General error: 1356 View 'travelagency.client_view' references invalid table(s) or column(s) or function(s) or definer/invoker of view lack rights to use them. The SQL statement executed was: SHOW COLUMNS FROM `client_view`.
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 21:14:36 [warning] [application] Failed to set unsafe attribute "CountryId" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (71)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 21:17:51 [warning] [application] Failed to set unsafe attribute "CountryId" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (71)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/25 21:17:55 [error] [php] Trying to get property of non-object (G:\GitHub\travelagency\protected\models\Client.php:167)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CBaseController.php(96): ClientController->renderInternal()
+#1 G:\GitHub\yii\framework\web\CController.php(870): ClientController->renderFile()
+#2 G:\GitHub\yii\framework\web\CController.php(783): ClientController->renderPartial()
+#3 G:\GitHub\travelagency\protected\controllers\ClientController.php(55): ClientController->render()
+#4 unknown(0): ClientController->actionView()
+#5 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#7 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): ClientController->runAction()
+#9 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#11 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): ClientController->filterAccessControl()
+#12 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#13 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#14 G:\GitHub\yii\framework\web\CController.php(266): ClientController->runActionWithFilters()
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(283): ClientController->run()
+#16 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#17 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#18 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=client/view&id=7
+in G:\GitHub\travelagency\protected\models\Client.php (167)
+in G:\GitHub\travelagency\protected\views\client\view.php (29)
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (55)

@@ -24,7 +24,12 @@ $this->menu=array(
 		'Id',
 		'Name',
 		'Family',
+        array(
+            'name' => 'CountryId',
+            'value'=>CHtml::encode($model->getCountryName($model->CountryId)),
+        ),
 		'Address',
+        'email',
 		'tell',
 		'PassportNumber',
 		'CreditCardType',
