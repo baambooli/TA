@@ -126,7 +126,7 @@ class CountryController extends Controller
 			$model->attributes=$_POST['Country'];
 
             $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
-            
+
 			if($model->save())
             {
                 if(!empty($uploadedFile))  // check if uploaded file is set or not

@@ -9,7 +9,6 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('FlagURL')); ?>:</b>
-	<!-- <?php echo CHtml::encode($data->FlagURL); ?> -->
     <?php echo CHtml::image(Yii::app()->request->baseUrl.'/banner/'.$data->FlagURL,'FlagURL',array('width'=>100)); ?>  
 	<br />
 

@@ -69,10 +69,37 @@ class HotelController extends Controller
 
         if (isset($_POST['Hotel']))
         {
+            $hasFlagPicture = true; 
             $model->attributes = $_POST['Hotel'];
-
+            $uploadedFile=CUploadedFile::getInstance($model,'Image');
+            
+            if($uploadedFile === NULL || empty($uploadedFile))
+            {
+                $model->Image = $model->Name;
+                
+                // create a default flag picture
+                $file = Yii::app()->basePath.'/../images_hotel/'.'hotel.jpg';
+                $toFile = Yii::app()->basePath.'/../images_hotel/'.$model->Name;
+                copy($file,$toFile);
+                
+                $hasFlagPicture = false;   
+            }
+            else
+            {
+                $fileName = $model->Name.'_'.$uploadedFile;  
+                $model->Image = $fileName;
+            }
+            
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->ID));
+            {
+                if ($hasFlagPicture)
+                {
+                    $flag = Yii::app()->basePath.'/../images_hotel/'.$fileName;
+                    // image will uplode to rootDirectory/images_hotel/
+                    $uploadedFile->saveAs($flag);
+                }  
+                $this->redirect(array('view','id'=>$model->ID));
+            }
         }
 
         $this->render('create', array(
@@ -94,9 +121,21 @@ class HotelController extends Controller
 
         if (isset($_POST['Hotel']))
         {
+            $_POST['Country']['Image'] = $model->Image; 
+            
             $model->attributes = $_POST['Hotel'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->ID));
+            
+            $uploadedFile=CUploadedFile::getInstance($model,'Image'); 
+            
+            if($model->save())
+            {
+                if(!empty($uploadedFile))  // check if uploaded file is set or not
+                {
+                    $flag = Yii::app()->basePath.'/../images_hotel/'.$model->Image;
+                    $uploadedFile->saveAs($flag);
+                }
+                $this->redirect(array('view','id'=>$model->ID));
+            }
         }
 
         $this->render('update', array(
@@ -123,7 +162,7 @@ class HotelController extends Controller
         else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
     }
-
+    
     /**
      * Lists all models.
      */
@@ -140,7 +179,6 @@ class HotelController extends Controller
      */
     public function actionAdmin()
     {
-        //$model = new Hotel('search');
         $hotelsView = new HotlesView('search');
         $hotelsView->unsetAttributes();  // clear any default values
         if (isset($_GET['HotlesView']))

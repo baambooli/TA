@@ -5,7 +5,7 @@
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
-     // for image upload
+     // for image upload , we need these lines
     'htmlOptions' => array(
         'enctype' => 'multipart/form-data',
     ),
@@ -17,14 +17,7 @@
 
 	<?php echo $form->textFieldRow($model,'Name',array('class'=>'span5','maxlength'=>50)); ?>
 
-    <!-- <?php echo $form->textFieldRow($model,'FlagURL',array('class'=>'span5','maxlength'=>255)); ?> -->
-    
     <div >
-        <!--this is Yii's method-->
-        <!--<?php echo $form->labelEx($model,'FlagURL'); ?>-->
-        <!-- <?php echo CHtml::activeFileField($model, 'FlagURL'); // by this we can upload image ?>  -->
-        
-        <!--this is YiiBoosters' method--> 
         <?php echo $form->fileFieldRow($model, 'FlagURL'); ?>
     </div>
     
