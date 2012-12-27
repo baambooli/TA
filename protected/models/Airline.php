@@ -48,6 +48,7 @@ class Airline extends CActiveRecord
 			array('Name, Country, Address, Fax', 'length', 'max'=>255),
 			array('Tell1, Tell2', 'length', 'max'=>25),
 			array('Email', 'length', 'max'=>100),
+            array('Email','email'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('Id, Name, Country, Address, Tell1, Tell2, Fax, Email', 'safe', 'on'=>'search'),
