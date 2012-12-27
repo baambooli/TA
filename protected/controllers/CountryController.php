@@ -137,6 +137,7 @@ class CountryController extends Controller
                 if(!empty($uploadedFile))  // check if uploaded file is set or not
                 {
                     $flag = Yii::app()->basePath.'/../images_country/'.$model->FlagURL;
+                    DebugBreak();
                     $uploadedFile->saveAs($flag);
                 }
                 $this->redirect(array('view','id'=>$model->Id));

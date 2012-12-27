@@ -24,7 +24,7 @@
     <?php if(!$model->isNewRecord) {
              // Image shown here if page is update page  
              echo '<div >';
-             echo CHtml::image(Yii::app()->request->baseUrl.'/banner/'.$model->FlagURL,"FlagURL",array("width"=>200));   
+             echo CHtml::image(Yii::app()->request->baseUrl.'/images_country/'.$model->FlagURL,"FlagURL",array("width"=>200));   
              echo '</div>';
           }
     ?>

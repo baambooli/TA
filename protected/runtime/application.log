@@ -6857,3 +6857,249 @@ in g:\GitHub\travelagency\index.php (13)
 2012/12/26 23:09:48 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
 in G:\GitHub\travelagency\protected\controllers\ClientController.php (134)
 in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:28:07 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(25): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=country/index
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=country/admin&view=admin
+---
+2012/12/27 01:36:28 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(28): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=country/index
+---
+2012/12/27 01:36:39 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(28): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=country/index
+---
+2012/12/27 01:37:49 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.secuirtyManager" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('secuirtyManager')
+#1 G:\GitHub\travelagency\protected\components\AES256.php(28): CModule->__get('secuirtyManager')
+#2 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): AES256::encrypt('kamran')
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=country/index
+---
+2012/12/27 01:40:09 [error] [php] include(CSecuritymanager.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\AES256.php(29): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): encrypt()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/index
+in G:\GitHub\travelagency\protected\components\AES256.php (29)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (177)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:40:43 [error] [php] include(G:\GitHub\travelagency\protected\base\CSecurityManager.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:397)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\AES256.php(29): spl_autoload_call()
+#1 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): encrypt()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#9 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#13 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/index
+in G:\GitHub\travelagency\protected\components\AES256.php (29)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (177)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:41:25 [error] [exception.CException] exception 'CException' with message 'Alias "Yii.base.CSecurityManager" is invalid. Make sure it points to an existing directory or file.' in G:\GitHub\yii\framework\YiiBase.php:343
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\AES256.php(22): YiiBase::import('Yii.base.CSecur...')
+#1 G:\GitHub\yii\framework\YiiBase.php(423): include('G:\GitHub\trave...')
+#2 [internal function]: YiiBase::autoload('AES256')
+#3 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): spl_autoload_call('AES256')
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#15 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=country/index
+---
+2012/12/27 01:41:51 [error] [exception.CException] exception 'CException' with message 'Alias "Yii.framework..base.CSecurityManager" is invalid. Make sure it points to an existing directory or file.' in G:\GitHub\yii\framework\YiiBase.php:343
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\AES256.php(22): YiiBase::import('Yii.framework.....')
+#1 G:\GitHub\yii\framework\YiiBase.php(423): include('G:\GitHub\trave...')
+#2 [internal function]: YiiBase::autoload('AES256')
+#3 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): spl_autoload_call('AES256')
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#15 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=country/index
+---
+2012/12/27 01:42:07 [error] [exception.CException] exception 'CException' with message 'Alias "Yii.framework.base.CSecurityManager" is invalid. Make sure it points to an existing directory or file.' in G:\GitHub\yii\framework\YiiBase.php:343
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\AES256.php(22): YiiBase::import('Yii.framework.b...')
+#1 G:\GitHub\yii\framework\YiiBase.php(423): include('G:\GitHub\trave...')
+#2 [internal function]: YiiBase::autoload('AES256')
+#3 G:\GitHub\travelagency\protected\controllers\CountryController.php(177): spl_autoload_call('AES256')
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#7 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#8 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#11 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#12 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/index')
+#15 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#16 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#17 {main}
+REQUEST_URI=/index.php?r=country/index
+---
+2012/12/27 01:42:30 [error] [php] mcrypt_generic_init() [<a href='function.mcrypt-generic-init'>function.mcrypt-generic-init</a>]: Iv size incorrect; supplied length: 16, needed: 32 (G:\GitHub\yii\framework\base\CSecurityManager.php:212)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\CountryController.php(178): decrypt()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionIndex()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#4 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#5 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#6 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterAccessControl()
+#7 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#8 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#9 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/index
+in G:\GitHub\travelagency\protected\components\AES256.php (34)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (178)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:47:24 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (218)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:47:28 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (218)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:47:34 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (131)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:49:33 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (219)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:49:34 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (219)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:49:41 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (131)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:51:34 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (219)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:51:37 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (219)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (119)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/27 01:51:43 [warning] [application] Failed to set unsafe attribute "FlagURL" of "Country".
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (131)
+in g:\GitHub\travelagency\index.php (13)
