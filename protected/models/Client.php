@@ -48,9 +48,9 @@ class Client extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('Name, Family, email, CountryId, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'required'),
-			array('PassportNumber, email','unique'),
-            array('email','email'),
+            array('Name, Family, BirthDay, Email, Sex, CountryId, Address, tell, PassportNumber', 'required'),
+			array('PassportNumber, Email','unique'),
+            array('Email','email'),
             array('Name, PassportNumber', 'length', 'max'=>50),
 			array('Family', 'length', 'max'=>70),
 			array('Address', 'length', 'max'=>200),
@@ -58,7 +58,7 @@ class Client extends CActiveRecord
 			array('CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'safe', 'on'=>'search'),
+			array('Id, Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber, Email, Sex, Image', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -83,8 +83,12 @@ class Client extends CActiveRecord
 			'Id' => 'ID',
 			'Name' => 'Name',
 			'Family' => 'Family',
-			'Address' => 'Address',
+            'Family' => 'Family',
+            'Email' => 'Email',
+            'Sex' => 'Sex',
+			'Image' => 'Client\'s Image',
 			'tell' => 'Telephone',
+            'BirthDay' => 'BirthDay (yyyy-mm-dd)', 
             'CountryId' => 'Country',
 			'PassportNumber' => 'Passport Number',
 			'CreditCardType' => 'Credit Card Type',
@@ -120,7 +124,11 @@ class Client extends CActiveRecord
 		$criteria->compare('CreditCardHolderName',$this->CreditCardHolderName,true);
 		$criteria->compare('CreditCardSecurityNumber',$this->CreditCardSecurityNumber,true);
 		$criteria->compare('CreditCardNumber',AES::aes256Decrypt($key,$this->CreditCardNumber),true);
-
+        $criteria->compare('Email',$this->Email,true);
+        $criteria->compare('Sex',$this->Sex,true);
+        $criteria->compare('Image',$this->Image,true);
+        $criteria->compare('BirthDay',$this->BirthDay,true);
+        
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));

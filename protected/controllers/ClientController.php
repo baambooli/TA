@@ -66,20 +66,48 @@ class ClientController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
-		if(isset($_POST['Client']))
-		{
-			$model->attributes=$_POST['Client'];
+        if (isset($_POST['Client']))
+        {
+            $hasPicture = true; 
+            $model->attributes = $_POST['Client'];
             
             // encrypt critical data before save
             $this->_encryptClient($model);
             
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->Id));
-		}
+            $uploadedFile=CUploadedFile::getInstance($model,'Image');
+            
+            if($uploadedFile === NULL || empty($uploadedFile))
+            {
+                $model->Image = $model->Name;
+                
+                // create a default flag picture
+                $file = Yii::app()->basePath.'/../images_client/'.'default.jpg';
+                $toFile = Yii::app()->basePath.'/../images_client/'.$model->Name;
+                copy($file,$toFile);
+                
+                $hasPicture = false;   
+            }
+            else
+            {
+                $fileName = $model->Name.'_'.$uploadedFile;  
+                $model->Image = $fileName;
+            }
+            
+            if ($model->save())
+            {
+                if ($hasPicture)
+                {
+                    $image = Yii::app()->basePath.'/../images_client/'.$fileName;
+                    // image will uplode to rootDirectory/images_client/
+                    $uploadedFile->saveAs($image);
+                }  
+                $this->redirect(array('view','id'=>$model->Id));
+            }
+        }
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
+        $this->render('create', array(
+            'model' => $model,
+        ));
 	}
 
 	/**
@@ -94,17 +122,33 @@ class ClientController extends Controller
 		// Uncomment the following line if AJAX validation is needed
 		$this->performAjaxValidation($model);
 
-		if(isset($_POST['Client']))
-		{
-			$model->attributes=$_POST['Client'];
+        if (isset($_POST['Client']))
+        {
+            if ($model->Image === NULL || empty($model->Image))
+            {
+                $model->Image = $model->Name.'_'.rand(1,999999);
+            }
+            
+            $_POST['Client']['Image'] = $model->Image; 
+            
+            $model->attributes = $_POST['Client'];
             
             // encrypt critical data before save
             $this->_encryptClient($model);
-
-			if($model->save())
-				$this->redirect(array('view','id'=>$model->Id));
-		}
-
+            
+            $uploadedFile=CUploadedFile::getInstance($model,'Image'); 
+            
+            if($model->save())
+            {
+                if(!empty($uploadedFile))  // check if uploaded file is set or not
+                {
+                    $image = Yii::app()->basePath.'/../images_client/'.$model->Image;
+                    $uploadedFile->saveAs($image);
+                }
+                $this->redirect(array('view','id'=>$model->Id));
+            }
+        }
+        
         // decrypt critical data before save
         $this->_decryptClient($model);
 

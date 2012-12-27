@@ -16,12 +16,19 @@
     <?php echo CHtml::encode($data->getCountryName($data->CountryId)); ?>
     <br />
 
+    <b><?php echo CHtml::encode($data->getAttributeLabel('BirthDay')); ?>:</b>
+    <?php echo CHtml::encode($data->BirthDay); ?>
+    <br />
+    <b><?php echo CHtml::encode($data->getAttributeLabel('sex')); ?>:</b>
+    <?php echo CHtml::encode($data->Sex ? 'Female' : 'Male'); ?>
+    <br />
+    
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Address')); ?>:</b>
 	<?php echo CHtml::encode($data->Address); ?>
 	<br />
     
-    <b><?php echo CHtml::encode($data->getAttributeLabel('email')); ?>:</b>
-    <?php echo CHtml::encode($data->email); ?>
+    <b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b>
+    <?php echo CHtml::encode($data->Email); ?>
     <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tell')); ?>:</b>
@@ -57,6 +64,8 @@
 	<?php echo CHtml::encode(AES::aes256Decrypt($key,$data->CreditCardNumber)); ?>
 	<br />
 
-	
+	<b><?php echo CHtml::encode($data->getAttributeLabel('Image')); ?>:</b>
+    <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images_client/'.$data->Image,'Image',array('width'=>200)); ?>  
+    <br />
 
 </div>

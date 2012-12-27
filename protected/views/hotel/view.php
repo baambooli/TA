@@ -25,5 +25,12 @@ $this->menu=array(
             'name' => 'CityId',
             'value'=>CHtml::encode($model->getCityName($model->CityId)),
         ),
+        'Tel',
+        'Fax',
+        'Address',
+        'URL',
+        'Email',
 	),
 )); ?>
+<!-- show Image here-->
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images_hotel/'.$model->Image,'Image',array('width'=>200)); 
