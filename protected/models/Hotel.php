@@ -43,6 +43,7 @@ class Hotel extends CActiveRecord
         // will receive user inputs.
         return array(
             array('Name','unique'),
+            array('Email','email'),
             array('Name, Category, CityId', 'required'),
             array('CityId', 'numerical', 'integerOnly' => true),
             array('Name', 'length', 'max' => 255),
@@ -93,7 +94,12 @@ class Hotel extends CActiveRecord
         $criteria->compare('HotelName', $this->Name, true);
         $criteria->compare('Category', $this->Category);
         $criteria->compare('CityName', $this->CityId);
-
+        $criteria->compare('Tel', $this->Tel);
+        $criteria->compare('Fax', $this->Fax, true);
+        $criteria->compare('Address', $this->Adress);
+        $criteria->compare('Email', $this->Email);
+        $criteria->compare('Image', $this->Image);
+        
         return new CActiveDataProvider('HotlesView', array(
             'criteria' => $criteria,
             ));

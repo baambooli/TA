@@ -28,8 +28,13 @@ $this->menu=array(
             'name' => 'CountryId',
             'value'=>CHtml::encode($model->getCountryName($model->CountryId)),
         ),
+        array(
+            'name' => 'Sex',
+            'value'=>$model->Sex ? 'Female' : 'Male'
+        ),
+        'BirthDay',
 		'Address',
-        'email',
+        'Email',
 		'tell',
 		'PassportNumber',
 		'CreditCardType',
@@ -39,3 +44,5 @@ $this->menu=array(
 		'CreditCardNumber',
 	),
 )); ?>
+<!-- show Image here-->
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images_client/'.$model->Image,'Image',array('width'=>200)); 

@@ -5,6 +5,10 @@
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
+    // for image upload , we need these lines
+    'htmlOptions' => array(
+        'enctype' => 'multipart/form-data',
+    ),
 )); ?>
 
 	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
@@ -15,9 +19,16 @@
 
 	<?php echo $form->textFieldRow($model,'Family',array('class'=>'span5','maxlength'=>70)); ?>
 
+    <?php echo $form->radioButtonListRow($model, 'Sex', array('Male', 'Female')); ?>
+    
+    <br />
+    <?php echo $form->fileFieldRow($model, 'Image'); ?> 
+
+    <?php echo $form->datepickerRow($model, 'BirthDay', array('options'=>array('format' => 'yyyy-mm-dd'), 'prepend'=>'<i class="icon-calendar"></i>')); ?>
+
     <?php echo $form->dropDownListRow($model,'CountryId',$model->getCountries(), array('class'=>'span5')); ?>
 
-    <?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>200)); ?>
+    <?php echo $form->textFieldRow($model,'Email',array('class'=>'span5','maxlength'=>200)); ?>
   
 	<?php echo $form->textFieldRow($model,'Address',array('class'=>'span5','maxlength'=>200)); ?>
     

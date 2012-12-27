@@ -77,8 +77,8 @@ class CountryController extends Controller
                 $model->FlagURL = $model->Name;
                 
                 // create a default flag picture
-                $file = Yii::app()->basePath.'/../banner/'.'countryFlag.jpg';
-                $toFile = Yii::app()->basePath.'/../banner/'.$model->Name;
+                $file = Yii::app()->basePath.'/../images_country/'.'default.jpg';
+                $toFile = Yii::app()->basePath.'/../images_country/'.$model->Name;
                 copy($file,$toFile);
                 
                 $hasFlagPicture = false;   
@@ -93,7 +93,7 @@ class CountryController extends Controller
             {
                 if ($hasFlagPicture)
                 {
-                    $flag = Yii::app()->basePath.'/../banner/'.$fileName;
+                    $flag = Yii::app()->basePath.'/../images_country/'.$fileName;
                     // image will uplode to rootDirectory/banner/
                     $uploadedFile->saveAs($flag);
                 }  
@@ -121,17 +121,23 @@ class CountryController extends Controller
         
 		if(isset($_POST['Country']))
 		{
+            if ($model->FlagURL === NULL || empty($model->FlagURL))
+            {
+                $model->FlagURL = $model->Name.'_'.rand(1,999999);
+            }
+            
             $_POST['Country']['FlagURL'] = $model->FlagURL;
 
 			$model->attributes=$_POST['Country'];
 
             $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
-            
+
 			if($model->save())
             {
                 if(!empty($uploadedFile))  // check if uploaded file is set or not
                 {
-                    $flag = Yii::app()->basePath.'/../banner/'.$model->FlagURL;
+                    $flag = Yii::app()->basePath.'/../images_country/'.$model->FlagURL;
+                    DebugBreak();
                     $uploadedFile->saveAs($flag);
                 }
                 $this->redirect(array('view','id'=>$model->Id));
