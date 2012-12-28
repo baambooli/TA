@@ -7187,3 +7187,68 @@ in g:\GitHub\travelagency\index.php (13)
 in G:\GitHub\travelagency\protected\modules\rights\components\RInstaller.php (180)
 in G:\GitHub\travelagency\protected\modules\rights\controllers\InstallController.php (43)
 in g:\GitHub\travelagency\index.php (13)
+2012/12/28 16:42:01 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('generate')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/authItem...')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=rights/authItem/generate
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---
+2012/12/28 16:42:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=rights
+---
+2012/12/28 16:49:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('generate')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/authItem...')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=rights/authItem/generate
+---
+2012/12/28 17:13:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('generate')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/authItem...')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=rights/authItem/generate
+---
