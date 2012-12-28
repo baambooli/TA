@@ -7183,3 +7183,7 @@ REQUEST_URI=/index.php?r=user/update&id=1
 in G:\GitHub\travelagency\protected\models\User.php (130)
 in G:\GitHub\travelagency\protected\controllers\UserController.php (97)
 in g:\GitHub\travelagency\index.php (13)
+2012/12/28 07:11:43 [error] [system.db.CDbCommand] CDbCommand::fetchColumn() failed: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'travelagency.rights' doesn't exist. The SQL statement executed was: SELECT COUNT(*) FROM Rights.
+in G:\GitHub\travelagency\protected\modules\rights\components\RInstaller.php (180)
+in G:\GitHub\travelagency\protected\modules\rights\controllers\InstallController.php (43)
+in g:\GitHub\travelagency\index.php (13)
