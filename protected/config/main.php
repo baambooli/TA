@@ -99,6 +99,8 @@ return array(
         'adminEmail' => 'webmaster@example.com',
         
         // AES256 encryption key
-        'key' => 'my aes256 key.....kamran', 
+        'key' => 'my aes256 key.....kamran',
+        // MD5 salt 
+        'salt' => 'this is kamran\'s salt for hashing passwords', 
     ),
 );

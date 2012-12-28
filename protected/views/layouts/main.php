@@ -33,6 +33,7 @@
                 
                 array('label'=>'Global info',
                   'items'=>array(
+                    array('label'=>'Users\' Management', 'url'=>array('/user/admin','view'=>'admin')),
                     array('label'=>'Countries', 'url'=>array('/country/admin','view'=>'admin')),
                     array('label'=>'Cities', 'url'=>array('/city/admin','view'=>'admin')),
                     array('label'=>'Airports', 'url'=>array('/airport/admin','view'=>'admin')),

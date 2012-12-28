@@ -69,9 +69,6 @@ class User extends TaActiveRecord
 		// NOTE: you may need to adjust the relation name and the related
 		// class name for the relations automatically generated below.
 		return array(
-			'tblIssues' => array(self::HAS_MANY, 'Issue', 'owner_id'),
-			'tblIssues1' => array(self::HAS_MANY, 'Issue', 'requester_id'),
-			'tblProjects' => array(self::MANY_MANY, 'Project', 'tbl_project_user_assignment(user_id, project_id)'),
 		);
 	}
 
@@ -127,11 +124,19 @@ class User extends TaActiveRecord
     protected function afterValidate()
     {
         parent::afterValidate();
-        $this->password = $this->encrypt($this->password);                     
+        
+        // if password is 64 character, it is hashed already
+        // so do not do anything
+        if (strlen($this->password) != 64)
+        {
+            $this->password = $this->encrypt($this->password);
+        }                     
     }
     
     public function encrypt($value)
     {
-        return md5($value);
+        $salt = Yii::app()->params['salt'];
+        // create a 64 characters hash
+        return md5($salt.$value).md5($salt.$value); 
     }
 }
