@@ -13,8 +13,14 @@ return array(
     'import' => array(
         'application.models.*',
         'application.components.*',
+        'application.modules.rights.*', 
+        'application.modules.rights.components.*', 
     ),
     'modules' => array(
+        'rights'=>array( 
+            'install'=>true,  // Enables the installer. 
+        ), 
+   
         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => '123',
@@ -30,9 +36,15 @@ return array(
         'user' => array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
-            // 'class' => 'WebUser',
+            // this is the default website page
+            'loginUrl'=>array('site/login'),
+            'class' => 'RWebUser',
         ),
-        
+         
+         'authManager'=>array( 
+            'class'=>'RDbAuthManager',  // Provides support authorization item sorting. 
+         ), 
+         
         // enable APC cache (By Kamran)
         'cache'=>array(
             'class'=>'system.caching.CApcCache',
@@ -87,6 +99,8 @@ return array(
         'adminEmail' => 'webmaster@example.com',
         
         // AES256 encryption key
-        'key' => 'my aes256 key.....kamran', 
+        'key' => 'my aes256 key.....kamran',
+        // MD5 salt 
+        'salt' => 'this is kamran\'s salt for hashing passwords', 
     ),
 );
