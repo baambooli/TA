@@ -137,6 +137,8 @@ class User extends TaActiveRecord
     {
         $salt = Yii::app()->params['salt'];
         // create a 64 characters hash
-        return md5($salt.$value).md5($salt.$value); 
+        $hash = md5($salt.$value).md5($value.$salt);
+        return $hash;
     }
+    
 }
