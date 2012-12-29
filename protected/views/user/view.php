@@ -19,6 +19,7 @@ $this->menu=array(
 	'data'=>$model,
 	'attributes'=>array(
 		'id',
+        'name',
 		'email',
 		'username',
 		'last_login_time',
