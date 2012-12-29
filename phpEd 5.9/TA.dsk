@@ -16,16 +16,22 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=G:\GitHub\travelagency\protected\controllers\SiteController.php
-IsActive0=1
-ZIndex2=0
-File1=G:\GitHub\travelagency\protected\views\layouts\main.php
+File0=G:\GitHub\travelagency\protected\config\main.php
+IsActive0=0
+ZIndex4=1
+File1=G:\GitHub\travelagency\protected\modules\rights\controllers\InstallController.php
 IsActive1=0
-ZIndex1=1
-File2=G:\GitHub\travelagency\protected\components\UserIdentity.php
+ZIndex3=3
+File2=G:\GitHub\travelagency\protected\modules\rights\controllers\AuthItemController.php
 IsActive2=0
-ZIndex0=2
-Files=3
+ZIndex2=4
+File3=G:\GitHub\travelagency\protected\modules\rights\controllers\AssignmentController.php
+IsActive3=0
+ZIndex1=2
+File4=G:\GitHub\travelagency\protected\modules\rights\RightsModule.php
+IsActive4=1
+ZIndex0=0
+Files=5
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php
