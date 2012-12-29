@@ -36,6 +36,24 @@ class UserIdentity extends CUserIdentity
                     $lastLogin = strtotime($user->last_login_time);
                 }
                 $this->setState('lastLoginTime', $lastLogin); 
+                
+                
+                // save roles of user  (By kamran)
+                // in other sections we can read
+                // the roles with this command:
+                // $a = Yii::app()->user->roles
+                
+                $criteria=new CDbCriteria;
+                $criteria->select = 'itemname';
+                $criteria->compare('userid',$this->_id,true);
+                $roles = Authassignment::model()->findAll($criteria);
+                
+                //convert roles object to array of name of roles
+                foreach($roles as $key => $value)
+                {
+                    $rolesArray[] = $roles[$key]->itemname; 
+                }
+                $this->setState('roles',$rolesArray);
                 $this->errorCode=self::ERROR_NONE;    
             }
         }
