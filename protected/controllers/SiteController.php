@@ -112,5 +112,4 @@ class SiteController extends Controller
     {
        $this->render('about'); 
     }
-     
 }

@@ -7252,3 +7252,838 @@ Stack trace:
 #11 {main}
 REQUEST_URI=/index.php?r=rights/authItem/generate
 ---
+2012/12/29 01:49:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rights/modules/rights/assignment".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/modules/...')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=rights/modules/rights/assignment&view=view
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment/view
+---
+2012/12/29 01:50:02 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rights/modules/rights/assignment".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/modules/...')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=rights/modules/rights/assignment&view=view
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment/view
+---
+2012/12/29 01:50:30 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rights/modules/rights/assignment".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/modules/...')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=rights/modules/rights/assignment&view=view
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment/view
+---
+2012/12/29 01:52:57 [error] [exception.CException] exception 'CException' with message 'RWebUser and its behaviors do not have a method or closure named "isSuperuser".' in G:\GitHub\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\layouts\main.php(83): CComponent->__call('isSuperuser', Array)
+#1 G:\GitHub\travelagency\protected\views\layouts\main.php(83): RWebUser->isSuperuser()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#6 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#7 G:\GitHub\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#9 G:\GitHub\travelagency\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#11 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#12 G:\GitHub\yii\framework\web\CController.php(785): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\travelagency\protected\controllers\SiteController.php(33): CController->render('index')
+#14 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#15 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#16 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#17 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/index')
+#20 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=site/index
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment&view=view
+---
+2012/12/29 01:56:49 [error] [exception.CException] exception 'CException' with message 'RWebUser and its behaviors do not have a method or closure named "isSuperuser".' in G:\GitHub\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\layouts\main.php(83): CComponent->__call('isSuperuser', Array)
+#1 G:\GitHub\travelagency\protected\views\layouts\main.php(83): RWebUser->isSuperuser()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#6 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#7 G:\GitHub\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#9 G:\GitHub\travelagency\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#11 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#12 G:\GitHub\yii\framework\web\CController.php(785): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\travelagency\protected\controllers\SiteController.php(33): CController->render('index')
+#14 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#15 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#16 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#17 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/index')
+#20 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=site/index
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment&view=view
+---
+2012/12/29 02:40:50 [error] [exception.CException] exception 'CException' with message 'Property "User.name" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('name')
+#1 G:\GitHub\travelagency\protected\models\User.php(105): CActiveRecord->__get('name')
+#2 G:\GitHub\travelagency\protected\views\user\admin.php(29): User->search()
+#3 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('admin', Array, true)
+#7 G:\GitHub\travelagency\protected\controllers\UserController.php(149): CController->render('admin', Array)
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): UserController->actionAdmin()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#12 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#13 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#16 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('user/admin')
+#19 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php?r=user/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 02:47:00 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/hotel".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/hotel')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/hotel&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=user/admin&view=admin
+---
+2012/12/29 02:47:09 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/flight".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/flight')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/flight&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=search/hotel&view=admin
+---
+2012/12/29 02:51:35 [error] [php] array_map() [<a href='function.array-map'>function.array-map</a>]: Argument #2 should be an array (G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:103)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): AirlineController->filterAccessControl()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#2 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#3 G:\GitHub\yii\framework\web\CController.php(266): AirlineController->runActionWithFilters()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(283): AirlineController->run()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#6 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+in g:\GitHub\travelagency\index.php (13)
+2012/12/29 02:52:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+---
+2012/12/29 02:55:37 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/index')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/index
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/admin&view=admin
+---
+2012/12/29 03:08:18 [error] [php] Non-static method CActiveRecord::findByPk() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\components\UserIdentity.php:45)
+Stack trace:
+#0 G:\GitHub\yii\framework\validators\CValidator.php(214): CInlineValidator->validateAttribute()
+#1 G:\GitHub\yii\framework\base\CModel.php(158): CInlineValidator->validate()
+#2 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#6 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (45)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/29 03:09:06 [error] [php] Invalid argument supplied for foreach() (G:\GitHub\yii\framework\db\schema\CDbCommandBuilder.php:693)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(45): Authassignment->findByPk()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\validators\CValidator.php(214): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\base\CModel.php(158): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (45)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/29 03:12:08 [error] [php] Invalid argument supplied for foreach() (G:\GitHub\yii\framework\db\schema\CDbCommandBuilder.php:693)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\components\UserIdentity.php(46): Authassignment->findByPk()
+#1 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#2 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate()
+#3 G:\GitHub\yii\framework\validators\CValidator.php(214): CInlineValidator->validateAttribute()
+#4 G:\GitHub\yii\framework\base\CModel.php(158): CInlineValidator->validate()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#7 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (46)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/29 03:13:10 [error] [exception.CDbException] exception 'CDbException' with message 'The value for the column "itemname" is not supplied when querying the table "authassignment".' in G:\GitHub\yii\framework\db\schema\CDbCommandBuilder.php:686
+Stack trace:
+#0 G:\GitHub\yii\framework\db\schema\CDbCommandBuilder.php(498): CDbCommandBuilder->createInCondition(Object(CMysqlTableSchema), Array, Array, '`t`.')
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1425): CDbCommandBuilder->createPkCriteria(Object(CMysqlTableSchema), 2, '', Array, '`t`.')
+#2 G:\GitHub\travelagency\protected\components\UserIdentity.php(46): CActiveRecord->findByPk(2)
+#3 G:\GitHub\travelagency\protected\models\LoginForm.php(52): UserIdentity->authenticate()
+#4 G:\GitHub\yii\framework\validators\CInlineValidator.php(43): LoginForm->authenticate('password', Array)
+#5 G:\GitHub\yii\framework\validators\CValidator.php(214): CInlineValidator->validateAttribute(Object(LoginForm), 'password')
+#6 G:\GitHub\yii\framework\base\CModel.php(158): CValidator->validate(Object(LoginForm), NULL)
+#7 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): CModel->validate()
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#9 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('login')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/login')
+#14 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---
+2012/12/29 03:28:15 [error] [exception.CException] exception 'CException' with message 'Property "CWebApplication.roles" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(106): CComponent->__get('roles')
+#1 G:\GitHub\travelagency\protected\controllers\AirlineController.php(32): CModule->__get('roles')
+#2 G:\GitHub\yii\framework\web\CController.php(1145): AirlineController->accessRules()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/admin&view=admin
+---
+2012/12/29 03:34:33 [error] [php] Trying to get property of non-object (G:\GitHub\travelagency\protected\components\UserIdentity.php:54)
+Stack trace:
+#0 G:\GitHub\yii\framework\validators\CValidator.php(214): CInlineValidator->validateAttribute()
+#1 G:\GitHub\yii\framework\base\CModel.php(158): CInlineValidator->validate()
+#2 G:\GitHub\travelagency\protected\controllers\SiteController.php(95): LoginForm->validate()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionLogin()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#6 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/login
+in G:\GitHub\travelagency\protected\components\UserIdentity.php (54)
+in G:\GitHub\travelagency\protected\models\LoginForm.php (52)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (95)
+2012/12/29 03:40:34 [error] [php] array_map() [<a href='function.array-map'>function.array-map</a>]: Argument #2 should be an array (G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:103)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): AirlineController->filterAccessControl()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#2 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#3 G:\GitHub\yii\framework\web\CController.php(266): AirlineController->runActionWithFilters()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(283): AirlineController->run()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#6 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#7 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+in g:\GitHub\travelagency\index.php (13)
+2012/12/29 03:42:23 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 03:50:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/admin&view=admin
+---
+2012/12/29 03:59:14 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('view')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights/assignme...')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=rights/assignment/view
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment/view
+---
+2012/12/29 04:10:43 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/authItem/generate
+---
+2012/12/29 04:12:30 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 04:12:44 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/index')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/index
+---
+2012/12/29 04:13:27 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 04:16:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 04:23:03 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 04:31:15 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/index
+---
+2012/12/29 04:57:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airplane/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airplane/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 04:57:18 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('seat/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=seat/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airplane/admin&view=admin
+---
+2012/12/29 04:57:35 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airline/index')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airline/index
+---
+2012/12/29 04:58:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('hotel/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=hotel/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 04:58:31 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('room/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=room/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin&view=admin
+---
+2012/12/29 05:00:41 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('flight/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=flight/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/admin&view=admin
+---
+2012/12/29 05:00:47 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airplane/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airplane/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flight/admin&view=admin
+---
+2012/12/29 05:01:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airport/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airport/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=city/admin&view=admin
+---
+2012/12/29 05:02:24 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('seat/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=seat/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airport/admin&view=admin
+---
+2012/12/29 05:02:32 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('airport/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=airport/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=seat/admin&view=admin
+---
+2012/12/29 05:16:44 [error] [exception.CException] exception 'CException' with message 'Property "RWebUser.roles" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CWebUser.php(141): CComponent->__get('roles')
+#1 G:\GitHub\travelagency\protected\views\layouts\main.php(32): CWebUser->__get('roles')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div id="conten...')
+#6 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div id="conten...')
+#7 G:\GitHub\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#9 G:\GitHub\travelagency\protected\views\layouts\column1.php(6): CBaseController->endContent()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#11 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#12 G:\GitHub\yii\framework\web\CController.php(785): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\travelagency\protected\controllers\SiteController.php(33): CController->render('index')
+#14 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#15 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#16 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#17 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('')
+#20 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2012/12/29 05:21:11 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('country/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=country/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=user/admin&view=admin
+---
+2012/12/29 05:21:17 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('city/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=city/admin&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=country/admin&view=admin
+---
+2012/12/29 05:53:43 [error] [php] include(SiteController.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\layouts\main.php(32): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(96): AssignmentController->renderInternal()
+#3 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): AssignmentController->renderFile()
+#4 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#5 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#6 G:\GitHub\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(301): AssignmentController->endWidget()
+#8 G:\GitHub\travelagency\protected\modules\rights\views\layouts\main.php(25): AssignmentController->endContent()
+#9 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(96): AssignmentController->renderInternal()
+#11 G:\GitHub\yii\framework\web\CController.php(785): AssignmentController->renderFile()
+#12 G:\GitHub\travelagency\protected\modules\rights\controllers\AssignmentController.php(74): AssignmentController->render()
+#13 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): AssignmentController->actionView()
+#14 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): AssignmentController->runAction()
+#16 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#18 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): AssignmentController->filterAccessControl()
+#19 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#20 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 G:\GitHub\yii\framework\web\CController.php(266): AssignmentController->runActionWithFilters()
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(283): AssignmentController->run()
+#23 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#24 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=rights/assignment&view=view
+in G:\GitHub\travelagency\protected\views\layouts\main.php (32)
+in G:\GitHub\travelagency\protected\modules\rights\views\layouts\main.php (25)
+in G:\GitHub\travelagency\protected\modules\rights\controllers\AssignmentController.php (74)
+2012/12/29 05:56:22 [error] [php] include(SiteController.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:423)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\layouts\main.php(32): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(96): CountryController->renderInternal()
+#3 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): CountryController->renderFile()
+#4 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#5 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#6 G:\GitHub\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(301): CountryController->endWidget()
+#8 G:\GitHub\travelagency\protected\views\layouts\column2.php(22): CountryController->endContent()
+#9 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(96): CountryController->renderInternal()
+#11 G:\GitHub\yii\framework\web\CController.php(785): CountryController->renderFile()
+#12 G:\GitHub\travelagency\protected\controllers\CountryController.php(169): CountryController->render()
+#13 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): CountryController->actionAdmin()
+#14 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): CountryController->runAction()
+#16 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#17 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#18 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CountryController->filterRights()
+#19 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#20 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#21 G:\GitHub\yii\framework\web\CController.php(266): CountryController->runActionWithFilters()
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(283): CountryController->run()
+#23 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#24 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#25 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=country/admin&view=admin
+in G:\GitHub\travelagency\protected\views\layouts\main.php (32)
+in G:\GitHub\travelagency\protected\views\layouts\column2.php (22)
+in G:\GitHub\travelagency\protected\controllers\CountryController.php (169)
+2012/12/29 06:06:12 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/hotel".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/hotel')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/hotel&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=country/admin&view=admin
+---
+2012/12/29 06:07:05 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('hotel/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=hotel/admin&view=admin
+---
+2012/12/29 06:12:01 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php:170
+Stack trace:
+#0 G:\GitHub\yii\framework\web\auth\CAccessControlFilter.php(133): CAccessControlFilter->accessDenied(Object(RWebUser), 'You are not aut...')
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): CAccessControlFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\yii\framework\web\CController.php(1146): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): CController->filterAccessControl(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('rights')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=rights
+---
+2012/12/29 06:12:10 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('user/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=user/admin&view=admin
+---
+2012/12/29 06:12:16 [error] [exception.CHttpException.403] exception 'CHttpException' with message 'You are not authorized to perform this action.' in G:\GitHub\travelagency\protected\modules\rights\components\RController.php:62
+Stack trace:
+#0 G:\GitHub\travelagency\protected\modules\rights\components\RightsFilter.php(57): RController->accessDenied()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(39): RightsFilter->preFilter(Object(CFilterChain))
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): RController->filterRights(Object(CFilterChain))
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter(Object(CFilterChain))
+#5 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('admin')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('user/admin')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=user/admin&view=admin
+---
