@@ -94,7 +94,9 @@ class RightsModule extends CWebModule
 	*/
 	public function init()
 	{
+        // apply the site theme to Rights module
         $this->appLayout = 'webroot.themes.'. Yii::app()->theme->name .'.views.layouts.main';
+        
 		// Set required classes for import.
 		$this->setImport(array(
 			'rights.components.*',

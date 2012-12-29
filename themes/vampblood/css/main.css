@@ -4,7 +4,8 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	#background: #EFEFEF;
+	background-image: url( 'background.jpg' );
 }
 
 #page
@@ -21,7 +22,7 @@ body
 	padding: 0;
 	background-image: url( 'vampircsepp.jpg' );
 	background-repeat: no-repeat;
-	height: 125px;
+	height: 175px;
 }
 
 #content
