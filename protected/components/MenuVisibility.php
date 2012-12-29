@@ -5,7 +5,7 @@ class MenuVisibility
     {
         // get current user's roles
         if (Yii::app()->user->isGuest)
-            $roles= array('Guest');
+            $roles = array('Guest');
         else
             $roles = Yii::app()->user->roles;
         
