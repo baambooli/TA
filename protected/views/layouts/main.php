@@ -26,7 +26,7 @@
 		<div id="logo"><?php echo CHtml::encode(Yii::app()->name); ?></div>
 	</div><!-- header -->
 
-	<div id="mainMbMenu">
+	 <div id="mainMbMenu">
     <?php 
        
         $visibility = MenuVisibility::getMenuVisibility();
@@ -90,27 +90,34 @@
                   ),
                 ),
                 */
-                // show 'Hotel info' menu to all users
+                // show 'Contact' menu to all users
                 array('label'=>'Contact', 'url'=>array('/site/contact'),
                   'items'=>array(
                     array('label'=>'Contact us', 'url'=>array('/site/contact')),
                     array('label'=>'About us', 'url'=>array('/site/about')),
                   ),
                 ),
-                // show 'Hotel info' menu to all users 
+                // show 'Admin' menu to all users 
                 array('label'=>'Admin Tasks', 'visible' => $visibility['Admin'],
                   'items'=>array(
                     array('label'=>'RBAC', 'url'=>array('/rights/assignment/','view'=>'view')),
                     array('label'=>'Create Reports', 'url'=>array('/report/admin','view'=>'admin')),
                     array('label'=>'Change Forms', 'url'=>array('/changeForm/admin','view'=>'admin')),
+                    array('label'=>'Themes',
+                      'items'=>array(
+                        array('label'=>'Theme Kamran', 'url'=>array('/site/changeTheme/name/kamran_theme1')),
+                        array('label'=>'Theme cheese', 'url'=>array('/site/changeTheme/name/cheese')),
+                        array('label'=>'Theme classic', 'url'=>array('/site/changeTheme/name/classic')),
+                      ),
+                    ),
                   ),
                 ),
                 
                 array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
                 array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
             ),
-    )); ?>	
-	</div><!-- mainMbMenu -->
+    )); ?>    
+    </div><!-- mainMbMenu -->
 	<?php if(isset($this->breadcrumbs)):?>
 		<?php $this->widget('zii.widgets.CBreadcrumbs', array(
 			'links'=>$this->breadcrumbs,

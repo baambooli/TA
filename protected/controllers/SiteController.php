@@ -112,4 +112,11 @@ class SiteController extends Controller
     {
        $this->render('about'); 
     }
+               
+    // changes the theme of website
+    public function actionChangeTheme($name)
+    {
+       Yii::app()->theme = $name; 
+       $this->render('index');
+    }
 }

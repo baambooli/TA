@@ -1638,7 +1638,23 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	but the first method is better.
 	
 	
-88- 
+88- to change the theme of website using code in the siteController.php write
+
+	// changes the theme of website
+    public function actionChangeTheme($name)
+    {
+       Yii::app()->theme = $name; 
+	   $this->render('index');
+    }
+	
+	now in the program code we can change the theme using this call
+	
+		http://kamran.dev.travelagancy.com:81/index.php?r=site/changeTheme/name/kamran_theme1
+
+89- 
+
+
+
 	
 
 
