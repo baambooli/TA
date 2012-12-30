@@ -4,8 +4,15 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	#background: #EFEFEF;
+	/*background: #EFEFEF;*/
+    
+    /* background picture (kamran)*/
 	background-image: url( 'background.jpg' );
+    
+    /* backgound transparency (kamran)*/
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
 }
 
 #page
@@ -46,9 +53,11 @@ body
 
 #logo
 {
-	padding: 10px 20px;
-	font-size: 200%;
-	color: #E5B1B5;
+	padding: 40px 30px;
+	font-size: 300%;
+    font-family: lotus;
+    font-weight: bold;
+	color: #ff0000;
 }
 
 #mainmenu
