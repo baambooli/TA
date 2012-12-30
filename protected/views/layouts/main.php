@@ -117,9 +117,7 @@
 		)); ?><!-- breadcrumbs -->
 	<?php endif?>
     
-    <div class="MyTransparent">
-	    <?php echo $content; ?>
-    </div>
+    <?php echo $content; ?>
     
 	<div class="clear"></div>
 

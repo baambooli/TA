@@ -1597,7 +1597,37 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	code will be shown.
 	when we are changing javascript and CSS files, this will happen a alot.
 	
-87- to change the transparency of our main screen on Yii, supposing we are using YiiBooster
+	
+87- The best way to add a transparent background picture to a theme:
+
+	a) copy background.jpg file in \themes\kamran_theme1\css\ folder
+	
+	b) open \themes\kamran_theme1\css\main.css file and change body {} section of it like below
+	
+	body
+	{
+		margin: 0;
+		padding: 0;
+		color: #555;
+		font: normal 10pt Arial,Helvetica,sans-serif;
+		/*background: #EFEFEF;*/
+		
+		/* background picture (kamran)*/
+		background-image: url( 'background.jpg' );
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: top center;
+		
+		/* backgound transparency 80% (kamran)*/
+		opacity:0.8;
+		filter:alpha(opacity=80); /* For IE8 and earlier */
+	}
+	
+	These lines will create 80% transparency to ANY THEME that has background picture. Even mosules like 
+	"Rights" will have transparency in this way.
+	
+
+88- ANOTHER WAY to change the transparency of our main screen on Yii, supposing we are using YiiBooster
 	we should change g:\GitHub\travelagency\protected\extensions\bootstrap\assets\css\bootstrap.css file
 	
 	find  body{  ... } section on it and add these lines to end of body{} section
@@ -1605,7 +1635,8 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	opacity:0.8;
     filter:alpha(opacity=80); /* For IE8 and earlier */
 	
-	These lines will create 80% transparency to ANY THEME we will use.
+	but the first method is better.
+	
 	
 88- 
 	

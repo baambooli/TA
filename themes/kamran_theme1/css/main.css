@@ -13,6 +13,8 @@ body
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
+    opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
 }
 
 #page
