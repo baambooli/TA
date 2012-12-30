@@ -159,7 +159,6 @@ class SiteController extends Controller
                     throw new CException($msg);
                 }
                 
-                
                 // second: add a row to authassignment table to
                 // make this user as authenticated user
                 // first save user on users table
@@ -176,7 +175,6 @@ class SiteController extends Controller
                     // raise an exception
                     throw new CException($msg);
                 }
-                
                 
             //send email to the user
                 $email = Yii::app()->email;
@@ -198,6 +196,7 @@ class SiteController extends Controller
                 Yii::app()->user->setFlash('success', $msg);
                     
                 $transaction->commit();
+                $model->unsetAttributes();
             }
             catch(Exception $e)
             {
