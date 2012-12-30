@@ -156,7 +156,7 @@ class SiteController extends Controller
                     Yii::app()->user->setFlash('error', $msg);
                     
                     // raise an exception
-                    throw new CException('$msg');
+                    throw new CException($msg);
                 }
                 
                 
@@ -168,14 +168,13 @@ class SiteController extends Controller
                 $auth->itemname = 'Authenticated';
                 $auth->userid =  $model->id;
                 $auth->data = 'N;';
-                
                 if(!$auth->save())
                 {
                     $msg = 'Error in saving the role of the user.';
                     Yii::app()->user->setFlash('error', $msg);
                     
                     // raise an exception
-                    throw new CException('$msg');
+                    throw new CException($msg);
                 }
                 
                 

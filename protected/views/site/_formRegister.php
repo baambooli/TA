@@ -28,13 +28,14 @@
 		)); ?>
 	</div>
     
-     <?php
-        // show flash message 
-        if(Yii::app()->user->hasFlash('success')):?>
-        <div class="info">
-            <?php echo Yii::app()->user->getFlash('success'); ?>
-        </div>
-    <?php endif; ?>
+    <div class="info">
+         <?php
+         // show all flash messages
+            foreach(Yii::app()->user->getFlashes() as $key => $message) {
+                echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+            }
+        ?>
+    </div>
 <?php $this->endWidget(); ?>
 <script>
 
