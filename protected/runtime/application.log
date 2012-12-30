@@ -8430,3 +8430,173 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin&view=admin
 ---
+2012/12/30 17:10:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/hotel".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/hotel')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/hotel&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/index
+---
+2012/12/30 17:10:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/flight".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/flight')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/flight&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=search/hotel&view=admin
+---
+2012/12/30 18:02:52 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "application.views.email.emailConfirm".' in G:\GitHub\yii\framework\web\CController.php:879
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\email\Email.php(116): CController->renderPartial('application.vie...', Array, true)
+#1 G:\GitHub\travelagency\protected\controllers\SiteController.php(161): Email->send()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('register')
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/register')
+#8 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=site/register
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/register
+---
+2012/12/30 18:19:30 [error] [php] Object of class Email could not be converted to string (G:\GitHub\travelagency\protected\views\email\emailConfirm.php:15)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(870): SiteController->renderFile()
+#1 G:\GitHub\travelagency\protected\extensions\email\Email.php(116): SiteController->renderPartial()
+#2 G:\GitHub\travelagency\protected\controllers\SiteController.php(158): Email->send()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#6 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\views\email\emailConfirm.php (15)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (116)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (158)
+2012/12/30 18:21:42 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: &quot;sendmail_from&quot; not set in php.ini or custom &quot;From:&quot; header missing (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(158): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (158)
+2012/12/30 18:23:57 [error] [php] Attempt to assign property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:153)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (153)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:25:44 [error] [php] Attempt to assign property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:153)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (153)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:26:50 [error] [php] Attempt to assign property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:153)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (153)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:28:14 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\SiteController.php:152)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (152)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:30:05 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(159): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (159)
+2012/12/30 18:38:13 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;127.0.0.1&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(159): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (159)
+2012/12/30 18:40:56 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;kamran.com&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(159): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (159)
+2012/12/30 18:42:43 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;kamran.com:81&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(156): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (156)

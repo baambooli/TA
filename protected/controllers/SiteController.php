@@ -129,9 +129,89 @@ class SiteController extends Controller
     {
        Yii::app()->theme = $name;
        
-       // save theme name on session
+       // save theme's name on the session variable
        Yii::app()->session['currentTheme']= $name;
        
        $this->render('index');
     }
+    
+    // registers new user
+     public function actionRegister()
+     {
+         $model=new User;
+
+        // Uncomment the following line if AJAX validation is needed
+        // $this->performAjaxValidation($model);
+
+        if(isset($_POST['User']))
+        {                                      
+            $model->attributes=$_POST['User'];
+            $transaction=$model->dbConnection->beginTransaction();
+            try
+            {
+                // first save user on users table
+                if(!$model->save())
+                {
+                    $msg = 'Error in saving user.';
+                    Yii::app()->user->setFlash('error', $msg);
+                    
+                    // raise an exception
+                    throw new CException('$msg');
+                }
+                
+                
+                // second: add a row to authassignment table to
+                // make this user as authenticated user
+                // first save user on users table
+                
+                $auth = new Authassignment(); 
+                $auth->itemname = 'Authenticated';
+                $auth->userid =  $model->id;
+                $auth->data = 'N;';
+                
+                if(!$auth->save())
+                {
+                    $msg = 'Error in saving the role of the user.';
+                    Yii::app()->user->setFlash('error', $msg);
+                    
+                    // raise an exception
+                    throw new CException('$msg');
+                }
+                
+                
+            //send email to the user
+                $email = Yii::app()->email;
+                $email->from = Yii::app()->params['adminEmail']; //admin's email in config/main.php file
+                $email->to = $model->email;
+                $email->subject = 'Registeration';
+                $email->view = 'emailConfirm';
+                $email->viewVars = array('username'=>$model->username,
+                    'emailAddress'=>$model->email);
+                // IMPORTANT LINE
+                // there in no SMTP in Win7, so I commneted this line
+                // in production machine(Ubuntu), uncomment it
+                
+                //$email->send();   
+                
+                // show success message to the user
+                $msg = 'Your have been successfully registered. An email will be sent to you soon.
+                    (Email is disabled on win7, because it does not have SMTP support by default)';
+                Yii::app()->user->setFlash('success', $msg);
+                    
+                $transaction->commit();
+            }
+            catch(Exception $e)
+            {
+                $transaction->rollback();
+                
+                // show error message
+                $msg = $e->getMessage();
+                Yii::app()->user->setFlash('error', $msg);
+            }
+        }
+
+        $this->render('register',array(
+            'model'=>$model,
+        ));
+     }
 }
