@@ -196,7 +196,7 @@ class SiteController extends Controller
                 Yii::app()->user->setFlash('success', $msg);
                     
                 $transaction->commit();
-                $model->unsetAttributes();
+                $model->unsetAttributes(); //unset attributes
             }
             catch(Exception $e)
             {
