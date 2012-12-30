@@ -16,22 +16,25 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=G:\GitHub\travelagency\protected\config\main.php
+File0=G:\GitHub\travelagency\protected\views\layouts\column1.php
 IsActive0=0
-ZIndex4=1
-File1=G:\GitHub\travelagency\protected\modules\rights\controllers\InstallController.php
+ZIndex5=4
+File1=G:\GitHub\travelagency\protected\views\layouts\column2.php
 IsActive1=0
-ZIndex3=3
-File2=G:\GitHub\travelagency\protected\modules\rights\controllers\AuthItemController.php
+ZIndex4=5
+File2=G:\GitHub\travelagency\protected\extensions\bootstrap\assets\css\bootstrap.css
 IsActive2=0
-ZIndex2=4
-File3=G:\GitHub\travelagency\protected\modules\rights\controllers\AssignmentController.php
+ZIndex3=3
+File3=G:\GitHub\travelagency\css\form.css
 IsActive3=0
-ZIndex1=2
-File4=G:\GitHub\travelagency\protected\modules\rights\RightsModule.php
+ZIndex2=2
+File4=G:\GitHub\travelagency\themes\kamran_theme1\views\layouts\column2.php
 IsActive4=1
-ZIndex0=0
-Files=5
+ZIndex1=0
+File5=G:\GitHub\travelagency\protected\views\layouts\main.php
+IsActive5=0
+ZIndex0=1
+Files=6
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

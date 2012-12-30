@@ -7,7 +7,7 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Kamran Travel Agency',
-    'theme'=>'vampblood',
+    'theme'=>'kamran_theme1',
     
     // preloading 'log' component
     'preload' => array('log', 'bootstrap'),

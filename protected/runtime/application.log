@@ -8231,3 +8231,42 @@ Stack trace:
 REQUEST_URI=/index.php?r=rights/authItem/generate
 in G:\GitHub\travelagency\protected\modules\rights\RightsModule.php (97)
 in g:\GitHub\travelagency\index.php (13)
+2012/12/30 01:25:11 [error] [exception.CException] exception 'CException' with message 'Alias "application.components.ArtMenu" is invalid. Make sure it points to an existing PHP file and the file is readable.' in G:\GitHub\yii\framework\YiiBase.php:318
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWidgetFactory.php(147): YiiBase::import('application.com...', true)
+#1 G:\GitHub\yii\framework\web\CBaseController.php(147): CWidgetFactory->createWidget(Object(SiteController), 'application.com...', Array)
+#2 G:\GitHub\yii\framework\web\CBaseController.php(173): CBaseController->createWidget('application.com...', Array)
+#3 G:\GitHub\travelagency\themes\kamran_theme2\views\layouts\main.php(60): CBaseController->widget('application.com...', Array)
+#4 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#5 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate('<div class="art...')
+#8 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput('<div class="art...')
+#9 G:\GitHub\yii\framework\web\CBaseController.php(207): COutputProcessor->run()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(301): CBaseController->endWidget('CContentDecorat...')
+#11 G:\GitHub\travelagency\themes\kamran_theme2\views\layouts\column1.php(23): CBaseController->endContent()
+#12 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#13 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#14 G:\GitHub\yii\framework\web\CController.php(785): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#15 G:\GitHub\travelagency\protected\controllers\SiteController.php(33): CController->render('index')
+#16 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionIndex()
+#17 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#18 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#19 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('index')
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/index')
+#22 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#23 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#24 {main}
+REQUEST_URI=/index.php?r=site/index
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/authItem/generate
+---
+2012/12/30 03:09:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/hotel".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/hotel')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/hotel&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---

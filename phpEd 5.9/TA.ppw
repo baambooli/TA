@@ -5,9 +5,13 @@ ActiveProject=G:\GitHub\travelagency\phpEd 5.9\TA_prj.ppj
 [Expanded]
 TA=1
 TA:TA_prj=1
+TA:TA_prj:css=1
 TA:TA_prj:protected=1
-TA:TA_prj:protected:modules=1
-TA:TA_prj:protected:modules:rights=1
-TA:TA_prj:protected:modules:rights:controllers=1
+TA:TA_prj:protected:components=1
+TA:TA_prj:protected:config=1
+TA:TA_prj:protected:extensions=1
+TA:TA_prj:protected:extensions:bootstrap=1
+TA:TA_prj:protected:extensions:bootstrap:assets=1
+TA:TA_prj:protected:extensions:bootstrap:assets:css=1
 TA:TA_prj:protected:views=1
 TA:TA_prj:protected:views:layouts=1
