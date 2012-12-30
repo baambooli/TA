@@ -23,6 +23,9 @@ class User extends TaActiveRecord
 {
     public $password_repeat;
     
+    // for captcha we need this variable
+    public $verifyCode;
+    
 	/**
 	 * Returns the static model of the specified AR class.
 	 * @param string $className active record class name.
@@ -49,7 +52,7 @@ class User extends TaActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email, username, password', 'required'),
+			array('email, username, password, password_repeat, verifyCode', 'required'),
 			array('email, username, password', 'length', 'max'=>256),
             array('email', 'email'),
 			// The following rule is used by search().
@@ -59,6 +62,8 @@ class User extends TaActiveRecord
             array('username, email', 'unique'),
             array('password', 'compare'),
             array('password_repeat', 'safe'),
+            // verifyCode needs to be entered correctly
+            array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
 		);
 	}
 
@@ -88,6 +93,7 @@ class User extends TaActiveRecord
 			'create_user_id' => 'Create User',
 			'update_time' => 'Update Time',
 			'update_user_id' => 'Update User',
+            'verifyCode'=>'Verification Code',
 		);
 	}
 

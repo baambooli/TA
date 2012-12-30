@@ -8600,3 +8600,31 @@ REQUEST_URI=/index.php?r=site/register
 in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
 in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
 in G:\GitHub\travelagency\protected\controllers\SiteController.php (156)
+2012/12/30 20:34:03 [error] [exception.CException] exception 'CException' with message 'Property "User.verifyCode" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:131
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(144): CComponent->__get('verifyCode')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(2158): CActiveRecord->__get('verifyCode')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1887): CHtml::resolveValue(Object(User), 'verifyCode')
+#3 G:\GitHub\yii\framework\web\helpers\CHtml.php(1217): CHtml::activeInputField('text', Object(User), 'verifyCode', Array)
+#4 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(658): CHtml::activeTextField(Object(User), 'verifyCode', Array)
+#5 G:\GitHub\travelagency\protected\views\site\_formRegister.php(27): CActiveForm->textField(Object(User), 'verifyCode')
+#6 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#7 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#8 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\travelagency\protected\views\site\register.php(9): CController->renderPartial('_formRegister', Array)
+#10 G:\GitHub\yii\framework\web\CBaseController.php(127): require('G:\GitHub\trave...')
+#11 G:\GitHub\yii\framework\web\CBaseController.php(96): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#12 G:\GitHub\yii\framework\web\CController.php(870): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('register', Array, true)
+#14 G:\GitHub\travelagency\protected\controllers\SiteController.php(213): CController->render('register', Array)
+#15 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#16 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#17 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#18 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('register')
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/register')
+#21 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#22 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/index.php?r=site/register
+---

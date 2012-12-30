@@ -10,5 +10,4 @@ TA:TA_prj:protected:config=1
 TA:TA_prj:protected:controllers=1
 TA:TA_prj:protected:models=1
 TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:email=1
 TA:TA_prj:protected:views:site=1
