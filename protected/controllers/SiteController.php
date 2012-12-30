@@ -2,6 +2,17 @@
 
 class SiteController extends Controller
 {
+    public function init() 
+    {
+        // apply the theme dynamically
+        $theme=Yii::app()->session['currentTheme'];
+        if (!empty($theme))
+            Yii::app()->theme=$theme;
+    
+        // if our class extends a class, we need this line too
+        parent::init();
+    }
+    
 	/**
 	 * Declares class-based actions.
 	 */
@@ -116,7 +127,11 @@ class SiteController extends Controller
     // changes the theme of website
     public function actionChangeTheme($name)
     {
-       Yii::app()->theme = $name; 
+       Yii::app()->theme = $name;
+       
+       // save theme name on session
+       Yii::app()->session['currentTheme']= $name;
+       
        $this->render('index');
     }
 }

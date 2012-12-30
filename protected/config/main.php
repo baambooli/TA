@@ -103,6 +103,6 @@ return array(
         // AES256 encryption key
         'key' => 'my aes256 key.....kamran',
         // MD5 salt 
-        'salt' => 'this is kamran\'s salt for hashing passwords', 
+        'salt' => 'this is kamran\'s salt for hashing passwords',
     ),
 );

@@ -22,6 +22,11 @@ class InstallController extends RController
 	*/
 	public function init()
 	{
+        // apply the theme dynamically
+        $theme=Yii::app()->session['currentTheme'];
+        if (!empty($theme))
+            Yii::app()->theme=$theme;
+            
 		if( $this->module->install!==true )
 			$this->redirect(Yii::app()->homeUrl);
 

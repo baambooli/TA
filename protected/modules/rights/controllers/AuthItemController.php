@@ -8,6 +8,7 @@
 */
 class AuthItemController extends RController
 {
+        
 	/**
 	* @property RAuthorizer
 	*/
@@ -22,6 +23,11 @@ class AuthItemController extends RController
 	*/
 	public function init()
 	{
+        // apply the theme dynamically
+        $theme=Yii::app()->session['currentTheme'];
+        if (!empty($theme))
+            Yii::app()->theme=$theme;
+            
 		$this->_authorizer = $this->module->getAuthorizer();
 		$this->layout = $this->module->layout;
 		$this->defaultAction = 'permissions';

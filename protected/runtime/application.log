@@ -8384,3 +8384,49 @@ REQUEST_URI=/index.php?r=site/changeTheme/name/classic
 in G:\GitHub\travelagency\protected\views\layouts\main.php (29)
 in G:\GitHub\travelagency\protected\views\layouts\main.php (29)
 in G:\GitHub\travelagency\protected\views\layouts\column1.php (6)
+2012/12/30 06:30:02 [error] [exception.CException] exception 'CException' with message 'SiteController and its behaviors do not have a method or closure named "setState".' in G:\GitHub\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(121): CComponent->__call('setState', Array)
+#1 G:\GitHub\travelagency\protected\controllers\SiteController.php(121): SiteController->setState('theme', 'cheese')
+#2 [internal function]: SiteController->actionChangeTheme('cheese')
+#3 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('changeTheme')
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/changeThem...')
+#10 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment&view=view
+---
+2012/12/30 06:39:04 [error] [php] Object of class CTheme could not be converted to string (G:\GitHub\travelagency\protected\modules\rights\RightsModule.php:100)
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(283): createComponent()
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(338): CWebApplication->getModule()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(277): CWebApplication->createController()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=rights/assignment&view=view
+in G:\GitHub\travelagency\protected\modules\rights\RightsModule.php (100)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 07:10:31 [error] [exception.CException] exception 'CException' with message 'Property "CTheme.name" is read only.' in G:\GitHub\yii\framework\base\CComponent.php:171
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(119): CComponent->__set('name', 'cheese')
+#1 [internal function]: SiteController->actionChangeTheme('cheese')
+#2 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('changeTheme')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/changeThem...')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin&view=admin
+---
