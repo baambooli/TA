@@ -8,13 +8,14 @@ body
     
     /* background picture (kamran)*/
 	background-image: url( 'background.jpg' );
-    
-    /* backgound transparency (kamran)*/
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
-    opacity:0.8;
-    filter:alpha(opacity=80); /* For IE8 and earlier */
+    
+    /* backgound transparency (kamran)*/
+    /*opacity:0.9;
+    filter:alpha(opacity=90); */
+    
 }
 
 #page

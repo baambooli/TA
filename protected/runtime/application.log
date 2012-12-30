@@ -8270,3 +8270,333 @@ Stack trace:
 REQUEST_URI=/index.php?r=search/hotel&view=admin
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
 ---
+2012/12/30 04:08:20 [error] [php] Undefined index: label (G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php:172)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php(99): MbMenu->init()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(148): MbMenu->init()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(173): AuthItemController->createWidget()
+#3 g:\GitHub\travelagency\themes\kamran_theme1\views\layouts\main.php(117): AuthItemController->widget()
+#4 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(96): AuthItemController->renderInternal()
+#6 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): AuthItemController->renderFile()
+#7 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#8 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#9 G:\GitHub\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(301): AuthItemController->endWidget()
+#11 G:\GitHub\travelagency\protected\modules\rights\views\layouts\main.php(25): AuthItemController->endContent()
+#12 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#13 G:\GitHub\yii\framework\web\CBaseController.php(96): AuthItemController->renderInternal()
+#14 G:\GitHub\yii\framework\web\CController.php(785): AuthItemController->renderFile()
+#15 G:\GitHub\travelagency\protected\modules\rights\controllers\AuthItemController.php(119): AuthItemController->render()
+#16 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): AuthItemController->actionPermissions()
+#17 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): AuthItemController->runAction()
+#19 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#21 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): AuthItemController->filterAccessControl()
+#22 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#23 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#24 G:\GitHub\yii\framework\web\CController.php(266): AuthItemController->runActionWithFilters()
+#25 G:\GitHub\yii\framework\web\CWebApplication.php(283): AuthItemController->run()
+#26 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#27 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#28 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=rights/authItem/permissions
+in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (172)
+in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (176)
+in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (99)
+2012/12/30 04:12:36 [error] [php] Undefined index: label (G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php:172)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php(99): MbMenu->init()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(148): MbMenu->init()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(173): AuthItemController->createWidget()
+#3 g:\GitHub\travelagency\themes\kamran_theme1\views\layouts\main.php(118): AuthItemController->widget()
+#4 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(96): AuthItemController->renderInternal()
+#6 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): AuthItemController->renderFile()
+#7 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#8 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#9 G:\GitHub\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(301): AuthItemController->endWidget()
+#11 G:\GitHub\travelagency\protected\modules\rights\views\layouts\main.php(25): AuthItemController->endContent()
+#12 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#13 G:\GitHub\yii\framework\web\CBaseController.php(96): AuthItemController->renderInternal()
+#14 G:\GitHub\yii\framework\web\CController.php(785): AuthItemController->renderFile()
+#15 G:\GitHub\travelagency\protected\modules\rights\controllers\AuthItemController.php(119): AuthItemController->render()
+#16 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): AuthItemController->actionPermissions()
+#17 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(134): AuthItemController->runAction()
+#19 G:\GitHub\yii\framework\web\filters\CFilter.php(41): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(1146): CAccessControlFilter->filter()
+#21 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(59): AuthItemController->filterAccessControl()
+#22 G:\GitHub\yii\framework\web\filters\CFilterChain.php(131): CInlineFilter->filter()
+#23 G:\GitHub\yii\framework\web\CController.php(292): CFilterChain->run()
+#24 G:\GitHub\yii\framework\web\CController.php(266): AuthItemController->runActionWithFilters()
+#25 G:\GitHub\yii\framework\web\CWebApplication.php(283): AuthItemController->run()
+#26 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#27 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#28 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=rights/authItem/permissions
+in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (172)
+in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (176)
+in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (99)
+2012/12/30 04:27:17 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "home".' in G:\GitHub\yii\framework\web\CController.php:879
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(783): CController->renderPartial('home', NULL, true)
+#1 G:\GitHub\travelagency\protected\controllers\SiteController.php(120): CController->render('home')
+#2 [internal function]: SiteController->actionChangeTheme('cheese')
+#3 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('changeTheme')
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/changeThem...')
+#10 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+---
+2012/12/30 04:33:03 [error] [php] include_once(menuItem.php) [<a href='function.include-once'>function.include-once</a>]: failed to open stream: No such file or directory (G:\GitHub\travelagency\protected\views\layouts\main.php:29)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#1 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(77): SiteController->renderFile()
+#2 G:\GitHub\yii\framework\web\widgets\CContentDecorator.php(55): CContentDecorator->decorate()
+#3 G:\GitHub\yii\framework\web\widgets\COutputProcessor.php(45): CContentDecorator->processOutput()
+#4 G:\GitHub\yii\framework\web\CBaseController.php(207): CContentDecorator->run()
+#5 G:\GitHub\yii\framework\web\CBaseController.php(301): SiteController->endWidget()
+#6 G:\GitHub\travelagency\protected\views\layouts\column1.php(6): SiteController->endContent()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(127): require()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(96): SiteController->renderInternal()
+#9 G:\GitHub\yii\framework\web\CController.php(785): SiteController->renderFile()
+#10 G:\GitHub\travelagency\protected\controllers\SiteController.php(120): SiteController->render()
+#11 unknown(0): SiteController->actionChangeTheme()
+#12 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs()
+#13 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CInlineAction->runWithParamsInternal()
+#14 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#15 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#16 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#17 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#19 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#20 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/changeTheme/name/classic
+in G:\GitHub\travelagency\protected\views\layouts\main.php (29)
+in G:\GitHub\travelagency\protected\views\layouts\main.php (29)
+in G:\GitHub\travelagency\protected\views\layouts\column1.php (6)
+2012/12/30 06:30:02 [error] [exception.CException] exception 'CException' with message 'SiteController and its behaviors do not have a method or closure named "setState".' in G:\GitHub\yii\framework\base\CComponent.php:266
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(121): CComponent->__call('setState', Array)
+#1 G:\GitHub\travelagency\protected\controllers\SiteController.php(121): SiteController->setState('theme', 'cheese')
+#2 [internal function]: SiteController->actionChangeTheme('cheese')
+#3 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#4 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#5 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#6 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#7 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('changeTheme')
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/changeThem...')
+#10 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#12 {main}
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=rights/assignment&view=view
+---
+2012/12/30 06:39:04 [error] [php] Object of class CTheme could not be converted to string (G:\GitHub\travelagency\protected\modules\rights\RightsModule.php:100)
+Stack trace:
+#0 G:\GitHub\yii\framework\base\CModule.php(283): createComponent()
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(338): CWebApplication->getModule()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(277): CWebApplication->createController()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=rights/assignment&view=view
+in G:\GitHub\travelagency\protected\modules\rights\RightsModule.php (100)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 07:10:31 [error] [exception.CException] exception 'CException' with message 'Property "CTheme.name" is read only.' in G:\GitHub\yii\framework\base\CComponent.php:171
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(119): CComponent->__set('name', 'cheese')
+#1 [internal function]: SiteController->actionChangeTheme('cheese')
+#2 G:\GitHub\yii\framework\web\actions\CAction.php(107): ReflectionMethod->invokeArgs(Object(SiteController), Array)
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(48): CAction->runWithParamsInternal(Object(SiteController), Object(ReflectionMethod), Array)
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('changeTheme')
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/changeThem...')
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#11 {main}
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin&view=admin
+---
+2012/12/30 17:10:44 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/hotel".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/hotel')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/hotel&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/index
+---
+2012/12/30 17:10:53 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "search/flight".' in G:\GitHub\yii\framework\web\CWebApplication.php:287
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('search/flight')
+#1 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=search/flight&view=admin
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=search/hotel&view=admin
+---
+2012/12/30 18:02:52 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "application.views.email.emailConfirm".' in G:\GitHub\yii\framework\web\CController.php:879
+Stack trace:
+#0 G:\GitHub\travelagency\protected\extensions\email\Email.php(116): CController->renderPartial('application.vie...', Array, true)
+#1 G:\GitHub\travelagency\protected\controllers\SiteController.php(161): Email->send()
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#3 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams(Array)
+#4 G:\GitHub\yii\framework\web\CController.php(287): CController->runAction(Object(CInlineAction))
+#5 G:\GitHub\yii\framework\web\CController.php(266): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(283): CController->run('register')
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController('site/register')
+#8 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#9 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=site/register
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/register
+---
+2012/12/30 18:19:30 [error] [php] Object of class Email could not be converted to string (G:\GitHub\travelagency\protected\views\email\emailConfirm.php:15)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(870): SiteController->renderFile()
+#1 G:\GitHub\travelagency\protected\extensions\email\Email.php(116): SiteController->renderPartial()
+#2 G:\GitHub\travelagency\protected\controllers\SiteController.php(158): Email->send()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#4 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#5 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#6 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\views\email\emailConfirm.php (15)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (116)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (158)
+2012/12/30 18:21:42 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: &quot;sendmail_from&quot; not set in php.ini or custom &quot;From:&quot; header missing (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(158): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (158)
+2012/12/30 18:23:57 [error] [php] Attempt to assign property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:153)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (153)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:25:44 [error] [php] Attempt to assign property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:153)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (153)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:26:50 [error] [php] Attempt to assign property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:153)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (153)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:28:14 [error] [php] Creating default object from empty value (G:\GitHub\travelagency\protected\controllers\SiteController.php:152)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (152)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/30 18:30:05 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;localhost&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(159): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (159)
+2012/12/30 18:38:13 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;127.0.0.1&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(159): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (159)
+2012/12/30 18:40:56 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;kamran.com&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(159): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (159)
+2012/12/30 18:42:43 [error] [php] mb_send_mail() [<a href='function.mb-send-mail'>function.mb-send-mail</a>]: Failed to connect to mailserver at &quot;kamran.com:81&quot; port 25, verify your &quot;SMTP&quot; and &quot;smtp_port&quot; setting in php.ini or use ini_set() (G:\GitHub\travelagency\protected\extensions\email\Email.php:140)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(156): Email->send()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(50): SiteController->actionRegister()
+#2 G:\GitHub\yii\framework\web\CController.php(309): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(287): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(266): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(283): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(142): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(162): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/register
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (140)
+in G:\GitHub\travelagency\protected\extensions\email\Email.php (132)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (156)

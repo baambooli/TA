@@ -8,6 +8,7 @@
 */
 class AssignmentController extends RController
 {
+        
 	/**
 	* @property RAuthorizer
 	*/
@@ -18,6 +19,11 @@ class AssignmentController extends RController
 	*/
 	public function init()
 	{
+        // apply the theme dynamically
+        $theme=Yii::app()->session['currentTheme'];
+        if (!empty($theme))
+            Yii::app()->theme=$theme;
+            
 		$this->_authorizer = $this->module->getAuthorizer();
 		$this->layout = $this->module->layout;
 		$this->defaultAction = 'view';

@@ -1638,7 +1638,120 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	but the first method is better.
 	
 	
-88- 
+88- to change the theme of website using code in the siteController.php write
+
+			// changes the theme of website
+			public function actionChangeTheme($name)
+			{
+			   Yii::app()->theme = $name;
+			   
+			   // save theme name on session
+			   Yii::app()->session['currentTheme']= $name;
+			   
+			   $this->render('index');
+			}	
+			
+		the next step is in ALL contollers we should add an init() function like
+	
+		public function init() 
+		{
+			// apply the theme dynamically
+			$theme=Yii::app()->session['currentTheme'];
+			if (!empty($theme))
+				Yii::app()->theme=$theme;
+		
+			// if our class extends a class, we need this line too
+			parent::init();
+		}
+		
+		if a controller has already has init() function, just add these lines to the first of init() function of it:
+		
+			// apply the theme dynamically
+			$theme=Yii::app()->session['currentTheme'];
+			if (!empty($theme))
+				Yii::app()->theme=$theme;
+				
+	now in the program code we can change the theme using this call
+	
+		http://kamran.dev.travelagancy.com:81/index.php?r=site/changeTheme/name/kamran_theme1
+
+89- to handle cookies, we can create a new class like below and save it on the components folder
+
+
+	  <?php
+  
+		class MyCookie extends CWebUser
+		{
+			public static function myHasCookie($name)
+			  {
+				return !empty(Yii::app()->request->cookies[$name]->value);
+			  }
+
+			  public static function myGetCookie($name)
+			  {
+				return Yii::app()->request->cookies[$name]->value;
+			  }
+
+			  public static function mySetCookie($name, $value)
+			  {
+				$cookie = new CHttpCookie($name,$value);
+				Yii::app()->request->cookies[$name] = $cookie;
+			  }
+
+			  public static function myRemoveCookie($name)
+			  {
+				unset(Yii::app()->request->cookies[$name]);
+			  }
+		}
+		
+		in our code we can save data in cookie like
+			
+			// save theme name on user's pc
+			MyCookie::mySetCookie('theme',$name);
+	   
+	   end retrieve like
+	   
+			$theme=MyCookie::myGetCookie('theme');
+			
+90- session variables in Yii
+
+	saving a variable in session
+		
+		// save $name on session
+       Yii::app()->session['name']= $name;
+	
+	restoring variable
+	
+		$name=Yii::app()->session['name'];
+		
+91- in Yii we should not use class constructor for Controllers' initialization and instead we should have an init() function like this
+
+	public function init() 
+	{
+		// do you init here
+		//.............
+	
+		// if our class extends a class, we need this line too
+		parent::init();
+	}
+	
+	but for normal clases that we create by ownself and does not extends the Yii's classes, we can have constructor as ususal
+	
+	
+92- Integrating Wordpress and Yii,Working Out The Details. 
+	
+		http://www.yiiframework.com/wiki/382/integrating-wordpress-and-yii-working-out-the-details/
+		
+93- Include Yii framework in a Joomla module
+
+		http://www.yiiframework.com/wiki/137/include-yii-framework-in-a-joomla-module
+		
+94- codelobster pro 4.3.3 is a PHP IDE for Yii and jQuery and Joomla development (125$) --> very handy and easy to work with Yii
+
+95- 
+
+
+
 	
 
 
