@@ -165,6 +165,8 @@ body {
     line-height: 20px;
     color: #333333;
     background-color: #ffffff;
+    opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
 }
 
 a {
