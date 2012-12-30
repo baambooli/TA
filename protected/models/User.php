@@ -51,6 +51,7 @@ class User extends TaActiveRecord
 		return array(
 			array('email, username, password', 'required'),
 			array('email, username, password', 'length', 'max'=>256),
+            array('email', 'email'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
 			array('id, email, username, password, last_login_time, create_time, create_user_id, update_time, update_user_id', 

@@ -2,6 +2,16 @@
 
 class AirlineController extends RController
 {
+    public function init() 
+    {
+        // apply the theme dynamically
+        $theme=Yii::app()->session['currentTheme'];
+        if (!empty($theme))
+            Yii::app()->theme=$theme;
+    
+        // if our class extends a class, we need this line too
+        parent::init();
+    }
     /**
     * @property RAuthorizer
     */

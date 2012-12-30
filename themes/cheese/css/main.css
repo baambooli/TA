@@ -4,7 +4,14 @@ body
 	padding: 0;
 	color: #555;
 	font: normal 10pt Arial,Helvetica,sans-serif;
-	background: #EFEFEF;
+	background: url('cheese.jpg');
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: top center;
+    
+    /* backgound transparency 80% (kamran)*/
+    opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
 }
 
 #page

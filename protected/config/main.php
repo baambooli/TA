@@ -40,14 +40,23 @@ return array(
             'allowAutoLogin' => true,
             // this is the default website page
             'loginUrl'=>array('site/login'),
-            'class' => 'RWebUser',
+            
+            // for RBAC (Rights module)
+            'class' => 'RWebUser', 
+        ),
+        
+        // for sending email (Email extension)
+        'email'=>array(
+            'class'=>'application.extensions.email.Email',
+            'delivery'=>'php', //Will use the php mailing function.  
+            //May also be set to 'debug' to instead dump the contents of the email into the view
         ),
          
          'authManager'=>array( 
             'class'=>'RDbAuthManager',  // Provides support authorization item sorting. 
          ), 
          
-        // enable APC cache (By Kamran)
+        // enable APC cache 
         'cache'=>array(
             'class'=>'system.caching.CApcCache',
         ),
@@ -61,7 +70,7 @@ return array(
           'showScriptName' => false,
           ),
          */
-        // Yii booster (By Kamran)  
+        // Yii booster   
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
             'responsiveCss' => true,
@@ -98,11 +107,11 @@ return array(
     // using Yii::app()->params['paramName']
     'params' => array(
         // this is used in contact page
-        'adminEmail' => 'webmaster@example.com',
+        'adminEmail' => 'Adminr@ta.com',
         
         // AES256 encryption key
         'key' => 'my aes256 key.....kamran',
         // MD5 salt 
-        'salt' => 'this is kamran\'s salt for hashing passwords', 
+        'salt' => 'this is kamran\'s salt for hashing passwords',
     ),
 );
