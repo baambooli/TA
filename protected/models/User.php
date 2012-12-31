@@ -52,8 +52,9 @@ class User extends TaActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('email, username, password, password_repeat, verifyCode', 'required'),
+			array('email, username, password, password_repeat', 'required'),
 			array('email, username, password', 'length', 'max'=>256),
+            array('verifyCode', 'required', 'on' =>'register'),
             array('email', 'email'),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
@@ -63,7 +64,7 @@ class User extends TaActiveRecord
             array('password', 'compare'),
             array('password_repeat', 'safe'),
             // verifyCode needs to be entered correctly
-            array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+            array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements(), 'on' =>'register'),
 		);
 	}
 

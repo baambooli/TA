@@ -28,8 +28,6 @@
 
     <?php echo $form->dropDownListRow($model,'CountryId',$model->getCountries(), array('class'=>'span5')); ?>
 
-    <?php echo $form->textFieldRow($model,'Email',array('class'=>'span5','maxlength'=>200)); ?>
-  
 	<?php echo $form->textFieldRow($model,'Address',array('class'=>'span5','maxlength'=>200)); ?>
     
 	<?php echo $form->textFieldRow($model,'tell',array('class'=>'span5','maxlength'=>20)); ?>
