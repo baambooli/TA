@@ -160,4 +160,37 @@ class UserController extends RController
 			Yii::app()->end();
 		}
 	}
+    
+    // This functions allows user just change his own information
+    // Kamran
+    public function actionUpdateMyself($id)
+    {
+        if($id != Yii::app()->user->id)
+        {
+          $msg = 'Your are not allowed to change the information of other users.';
+          Yii::app()->user->setFlash('error', $msg);
+          $this->render('confirm');  
+        }
+        else
+        {
+            $model=$this->loadModel($id);
+            $model->password_repeat = $model->password;
+            
+            if(isset($_POST['User']))
+            {
+                $model->attributes=$_POST['User'];
+                if($model->save())
+                {
+                    $msg = 'Your information is changed successfully.';
+                    Yii::app()->user->setFlash('success', $msg);
+                    $this->render('confirm'); 
+                    return;
+                }    
+            }
+            
+            $this->render('update',array(
+                'model'=>$model,
+            ));
+        }
+    }
 }

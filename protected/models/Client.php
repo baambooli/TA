@@ -48,17 +48,17 @@ class Client extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-            array('Name, Family, BirthDay, Email, Sex, CountryId, Address, tell, PassportNumber', 'required'),
-			array('PassportNumber, Email','unique'),
-            array('Email','email'),
+            array('Name, Family, BirthDay, Sex, CountryId, Address, tell, PassportNumber', 'required', 'except'=>'register'),
+			array('PassportNumber, UserId','unique'),
             array('Name, PassportNumber', 'length', 'max'=>50),
 			array('Family', 'length', 'max'=>70),
 			array('Address', 'length', 'max'=>200),
 			array('tell', 'length', 'max'=>20),
+            array('UserId', 'safe'), 
 			array('CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'length', 'max'=>255),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('Id, Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber, Email, Sex, Image', 'safe', 'on'=>'search'),
+			array('Id, Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber, Sex, Image', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -84,7 +84,6 @@ class Client extends CActiveRecord
 			'Name' => 'Name',
 			'Family' => 'Family',
             'Family' => 'Family',
-            'Email' => 'Email',
             'Sex' => 'Sex',
 			'Image' => 'Client\'s Image',
 			'tell' => 'Telephone',
@@ -124,7 +123,7 @@ class Client extends CActiveRecord
 		$criteria->compare('CreditCardHolderName',$this->CreditCardHolderName,true);
 		$criteria->compare('CreditCardSecurityNumber',$this->CreditCardSecurityNumber,true);
 		$criteria->compare('CreditCardNumber',AES::aes256Decrypt($key,$this->CreditCardNumber),true);
-        $criteria->compare('Email',$this->Email,true);
+        $criteria->compare('UserId',$this->UserId,true);
         $criteria->compare('Sex',$this->Sex,true);
         $criteria->compare('Image',$this->Image,true);
         $criteria->compare('BirthDay',$this->BirthDay,true);

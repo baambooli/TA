@@ -34,7 +34,6 @@ $this->menu=array(
         ),
         'BirthDay',
 		'Address',
-        'Email',
 		'tell',
 		'PassportNumber',
 		'CreditCardType',

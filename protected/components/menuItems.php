@@ -30,6 +30,14 @@
                   ),
                 ),
                 
+                // show 'User info' menu to NONE guest users
+                array('label'=>'User info', 'visible' => $visibility['Authenticated'],
+                  'items'=>array(
+                    array('label'=>'Change your user/pass', 'url'=>array('/user/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label'=>'Change your info', 'url'=>array('/client/updateMyself/id/'.Yii::app()->user->id)),
+                  ),
+                ),
+                
                 // show 'Global info' menu to NONE guest users
                 array('label'=>'Global info', 'visible' => $visibility['General'],
                   'items'=>array(
