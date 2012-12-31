@@ -97,7 +97,7 @@
                     array('label'=>'RBAC', 'url'=>array('/rights/assignment/','view'=>'view')),
                     array('label'=>'Create Reports', 'url'=>array('/report/admin','view'=>'admin')),
                     array('label'=>'Change Forms', 'url'=>array('/changeForm/admin','view'=>'admin')),
-                    array('label'=>'Reset users\' password', 'url'=>array('/user/resetPassword')),
+                    array('label'=>'Reset users\' password', 'url'=>array('/site/resetPassword')),
                     array('label'=>'Themes',
                       'items'=>array(
                         array('label'=>'Theme Kamran', 'url'=>array('/site/changeTheme/name/kamran_theme1')),

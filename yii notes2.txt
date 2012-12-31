@@ -285,7 +285,8 @@ or
     }
 
 18- difference between $this->render() and $this->redirect() in Yii
-    if the view is on the same controller use $this->render() or $this->renderPartial(), if the view is on the other controller use $this->redirect()
+    if our favorite view is on the same controller use $this->render() or $this->renderPartial(), if the view is
+	on the other controller we should use $this->redirect()
     
 19- url validation needs that url always contains http:// or https://. To avoid this extra typing, we should
     define our rule in rules() function as:
@@ -1226,7 +1227,13 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 			   return 'index, suggestedTags'; //actionIndex() and actionSuggestedTags() are allowed for all users now
 			} 
 			
-			Note:  Allowed actions are case-insensitive and you may use asterix (*) to allow access to all actions. 
+			Note1:  Allowed actions are case-insensitive and you may use asterix (*) to allow access to all actions.
+			
+			Note2: I sugest all of actions that should be down as Guest user should be put on Sitecontroller or other controllers that
+				   are not extended fromRController base class, because Guest in Rights is different with default Guest user in Yii and
+				   this creates a problem. so put all of functions that even guest should have access to them like 'reset passowrd',
+				   'login/logout', 'register in site' on site controller or other controllers that  are not extended fromRController base class.
+				   
 	o) run your application, you can see that different users have access to different parts of program. and RBAC has been
 		implemented correctly.
 		
@@ -1307,6 +1314,42 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 			modules/rights/controller/InstallController0.php	
 					
 	
+		s) to restiric a user to just change his own information
+			
+			// This functions allows user just change his own information
+			// Kamran
+			public function actionUpdateMyself($id)
+			{
+				// restric user just to his own loggen in Id and not any other Id
+				if($id != Yii::app()->user->id)
+				{
+				  $msg = 'Your are not allowed to change the information of other users.';
+				  Yii::app()->user->setFlash('error', $msg);
+				  $this->render('confirm');  
+				}
+				else
+				{
+					$model=$this->loadModel($id);
+					$model->password_repeat = $model->password;
+					
+					if(isset($_POST['User']))
+					{
+						$model->attributes=$_POST['User'];
+						if($model->save())
+						{
+							$msg = 'Your information is changed successfully.';
+							Yii::app()->user->setFlash('success', $msg);
+							$this->render('confirm'); 
+							return;
+						}    
+					}
+					
+					$this->render('update',array(
+						'model'=>$model,
+					));
+				}
+			}
+		
 77-	get baseURL in Yii
 
 	 $a = Yii::app()->request->baseUrl;
@@ -2350,7 +2393,24 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	
 		http://www.yiiframework.com/wiki/175/how-to-create-a-rest-api/
 
-118- 
+118- if we are going to add a validation error or any type of error to model class, "inside" controller we can write:
+	
+		$this->addError($attribute,'Phone number should be in correct formats');
+
+119- to create a link like   <a href='index.php?r=controller/action'>Link Text</a>
+
+	we should use CHtml class in this way:
+		
+		<?php echo CHtml::link('Link Text',array('controller/action')); ?>
+	
+	or even better
+	
+		<?php echo CHtml::Link('Link Text',$this->createUrl('controller/action')); ?>
+	
+	in the second method we have used the createUrl() function of Controller class to create the URL of the page.
+	
+120- 
+
 
 
 

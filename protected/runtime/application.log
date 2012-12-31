@@ -9664,3 +9664,46 @@ Stack trace:
 REQUEST_URI=/index.php?r=user/resetPassword
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=user/resetPassword
 ---
+2012/12/31 23:34:59 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rights/".' in G:\GitHub\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('rights/')
+#1 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=rights/
+---
+2012/12/31 23:35:08 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "rights".' in G:\GitHub\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('rights')
+#1 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=rights
+---
+2012/12/31 23:51:11 [error] [exception.CException] exception 'CException' with message 'SiteController cannot find the requested view "confirm".' in G:\GitHub\yii\framework\web\CController.php:878
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('confirm', NULL, true)
+#1 G:\GitHub\travelagency\protected\controllers\SiteController.php(302): CController->render('confirm')
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionResetPassword()
+#3 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#5 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('resetPassword')
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/resetPassw...')
+#8 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#9 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#10 {main}
+REQUEST_URI=/index.php?r=site/resetPassword
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/resetPassword
+---
+2012/12/31 23:52:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "resetPassword".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('resetPassword')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('resetPassword')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('user/resetPassw...')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=user/resetPassword
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/login
+---

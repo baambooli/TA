@@ -235,4 +235,76 @@ class SiteController extends Controller
             'model'=>$model,
         ));
      }
+     
+     // This functions allows admin reset the password of a 
+    // user and send new pass by email to him/her
+    // Kamran
+    public function actionResetPassword()
+    {
+        $model = new PasswordResetForm();
+        
+        if(isset($_POST['PasswordResetForm']) )
+        {
+            $model->attributes = $_POST['PasswordResetForm'];
+            if (!$model->validate())
+            {
+               $this->addError('error','validation failed.'); 
+               $this->render('resetPassword',array(
+                    'model'=>$model,
+                ));
+                return;
+            }
+            
+            $user = User::model()->find('email = :emailAddress', 
+                        array(':emailAddress' => $model->emailAddress));    
+            
+            if (empty($user))
+            {
+                $msg = 'There is not such an email in DB.';
+                Yii::app()->user->setFlash('error', $msg);
+                $this->render('resetPassword',array(
+                    'model'=>$model,
+                ));
+                return;
+            }
+            
+            // create a random password
+            $pass = rand(1,9999999);
+            $user->password = $pass;
+            $user->password_repeat = $pass;
+            
+            if($user->save())
+            {
+                // send email to the user
+                $email = Yii::app()->email;
+                $email->from = Yii::app()->params['adminEmail']; //admin's email in config/main.php file
+                $email->to = $model->emailAddress;
+                $email->subject = 'Password reset';
+                $email->view = 'passwordResetEmail';
+                $email->viewVars = array('user'=>$user->username,
+                    'pass'=>$pass);
+                    
+                // IMPORTANT LINE
+                // there in no SMTP in Win7, so I commneted this line
+                // in production machine(Ubuntu), uncomment it
+                
+                //$email->send(); 
+                    
+                $msg = 'Password has been reseted successfully. An email will be sent to the user\'s email address containing new password.'.$pass;
+                Yii::app()->user->setFlash('success', $msg);      
+            }
+            else
+            {
+                $msg = 'Error in saving data.';
+                Yii::app()->user->setFlash('error', $msg);
+            }
+            
+            $this->render('confirm');
+            return;
+        }
+        
+        $this->render('resetPassword',array(
+            'model'=>$model,
+        ));
+    }
 }

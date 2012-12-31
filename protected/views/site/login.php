@@ -35,7 +35,11 @@ $this->breadcrumbs=array(
 		<?php echo $form->passwordField($model,'password'); ?>
 		<?php echo $form->error($model,'password'); ?>
 	</div>
-
+    
+    <div>
+    <?php echo CHtml::Link('Forgot your password?',$this->createUrl('/site/resetPassword')); ?>
+    </div>
+    
 	<div class="row rememberMe">
 		<?php echo $form->checkBox($model,'rememberMe'); ?>
 		<?php echo $form->label($model,'rememberMe'); ?>
