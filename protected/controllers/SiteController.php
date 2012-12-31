@@ -198,7 +198,7 @@ class SiteController extends Controller
                 $email->from = Yii::app()->params['adminEmail']; //admin's email in config/main.php file
                 $email->to = $model->email;
                 $email->subject = 'Registeration';
-                $email->view = 'emailConfirm';
+                $email->view = 'registerationConfirmEmail';
                 $email->viewVars = array('username'=>$model->username,
                     'emailAddress'=>$model->email);
                 // IMPORTANT LINE

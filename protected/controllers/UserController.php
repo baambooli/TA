@@ -193,4 +193,65 @@ class UserController extends RController
             ));
         }
     }
+    
+    // This functions allows admin reset the password of a 
+    // user and send new pass by email to him/her
+    // Kamran
+    public function actionResetPassword()
+    {
+        $model = new PasswordResetForm();
+        
+        if(isset($_POST['PasswordResetForm']))
+        {
+            $user = User::model()->find('email = :emailAddress', 
+                array(':emailAddress'=>$_POST['PasswordResetForm']['emailAddress']));    
+            
+            if (empty($user))
+            {
+                $msg = 'There is not such an email in DB.';
+                Yii::app()->user->setFlash('error', $msg);
+                $this->render('confirm'); 
+                return;
+            }
+            
+            // create a random pasword
+            $pass = rand(1,9999999);
+            $user->password = $pass;
+            $user->password_repeat = $pass;
+            
+            if($user->save())
+            {
+                // send email to the user
+                $email = Yii::app()->email;
+                $email->from = Yii::app()->params['adminEmail']; //admin's email in config/main.php file
+                $email->to = $model->emailAddress;
+                $email->subject = 'Password reset';
+                $email->view = 'passwordResetEmail';
+                $email->viewVars = array('user'=>$user->username,
+                    'pass'=>$pass);
+                // IMPORTANT LINE
+                // there in no SMTP in Win7, so I commneted this line
+                // in production machine(Ubuntu), uncomment it
+                
+                //$email->send(); 
+                    
+                $msg = 'Password has been reseted successfully. An email will be sent to the user\'s email address containing new password.';
+                Yii::app()->user->setFlash('success', $msg);      
+            }
+            else
+            {
+                $msg = 'Error in saving data.';
+                Yii::app()->user->setFlash('error', $msg);
+            }
+            
+            $this->render('confirm');
+            return;
+        }
+        else
+        {
+            $this->render('resetPassword',array(
+                'model'=>$model,
+            ));
+        }
+    }
 }
