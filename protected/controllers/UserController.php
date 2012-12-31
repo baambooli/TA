@@ -201,20 +201,32 @@ class UserController extends RController
     {
         $model = new PasswordResetForm();
         
-        if(isset($_POST['PasswordResetForm']))
+        if(isset($_POST['PasswordResetForm']) )
         {
+            $model->attributes = $_POST['PasswordResetForm'];
+            if (!$model->validate())
+            {
+               $this->addError('error','validation failed.'); 
+               $this->render('resetPassword',array(
+                    'model'=>$model,
+                ));
+                return;
+            }
+            
             $user = User::model()->find('email = :emailAddress', 
-                array(':emailAddress'=>$_POST['PasswordResetForm']['emailAddress']));    
+                        array(':emailAddress' => $model->emailAddress));    
             
             if (empty($user))
             {
                 $msg = 'There is not such an email in DB.';
                 Yii::app()->user->setFlash('error', $msg);
-                $this->render('confirm'); 
+                $this->render('resetPassword',array(
+                    'model'=>$model,
+                ));
                 return;
             }
             
-            // create a random pasword
+            // create a random password
             $pass = rand(1,9999999);
             $user->password = $pass;
             $user->password_repeat = $pass;
@@ -247,11 +259,9 @@ class UserController extends RController
             $this->render('confirm');
             return;
         }
-        else
-        {
-            $this->render('resetPassword',array(
-                'model'=>$model,
-            ));
-        }
+        
+        $this->render('resetPassword',array(
+            'model'=>$model,
+        ));
     }
 }

@@ -7,8 +7,8 @@ class PasswordResetForm  extends CFormModel
     public function rules()
     {
         return array(
-            array('$emailAddress', 'required'),
-            array('$emailAddress', 'email'),
+            array('emailAddress', 'required'),
+            array('emailAddress', 'email'),
         );
     }
 }
