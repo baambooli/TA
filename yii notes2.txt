@@ -41,33 +41,30 @@ or
 	
 3- to show a flash message
 	
+	
 	--in the controller file (Controllers\SelfConfirmController.php):
 	
 	//send success message
-	$msg = 'Congratulation. Your account is activated succesfully. ' . 
-		'Your may login to site now.';
-	Yii::app()->user->setNotification('Account activation', $msg, 'success', true, false);
-	
+	Yii::app()->user->setFlash('success','Your have been successfully logged in by facebook!');
 	$this->render('SelfConfirmView');
 	
 	or 
 	
 	//send error message
-	$msg = 'Sorry! Your account is NOT activated succesfully. ' . 
-		'Maybe your activation link has been expired.';
-	Yii::app()->user->setNotification('Account activation', $msg, 'error', true, false);
+	Yii::app()->user->setFlash('error','Your have been successfully logged in by facebook!');	
+	or
+	Yii::app()->user->setFlash('notification','Your have been successfully logged in by facebook!');
 	
 	$this->render('SelfConfirmView');
 	
 
 	--in the view file ( Views\SelfConfirm\SelfConfirmView.php):
 	
-	<?php $this->widget('application.widgets.inotify'); ?>
 	<?php
-		//show message(s) created in controller   (SelfConfirmController.php)
 		foreach(Yii::app()->user->getFlashes() as $key => $message) {
 			echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
 		}
+	?>
 		
 4- reading from a field in a form
 
@@ -1109,23 +1106,24 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	
 	// Cool travelagency rbac Diagram
 
-	[Admin (Role)]->[Flight_Hotel_Operator (Role)]
+	[Admin (Role)]->[FlightHotelOperator (Role)]
     [Admin (Role)]->[Admin tasks (Task)]
 	[Admin tasks (Task)]->[CRUD RBAC rights (Operation)]
-	[Admin tasks (Task)]->[Change Forms (Operation)]
+	[Admin tasks (Task)]->[Change Themes (Operation)]
 	[Admin tasks (Task)]->[Create Reports (Operation)]
-	[Flight_Hotel_Operator (Role)]->[Hotel_Operator (Role)]
-	[Flight_Hotel_Operator (Role)]->[Flight_Operator (Role)]
-	[Hotel_Operator (Role)]->[CRUD Hotel Tables (Operation)]
-	[Hotel_Operator (Role)]->[Authenticated_User (Role)]
-	[Flight_Operator (Role)]->[CRUD Flight Tables (Operation)]
-	[Flight_Operator (Role)]->[Authenticated_User (Role)]
-	[Authenticated_User (Role)]->[Reserve hotels and flights (Operation)]
-	[Authenticated_User (Role)]->[Guest_User (Role)]
-	[Guest_User (Role)]->[Search hotels and fights (Operation)]
-	[Authenticated_User (Role)]->[CRUD his own information (Operation)]
-	[Guest_User (Role)]->[Register (Operation)]
-	[Authenticated_User (Role)]->[login/logout (Operation)]
+	[Admin tasks (Task)]->[Print Reports (Operation)]
+	[FlightHotelOperator (Role)]->[HotelOperator (Role)]
+	[FlightHotelOperator (Role)]->[FlightOperator (Role)]
+	[HotelOperator (Role)]->[CRUD Hotel Tables (Operation)]
+	[HotelOperator (Role)]->[AuthenticatedUser (Role)]
+	[FlightOperator (Role)]->[CRUD Flight Tables (Operation)]
+	[FlightOperator (Role)]->[AuthenticatedUser (Role)]
+	[AuthenticatedUser (Role)]->[Reserve hotels and flights (Operation)]
+	[AuthenticatedUser (Role)]->[GuestUser (Role)]
+	[GuestUser (Role)]->[Search hotels and flights (Operation)]
+	[AuthenticatedUser (Role)]->[CRUD his own information (Operation)]
+	[GuestUser (Role)]->[Register (Operation)]
+	[AuthenticatedUser (Role)]->[login/logout (Operation)]
 	
 75- RESTfull webservice in Yii
 
@@ -1197,13 +1195,17 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 		
 	n) on the controller classes we should apply these changes:
 		
-		-- the controllers that everybody should have access to them like SiteController should be left without any chnages.
+		-- IMPORTANT NOTE: the controllers that everybody should have access to them like SiteController should be left without any chnages.
 		
-		-- Change base class in other Controller to RController for example
+		-- Change base class of other Controllers to 'RController'. for example
 		
-			class RoomController extends RController 
+				class RoomController extends Controller 
 			
-		-- change filters() function to this 
+			should be changed to 
+				
+				class RoomController extends RController
+			
+		-- change filters() function on all of CHANGED Contoller clases to this 
 			
 			public function filters()
 			{
@@ -1211,6 +1213,8 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 					'rights',
 				);
 			}
+			
+			IMPORTANT: Do not change SiteController and other controller classes that are NOT extended from 'RController'.
 			
 		-- delete accessRules() function from controllers. 
 
@@ -1748,17 +1752,263 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 		
 94- codelobster pro 4.3.3 is a PHP IDE for Yii and jQuery and Joomla development (125$) --> very handy and easy to work with Yii
 
-95- 
+95- How to work with flash messages
 
+	Set your messages in a controller:
+	
+	Yii::app()->user->setFlash('success', "Data1 saved!");
+	Yii::app()->user->setFlash('error', "Data2 failed!");
+	Yii::app()->user->setFlash('notice', "Data3 ignored.");
 
+	Display them in your view:
+
+	<?php
+		foreach(Yii::app()->user->getFlashes() as $key => $message) {
+			echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+		}
+	?>
 
 	
+96- for sending simple emails we can use mail() function that is s pear function.
+	
+	
+97- Sending Email in Yii based on a view
+	
+			http://www.yiiframework.com/extension/email/
+		
+		IMPORTANT NOTE: SMTP is NOT installed on Win7 by default, use this article to install Gmail support on win 7
+		
+			http://digiex.net/guides-reviews/guides-tutorials/application-guides/544-configuring-php-under-windows-use-gmail-external-smtp-server-ssl.html
+		
+		or 
+		
+		you should use a big package from MS website to add SMTP support to win7 PRO and ENTRPRISE only!!!
+		
+		IIS 7 that comes with Windows 7 does not include an SMTP server by default. But you can get it by installing the remote admin tools from here:
+		 
+			http://support.microsoft.com/kb/974877/en-us[^]
+		 
+		Once you do that, here's how you can configure SMTP:
+		 
+			http://technet.microsoft.com/en-us/library/cc772058(WS.10).aspx[^]
+		
+		otherwise you will get error when you try to send email with above component
+		
+98- Transactions on Yii:
+	when we are going to be sure that more than one DB action should be done correctly and when Evene one of them is not correct, we should
+	roolback ALL, transactions should be used. 
+	
+	Using Transaction with AR 
+	
+	Every AR instance contains a property named dbConnection which is a CDbConnection instance. We thus can use the transaction feature provided by Yii DAO if it is desired when working with AR:
+
+		$model=Post::model();
+		$transaction=$model->dbConnection->beginTransaction();
+		try
+		{
+			// find and save are two steps which may be intervened by another request
+			// we therefore use a transaction to ensure consistency and integrity
+			$post=$model->findByPk(10);
+			$post->title='new post title';
+			if(!$post->save())
+			{
+				$msg = 'Error in save post.';
+                Yii::app()->user->setFlash('error', $msg);
+				
+				// raise an exception
+                throw new CException($msg);
+			}
+			
+			$user=User::model()->findByPk(5);
+			$user->title='new user title';
+			if(!$user->save())
+			{
+				$msg = 'Error in save user.';
+                Yii::app()->user->setFlash('error', $msg);
+				
+				// raise an exception
+                throw new CException($msg);
+			}
+			
+			$transaction->commit();
+			$model->unsetAttributes(); //unset attributes 
+		}
+		catch(Exception $e)
+		{
+			$transaction->rollback();
+			
+			// show error message
+		    $msg = $e->getMessage();
+            Yii::app()->user->setFlash('error', $msg);
+		}
+		
+		
+99- adding catcha in yii is very simple
+
+	a) in the model class add this public variable
+		
+		public $verifyCode;  
+	
+	   and add these rules to the rules() function
+
+		// verifyCode needs to be entered correctly
+        array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+		array('verifyCode', 'required'),
+
+	b) in the view (_form.php) add these lines
+	
+		<?php if(CCaptcha::checkRequirements()): ?>
+		<div class="row">
+			<?php echo $form->labelEx($model,'verifyCode'); ?>
+			<div>
+			<?php $this->widget('CCaptcha'); ?>
+			<?php echo $form->textField($model,'verifyCode'); ?>
+			</div>
+			<div class="hint">Please enter the letters as they are shown in the image above.
+			<br/>Letters are not case-sensitive.</div>
+			<?php echo $form->error($model,'verifyCode'); ?>
+		</div>
+		<?php endif; ?>
+		
+		that is all.
+
+		
+100- we can use Xdebug to debug and Profile our php program. read this page to realize how
+	
+		http://xdebug.org/docs/profiler
+	
+101- installing xdebug on Ubuntu is described in another file, but in win 7 and using xampp 1.7.7 we should	just add these lines to php.ini file
+	
+
+	You can install XAMPP anywhere on your system, but for this tutorial, we will use d:\xampp as the installing directory, as its easier to type.
+
+	Install XAMPP to d:\xampp. If you want to run a web server, install the services. Its recommended if you want to test your site locally.
+
+	WinCacheGrind
+
+		Download WinCacheGrind and install into its default location: c:\Program Files\WinCacheGrind\
+
+	PHP.ini
+
+		Open d:\xampp\php\php.ini in a text editor. Find php_xdebug.dll:
+
+		extension=php_xdebug.dll
+		in the file php.ini and make sure it is commented out (has a ; at the beginning of the line). If it isn't, it will cause problems later.
+
+	In the same file, find the line [Zend]:
+
+		[Zend]
+		
+	and comment out all lines in that section with a single ; in front of each line. Xdebug cannot load if zend is operational.
+
+	In the next section [Xdebug]:
+
+		[Xdebug]
+		
+	replace the entire section with the following:
+
+		;---------------------------------------------------
+		; added by kamran
+		;---------------------------------------------------
+		[xDebug]
+		;; Only Zend OR (!) XDebug
+
+		zend_extension="d:\xampp\php\ext\php_xdebug.dll"
+
+		; profile section
+
+		xdebug.profiler_append = 0
+		xdebug.profiler_enable = 1
+		xdebug.profiler_enable_trigger = 0
+		xdebug.profiler_output_dir = "d:\xampp\tmp"
+		xdebug.profiler_output_name = "cachegrind.out.%t-%s"
+		xdebug.remote_enable = 1
+		xdebug.remote_handler = "dbgp"
+		xdebug.remote_host = "127.0.0.1"
+		xdebug.trace_output_dir = "d:\xampp\tmp"
+
+		;debug section
+
+		xdebug.remote_enable=1
+		xdebug.remote_handler=dbgp
+		xdebug.remote_mode=req
+		xdebug.remote_host=192.168.2.11  ; 192.168.2.11 = win 7 ip address (netbeans 7.3 is installed on win 7 pc not Ubuntu)
+		xdebug.remote_port=9000
+		xdebug.remote_log="d:\php_xdebug.log"
+
+		;-----------------------------------------------------
+
+	The dll name changes occasionally, so if things aren't working, go to C:\xampp\php\ext\ and look for it, and copy its file name into the code above, replacing php_xdebug-2.0.0-5.2.2.dll then see if things work better.
+
+	Tip:
+
+	From PHP 5.3 onwards, you always need to use zend_extension and not zend_extension_ts.
+
+	Finally, save the file php.ini and close it. and restart apache webserver
+	
+	-- to analyse data download WinCacheGrind from
+		
+		http://sourceforge.net/projects/wincachegrind/files/latest/download
+		
+	and use it to open the log file created by analyzer--> d:\xamp\tmp\cachegrind.out.*
+	
+	
+	for linux use KCacheGrind or similar software ( Webgrind : php version of KCacheGrind ) introduced here:
+	
+		http://xdebug.org/docs/profiler
+	
+	IMPORTANT NOTE: Xdebug profiler creates a very big files. never leave it 'on' when you are not analyzing your code. it will consume your hard disk
+					very very fast.
+					
+					
+102- smarty is a very famouse PHP templating system but savant is easier to use and in PHP
+
+	Savant is a powerful but lightweight object-oriented template system for PHP.
+
+	Unlike other template systems, Savant by default does not compile your templates into PHP; instead, it uses PHP itself as its template language so you don't need to learn a new markup system.
+
+	Why Use Savant for Templates?
+
+	You don't need to learn a new language or markup to create a template. The template language is PHP, and the template file is a regular PHP file.
+	You don't have to worry about separate directories (or permissions on those directories) for compiled template sources, because Savant is not a compiling engine (the template scripts are already written in PHP).
+	Even though Savant is not itself a compiling system, you can write your own compiler and plug it into Savant; this means you can use any template markup system you like.
+	The Savant source code is easy to read, understand, and extend, because it is exceptionally well-commented.
+	The object-oriented plugin, filter, error, and compiler classes for Savant are easy to use, understand, and extend.
+	Because your template script is a regular PHP script, you can sprinkle it with comments and use phpDocumentor to document it.
 
 
+103-  INSTALL APC ON XAMPP 1.7.7
 
+	This is how I installed APC on Xampp on Windows 7
 
+	Go to this webpage: http://downloads.php.net/pierre/
+	READ THIS BIT CAREFULLY AS THE WEBSITE ABOVE IS CONSTANTLY UPDATED. Look for a file that starts with “php_apc” and then something like “-3.1.10? (APC version) then “-5.3? (Your Xampp PHP version) then “-vc9? (unimportant) then “-x86? (32 bit pc) () .zip
+	At the time of writing if you were running xampp with php 5.3 then you would want this file http://downloads.php.net/pierre/php_apc-3.1.10-5.3-vc9-x86.zip
+	Download and unzip this file
+	Copy php_apc.dll to d:\xampp\php\ext
+	Open php.ini (d:\xampp\php\php.ini) and add extension=php_apc.dll
+	You also needed to change a couple of settings inside apache.
 
+	Go to the directory of installation\apache\conf
+	Open and edit httpd.conf in a text editor
+	Find all occurrences of
+	
+	AllowOverride None
+	
+	and change to
+
+	AllowOverride All
+	
+	I think it appears 2 or 3 times on the configuration file.
+	Reset Apache
+	Should work for you as well.
 
 	
+104- 
+
+
+
+
+
 	
 Kamran
