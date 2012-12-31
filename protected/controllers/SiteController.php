@@ -146,7 +146,9 @@ class SiteController extends Controller
         if(isset($_POST['User']))
         {                                      
             $model->attributes=$_POST['User'];
+            
             $transaction=$model->dbConnection->beginTransaction();
+            
             try
             {
                 // first save user on users table
@@ -176,7 +178,22 @@ class SiteController extends Controller
                     throw new CException($msg);
                 }
                 
-            //send email to the user
+                // third: creat a row in clients table for user
+                $client = new Client('register');
+                $client->UserId = $model->id;
+                // set a default country
+                $countryId = Country::model()->find()->Id; 
+                $client->CountryId = $countryId;
+                if(!$client->save())
+                {
+                    $msg = 'Error in saving the client.';
+                    Yii::app()->user->setFlash('error', $msg);
+                    
+                    // raise an exception
+                    throw new CException($msg);
+                }
+                
+                // forth: send email to the user
                 $email = Yii::app()->email;
                 $email->from = Yii::app()->params['adminEmail']; //admin's email in config/main.php file
                 $email->to = $model->email;
@@ -190,13 +207,18 @@ class SiteController extends Controller
                 
                 //$email->send();   
                 
-                // show success message to the user
+                // fifth: show success message to the user
                 $msg = 'Your have been successfully registered. An email will be sent to you soon.
                     (Email is disabled on win7, because it does not have SMTP support by default)';
                 Yii::app()->user->setFlash('success', $msg);
-                    
+                 
+                // sexth: commit the transaction   
                 $transaction->commit();
-                $model->unsetAttributes(); //unset attributes
+                
+                // seventh:unset attributes
+                $model->unsetAttributes(); 
+                $model->password_repeat= '';
+                $model->verifyCode= '';
             }
             catch(Exception $e)
             {

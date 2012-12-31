@@ -6,7 +6,7 @@
   <DatabaseProvider>59f90733-4d68-4fdf-82a7-f0fcbf5460aa</DatabaseProvider>
   <Connection>
     <Name>travelagency.localhost</Name>
-    <ConnectionString>User Id=root;Host=localhost;Database=travelagency;Character Set=utf8</ConnectionString>
+    <ConnectionString>User Id=root;Host=localhost;Database=travelagency;Character Set=utf8;</ConnectionString>
   </Connection>
   <Settings>
     <DbDiagramOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
@@ -2102,13 +2102,96 @@
               <TriggersCollapsed>True</TriggersCollapsed>
             </Compartments>
           </Model>
+          <Model xsi:type="RelationLinkModel">
+            <CustomProperties>
+              <OID>130</OID>
+              <Comment>131</Comment>
+              <OutModel>9</OutModel>
+              <InModel>129</InModel>
+              <OutPort>132</OutPort>
+              <InPort>133</InPort>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port>
+                <Location>
+                  <X>0 px</X>
+                  <Y>65.75 px</Y>
+                </Location>
+                <Anchors>Top Bottom</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>132</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+              <Port>
+                <Location>
+                  <X>105 px</X>
+                  <Y>0 px</Y>
+                </Location>
+                <Anchors>Left Right</Anchors>
+                <Align>Bottom</Align>
+                <CustomProperties>
+                  <OID>133</OID>
+                  <PortType>FloatAnchor</PortType>
+                </CustomProperties>
+              </Port>
+            </PortAnchors>
+            <BendPoints>
+              <PointD>
+                <X>-440 px</X>
+                <Y>405.75 px</Y>
+              </PointD>
+              <PointD>
+                <X>-440 px</X>
+                <Y>336 px</Y>
+              </PointD>
+              <PointD>
+                <X>285 px</X>
+                <Y>336 px</Y>
+              </PointD>
+            </BendPoints>
+            <IsManuallyRouted>false</IsManuallyRouted>
+            <DbOid>
+              <Path>travelagency.clients.fk_clients_users_id</Path>
+              <TypeName>ForeignKey</TypeName>
+            </DbOid>
+          </Model>
+          <Model xsi:type="RelationCommentModel">
+            <CustomProperties>
+              <OID>131</OID>
+              <HolderModel>130</HolderModel>
+              <Port>134</Port>
+              <Parent>0</Parent>
+            </CustomProperties>
+            <PortAnchors>
+              <Port xsi:type="LinkPort">
+                <Location>
+                  <X>-382.5 px</X>
+                  <Y>69.75 px</Y>
+                </Location>
+                <Anchors>None</Anchors>
+                <Align>Right</Align>
+                <CustomProperties>
+                  <OID>134</OID>
+                  <PortType>FixedAnchor</PortType>
+                </CustomProperties>
+                <LinkPortAnchor>OutPoint</LinkPortAnchor>
+              </Port>
+            </PortAnchors>
+            <CommentOffset>
+              <X>22 px</X>
+              <Y>2 px</Y>
+            </CommentOffset>
+          </Model>
         </Children>
         <ViewPort>
           <ScaleMode>Free</ScaleMode>
-          <Scale>1</Scale>
+          <Scale>0.87</Scale>
           <Location>
-            <X>209 px</X>
-            <Y>-75 px</Y>
+            <X>-511.494250070121 px</X>
+            <Y>85.0574707981774 px</Y>
           </Location>
         </ViewPort>
       </Model>

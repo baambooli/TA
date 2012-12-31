@@ -8645,3 +8645,117 @@ Stack trace:
 #3 {main}
 REQUEST_URI=/index.php?r=rights/install/confirm
 ---
+2012/12/31 17:38:57 [error] [exception.CException] exception 'CException' with message 'Property "Client.Email" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('Email')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('Email')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(Client), 'Email')
+#3 G:\GitHub\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(Client), 'Email', Array)
+#4 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(Client), 'Email', Array)
+#5 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\input\TbInputVertical.php(188): CActiveForm->textField(Object(Client), 'Email', Array)
+#6 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\input\TbInput.php(237): TbInputVertical->textField()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(173): TbInput->run()
+#8 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbActiveForm.php(681): CBaseController->widget('bootstrap.widge...', Array)
+#9 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbActiveForm.php(211): TbActiveForm->inputRow('textfield', Object(Client), 'Email', NULL, Array)
+#10 G:\GitHub\travelagency\protected\views\client\_form.php(31): TbActiveForm->textFieldRow(Object(Client), 'Email', Array)
+#11 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#12 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#14 G:\GitHub\travelagency\protected\views\client\create.php(15): CController->renderPartial('_form', Array)
+#15 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#16 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#17 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#18 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#19 G:\GitHub\travelagency\protected\controllers\ClientController.php(96): CController->render('create', Array)
+#20 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): ClientController->actionCreate()
+#21 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#22 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#23 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#24 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#25 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#26 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#27 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#28 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#29 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#30 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('client/create')
+#31 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#32 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#33 {main}
+REQUEST_URI=/index.php?r=client/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=user/update/id/1
+---
+2012/12/31 17:41:51 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/31 17:41:51 [error] [exception.CException] exception 'CException' with message 'Property "Client.userId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('userId')
+#1 G:\GitHub\yii\framework\validators\CUniqueValidator.php(81): CActiveRecord->__get('userId')
+#2 G:\GitHub\yii\framework\validators\CValidator.php(213): CUniqueValidator->validateAttribute(Object(Client), 'userId')
+#3 G:\GitHub\yii\framework\base\CModel.php(159): CValidator->validate(Object(Client), NULL)
+#4 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(794): CModel->validate(NULL)
+#5 G:\GitHub\travelagency\protected\controllers\ClientController.php(127): CActiveRecord->save()
+#6 [internal function]: ClientController->actionUpdate('1')
+#7 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(ClientController), Array)
+#8 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(ClientController), Object(ReflectionMethod), Array)
+#9 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#11 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#12 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#13 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#16 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#17 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('update')
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('client/update/i...')
+#19 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#20 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#21 {main}
+REQUEST_URI=/index.php?r=client/update/id/1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=client/update/id/1
+---
+2012/12/31 17:43:38 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/31 18:03:57 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`clients`, CONSTRAINT `FK_clients_countries_Id` FOREIGN KEY (`CountryId`) REFERENCES `countries` (`Id`)). The SQL statement executed was: INSERT INTO `clients` (`UserId`) VALUES (:yp0).
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (186)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/31 18:13:24 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1062 Duplicate entry '' for key 'PassportNumber'. The SQL statement executed was: INSERT INTO `clients` (`UserId`, `CountryId`) VALUES (:yp0, :yp1).
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (188)
+in g:\GitHub\travelagency\index.php (13)
+2012/12/31 18:19:54 [error] [exception.CException] exception 'CException' with message 'Property "User.password_repeat" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('password_repeat')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(2255): CActiveRecord->__get('password_repeat')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(User), 'password_repeat')
+#3 G:\GitHub\yii\framework\web\helpers\CHtml.php(1391): CHtml::activeInputField('password', Object(User), 'password_repeat', Array)
+#4 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(687): CHtml::activePasswordField(Object(User), 'password_repeat', Array)
+#5 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\input\TbInputVertical.php(107): CActiveForm->passwordField(Object(User), 'password_repeat', Array)
+#6 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\input\TbInput.php(213): TbInputVertical->passwordField()
+#7 G:\GitHub\yii\framework\web\CBaseController.php(173): TbInput->run()
+#8 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbActiveForm.php(681): CBaseController->widget('bootstrap.widge...', Array)
+#9 G:\GitHub\travelagency\protected\extensions\bootstrap\widgets\TbActiveForm.php(148): TbActiveForm->inputRow('password', Object(User), 'password_repeat', NULL, Array)
+#10 G:\GitHub\travelagency\protected\views\site\_formRegister.php(20): TbActiveForm->passwordFieldRow(Object(User), 'password_repeat', Array)
+#11 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#12 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#13 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#14 G:\GitHub\travelagency\protected\views\site\register.php(9): CController->renderPartial('_formRegister', Array)
+#15 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#16 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#17 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#18 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('register', Array, true)
+#19 G:\GitHub\travelagency\protected\controllers\SiteController.php(235): CController->render('register', Array)
+#20 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionRegister()
+#21 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#22 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#23 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#24 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('register')
+#25 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/register')
+#26 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#27 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#28 {main}
+REQUEST_URI=/index.php?r=site/register
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/register
+---

@@ -27,10 +27,6 @@
 	<?php echo CHtml::encode($data->Address); ?>
 	<br />
     
-    <b><?php echo CHtml::encode($data->getAttributeLabel('Email')); ?>:</b>
-    <?php echo CHtml::encode($data->Email); ?>
-    <br />
-
 	<b><?php echo CHtml::encode($data->getAttributeLabel('tell')); ?>:</b>
 	<?php echo CHtml::encode($data->tell); ?>
 	<br />
