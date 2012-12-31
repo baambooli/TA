@@ -33,8 +33,8 @@
                 // show 'User info' menu to NONE guest users
                 array('label'=>'User info', 'visible' => $visibility['Authenticated'],
                   'items'=>array(
-                    array('label'=>'Change user/pass', 'url'=>array('/user/update/id/'.Yii::app()->user->id)),
-                    array('label'=>'Change personal profile', 'url'=>array('/client/update/id/'.Yii::app()->user->id)),
+                    array('label'=>'Change your user/pass', 'url'=>array('/user/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label'=>'Change your info', 'url'=>array('/client/updateMyself/id/'.Yii::app()->user->id)),
                   ),
                 ),
                 

@@ -242,4 +242,58 @@ class ClientController extends RController
         $model->CreditCardSecurityNumber = AES::aes256Decrypt($key,$model->CreditCardSecurityNumber);
         $model->CreditCardNumber = AES::aes256Decrypt($key,$model->CreditCardNumber);
     }
+    
+       // This functions allows user just change his own information
+    // Kamran
+    public function actionUpdateMyself($id)
+    {
+        if($id != Yii::app()->user->id)
+        {
+          $msg = 'Your are not allowed to change the information of other users.';
+          Yii::app()->user->setFlash('error', $msg);
+          $this->render('confirm');  
+        }
+        else
+        {
+            $clientId = Client::model()->find('UserId = :id', array(':id' => $id))->Id;
+            $model=$this->loadModel($clientId);
+        
+            if (isset($_POST['Client']))
+            {
+                if ($model->Image === NULL || empty($model->Image))
+                {
+                    $model->Image = $model->Name.'_'.rand(1,999999);
+                }
+                
+                $_POST['Client']['Image'] = $model->Image; 
+                
+                $model->attributes = $_POST['Client'];
+                
+                // encrypt critical data before save
+                $this->_encryptClient($model);
+                
+                $uploadedFile=CUploadedFile::getInstance($model,'Image'); 
+                
+                if($model->save())
+                {
+                    if(!empty($uploadedFile))  // check if uploaded file is set or not
+                    {
+                        $image = Yii::app()->basePath.'/../images_client/'.$model->Image;
+                        $uploadedFile->saveAs($image);
+                    }
+                    $msg = 'Your information is changed successfully.';
+                    Yii::app()->user->setFlash('success', $msg);
+                    $this->render('confirm'); 
+                    return;
+                }
+            }
+            
+            // decrypt critical data before save
+            $this->_decryptClient($model);
+
+            $this->render('update',array(
+                'model'=>$model,
+            ));
+        }
+    }
 }

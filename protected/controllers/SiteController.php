@@ -138,7 +138,7 @@ class SiteController extends Controller
     // registers new user
      public function actionRegister()
      {
-         $model=new User;
+         $model=new User('register');
 
         // Uncomment the following line if AJAX validation is needed
         // $this->performAjaxValidation($model);
@@ -207,18 +207,19 @@ class SiteController extends Controller
                 
                 //$email->send();   
                 
-                // fifth: show success message to the user
+                // fifth: commit the transaction   
+                $transaction->commit();
+                
+                // sexth: unset attributes
+                $model->unsetAttributes(); 
+                $model->password_repeat= '';
+                $model->verifyCode= '';
+                
+                // seventh: show success message to the user
                 $msg = 'Your have been successfully registered. An email will be sent to you soon.
                     (Email is disabled on win7, because it does not have SMTP support by default)';
                 Yii::app()->user->setFlash('success', $msg);
                  
-                // sexth: commit the transaction   
-                $transaction->commit();
-                
-                // seventh:unset attributes
-                $model->unsetAttributes(); 
-                $model->password_repeat= '';
-                $model->verifyCode= '';
             }
             catch(Exception $e)
             {
