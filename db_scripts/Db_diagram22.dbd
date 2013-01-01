@@ -2090,7 +2090,7 @@
             </Location>
             <Size>
               <Width>210 px</Width>
-              <Height>212 px</Height>
+              <Height>229 px</Height>
             </Size>
             <DbOid>
               <Path>travelagency.users</Path>
@@ -2191,7 +2191,7 @@
           <Scale>0.87</Scale>
           <Location>
             <X>-837.931029890153 px</X>
-            <Y>50.5747123664839 px</Y>
+            <Y>95.4022983276855 px</Y>
           </Location>
         </ViewPort>
       </Model>

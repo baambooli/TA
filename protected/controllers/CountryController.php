@@ -2,207 +2,208 @@
 
 class CountryController extends RController
 {
-    public function init() 
+
+    public function init()
     {
         // apply the theme dynamically
-        $theme=Yii::app()->session['currentTheme'];
+        $theme = Yii::app()->session['currentTheme'];
         if (!empty($theme))
-            Yii::app()->theme=$theme;
-    
+            Yii::app()->theme = $theme;
+
         // if our class extends a class, we need this line too
         parent::init();
     }
-    
-	/**
-	 * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
-	 * using two-column layout. See 'protected/views/layouts/column2.php'.
-	 */
-	public $layout='//layouts/column2';
 
-	/**
-	 * @return array action filters
-	 */
-	public function filters()
-	{
-		 return array(
+    /**
+     * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
+     * using two-column layout. See 'protected/views/layouts/column2.php'.
+     */
+    public $layout = '//layouts/column2';
+
+    /**
+     * @return array action filters
+     */
+    public function filters()
+    {
+        return array(
             'rights',
         );
-	}
+    }
 
+    /**
+     * Displays a particular model.
+     * @param integer $id the ID of the model to be displayed
+     */
+    public function actionView($id)
+    {
+        $this->render('view', array(
+            'model' => $this->loadModel($id),
+        ));
+    }
 
-	/**
-	 * Displays a particular model.
-	 * @param integer $id the ID of the model to be displayed
-	 */
-	public function actionView($id)
-	{
-		$this->render('view',array(
-			'model'=>$this->loadModel($id),
-		));
-	}
+    /**
+     * Creates a new model.
+     * If creation is successful, the browser will be redirected to the 'view' page.
+     */
+    public function actionCreate()
+    {
+        $model = new Country;
 
-	/**
-	 * Creates a new model.
-	 * If creation is successful, the browser will be redirected to the 'view' page.
-	 */
-	public function actionCreate()
-	{
-		$model=new Country;
+        // Uncomment the following line if AJAX validation is needed
+        $this->performAjaxValidation($model);
 
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
-
-		if(isset($_POST['Country']))
-		{
+        if (isset($_POST['Country']))
+        {
             $hasFlagPicture = true;
-			$model->attributes=$_POST['Country'];
-            $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
-                    
-            if($uploadedFile === NULL || empty($uploadedFile))
+            $model->attributes = $_POST['Country'];
+            $uploadedFile = CUploadedFile::getInstance($model, 'FlagURL');
+
+            if ($uploadedFile === NULL || empty($uploadedFile))
             {
                 $model->FlagURL = $model->Name;
-                
+
                 // create a default flag picture
-                $file = Yii::app()->basePath.'/../images_country/'.'default.jpg';
-                $toFile = Yii::app()->basePath.'/../images_country/'.$model->Name;
-                copy($file,$toFile);
-                
-                $hasFlagPicture = false;   
+                $file = Yii::app()->basePath . '/../images_country/' . 'default.jpg';
+                $toFile = Yii::app()->basePath . '/../images_country/' . $model->Name;
+                copy($file, $toFile);
+
+                $hasFlagPicture = false;
             }
             else
             {
-                $fileName = $model->Name.'_'.$uploadedFile;  
+                $fileName = $model->Name . '_' . $uploadedFile;
                 $model->FlagURL = $fileName;
             }
-            
-			if($model->save())
+
+            if ($model->save())
             {
                 if ($hasFlagPicture)
                 {
-                    $flag = Yii::app()->basePath.'/../images_country/'.$fileName;
+                    $flag = Yii::app()->basePath . '/../images_country/' . $fileName;
                     // image will uplode to rootDirectory/banner/
                     $uploadedFile->saveAs($flag);
-                }  
-				$this->redirect(array('view','id'=>$model->Id));
+                }
+                $this->redirect(array('view', 'id' => $model->Id));
             }
-		}
+        }
 
-		$this->render('create',array(
-			'model'=>$model,
-		));
-	}
+        $this->render('create', array(
+            'model' => $model,
+        ));
+    }
 
-	/**
-	 * Updates a particular model.
-	 * If update is successful, the browser will be redirected to the 'view' page.
-	 * @param integer $id the ID of the model to be updated
-	 */
-	public function actionUpdate($id)
-	{
-		$model=$this->loadModel($id);
+    /**
+     * Updates a particular model.
+     * If update is successful, the browser will be redirected to the 'view' page.
+     * @param integer $id the ID of the model to be updated
+     */
+    public function actionUpdate($id)
+    {
+        $model = $this->loadModel($id);
 
-		// Uncomment the following line if AJAX validation is needed
-		$this->performAjaxValidation($model);
+        // Uncomment the following line if AJAX validation is needed
+        $this->performAjaxValidation($model);
 
-        
-		if(isset($_POST['Country']))
-		{
+
+        if (isset($_POST['Country']))
+        {
             if ($model->FlagURL === NULL || empty($model->FlagURL))
             {
-                $model->FlagURL = $model->Name.'_'.rand(1,999999);
+                $model->FlagURL = $model->Name . '_' . rand(1, 999999);
             }
-            
+
             $_POST['Country']['FlagURL'] = $model->FlagURL;
 
-			$model->attributes=$_POST['Country'];
+            $model->attributes = $_POST['Country'];
 
-            $uploadedFile=CUploadedFile::getInstance($model,'FlagURL');
+            $uploadedFile = CUploadedFile::getInstance($model, 'FlagURL');
 
-			if($model->save())
+            if ($model->save())
             {
-                if(!empty($uploadedFile))  // check if uploaded file is set or not
+                if (!empty($uploadedFile))  // check if uploaded file is set or not
                 {
-                    $flag = Yii::app()->basePath.'/../images_country/'.$model->FlagURL;
+                    $flag = Yii::app()->basePath . '/../images_country/' . $model->FlagURL;
                     $uploadedFile->saveAs($flag);
                 }
-                $this->redirect(array('view','id'=>$model->Id));
+                $this->redirect(array('view', 'id' => $model->Id));
             }
-		}
+        }
 
-		$this->render('update',array(
-			'model'=>$model,
-		));
-	}
+        $this->render('update', array(
+            'model' => $model,
+        ));
+    }
 
-	/**
-	 * Deletes a particular model.
-	 * If deletion is successful, the browser will be redirected to the 'admin' page.
-	 * @param integer $id the ID of the model to be deleted
-	 */
-	public function actionDelete($id)
-	{
-		if(Yii::app()->request->isPostRequest)
-		{
-			// we only allow deletion via POST request
-			$this->loadModel($id)->delete();
+    /**
+     * Deletes a particular model.
+     * If deletion is successful, the browser will be redirected to the 'admin' page.
+     * @param integer $id the ID of the model to be deleted
+     */
+    public function actionDelete($id)
+    {
+        if (Yii::app()->request->isPostRequest)
+        {
+            // we only allow deletion via POST request
+            $this->loadModel($id)->delete();
 
-			// if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
-			if(!isset($_GET['ajax']))
-				$this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
-		}
-		else
-			throw new CHttpException(400,'Invalid request. Please do not repeat this request again.');
-	}
+            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+            if (!isset($_GET['ajax']))
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+        }
+        else
+            throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
+    }
 
-	/**
-	 * Lists all models.
-	 */
-	public function actionIndex()
-	{
-		$dataProvider=new CActiveDataProvider('Country');
-		$this->render('index',array(
-			'dataProvider'=>$dataProvider,
-		));
-	}
+    /**
+     * Lists all models.
+     */
+    public function actionIndex()
+    {
+        $dataProvider = new CActiveDataProvider('Country');
+        $this->render('index', array(
+            'dataProvider' => $dataProvider,
+        ));
+    }
 
-	/**
-	 * Manages all models.
-	 */
-	public function actionAdmin()
-	{
-		$model=new Country('search');
-		$model->unsetAttributes();  // clear any default values
-		if(isset($_GET['Country']))
-			$model->attributes=$_GET['Country'];
+    /**
+     * Manages all models.
+     */
+    public function actionAdmin()
+    {
+        $model = new Country('search');
+        $model->unsetAttributes();  // clear any default values
+        if (isset($_GET['Country']))
+            $model->attributes = $_GET['Country'];
 
-		$this->render('admin',array(
-			'model'=>$model,
-		));
-	}
+        $this->render('admin', array(
+            'model' => $model,
+        ));
+    }
 
-	/**
-	 * Returns the data model based on the primary key given in the GET variable.
-	 * If the data model is not found, an HTTP exception will be raised.
-	 * @param integer the ID of the model to be loaded
-	 */
-	public function loadModel($id)
-	{
-		$model=Country::model()->findByPk($id);
-		if($model===null)
-			throw new CHttpException(404,'The requested page does not exist.');
-		return $model;
-	}
+    /**
+     * Returns the data model based on the primary key given in the GET variable.
+     * If the data model is not found, an HTTP exception will be raised.
+     * @param integer the ID of the model to be loaded
+     */
+    public function loadModel($id)
+    {
+        $model = Country::model()->findByPk($id);
+        if ($model === null)
+            throw new CHttpException(404, 'The requested page does not exist.');
+        return $model;
+    }
 
-	/**
-	 * Performs the AJAX validation.
-	 * @param CModel the model to be validated
-	 */
-	protected function performAjaxValidation($model)
-	{
-		if(isset($_POST['ajax']) && $_POST['ajax']==='country-form')
-		{
-			echo CActiveForm::validate($model);
-			Yii::app()->end();
-		}
-	}
+    /**
+     * Performs the AJAX validation.
+     * @param CModel the model to be validated
+     */
+    protected function performAjaxValidation($model)
+    {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'country-form')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+    }
+
 }

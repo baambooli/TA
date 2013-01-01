@@ -23,6 +23,7 @@ $this->menu=array(
 	'attributes'=>array(
 		'Id',
 		'Name',
+        'Username',
 		'Family',
         array(
             'name' => 'CountryId',

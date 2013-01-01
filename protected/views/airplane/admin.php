@@ -1,12 +1,12 @@
 <?php
-$this->breadcrumbs=array(
-	'Airplanes'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array(
+    'Airplanes' => array('index'),
+    'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'List Airplane','url'=>array('index')),
-	array('label'=>'Create Airplane','url'=>array('create')),
+$this->menu = array(
+    array('label' => 'List Airplane', 'url' => array('index')),
+    array('label' => 'Create Airplane', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -24,17 +24,19 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Manage Airplanes</h1>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'airplane-grid',
-	'dataProvider'=>$modelAirplaneView->search(),
-	'filter'=>$modelAirplaneView,
-	'columns'=>array(
-		'Id',
-		'AirplaneName',
-		'StartDateOfWork',
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'airplane-grid',
+    'dataProvider' => $modelAirplaneView->search(),
+    'filter' => $modelAirplaneView,
+    'columns' => array(
+        'Id',
+        'AirplaneName',
+        'StartDateOfWork',
         'AirlineName',
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
-	),
-)); ?>
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+        ),
+    ),
+));
+?>

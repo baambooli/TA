@@ -33,8 +33,8 @@
                 // show 'User info' menu to NONE guest users
                 array('label'=>'User info', 'visible' => $visibility['Authenticated'],
                   'items'=>array(
-                    array('label'=>'Change your user/pass', 'url'=>array('/user/updateMyself/id/'.Yii::app()->user->id)),
-                    array('label'=>'Change your info', 'url'=>array('/client/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label'=>'Change my user/pass', 'url'=>array('/user/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label'=>'Change my info', 'url'=>array('/client/updateMyself/id/'.Yii::app()->user->id)),
                   ),
                 ),
                 
@@ -97,6 +97,7 @@
                     array('label'=>'RBAC', 'url'=>array('/rights/assignment/','view'=>'view')),
                     array('label'=>'Create Reports', 'url'=>array('/report/admin','view'=>'admin')),
                     array('label'=>'Change Forms', 'url'=>array('/changeForm/admin','view'=>'admin')),
+                    array('label'=>'Reset users\' password', 'url'=>array('/site/resetPassword')),
                     array('label'=>'Themes',
                       'items'=>array(
                         array('label'=>'Theme Kamran', 'url'=>array('/site/changeTheme/name/kamran_theme1')),
