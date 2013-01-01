@@ -30,6 +30,7 @@ $('.search-form form').submit(function(){
 	'filter'=>$model,
 	'columns'=>array(
 		'Name',
+        'Username',
 		'Family',
 		'Address',
 		'tell',

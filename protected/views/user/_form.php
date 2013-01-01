@@ -13,8 +13,17 @@
     
 	<?php echo $form->textFieldRow($model,'email',array('class'=>'span5','maxlength'=>256)); ?>
 
-	<?php echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256)); ?>
-
+	<?php 
+        if ($updateMode)
+        {
+            echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256, 'readonly' => 'readonly')); 
+        }
+        else
+        {
+            echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256)); 
+        }
+    ?>
+    
 	<?php echo $form->passwordFieldRow($model,'password',array('class'=>'span5','maxlength'=>256)); ?>
 
     <?php echo $form->passwordFieldRow($model,'password_repeat',array('class'=>'span5','maxlength'=>256)); ?>

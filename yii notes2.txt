@@ -285,7 +285,8 @@ or
     }
 
 18- difference between $this->render() and $this->redirect() in Yii
-    if the view is on the same controller use $this->render() or $this->renderPartial(), if the view is on the other controller use $this->redirect()
+    if our favorite view is on the same controller use $this->render() or $this->renderPartial(), if the view is
+	on the other controller we should use $this->redirect()
     
 19- url validation needs that url always contains http:// or https://. To avoid this extra typing, we should
     define our rule in rules() function as:
@@ -1226,7 +1227,13 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 			   return 'index, suggestedTags'; //actionIndex() and actionSuggestedTags() are allowed for all users now
 			} 
 			
-			Note:  Allowed actions are case-insensitive and you may use asterix (*) to allow access to all actions. 
+			Note1:  Allowed actions are case-insensitive and you may use asterix (*) to allow access to all actions.
+			
+			Note2: I sugest all of actions that should be down as Guest user should be put on Sitecontroller or other controllers that
+				   are not extended fromRController base class, because Guest in Rights is different with default Guest user in Yii and
+				   this creates a problem. so put all of functions that even guest should have access to them like 'reset passowrd',
+				   'login/logout', 'register in site' on site controller or other controllers that  are not extended fromRController base class.
+				   
 	o) run your application, you can see that different users have access to different parts of program. and RBAC has been
 		implemented correctly.
 		
@@ -1302,8 +1309,47 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 		and a theme should be defined in the /config/main.php too
 		
 			'theme'=>'freshy2', 
+			
+		r) after installing Rights, to avoid any data damage rename modules/rights/controller/InstallController.php file to
+			modules/rights/controller/InstallController0.php	
 					
 	
+		s) to restiric a user to just change his own information
+			
+			// This functions allows user just change his own information
+			// Kamran
+			public function actionUpdateMyself($id)
+			{
+				// restric user just to his own loggen in Id and not any other Id
+				if($id != Yii::app()->user->id)
+				{
+				  $msg = 'Your are not allowed to change the information of other users.';
+				  Yii::app()->user->setFlash('error', $msg);
+				  $this->render('confirm');  
+				}
+				else
+				{
+					$model=$this->loadModel($id);
+					$model->password_repeat = $model->password;
+					
+					if(isset($_POST['User']))
+					{
+						$model->attributes=$_POST['User'];
+						if($model->save())
+						{
+							$msg = 'Your information is changed successfully.';
+							Yii::app()->user->setFlash('success', $msg);
+							$this->render('confirm'); 
+							return;
+						}    
+					}
+					
+					$this->render('update',array(
+						'model'=>$model,
+					));
+				}
+			}
+		
 77-	get baseURL in Yii
 
 	 $a = Yii::app()->request->baseUrl;
@@ -1929,7 +1975,7 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 
 		;debug section
 
-		xdebug.remote_enable=1
+		xdebug.remote_enable=on
 		xdebug.remote_handler=dbgp
 		xdebug.remote_mode=req
 		xdebug.remote_host=192.168.2.11  ; 192.168.2.11 = win 7 ip address (netbeans 7.3 is installed on win 7 pc not Ubuntu)
@@ -1986,7 +2032,11 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	At the time of writing if you were running xampp with php 5.3 then you would want this file http://downloads.php.net/pierre/php_apc-3.1.10-5.3-vc9-x86.zip
 	Download and unzip this file
 	Copy php_apc.dll to d:\xampp\php\ext
-	Open php.ini (d:\xampp\php\php.ini) and add extension=php_apc.dll
+	Open php.ini (d:\xampp\php\php.ini) and add 
+		
+		extension=php_apc.dll
+		apc.enabled=on 
+		
 	You also needed to change a couple of settings inside apache.
 
 	Go to the directory of installation\apache\conf
@@ -2003,12 +2053,445 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	Reset Apache
 	Should work for you as well.
 
+	Using APC :
 	
-104- 
-
-
-
-
-
+	Using APC is simply a matter of creating your PHP script as you normally do and allowing 
+	users to request the script. The initial request to the script will prime the cache, meaning 
+	that when the initial request for the script is done or a change to the original PHP script 
+	has been made, the Zend engine will create the Opcode in the background and store the 
+	generated Opcode within shared memory using APC. APC works in the background of 
+	your code and contains no special functions to cache the generated Opcode 
 	
+	benefits of using APC within our application. The code shown in Listing 4–5 creates an 
+	array with 10,000 elements and then displays the data on the screen.  
+	Listing 4–5. Sample Code to Test Using ab 
+	<?php 
+	$max = 10000; 
+	$x = 0; 
+	$array = array(); 
+	while($x < $max) 
+	{ 
+	 
+			$array[x] = $x; 
+			$x++; 
+	} 
+	 
+	 
+	foreach($array as $z) 
+	{ 
+	   echo "$z<br/>"; 
+	} 
+
+	We need to check on the improvement APC adds when applied to our PHP script. By 
+	taking two tests—the initial test to simulate the speed of our application while APC is 
+	turned off and a secondary test to determine the change in performance while APC is 
+	turned on—we can accomplish this. We will test this by simulating 1,000 requests with 5 
+	concurrent requests using ab, as shown in below
+
+	ab -n 1000 -c 5 http://kamran.dev.travelagancy.com:81/k1.php
+	
+	Installing the Admin tool for APC
+	
+	To install the web interface, each APC installation includes an apc.php file. The file is the
+	only item that is required to run the web interface and must simply be installed within the
+	web server to access it.  
+	If you installed APC from source or if you’re on a Windows machine, you will need to
+	download the installation package
+
+104- apache benchmark that is available in apache package can be used to benchmark a single page for example in xampp
+	go to d:\xampp\apache\bin folder and run
+
+		ab -n 100 http://kamran.dev.travelagancy.com:81/
+	
+	this command sends 100 request to the requested URL and after few MINUTS shows the results. in the results page
+	two items are very importane: Requests per second, and Time per request.
+	
+		ab -n 100 -c 10 http://kamran.dev.travelagancy.com:81/
+	
+	sends 10 request in each time 10 cuncurent requests
+	
+	These fields give us a glimpse into the amount of data the web server has sent back 
+ 	for a single request, the total number of requests the web server can handle in a single 
+	second, and the total elapsed time in which a single request successfully requested data 
+	and received a response from the web server. 
+	Our goal is to successfully lower the HTML transferred, increase the Requests per 
+	second, and lower the Time per request values
+
+105- Firebug has tools for javascript and CSS profiling.
+
+106- By putting all of javascripts on the end of page, page loading will seems very faster for end user.
+
+107-  Minification Tools 
+	We introduce two JavaScript minification tools, YUI Compressor by Yahoo! and Closure 
+	Compiler by Google. Using both tools, we will compress the JQuery JavaScript framework. of course the min version of jQuery is
+	avalable in their website too
+	
+108- File compression is another method of reducing the size of JavaScript as well as CSS files. 
+	 Using compression on an already minified JavaScript or CSS file can reduce the size even 
+	 further. The most widely used compression to date is GZip.
+	
+109- Smush.it 
+	Smush.it is a lossless compression tool created by Yahoo! to reduce the file size of your 
+	images even further. The tool is available at www.smushit.com and allows you to either 
+	upload your files or reference them using a list of URLs (Figure 2–15). There is a file size 
+	restriction of 1MB. 
+	
+111- decreasing the number of call to javascript files can reduce the load time of a page too. to do that merge all of your
+	 *.js files to one or two js file.
+	 
+112- 	APC variable Caching 
+
+		In previous notes, we implemented APC to exclusively cache PHP Opcode. In this section, we 
+		will use APC to store information. To do so, we’re going to focus on a subset of internal 
+		PHP APC methods shown below. Before we begin, make sure you have the APC 
+		PHP extension fully installed. 
+		
+			apc_add()  		apc_add(String key, Mixed var, int Expiration Time)  	Adds content into cache using specific key if key does not 	already exist. 
+			apc_fetch()     apc_fetch(Mixed key)    Fetches content of a specific key within cache. Returns false if key not found. 
+			acp_store()     apc_store(String key, Mixed var, int Expiration Time)   Stores a value in cache using a specific key. Will replace 
+																					value if key exists
+			apc_exists()    apc_exists(mixed keys)  Checks if the key is present in cache. Returns true if key 
+													exists, false otherwise
+			apc_delete()    apc_delete(String key)	Removes a specific key from cache. Returns true if
+													successful, false otherwise
+													
+		The functions outlined above allow us to add data into shared memory, fetch 
+		data from shared memory using a specific key, check to determine if the key is present, 
+		and finally remove content from cache that is associated to a specific key. 
+		
+		example: a hit counter using APC functions
+		
+			<?php 
+			/** 
+			 * Example visitor counter using APC. 
+			 * 
+			 **/ 
+			if(!$counter = apc_fetch('myCounter')) 
+			{ 
+			   $counter = 1; 
+			   //Add the new value to memcached 
+			   apc_add('myCounter', $counter, 120); 
+			 
+			} 
+			else 
+			{ 
+			 
+			   $counter++; 
+			 
+			   //Update the counter in cache 
+			   apc_store('myCounter', $counter, 120); 
+			 
+			} 
+ 
+			echo "Your visitor number: ".$counter; 
+
+											
+113- Saving files to a blob field in the database
+	
+		http://sudwebdesign.com/yii-uploading-and-saving-images/541
+		
+		and
+
+		http://www.yiiframework.com/wiki/95/saving-files-to-a-blob-field-in-the-database/
+		
+		as we can see it is very similar to uploading image and saving in a folder
+		but just controler is different and data type in table should be BLOB
+		
+		the controler should be like:
+		
+ 
+		public function actionCreate()
+			{
+				$model=new Photos;
+		 
+				if(isset($_POST['Photos']))
+				{
+							$model->attributes=$_POST['Photos'];
+							$myfile = CUploadedFile::getInstance($model,'image');
+							$model->image=$myfile;
+		 
+							if($model->save())
+								$this->updatePhoto($model, $myfile);
+		 
+							$this->redirect('view'.'id'=>$model->id);
+				}
+		 
+				$this->render('create',array(
+					'model'=>$model,
+				));
+			}
+		 
+			/*------------------------------------------------
+	        * Upload and crunch an image
+	        ------------------------------------------------*/
+			public function updatePhoto($model, $myfile ) {
+			   if (is_object($myfile) && get_class($myfile)==='CUploadedFile') {
+					$ext = $model->image->getExtensionName();
+	 
+			//generate a filename for the uploaded image based on a random number
+			// but check that the random number has not already been used
+					if ($model->filename=='' or is_null($model->filename)) {
+						$n=1;
+						// loop until random is unqiue - which it probably is first time!
+						while ($n>0) {
+							$rnd=dechex(rand()%999999999);
+							$filename=$model->property->ref . '_' . $rnd . '.' . $ext;
+							$n=Photos::model()->count('filename=:filename',array('filename'=>$filename));
+						}
+					$model->filename=$filename;
+					}
+	 
+					$model->save();
+	 
+					$model->image->saveAs($model->getPath());  //model->getPath see below
+	 
+					$image = Yii::app()->image->load($model->getPath());
+			//Crunch the photo to a size set in my System Options Table
+			//I hold the max size as 800 meaning to fit in an 800px x 800px square
+					$size=$this->getOption('PhotoLarge');
+					$image->resize($size[0], $size[0])->quality(75)->sharpen(20);
+					$image->save(); 
+	 
+			// Now create a thumb - again the thumb size is held in System Options Table
+			$size=$this->getOption('PhotoThumb');
+					$image->resize($size[0], $size[0])->quality(75)->sharpen(20);
+					$image->save($model->getThumb()); // or $image->save('images/small.jpg');
+					return true;
+				 } else return false;
+			}
+
+			
+			-- model should have these lines too
+			
+			public function getThumbnail(){
+				 // here i return the image
+					if (!empty($this->filename) && $this->filename!='')
+					 return CHtml::image($this->getURL(),$this->alt_text,array('width'=>options::model()->getOption('PhotoThumb').'px','max-height'=>options::model()->getOption('PhotoThumb').'px'
+				 ));
+			}
+			public function getPath($all=true){
+				if (is_null($this->_PhotoPath)) {
+					 // I hold the image path and system directory separator in the config/main.php
+					 // this is because I develop on a windows server and normally deploy on Linux
+					 $this->_PhotoPath=Yii::app()->params['imagePATH'];
+					 $this->_PathSep=Yii::app()->params['pathSep'];
+				}
+				$path=$this->_PhotoPath.$this->_PathSep;
+				if ($all) $path.=$this->filename;
+				return $path;
+			}
+
+		
+		
+114- to learn about REST
+
+		http://rest.elkstein.org/
+		
+	REST is an architecture style for designing networked applications. The idea is that, rather than using complex mechanisms such as CORBA, RPC or SOAP to connect between machines, simple HTTP is used to make calls between machines.
+	
+	RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations.
+
+	REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, et al.).
+
+	Much like Web Services, a REST service is:
+
+		Platform-independent (you don't care if the server is Unix, the client is a Mac, or anything else),
+		Language-independent (C# can talk to Java, etc.),
+		Standards-based (runs on top of HTTP), and
+		Can easily be used in the presence of firewalls.
+	
+	Like Web Services, REST offers no built-in security features, encryption, session management, QoS guarantees, etc. But also as with Web Services, these can be added by building on top of HTTP:
+
+		For security, username/password tokens are often used.
+		For encryption, REST can be used on top of HTTPS (secure sockets).
+		... etc.
+		One thing that is not part of a good REST design is cookies: The "ST" in "REST" stands for "State Transfer", and indeed, in a good REST design operations are self-contained, and each request carries with it (transfers) all the information (state) that the server needs in order to complete it.
+
+		In REST the request that a machine sends to other is like:
+		
+			http://www.acme.com/phonebook/UserDetails?firstName=John&lastName=Doe
+		
+		and response will be an XML, JSON, CSV or ... file.
+		
+		Here's a simple example: the following URL sends a REST request to Twitter's search service: http://search.twitter.com/search.atom?q=elkstein&count=5. This specific search request searches for the string "elkstein", as set by the q parameter (vanity searches are always fun); and limits the response to at most 5 results, using the count parameter. There are, of course, many additional parameters, as documented on Twitter's developer pages.
+		
+115- REST and AJAX
+		AJAX is a popular web development technique that makes web pages interactive using JavaScript.
+
+		In AJAX, requests are sent to the server using XMLHttpRequest objects. The response is used by the JavaScript code to dynamically change the current page.
+
+		In many ways, AJAX applications follow the REST design principles. Each XMLHttpRequest can be viewed as a REST service request, sent using GET. And the response is often in JSON, a popular response format for REST.
+		
+		
+	
+116- USING REST in PHP
+
+	Modern versions of PHP make it trivial to GET web pages: any file-access function (even include!) works seamlessly with URLs, too. Thus, you can use fopen, file_get_contents, and any other file-reading function to issue GET requests. For example:
+
+		$url = "http://www.acme.com/products/3322";
+		$response = file_get_contents($url);
+		echo $response;
+		
+	Any parameters passed to GET requests must be encoded (e.g., a space is %20); you can encode strings using the "urlencode" function.
+
+	Issuing POST Requests
+	In stark contrast to the ease of doing a GET, there's no simple way to do a POST in PHP. You have to open a connection to the server and manually send all HTTP headers. Here's a simple function that will do the trick, for any HTTP method:
+
+	function httpRequest($host, $port, $method, $path, $params) {
+	  // Params are a map from names to values
+	  $paramStr = "";
+	  foreach ($params as $name, $val) {
+		$paramStr .= $name . "=";
+		$paramStr .= urlencode($val);
+		$paramStr .= "&";
+	  }
+
+	  // Assign defaults to $method and $port, if needed
+	  if (empty($method)) {
+		$method = 'GET';
+	  }
+	  $method = strtoupper($method);
+	  if (empty($port)) {
+		$port = 80; // Default HTTP port
+	  }
+
+	  // Create the connection
+	  $sock = fsockopen($host, $port);
+	  if ($method == "GET") {
+		$path .= "?" . $paramStr;
+	  }
+	  fputs($sock, "$method $path HTTP/1.1\r\n");
+	  fputs($sock, "Host: $host\r\n");
+	  fputs($sock, "Content-type: " .
+				   "application/x-www-form-urlencoded\r\n");
+	  if ($method == "POST") {
+		fputs($sock, "Content-length: " . 
+					 strlen($paramStr) . "\r\n");
+	  }
+	  fputs($sock, "Connection: close\r\n\r\n");
+	  if ($method == "POST") {
+		fputs($sock, $paramStr);
+	  }
+
+	  // Buffer the result
+	  $result = "";
+	  while (!feof($sock)) {
+		$result .= fgets($sock,1024);
+	  }
+
+	  fclose($sock);
+	  return $result;
+	}
+	Issuing a POST request using this function is as simple as:
+
+	$resp = httpRequest("www.acme.com",
+		80, "POST", "/userDetails",
+		array("firstName" => "John", "lastName" => "Doe"));
+	One alternative to this approach is using PHP's CURL support; however, I'm not sure if it's really easier.
+
+117- REST implementation in Yii
+	
+		http://www.yiiframework.com/wiki/175/how-to-create-a-rest-api/
+
+118- if we are going to add a validation error or any type of error to model class, "inside" controller we can write:
+	
+		$this->addError($attribute,'Phone number should be in correct formats');
+
+119- to create a link like   <a href='index.php?r=controller/action'>Link Text</a>
+
+	we should use CHtml class in this way:
+		
+		<?php echo CHtml::link('Link Text',array('controller/action')); ?>
+	
+	or even better
+	
+		<?php echo CHtml::Link('Link Text',$this->createUrl('controller/action')); ?>
+	
+	in the second method we have used the createUrl() function of Controller class to create the URL of the page.
+	
+120- Xdebug + Netbeans 7.2.1 is NOT as strong as PhpED + its built in debugger and cannot show all properties of PHP objects. 
+	so PhpEd is recommneded for serious	programming tasks. but for source formatting and beatifuller we can use Netbeans.
+	It is better than eclipse's beautifuller and any other source beatifuller when you customize netbeans options.
+	
+	
+121-	render():
+			is commonly used to render a view that corresponds to what a user sees as a "page" in your application. It first renders the view you have specified and then renders the layout for the current controller action (if applicable), placing the result of the first render into the layout. It then performs output processing (which at this time means automatically inserting any necessary <script> tags and updating dynamic content) and finally outputs the result.
+
+		renderPartial():
+			is commonly used to render a "piece" of a page. The main difference from render() is that this method does not place the results of the render in a layout. By default it also does not perform output processing, but you can override this behavior using the $processOutput parameter.
+
+		renderFile() :
+			is a low-level method that does the grunt work of rendering: it extracts the data variables in the current scope and then runs the view code. The other two methods internally call this one, but you should practically never need to call it yourself. If you do, keep in mind that you need to pass in a file path (not a view path).
+
+122- when we have a combination of HTML and php like
+		
+		<div id="footer">
+			Copyright &copy; <?php echo date('Y'); ?> by Kamran Khoshnasib.<br/>
+			All Rights Reserved.<br/>
+			<?php echo Yii::powered(); ?>
+		</div><!-- footer -->
+	
+		and we are going to comment all of it , we should put all on 
+		
+			<?php /*
+			
+			
+			*/ ?>
+			
+123- In the themes, if the footer goes to write side of screen, we should add
+
+			<div class="clear"></div> 
+		
+		before
+		
+			<div id="footer">
+			
+		at the views/layouts/main.php file.
+		
+	
+124- An example of using criteria in Yii
+
+		$criteria = new CDbCriteria;
+
+        $criteria->compare('Id', $this->Id);
+        $criteria->compare('Name', $this->Name, true);
+        $criteria->compare('Family', $this->Family, true);
+        
+        
+        // kamran
+		$criteria->select = "Id, Name, Family";
+        $criteria->condition = "Name > '' ";
+        
+        return new CActiveDataProvider($this, array(
+			'criteria' => $criteria,
+		));
+
+
+125- Normally a inputtext is like this in YiiBooster of zii
+
+		echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256)); 
+		
+	to add some htmlOptions to it we should change it(e.g. to make it readonly)
+	
+		echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256, 'readonly' => 'readonly')); 
+		
+126- to add HtmlOption in Form widget
+
+		<?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>'clm-dtl-claims-form',
+			'enableAjaxValidation'=>false,
+			'htmlOptions'=>array('enctype' => 'multipart/form-data')
+			));
+		?>
+
+127- 
+
+
+
+
+
+
+
+
+		
 Kamran

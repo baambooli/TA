@@ -42,8 +42,8 @@ class Hotel extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Name','unique'),
-            array('Email','email'),
+            array('Name', 'unique'),
+            array('Email', 'email'),
             array('Name, Category, CityId', 'required'),
             array('CityId', 'numerical', 'integerOnly' => true),
             array('Name', 'length', 'max' => 255),
@@ -99,10 +99,10 @@ class Hotel extends CActiveRecord
         $criteria->compare('Address', $this->Adress);
         $criteria->compare('Email', $this->Email);
         $criteria->compare('Image', $this->Image);
-        
+
         return new CActiveDataProvider('HotlesView', array(
-            'criteria' => $criteria,
-            ));
+                    'criteria' => $criteria,
+                ));
     }
 
     /**
@@ -118,7 +118,7 @@ class Hotel extends CActiveRecord
         $citiesArray = CHtml::listData($cities, 'Id', 'Name');
         return $citiesArray;
     }
-    
+
     // get name of the city related to the specific Id
     public function getCityName($id)
     {
@@ -126,4 +126,5 @@ class Hotel extends CActiveRecord
         $cityName = City::model()->findByPK($id)->Name;
         return $cityName;
     }
+
 }
