@@ -55,11 +55,11 @@ class Client extends CActiveRecord
             array('Family', 'length', 'max' => 70),
             array('Address', 'length', 'max' => 200),
             array('tell', 'length', 'max' => 20),
-            array('UserId', 'safe'),
+            array('UserId, Username', 'safe'),
             array('CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber', 'length', 'max' => 255),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, Name, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber, Sex, Image', 'safe', 'on' => 'search'),
+            array('Id, Name, Username, Family, Address, tell, PassportNumber, CreditCardType, CreditCardExpiryDate, CreditCardHolderName, CreditCardSecurityNumber, CreditCardNumber, Sex, Image', 'safe', 'on' => 'search'),
         );
     }
 
@@ -127,9 +127,10 @@ class Client extends CActiveRecord
         $criteria->compare('Sex', $this->Sex, true);
         $criteria->compare('Image', $this->Image, true);
         $criteria->compare('BirthDay', $this->BirthDay, true);
+        $criteria->compare('Username', $this->Username, true);
         
         // kamran
-        $criteria->condition('Name NOT NULL');
+        $criteria->condition = "Name > '' ";
         
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,

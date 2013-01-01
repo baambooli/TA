@@ -181,6 +181,8 @@ class SiteController extends Controller
                 // third: creat a row in clients table for user
                 $client = new Client('register');
                 $client->UserId = $model->id;
+                $client->Username = $model->username;
+                
                 // set a default country
                 $countryId = Country::model()->find()->Id;
                 $client->CountryId = $countryId;

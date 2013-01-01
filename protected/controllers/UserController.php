@@ -61,6 +61,7 @@ class UserController extends RController
 
         $this->render('create', array(
             'model' => $model,
+            'updateMode' => 0, 
         ));
     }
 
@@ -86,6 +87,7 @@ class UserController extends RController
 
         $this->render('update', array(
             'model' => $model,
+            'updateMode' => '1', 
         ));
     }
 
@@ -190,6 +192,7 @@ class UserController extends RController
 
             $this->render('update', array(
                 'model' => $model,
+                'updateMode' => '1',
             ));
         }
     }

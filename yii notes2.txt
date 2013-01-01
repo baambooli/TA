@@ -1975,7 +1975,7 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 
 		;debug section
 
-		xdebug.remote_enable=1
+		xdebug.remote_enable=on
 		xdebug.remote_handler=dbgp
 		xdebug.remote_mode=req
 		xdebug.remote_host=192.168.2.11  ; 192.168.2.11 = win 7 ip address (netbeans 7.3 is installed on win 7 pc not Ubuntu)
@@ -2409,7 +2409,86 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 	
 	in the second method we have used the createUrl() function of Controller class to create the URL of the page.
 	
-120- 
+120- Xdebug + Netbeans 7.2.1 is NOT as strong as PhpED + its built in debugger and cannot show all properties of PHP objects. 
+	so PhpEd is recommneded for serious	programming tasks. but for source formatting and beatifuller we can use Netbeans.
+	It is better than eclipse's beautifuller and any other source beatifuller when you customize netbeans options.
+	
+	
+121-	render():
+			is commonly used to render a view that corresponds to what a user sees as a "page" in your application. It first renders the view you have specified and then renders the layout for the current controller action (if applicable), placing the result of the first render into the layout. It then performs output processing (which at this time means automatically inserting any necessary <script> tags and updating dynamic content) and finally outputs the result.
+
+		renderPartial():
+			is commonly used to render a "piece" of a page. The main difference from render() is that this method does not place the results of the render in a layout. By default it also does not perform output processing, but you can override this behavior using the $processOutput parameter.
+
+		renderFile() :
+			is a low-level method that does the grunt work of rendering: it extracts the data variables in the current scope and then runs the view code. The other two methods internally call this one, but you should practically never need to call it yourself. If you do, keep in mind that you need to pass in a file path (not a view path).
+
+122- when we have a combination of HTML and php like
+		
+		<div id="footer">
+			Copyright &copy; <?php echo date('Y'); ?> by Kamran Khoshnasib.<br/>
+			All Rights Reserved.<br/>
+			<?php echo Yii::powered(); ?>
+		</div><!-- footer -->
+	
+		and we are going to comment all of it , we should put all on 
+		
+			<?php /*
+			
+			
+			*/ ?>
+			
+123- In the themes, if the footer goes to write side of screen, we should add
+
+			<div class="clear"></div> 
+		
+		before
+		
+			<div id="footer">
+			
+		at the views/layouts/main.php file.
+		
+	
+124- An example of using criteria in Yii
+
+		$criteria = new CDbCriteria;
+
+        $criteria->compare('Id', $this->Id);
+        $criteria->compare('Name', $this->Name, true);
+        $criteria->compare('Family', $this->Family, true);
+        
+        
+        // kamran
+		$criteria->select = "Id, Name, Family";
+        $criteria->condition = "Name > '' ";
+        
+        return new CActiveDataProvider($this, array(
+			'criteria' => $criteria,
+		));
+
+
+125- Normally a inputtext is like this in YiiBooster of zii
+
+		echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256)); 
+		
+	to add some htmlOptions to it we should change it(e.g. to make it readonly)
+	
+		echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256, 'readonly' => 'readonly')); 
+		
+126- to add HtmlOption in Form widget
+
+		<?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>'clm-dtl-claims-form',
+			'enableAjaxValidation'=>false,
+			'htmlOptions'=>array('enctype' => 'multipart/form-data')
+			));
+		?>
+
+127- 
+
+
+
+
 
 
 

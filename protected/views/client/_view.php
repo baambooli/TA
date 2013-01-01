@@ -7,6 +7,10 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Name')); ?>:</b>
 	<?php echo CHtml::encode($data->Name); ?>
 	<br />
+    
+    <b><?php echo CHtml::encode($data->getAttributeLabel('Username')); ?>:</b>
+    <?php echo CHtml::encode($data->Name); ?>
+    <br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('Family')); ?>:</b>
 	<?php echo CHtml::encode($data->Family); ?>
