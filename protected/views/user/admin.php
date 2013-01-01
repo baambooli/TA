@@ -33,9 +33,9 @@ $('.search-form form').submit(function(){
 		'email',
 		'username',
 		'last_login_time',
+        /*
 		'create_time',
         'update_time',
-		/*
 		'create_user_id',
 		'update_user_id',
 		*/

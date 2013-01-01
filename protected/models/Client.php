@@ -129,9 +129,6 @@ class Client extends CActiveRecord
         $criteria->compare('BirthDay', $this->BirthDay, true);
         $criteria->compare('Username', $this->Username, true);
         
-        // kamran
-        $criteria->condition = "Name > '' ";
-        
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
                 ));
