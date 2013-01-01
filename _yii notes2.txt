@@ -1,0 +1,2517 @@
+
+
+///////////////////////////////////////////////////
+Yii 1.1.12 notes:
+///////////////////////////////////////////////////
+
+1- the URL is always like this:
+
+http://yoursite.com/Module_name_case_insensitive/controller_name_case_insensitive/action_name_case_insensitive/
+first_parameter_name_case_insensitive/first_parameter_value_case_insensitive/
+second_parameter_name_case_insensitive/second_parameter_value_case_insensitive/
+third_parameter_name_case_insensitive/third_parameter_value_case_insensitive/
+
+example : http://kamran.dev.pushplay.com/mrcms/K2/Test2/userId/146/hashCode/21defc662165ffca6d4cf1c28052c3c30ef326c42de600b30ececc7347cc5f1f
+or
+		  http://kamran.dev.pushplay.com/mrcms/k2/test2/userId/146/hashCode/21defc662165ffca6d4cf1c28052c3c30ef326c42de600b30ececc7347cc5f1f
+
+
+2- writing a search method:
+
+<?php
+    class EmailValidation
+    {
+        public function validate($userId,$hashCode)
+        {
+            //DebugBreak();
+            
+            //fetch user's information from db where userId=$userId 
+            $user = User::model()->find('userid = ' . $userId); 
+            
+            if(   $user->validationKey == $hashCode
+               && $user->validationExpiry > Date('Y-m-d h:i:s')){
+                return 1;  
+            }
+            else{
+                return 0;
+            }
+        }    
+    }
+    
+	
+3- to show a flash message
+	
+	
+	--in the controller file (Controllers\SelfConfirmController.php):
+	
+	//send success message
+	Yii::app()->user->setFlash('success','Your have been successfully logged in by facebook!');
+	$this->render('SelfConfirmView');
+	
+	or 
+	
+	//send error message
+	Yii::app()->user->setFlash('error','Your have been successfully logged in by facebook!');	
+	or
+	Yii::app()->user->setFlash('notification','Your have been successfully logged in by facebook!');
+	
+	$this->render('SelfConfirmView');
+	
+
+	--in the view file ( Views\SelfConfirm\SelfConfirmView.php):
+	
+	<?php
+		foreach(Yii::app()->user->getFlashes() as $key => $message) {
+			echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+		}
+	?>
+		
+4- reading from a field in a form
+
+	$model->username=$_POST['Model_class_name']['username'];
+	$model->password=$_POST['Model_class_name']['password'];
+	$model->rememberMe=$_POST['Model_class_name']['rememberMe'];
+	
+	or in one step:
+	
+	$model->attributes = $_POST['Model_class_name'];
+	
+	
+5- when using AR to search use Criteria, it decreases SQL injection risk.
+
+6- to show beautiful dialog boxes and other things using Yii, we should use Yiibooster
+
+	search for yiibooster that is twitter bootstrap port for yii
+	
+	in MRCMS code we can see sample usage of it in :
+	
+	https://github.com/netmedialtd/app_movie_mrcms/blob/development/views/user/update.php#L87
+		
+	that is shown here:
+	
+	<script type="text/javascript">
+	$(document).ready(function(){
+		$('.btn-send-reset').on('click', function()
+		{
+		   $('#passwordReset').modal('hide');
+		   //TODO: logic for server side reset
+		   /* admin.AJAX.REST('post', 'controller/action', {userid : 111} , function(success)
+		   {
+			   
+		   }); */
+		});
+		$('.btn-cancel').on('click',function()
+		{
+			window.location = '<?php echo $this->createUrl('/mrcms/user/search') ?>';
+		})
+	});
+	</script>
+
+
+7- to partially render a page use $this->renderPartial() instead of $this->render()
+
+	http://www.yiiframework.com/wiki/249/understanding-the-view-rendering-flow/
+	
+8- to see the errors in Yii:
+
+	if ($user->save()){
+		// do your things
+	}
+	else
+	{
+		$errors = $user->getErrors();
+		foreach ($errors as $key => $message) 
+		{
+			foreach ($message as $subKey => $subMessage) 
+			{
+				$errMessage .= $subMessage.'<br/>';
+			}
+		}
+		DebugBreak(); // in phpED
+		IUser::setNotificationFromModel($errMessage, 'error');
+	}
+	
+9- Typically, after some kind of action, such as editing a form, a redirect will happen and we need to display a 
+   message on the page we want to go to. However, how to pass it from the current page to the 
+   redirect target and clean afterwards? Flash messages will help us.
+	
+	a.  Let's create a protected/controllers/WebsiteController.php controller 
+	as follows:
+	class WebsiteController extends CController
+	{
+	   function actionOk()
+	   {
+		  Yii::app()->user->setFlash('success', 'Everything went  
+			 fine!');
+		  $this->redirect('index');
+	   }
+	   function actionBad()
+	   {
+		  Yii::app()->user->setFlash('error', 'Everything went  
+			 wrong!');
+		  $this->redirect('index');
+	   }
+	   function actionIndex()
+	   {
+		  $this->render('index');
+	   }
+	}
+	
+	b.  Additionally, create the protected/views/website/index.php view as follows:
+    
+	<?php if(Yii::app()->user->hasFlash('success')):?>
+	<div class="flash-notice">
+	   <?php echo Yii::app()->user->getFlash('success')?>
+	</div>
+	<?php endif?>
+	<?php if(Yii::app()->user->hasFlash('error')):?>
+	<div class="flash-error">
+	   <?php echo Yii::app()->user->getFlash('error')?>
+	</div>
+	<?php endif?>
+	
+	c.  Now, if we go to http://example.com/website/ok, we'll be redirected to 
+	http://example.com/website/index and a success message will be displayed. 
+	Moreover, if we go to http://example.com/website/bad, we will be redirected 
+	to the same page, but with an error message. Refreshing the index page will hide  
+	the message.
+	
+10- Do not use __conctruct() in Yii, use init() function instead!!
+
+11- To show the error messages of a model AR or a model Form class
+
+    $errors = $modelForm->getErrors();
+
+    foreach ($errors as $key => $message) 
+    {
+        foreach ($message as $subKey => $subMessage) 
+        {
+            $errMessage .= $subMessage.'<br/>';
+        }
+    }
+    
+    Yii::app()->user->setFlash('error ', $errMessage);
+    
+    // log error
+    Yii::log('There are errors in the signup process...', 'error', 'application.controllers.FrontController');
+
+12- a sample phpUnit test class for Rebilly project:
+    
+    a- edit the protected/config/testing/config_test.php file and change the dbname on it
+    
+    'db' => array(
+        'connectionString' => 'mysql:host='.$_sa['DB1'].';dbname=Rebilly',
+        
+    b- create a file /protected/tests/unit/UserTest.php
+    
+    c- write this code on it
+
+        <?php
+  
+        class UserTest extends CDbTestCase
+        {
+            public function testSave()
+            {
+                $user                   = new User();
+                $user->merchantId       = 5;
+                $user->firstName        = 'ali33';
+                $user->lastName         = 'last33';
+                $user->email            = 'ali78@yahoo.com';
+                $user->password         = '1123';
+                $user->status           = 'pendingConfirmation';
+                $user->timestampCreated = Date('Y-m-d h:i:s');
+                $result                 = $user->save();
+                $this->assertTrue($result);  
+            }    
+        }
+        note: you should put valid merchantId and unique email, otherwise save() will fail.
+        
+    d- in UBUNTU command line run :
+        cd  /mnt/host/app_rebilly/protected/tests/
+        phpunit unit/UserTest.php
+            
+
+13- IMPORTANT NOTE: phpunit 3.7.7 or 3.7.8 has problem in running unit tests. install version 3.7.1 using:
+
+    pear install -f phpunit/PHPUnit-3.7.1
+    
+14- reading request URL
+        $url = $_SERVER['REQUEST_URI'];
+        
+15- when we have two configuratin files, one for local and one for staging. always keep them syncronized.....
+
+16- the configuration in nginx shows which config file should be used. so the only difference between development machine
+    and production machine should be this line in /etc/nginx/sites-enabled/my_web_site_config  file
+     
+    development machine:
+    fastcgi_param APPLICATION_ENV rebilly_local;
+    
+    staging machine:
+    fastcgi_param APPLICATION_ENV rebilly_staging;
+
+17- phone number validation:
+
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            ......
+            array('customerServiceNumber', 'checkPhoneNumber'),
+            ......
+        );
+    }
+    
+    /**
+    * Checks the phone number filed should be in correct format (xxx-xxx-xxxx) or (1-xxx-xxx-xxxx)
+    *
+    * 
+    * @param string $attribute: the attribute's name that calls this function in the rules() function
+    *       
+    * @return true: if phone number is correct, otherwise false
+    */
+    public function checkPhoneNumber($attribute)
+    {
+        $phoneNumber = $this->customerServiceNumber;
+        if (preg_match("/^([1]-)?[0-9]{3}-[0-9]{3}-[0-9]{4}$/i", $phoneNumber))
+        {
+            return true;
+        }
+        else
+        {
+            $this->addError($attribute,'Phone number should be in correct formats (xxx-xxx-xxxx) or (1-xxx-xxx-xxxx)');
+            return false;
+        }
+    }
+
+18- difference between $this->render() and $this->redirect() in Yii
+    if our favorite view is on the same controller use $this->render() or $this->renderPartial(), if the view is
+	on the other controller we should use $this->redirect()
+    
+19- url validation needs that url always contains http:// or https://. To avoid this extra typing, we should
+    define our rule in rules() function as:
+    
+    array('site_url , webHookUrl', 'url', 'defaultScheme' => 'http'),
+    
+    now the user should just type www.google.com instead of http://www.google.com.
+    
+20- when we have problems in saving Unicode chars in mysql db we should add this line as the header of our main.php layout file:
+    
+    <?php
+        header('Content-Type: text/html; charset=utf-8');
+    ?>    
+    
+21- to convert one column of bootstrap.widgets.TbGridView to link we should use a code like bellow
+
+$   this->widget('bootstrap.widgets.TbGridView', array(
+        'id'            => 'site-grid',
+        'dataProvider'  => $model->search(),
+        'type'          => 'striped bordered condensed',
+        'filter'        => $model,
+        'columns'       => array(
+            'name',
+            'id',
+            // make it link
+            array(
+                'class'=>'CLinkColumn',
+                'labelExpression'=>'$data->url',
+                'urlExpression'=>'"/site/".$data->id',
+                'header'=>'url'
+            ),
+            
+            'customerServicePhone',
+            /*
+            'customerServiceEmail',
+            'webHookUrl',
+            'isDeleted',
+            */
+            array(
+                'class' => 'bootstrap.widgets.TbButtonColumn',
+            ),
+        ),
+    )); 
+    
+22- check URL validation so it could not be contain french characters:
+
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            ..................
+            array('url , webHookUrl', 'url', 'defaultScheme' => 'http'),
+            array('url , webHookUrl', 'checkURL'),
+            ..................
+        );
+    }
+    
+    /**
+    * Checks the URL is valid or not
+    *
+    * 
+    * @param string $attribute: The caller attribute's name in the rules() function
+    *       
+    * @return true: If URL is in correct format, otherwise false
+    * 
+    * @author :  Kamran
+    */
+    public function checkURL($attribute)
+    {
+        $url = $this->url;
+        
+        if (preg_match('|^http(s)?://[a-z0-9-]+(.[a-z0-9-]+)*(:[0-9]+)?(/.*)?$|i', $url))
+        {
+            return true;
+        }
+        else
+        {
+            $this->addError($attribute,'Not a valid URL.');
+            return false;
+        }            
+    }
+ 
+23- IMPORTANT NOTE: for creating complex queries use this software to create views on DB. It is IMPORTANt to
+    define all of relations between tables in you MySQL Db BEFORE using this software. Then creating very very 
+    complex queries will be really fun.
+    
+    http://www.devart.com/dbforge/mysql/querybuilder/
+    
+    and then using Gii, we can create model classes for the VIEWS will have created using these queries and dbFroge. 
+    To use this model class (that is created from a view not a table in DB) we should 
+    add this function to create a primary key for model class
+    
+    public function primaryKey()
+    {
+        return 'my_primary_key_field_name';
+    }
+    
+    then we can use Gii to create controller and views for our new model class easily. (without defining primary key,
+    Gii can create model class but not Controller and views)
+    
+24- to get the id of logged in user
+    
+    $currentUserID = Yii::app()->user->id;
+    
+25- find the base URL of out website when we are inside a controller(any controller)
+    
+    $baseURL = $this->createUrl('');
+    
+    and if we like to add subpath to it
+    
+    $myPageURL = $this->createUrl('/front/login');
+
+
+26- if we are going to restrict the search(admin) page to show just the rows that are NOT 
+    soft delete AND are belong to current user we can add these lines to the search() function in the model class
+    
+    // just show the records that have isDeleted = 0 on the admin page
+    $criteria->compare('isDeleted', 0);
+    // just show the records that is created by the logged in user on the admin page
+    $criteria->compare('merchantID', User::model()->findByPk(Yii::app()->user->id)->merchantId);
+    
+    In addition in actionUpdate and actionDelete we should write something like:
+    
+    if (User::model()->findByPk(Yii::app()->user->id)->merchantId <> $model->merchantID)
+    {
+        Yii::app()->user->setFlash('error', 'You cannot delete a site that does not belong to you.');
+        $this->render('error');
+    }
+    else
+    {
+        // soft delete the site
+        $model = $this->loadModel($id);
+        if ($model)
+        {
+            $model->isDeleted = 1;
+            if ($model->save())
+            {
+                Yii::app()->user->setFlash('success', 'Deleted Successfully');
+            }
+        }
+    }
+        
+    NOTE: better method is implementing a RBAC to the project
+    
+        
+27- to print numbers in correct currency format:
+    
+        $total  = number_format(12345.6,2);  //output is : 12,345.60
+    
+28- an example of how to use DAO in Yii (the query is created by dbForge and then parametrized by me):
+
+        public static function getAccountBalance($userId, $year, $month)
+        {
+            // prevent SQL injection
+            if (!is_numeric($year))
+            {
+                return;
+            }
+            
+            if (!is_numeric($month))
+            {
+                return;
+            }
+            $sql = "SELECT count(*) as count1
+                    FROM
+                        User
+                    INNER JOIN Merchant
+                        ON User.merchantId = Merchant.id AND Merchant.ownerUserId = User.id
+                    INNER JOIN Subscription
+                        ON Subscription.merchantId = Merchant.id
+                    INNER JOIN Transaction
+                    INNER JOIN CustomerSubscription
+                        ON Transaction.customerSubscriptionId = CustomerSubscription.id 
+                        AND CustomerSubscription.subscriptionId = Subscription.id
+                    WHERE
+                        Transaction.type IN ('purchase', 'refund', 'cerdit')
+                        AND Transaction.result IN ('approved', 'declined')
+                        AND Transaction.createdOn BETWEEN str_to_date('$year-$month-01', '%Y-%m-%d') 
+                        AND str_to_date('$year-$month-31', '%Y-%m-%d')
+                        AND User.id = $userId 
+                    ";
+
+            $connection = Yii::app()->db;
+            $command = $connection->createCommand($sql);
+            $dataReader = $command->query();
+            $numberOfTransactions = $dataReader->read();
+            return $numberOfTransactions['count1'];
+        }
+
+29- the above function can be written with query builder instead of DAO as bellow
+        
+        public static function getAccountBalance($userId, $year, $month)
+        {
+            $numberOfTransactions = Yii::app()->db->createCommand()
+                ->select('count(*) as count1')
+                ->from('User')
+                ->join('Merchant', 'User.merchantId = Merchant.id AND Merchant.ownerUserId = User.id')
+                ->join('Subscription', 'Subscription.merchantId = Merchant.id')
+                ->join('Transaction', '')
+                ->join('CustomerSubscription', 'Transaction.customerSubscriptionId = CustomerSubscription.id 
+                        AND CustomerSubscription.subscriptionId = Subscription.id')
+                ->where("Transaction.type IN ('purchase', 'refund', 'credit')
+                        AND Transaction.result IN ('approved', 'declined')
+                        AND Transaction.createdOn BETWEEN str_to_date(:startDate, '%Y-%m-%d') 
+                        AND str_to_date(:endDate, '%Y-%m-%d')
+                        AND User.id = ':userId'", array(':startDate' => $year.'-'.$month.'-01', ':endDate' => $year.'-'.$month.'-31', ':userId' => $userId) )
+                ->queryRow();
+                        
+            return $numberOfTransactions['count1'];
+        }
+        
+30- to create a global (application level) variable in Yii and using it
+
+	// first write this line in config/main.php
+	'params' => array(
+        ......
+        
+        'my_variable' => '123456', 
+    ),
+
+	then in your source code use it like
+	
+	// get application level variable:
+	echo Yii::app()->params['my_variable'];
+	
+	// set application level variable:
+	 Yii::app()->params['my_variable']= 'kamran';
+	
+	it is possible to store even objects but it's not a good practice... it's better to store only some ID for example (PK)...
+	and then recreate the object... 
+	
+31- when we are creating a Db before defining constraints on it, we should insert some default and CORRECT data to avoid database constraint error after
+	applying constratins. for example we can create a single row with all 0 values in each table and the default value of all of integers and Foriegn keys 
+	will be st to 0. so in case on creatinga  new record, we will not have any error
+	
+	
+32- IMPORTANT NOTE: in creating ONE_TO_MANY constraints in dbForge software we should drag the field on the MANY table to the field on the ONE table,
+	otherwise a ONE_TO_ONE relation will be created .
+	
+33- add a forign key constraint to a table
+
+	ALTER TABLE Orders
+	ADD CONSTRAINT fk_Orders
+	FOREIGN KEY (Person_Id)
+	REFERENCES Persons(Id)
+	
+	or another example
+	
+	ALTER TABLE cities
+	ADD CONSTRAINT FK_city_country_Id 
+	FOREIGN KEY (CountryId)
+	REFERENCES countries (Id) 
+	ON DELETE CASCADE 
+	ON UPDATE CASCADE 
+	
+	IMPORTANT NOTE: the cascade is important to automatically delate the N records on N table when the primary record 
+					will be deleted on the ONE table.
+	
+	**** in global the syntax is
+	
+	FOREIGN KEY Constraints
+	
+	InnoDB supports foreign keys, which let you cross-reference related data across tables, and foreign key constraints, which help keep this spread-out data consistent. The syntax for an InnoDB foreign key constraint definition in the CREATE TABLE or ALTER TABLE statement looks like this:
+
+	[CONSTRAINT [symbol]] FOREIGN KEY
+		[index_name] (index_col_name, ...)
+		REFERENCES tbl_name (index_col_name,...)
+		[ON DELETE reference_option]
+		[ON UPDATE reference_option]
+
+	reference_option:
+		RESTRICT | CASCADE | SET NULL | NO ACTION
+	index_name represents a foreign key ID. If given, this is ignored if an index for the foreign key is defined explicitly. Otherwise, if InnoDB creates an index for the foreign key, it uses index_name for the index name.
+
+	Foreign keys definitions are subject to the following conditions:
+
+	Foreign key relationships involve a parent table that holds the central data values, and a child table with identical values pointing back to its parent. The FOREIGN KEY clause is specified in the child table. The parent and child tables must both be InnoDB tables. They must not be TEMPORARY tables.
+
+	Corresponding columns in the foreign key and the referenced key must have similar internal data types inside InnoDB so that they can be compared without a type conversion. The size and sign of integer types must be the same. The length of string types need not be the same. For nonbinary (character) string columns, the character set and collation must be the same.
+
+	InnoDB requires indexes on foreign keys and referenced keys so that foreign key checks can be fast and not require a table scan. In the referencing table, there must be an index where the foreign key columns are listed as the first columns in the same order. Such an index is created on the referencing table automatically if it does not exist. This index might be silently dropped later, if you create another index that can be used to enforce the foreign key constraint. index_name, if given, is used as described previously.
+
+	InnoDB permits a foreign key to reference any index column or group of columns. However, in the referenced table, there must be an index where the referenced columns are listed as the first columns in the same order.
+
+	Index prefixes on foreign key columns are not supported. One consequence of this is that BLOB and TEXT columns cannot be included in a foreign key because indexes on those columns must always include a prefix length.
+
+	If the CONSTRAINT symbol clause is given, the symbol value must be unique in the database. If the clause is not given, InnoDB creates the name automatically.
+		
+	
+34- Declaring Relationship 
+	Before we use AR to perform relational query, we need to let AR know how one AR class is related with another.
+
+	Relationship between two AR classes is directly associated with the relationship between the database tables represented by the AR classes. From database point of view, a relationship between two tables A and B has three types: one-to-many (e.g. tbl_user and tbl_post), one-to-one (e.g. tbl_user and tbl_profile) and many-to-many (e.g. tbl_category and tbl_post). In AR, there are four types of relationships:
+
+	BELONGS_TO: if the relationship between table A and B is one-to-many, then B belongs to A (e.g. Post belongs to User);
+	
+	HAS_MANY: if the relationship between table A and B is one-to-many, then A has many B (e.g. User has many Post);
+	
+	HAS_ONE: this is special case of HAS_MANY where A has at most one B (e.g. User has at most one Profile);
+	
+	MANY_MANY: this corresponds to the many-to-many relationship in database. An associative table is needed to break a many-to-many relationship into one-to-many relationships, as most DBMS do not support many-to-many relationship directly. In our example database schema, the tbl_post_category serves for this purpose. In AR terminology, we can explain MANY_MANY as the combination of BELONGS_TO and HAS_MANY. For example, Post belongs to many Category and Category has many Post.
+	
+35-  IMPORTANT NOTE: if we do not add a primary key to view, Gii does not create
+     corect code for us, and update, edit, delete icons does not work correctly
+    
+	so ALWAYS after creating a model class based on a view , we should add a function like
+	
+    public function primaryKey()
+    {
+        return 'view_Id';
+    }
+	
+	to our model class(IMPORTANT)
+	
+36- IMPORTANT: enableAjaxValidation and enableClientValidation in Yii CActiveForm Widget
+
+	http://developer-faq.blogspot.ca/2012/12/enableajaxvalidation-and.html
+	
+	When enableAjaxValidation set to true, it makes the form doesn't refresh the page to validate form input. So, it will send an ajax response, when we submit the form.
+
+	While enableClientValidation allows us to validate form input via javascript if possible.
+
+	And don't forget to set validateOnSubmit to true in clientOptions property.
+
+	To make it clearer, below several case given.
+	1. enableAjaxValidation=false and enableClientValidation=false
+	Every submission of form will refresh or request page to validate form input.
+
+	2. enableAjaxValidation=false and enableClientValidation=true
+	Every input which is possible to be validated like required field, email field will be handled by javascript, before processing to request/refresh page to server.
+
+	3. enableAjaxValidation=true and enableClientValidation=false
+	Every input will be validated by server side but will not refresh the page, it will do an ajax request for validation.
+
+	4. enableAjaxValidation=true and enableClientValidation=true
+	This one will do an ajax request after doing some possible validation via javascript, like I said before, such as checking required field or email field. And another type of validation like duplicate checking will be handle by an ajax request to server.
+
+	This is code snippet for instantiating a Yii CActiveForm widget in case no. 4. (change _form.php view files like this)
+	
+	<?php
+		$form = $this->beginWidget('CActiveForm', array(
+					'id' => 'user-register-form',
+					'enableClientValidation' => true,
+					'enableAjaxValidation' => true,
+					'clientOptions' => array(
+						'validateOnSubmit' => true,
+					),
+				));
+	?>
+	
+	or if you are using Yiibooster
+	
+	<?php
+		$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+					'id' => 'user-register-form',
+					'enableClientValidation' => true,
+					'enableAjaxValidation' => true,
+					'clientOptions' => array(
+						'validateOnSubmit' => true,
+					),
+				));
+	?>
+	
+	in addition in the controller class we should uncomment this line
+	
+	// Uncomment the following line if AJAX validation is needed
+	// $this->performAjaxValidation($model);
+	
+37- to make our code beautiful we can use phpDesigner 8 portable version and
+
+	1. Press combination: Ctrl + Shift + F1 
+	2. or on the menu bar, select 'PHP' menu. Then select 'Code Beautifier for PHP' (the bottom option). 
+	Do the same with CSS and HTML
+	
+38- another wat to make our code beautiful we can use netbeans PHP edition and press ctrl + shift + F1
+
+39- IMPORTANT NOTE: in the development time NEVER AND NEVER activate APC or anyother caching system. it creates serious problem for
+	program testing. for example always some pages will be run from cache, so debugbreak(); and small changes on code never be 
+	applied on the program and it creates a lot of confusion. so again in the development time NEVER AND NEVER activate APC or anyother caching system
+	
+40- Using PHP's crypt() to store passwords 
+	People often get confused about how to use implement a password store using crypt(). It is actually very simple but it helps to know that:
+
+	It is safe to store the salt together with the password hash. An attacker cannot use it to make a dictionary attack easier.
+	The string crypt() returns is the concatenation of the salt you give it and the hash value.
+	crypt() ignores excess characters in the input salt string.
+	crypt() has function signature string crypt (string $str, string $salt) and the salt string format determines the hash method. For Blowfish hashing, the format is: "$2a$", a two digit cost parameter, "$", and 22 digits from the alphabet "./0-9A-Za-z". The cost must be between 04 and 31.
+
+	crypt('EgzamplPassword', '$2a$10$1qAz2wSx3eDc4rFv5tGb5t')
+		>> '$2a$10$1qAz2wSx3eDc4rFv5tGb5e4jVuld5/KF2Kpy.B8D2XoC031sReFGi'	
+		
+41- for AES enc/dec we should create a class like
+
+<?
+
+    class AES
+    {
+        public static function aes128Encrypt($key, $data) {
+          if(16 !== strlen($key)) $key = hash('MD5', $key, true);
+          $padding = 16 - (strlen($data) % 16);
+          $data .= str_repeat(chr($padding), $padding);
+          return mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16));
+        }
+         
+        public static function aes256Encrypt($key, $data) {
+          if(32 !== strlen($key)) $key = hash('SHA256', $key, true);
+          $padding = 16 - (strlen($data) % 16);
+          $data .= str_repeat(chr($padding), $padding);
+          return base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16)));
+        }
+         
+        public static function aes128Decrypt($key, $data) {
+          if(16 !== strlen($key)) $key = hash('MD5', $key, true);
+          $data = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16));
+          $padding = ord($data[strlen($data) - 1]); 
+          return substr($data, 0, -$padding); 
+        }
+         
+        public static function aes256Decrypt($key, $data) {
+          $data = base64_decode($data);
+          if(32 !== strlen($key)) $key = hash('SHA256', $key, true);
+          $data = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16));
+          $padding = ord($data[strlen($data) - 1]); 
+          return substr($data, 0, -$padding); 
+        }
+    }
+
+
+42- How to upload image(photo), and path entry in database with update functionality see( there are some small typing errors in this page)
+
+	http://www.yiiframework.com/wiki/349/how-to-upload-image-photo-and-path-entry-in-database-with-update-functionality/
+	
+	OR EVEN BETTER look at ( no error at all)
+	
+	travelagancy project-> country (create/update/view/admin)	
+
+43- in PhpED we should select tools->settings->IDE->IDE settings ===> default file encoding : ISO-8859-1 and default file format: Unix 
+		
+44- to change the caption of a bootstrap.widgets.TbButton object (Yiibooster button) after clicking on it
+
+	a) add this line to properties of button on the php view file (e.g. _form.php) -->  'id'=>'save_update',
+	e.g.
+		<div class="form-actions">
+			<?php $this->widget('bootstrap.widgets.TbButton', array(
+				'buttonType'=>'submit',
+				'type'=>'primary',
+				'id'=>'save_update', // add this line to add an id to the button
+				'label'=>$model->isNewRecord ? 'Create' : 'Save',
+			)); ?>
+		</div>
+	b) add this jQuery code to the end of php view file (e.g. _form.php)
+	
+		<script>
+			// jQuery function to change the caption of the button after click
+			$('#save_update').click(function() {
+				$('#save_update').html('Saving, Please wait ....');
+				//$('#save_update').attr('disabled', true);
+			});
+		</script>
+		
+45- in PHP the way we can send a array or variable to the user as a file(browser will download this file) is 
+
+		filename="download.txt";
+		header("Content-type: application/octet-stream");
+		header("Content-disposition: attachment;filename=$filename");
+		
+		echo $my_array;
+	
+	in which $my_array is the file or any information we are going to bedownloaded as txt file on the users machine. 
+	if we are going to send an CSV in the $my_array array we change the abouve lines too
+	
+		filename="download.xls";
+		header("Content-Type: application/xls");
+		header("Content-disposition: attachment;filename=$filename");
+		
+		echo $my_array;
+	
+	for zip files
+	
+		filename="download.zip";
+		header("Content-Type: application/zip");
+		header("Content-disposition: attachment;filename=$filename");
+		
+		echo $my_array;
+	
+	and so on...
+	
+46- how to use date picker and range date picker in yii booster:
+
+	// date picker
+	<?php echo $form->datepickerRow($model, 'TakeoffDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
+
+	// date range picker
+	<?php echo $form->dateRangeRow($model, 'dateRangeField',
+	array('hint'=>'Click inside! An even a date range field!.',
+	'prepend'=>'<i class="icon-calendar"></i>',
+	'options' => array('callback'=>'js:function(start, end){console.log(start.toString("MMMM d, yyyy") + " - " + end.toString("MMMM d, yyyy"));}')
+	)); ?>	
+	
+	IMPORTANT NOTE: Google chrome will be locked if we use Yiibooster Timepicker but firefox works with it greatly
+	
+	for more information abouy Yiibooster components go to: 
+	
+		http://yii-booster.clevertech.biz/components.html
+	
+	
+47- IMPORTANT NOTE: How we can change the parameters and options of a YiiBooster control
+
+	Lets learn by an example , we are going to change the date format of YiiBooster datepicker component
+	the default format is mm/dd/yyyy but we like to be yyyy-mm-dd
+	
+	first we open the /protected/extensions/bootstrap/widgets/TbDatepicker.php file
+	then we realize that date is assigned like
+	
+	if (!isset($this->options['format']))
+			$this->options['format'] = 'mm/dd/yyyy';
+	
+	there are two methods to change the date format
+	
+	a) change the $this->options['format'] = 'mm/dd/yyyy'; to $this->options['format'] = 'yyyy-mm-dd';
+	
+	b) use date picker in our view classes in this form(this is better method)
+	
+	<?php echo $form->datepickerRow($model, 'StartDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'id' =>'start_date', 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
+	
+	
+48- IMPORTANT NOTE:  Yii's ajax validation makes the data entry slow, so sometimes we should disable that
+
+	<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+	'id'=>'flight-form',
+	'enableClientValidation' => true,
+    'enableAjaxValidation' => false, // disable ajax validation
+    'clientOptions' => array(
+        'validateOnSubmit' => true,
+    ),
+)); ?>
+
+49- Ajax: to test that the type of request is Ajax or not:
+
+	if(isset($_POST['ajax']) && $_POST['ajax']==='flight-form') // country-form = the id of the caller CActiveForm or bootstrap.widgets.TbActiveForm
+	{
+		// do you things here
+	}
+
+50-  it is better to use Firefox + Firebug + FireQuery + Selenium IDE for development
+
+51-  to run a jquery function after page load we should write
+
+	<script>
+	$(function(){
+		// $('#save_update').html('Save');
+		// other codes come here
+	});
+	</script>
+	
+	and to run a code after clicking a button:
+	
+	<script>
+	// jQuery function to change the caption of key after click
+	$('#save_update').click(function() {
+		$('#save_update').html('Saving, Please wait ....');
+	});
+	</script>
+
+52- call by reference is change from php 5.3. For example, use:
+
+	// Right way!
+	function myFunc(&$arg) { }
+	myFunc($var);
+	
+	Rather than:
+
+	// Wrong way!
+	function myFunc($arg) { }
+	myFunc(&$arg);
+    
+53- for an advance menu package with sub menu support in Yii
+
+	http://www.yiiframework.com/extension/mbmenu#hh3
+	
+54- important note: in win XAMPP 1.8.1 has bug. use XAMPP 1.7.7 instead.
+
+55- IMPORTANT:
+	when we add a field to a table in DB after creating the model class of that table using Gii, the nmodel class has no idea about
+	changes on the table in DB , so in the "code navigator window" we cannot see the name of that field . to force model class to update
+	itself with DB, we should add this line to seach() function on the model class
+	
+		$criteria->compare('New_field_name', $this->New_field_name); 
+		
+		after adding this line and saving model class, the "New_field_name" will appear on the code navigate window.
+		
+56- to kill a process in win7 we should open an ADMINISTRATIVE command prompt and type
+
+		Taskkill /PID 2704 /F
+		
+		in which 2704 is the processID
+		
+57- jQuery call to php function
+
+	From jQuery you can only call php script with this function. Like that:
+	$.ajax({
+	   url: 'hello.php',
+	   success: function (response) {//response is value returned from php (for your example it's "bye bye"
+		 alert(response);
+	   }
+	});
+
+	hello.php
+	
+	<?php
+    echo "bye bye"
+?>
+
+58- An Easy Solution for Dependent dropDownList Using AJAX
+
+	http://www.yiiframework.com/wiki/429/an-easy-solution-for-dependent-dropdownlist-using-ajax/
+	
+59- Often happens to have the need of change a part of the page with ajax.
+
+	http://www.yiiframework.com/wiki/87/ajax-update/
+	
+60- Ajax form submiting in Yii
+
+	http://www.yiiframework.com/wiki/388/ajax-form-submiting-in-yii/
+
+61- some linux notes
+
+	/    =  root directory
+	./   =  current directory
+	../  =  parent directory
+	~/   =  home directory
+	
+62- Pretty much - by putting that / at the start, you're saying "Start at the root directory, and work along"
+
+	If you don't put the / at the front, you're saying "Start from the current directory"
+
+	If you put ../ at the front, you're saying "Go back one directory and then start looking"
+
+	And if you put ~/ at the front, you're saying "Look in my home directory"
+
+	So, to sum up, let's say you're in the directory /etc/wibble
+
+	If you say cd /foo/bar you're asking to go to the directory /foo/bar
+
+	If you say cd foo/bar you're asking to go to the directory /etc/wibble/foo/bar
+
+	If you say cd ../foo/bar you're asking to go to the directory /etc/foo/bar
+
+	And if you say cd ~/foo/bar you're asking to go to the directory /home/yourname/wibble/foo/bar
+	
+63- a sample jQuery file:
+
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" 
+	"http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+	<html xmlns="http://www.w3.org/1999/xhtml">
+	<head>
+		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+		<script type="text/javascript">
+			$(document).ready(function () {            
+				$("button").bind('click', function(){
+				  alert("Button is Clicked.");
+				});
+				  
+				// create jqxtabs.
+				$('#jqxtabs').jqxTabs({ width: 550, height: 150 });
+				$('#jqxtabs').bind('selected', function (event) {
+					var item = event.args.item;
+					var title = $('#jqxtabs').jqxTabs('getTitleAt', item);
+					alert(title);
+				});
+			});
+		</script>
+	</head>
+	<body>
+		<button>
+			Click me
+		</button>
+	</body>
+	</html>
+	
+64- in MVC it is ALWAYS RECOMMENDED that use different forms for CRUD and never use one grid form both for data entry and data view
+	this is the same way that Yii creates the CRUD forms.
+	
+65- JSON: JavaScript Object Notation.
+
+	JSON is syntax for storing and exchanging text information. Much like XML.
+
+	JSON is smaller than XML, and faster and easier to parse.
+	
+	{
+	"employees": [
+	{ "firstName":"John" , "lastName":"Doe" }, 
+	{ "firstName":"Anna" , "lastName":"Smith" }, 
+	{ "firstName":"Peter" , "lastName":"Jones" }
+	]
+	}
+
+	The employees object is an array of 3 employee records (objects).
+	
+66-  
+	<!DOCTYPE html>
+	<html>
+	<body>
+	<h2>JSON Object Creation in JavaScript</h2>
+	<p>
+	Name: <span id="jname"></span><br /> 
+	Age: <span id="jage"></span><br /> 
+	Address: <span id="jstreet"></span><br /> 
+	Phone: <span id="jphone"></span><br /> 
+	</p>
+
+	<script>
+	var JSONObject= {
+	"name":"John Johnson",
+	"street":"Oslo West 555", 
+	"age":33,
+	"phone":"555 1234567"};
+	document.getElementById("jname").innerHTML=JSONObject.name 
+	document.getElementById("jage").innerHTML=JSONObject.age 
+	document.getElementById("jstreet").innerHTML=JSONObject.street 
+	document.getElementById("jphone").innerHTML=JSONObject.phone 
+	</script>
+
+	</body>
+	</html>
+
+67- tutorial about JSON (java script object notation)
+
+	http://iviewsource.com/codingtutorials/getting-started-with-javascript-object-notation-json-for-absolute-beginners/
+	
+68- For user authetication, we should change the
+	/protected/components/UserIdentity.php and /protected/mode/User.php files according to chapter 7 of Yii
+	application development book and just add one table(tbl_user) to db. finally change some lines in
+	/protected/config/main.php
+	
+69- authorization in Yii: powerful visual RBAC extension for Yii---> Rights
+
+	http://www.yiiframework.com/extension/rights
+	http://www.yiiframework.com/forum/index.php/topic/10556-extension-rights/page__p__51869#entry51869
+		
+70- Important note on installing Rigths: the users table should have a record with id = 1 and username = Admin ( with capital 'A'), 
+	otherwise you cannot login to the Rigths module after log out and will get error 403.
+
+71- to understand yii structure for Authentication and Authorization:
+
+	http://www.yiiframework.com/doc/guide/1.1/en/topics.auth
+	http://www.yiiframework.com/wiki/136/getting-to-understand-hierarchical-rbac-scheme/
+
+72- Indexes on DB
+
+	Indexes allow the database application to find data fast; without reading the whole table.	
+
+	An index can be created in a table to find data more quickly and efficiently.
+
+	The users cannot see the indexes, they are just used to speed up searches/queries.
+
+	Note: Updating a table with indexes takes more time than updating a table without (because the indexes also need an update). So you should only create indexes on columns (and tables) that will be frequently searched against.
+
+	SQL CREATE INDEX Syntax
+
+	Creates an index on a table. Duplicate values are allowed:
+
+	CREATE INDEX index_name
+	ON table_name (column_name)
+	SQL CREATE UNIQUE INDEX Syntax
+
+	Creates a unique index on a table. Duplicate values are not allowed:
+
+	CREATE UNIQUE INDEX index_name
+	ON table_name (column_name)	
+	
+	example
+	
+	CREATE INDEX PIndex
+	ON Persons (LastName, FirstName)
+	
+	
+73- MySQL Engines: InnoDB vs. MyISAM – A Comparison of Pros and Cons
+
+	The 2 major types of table storage engines for MySQL databases are InnoDB and MyISAM. To summarize the differences of features and performance,
+
+	InnoDB is newer while MyISAM is older.
+	InnoDB is more complex while MyISAM is simpler.
+	InnoDB is more strict in data integrity while MyISAM is loose.
+	InnoDB implements row-level lock for inserting and updating while MyISAM implements table-level lock.
+	InnoDB has transactions while MyISAM does not.
+	InnoDB has foreign keys and relationship contraints while MyISAM does not.
+	InnoDB has better crash recovery while MyISAM is poor at recovering data integrity at system crashes.
+	MyISAM has full-text search index while InnoDB has not.
+	In light of these differences, InnoDB and MyISAM have their unique advantages and disadvantages against each other. They each are more suitable in some scenarios than the other.
+
+	Advantages of InnoDB
+
+	InnoDB should be used where data integrity comes a priority because it inherently takes care of them by the help of relationship constraints and transactions.
+	Faster in write-intensive (inserts, updates) tables because it utilizes row-level locking and only hold up changes to the same row that’s being inserted or updated.
+	
+	Disadvantages of InnoDB
+
+	Because InnoDB has to take care of the different relationships between tables, database administrator and scheme creators have to take more time in designing the data models which are more complex than those of MyISAM.
+	Consumes more system resources such as RAM. As a matter of fact, it is recommended by many that InnoDB engine be turned off if there’s no substantial need for it after installation of MySQL.
+	No full-text indexing.
+	
+	Advantages of MyISAM
+
+	Simpler to design and create, thus better for beginners. No worries about the foreign relationships between tables.
+	Faster than InnoDB on the whole as a result of the simpler structure thus much less costs of server resources.
+	Full-text indexing.
+	Especially good for read-intensive (select) tables.
+	
+	Disadvantages of MyISAM
+
+	No data integrity (e.g. relationship constraints) check, which then comes a responsibility and overhead of the database administrators and application developers.
+	Doesn’t support transactions which is essential in critical data applications such as that of banking.
+	Slower than InnoDB for tables that are frequently being inserted to or updated, because the entire table is locked for any insert or update.
+	The comparison is pretty straightforward. InnoDB is more suitable for data critical situations that require frequent inserts and updates. MyISAM, on the other hand, performs better with applications that don’t quite depend on the data integrity and mostly just select and display the data.
+			
+74-	a nice online website to create RBAC diagrams---> http://yuml.me/diagram/scruffy/class/draw
+
+	for example run this code on that site
+	
+	// Cool travelagency rbac Diagram
+
+	[Admin (Role)]->[FlightHotelOperator (Role)]
+    [Admin (Role)]->[Admin tasks (Task)]
+	[Admin tasks (Task)]->[CRUD RBAC rights (Operation)]
+	[Admin tasks (Task)]->[Change Themes (Operation)]
+	[Admin tasks (Task)]->[Create Reports (Operation)]
+	[Admin tasks (Task)]->[Print Reports (Operation)]
+	[FlightHotelOperator (Role)]->[HotelOperator (Role)]
+	[FlightHotelOperator (Role)]->[FlightOperator (Role)]
+	[HotelOperator (Role)]->[CRUD Hotel Tables (Operation)]
+	[HotelOperator (Role)]->[AuthenticatedUser (Role)]
+	[FlightOperator (Role)]->[CRUD Flight Tables (Operation)]
+	[FlightOperator (Role)]->[AuthenticatedUser (Role)]
+	[AuthenticatedUser (Role)]->[Reserve hotels and flights (Operation)]
+	[AuthenticatedUser (Role)]->[GuestUser (Role)]
+	[GuestUser (Role)]->[Search hotels and flights (Operation)]
+	[AuthenticatedUser (Role)]->[CRUD his own information (Operation)]
+	[GuestUser (Role)]->[Register (Operation)]
+	[AuthenticatedUser (Role)]->[login/logout (Operation)]
+	
+75- RESTfull webservice in Yii
+
+	http://www.yiiframework.com/wiki/175/how-to-create-a-rest-api/
+	http://www.yiiframework.com/extension/restfullyii/#hh1
+		
+76- STEP BY STEP INSTALLATION AND USAGE OF 'RIGHTS' RBAC
+
+	a) create user authetication according to Chapter 7 of Agile app development using Yii book
+	
+	b) download "Rights" from http://www.yiiframework.com/extension/rights
+	
+	c) unzip and copy it on the /protected/modules/ folder (create modules forlder by yourself)
+	
+		IMPORTANT: configuration file is /protected/modules/rights/RightsModule.php
+		
+	d) Add the following lines to your application’s configuration (protected/config/main.php): 
+ 
+		'import'=>array( 
+		   ...... 
+		   'application.modules.rights.*', 
+		   'application.modules.rights.components.*',    // Correct paths if necessary.  
+		), 
+		...... 
+		'components'=>array( 
+		   ...... 
+		   'user'=>array( 
+			  'class'=>'RWebUser',  // Allows super users access implicitly. 
+			  ...... 
+		   ), 
+		   'authManager'=>array( 
+			  'class'=>'RDbAuthManager',  // Provides support authorization item sorting. 
+			   ...... 
+		   ), 
+		   ...... 
+		), 
+		'modules'=>array( 
+		   'rights'=>array( 
+			  'install'=>true,  // Enables the installer. 
+		   ), 
+		), 
+		
+	e) the users table should have a record with id = 1 and 
+		username = Admin ( with capital 'A'), otherwise you cannot login
+		to the Rigths module after log out and will get error 403.
+		
+	f) create some new users in the "users" table for later use.
+	
+	g) login as 'admin' user to your Yii application (important. nobody except admin can run 'Rights' module), then navigate to
+		
+		http://your_aplication_url/index.php?r=rights
+		
+		to install "Rights". It will be installed automatically and will add 4 tables to DB and shows the success message.
+		
+	h) create some "operations" in "Rights" GUI according to your program's logic.
+	
+	i) create some "tasks" in "Rights" GUI according to your program's logic.
+	
+	j) create some "Roles" in "Rights" GUI according to your program's logic. (there are 3 predefined roles there too)
+	
+	k) on the "permissions" page of 'Right', first click on  'Generate items for controller actions' link to see 
+		the complete list of all of actions in all controllers of your application. then we can assign which Role has
+		access to which action. Inheritance will applied automatically. This page is a little slow, after clicking on 
+		any 'assign' link, it takes some seconds that it will change to "Revoke" that shows the task is complete.
+		do all of required assignments carefully.
+		
+	m) On the "Assignments"  page of "Rights", do some "Assignments" in GUI according to your program's logic. in this step 
+		we adds roles, tasks, or operations to the users we have created in the "users" table.
+		
+	n) on the controller classes we should apply these changes:
+		
+		-- IMPORTANT NOTE: the controllers that everybody should have access to them like SiteController should be left without any chnages.
+		
+		-- Change base class of other Controllers to 'RController'. for example
+		
+				class RoomController extends Controller 
+			
+			should be changed to 
+				
+				class RoomController extends RController
+			
+		-- change filters() function on all of CHANGED Contoller clases to this 
+			
+			public function filters()
+			{
+				 return array(
+					'rights',
+				);
+			}
+			
+			IMPORTANT: Do not change SiteController and other controller classes that are NOT extended from 'RController'.
+			
+		-- delete accessRules() function from controllers. 
+
+		-- if we are going to apply very specific rules and exceptions
+			like "Change my own data" rule, we should write this function after function filters()
+			
+			public function allowedActions() 
+			{ 
+			   return 'index, suggestedTags'; //actionIndex() and actionSuggestedTags() are allowed for all users now
+			} 
+			
+			Note1:  Allowed actions are case-insensitive and you may use asterix (*) to allow access to all actions.
+			
+			Note2: I sugest all of actions that should be down as Guest user should be put on Sitecontroller or other controllers that
+				   are not extended fromRController base class, because Guest in Rights is different with default Guest user in Yii and
+				   this creates a problem. so put all of functions that even guest should have access to them like 'reset passowrd',
+				   'login/logout', 'register in site' on site controller or other controllers that  are not extended fromRController base class.
+				   
+	o) run your application, you can see that different users have access to different parts of program. and RBAC has been
+		implemented correctly.
+		
+	p) optional steps:
+		
+		-- create a model class for Authassignment table using Gii
+		
+		-- change authenticate function in protected/components/IWebUser to thsi
+		
+			    public function authenticate()
+				{
+					$user=User::model()->findByAttributes(array('username'=>$this->username));
+					if($user===null)
+					{
+						$this->errorCode=self::ERROR_USERNAME_INVALID;
+					}
+					else 
+					{
+						if($user->password!==$user->encrypt($this->password))
+						{
+							$this->errorCode=self::ERROR_PASSWORD_INVALID;
+						}
+						else
+						{
+							$this->_id = $user->id;
+							if(null===$user->last_login_time)
+							{
+								$lastLogin = time();
+							}
+							else
+							{
+								$lastLogin = strtotime($user->last_login_time);
+							}
+							$this->setState('lastLoginTime', $lastLogin);  // save in session
+							
+							
+							// save roles of user  (By kamran)
+							// in other sections we can read
+							// the roles with this command:
+							// $a = Yii::app()->user->roles;
+							
+							$criteria=new CDbCriteria;
+							$criteria->select = 'itemname';
+							$criteria->compare('userid',$this->_id,true);
+							$roles = Authassignment::model()->findAll($criteria);
+							
+							//convert roles object to array of name of roles
+							foreach($roles as $key => $value)
+							{
+								$rolesArray[] = $roles[$key]->itemname; 
+							}
+							$this->setState('roles',$rolesArray);  // save in session
+							$this->errorCode=self::ERROR_NONE;    
+						}
+					}
+					return !$this->errorCode;
+				}
+				
+			now inside the program, we can get the roles of the current user using this command:
+			
+					$a = Yii::app()->user->roles;
+					
+		q) To change the theme of Rights module we should write this line in init() function of RightsModule.php file
+	
+			public function init()
+			{
+				
+				/ apply the site theme to Rights module
+				$this->appLayout = 'webroot.themes.'. Yii::app()->theme->name .'.views.layouts.main';
+				...........
+			}
+			
+		and a theme should be defined in the /config/main.php too
+		
+			'theme'=>'freshy2', 
+			
+		r) after installing Rights, to avoid any data damage rename modules/rights/controller/InstallController.php file to
+			modules/rights/controller/InstallController0.php	
+					
+	
+		s) to restiric a user to just change his own information
+			
+			// This functions allows user just change his own information
+			// Kamran
+			public function actionUpdateMyself($id)
+			{
+				// restric user just to his own loggen in Id and not any other Id
+				if($id != Yii::app()->user->id)
+				{
+				  $msg = 'Your are not allowed to change the information of other users.';
+				  Yii::app()->user->setFlash('error', $msg);
+				  $this->render('confirm');  
+				}
+				else
+				{
+					$model=$this->loadModel($id);
+					$model->password_repeat = $model->password;
+					
+					if(isset($_POST['User']))
+					{
+						$model->attributes=$_POST['User'];
+						if($model->save())
+						{
+							$msg = 'Your information is changed successfully.';
+							Yii::app()->user->setFlash('success', $msg);
+							$this->render('confirm'); 
+							return;
+						}    
+					}
+					
+					$this->render('update',array(
+						'model'=>$model,
+					));
+				}
+			}
+		
+77-	get baseURL in Yii
+
+	 $a = Yii::app()->request->baseUrl;
+		
+78- some global variables in yii
+
+		Yii::app()->homeUrl
+		Yii::app()->user->isGuest)
+		Yii::app()->user->name
+		Yii::app()->user->id
+		Yii::app()->request->baseUrl
+		Yii::app()->theme->baseUrl
+
+
+79- an example of findByAttributes()
+
+	$user=User::model()->findByAttributes(array('username'=>$this->username));
+	$user=User::model()->findAllByAttributes(array('username'=>$this->username, 'password'=>$this->password));
+	
+80- free themes for Yii
+	http://yiithemes.mehesz.net/
+	http://www.yiiframework.com/forum/index.php/topic/9448-yii-themes/page__st__20__p__93505#entry93505
+	
+	
+81- Converting an Artisteer Theme to Yii ( http://www.yiiframework.com/wiki/188/converting-an-artisteer-theme-to-yii/ )
+	
+	There are two approaches to converting an Artisteer theme. The first is to simply copy an existing Artisteer – based Yii theme, overlay the CSS and images, then make any necessary tweaks to the layout files. This is undoubtedly the fastest route, but won't teach you as much as doing it from scratch. That's ok. Sometimes getting the job done is the top priority. The second approach is more general and will apply to some extent to other HTML templates that you may want to convert. I'll be covering the first approach in detail, while the second will be more of a general discussion.
+
+	Artisteer vs Yii 
+	Artisteer can be used to generate themes for Drupal, Joomla, and other CMSes. It can also generate HTML templates. It is the HTML template that can be converted to an Artisteer theme.
+
+	Artisteer files:
+	page.html
+	style.css
+	style.ie6.css
+	style.ie7.css
+	script.js
+	images   (subdirectory)
+	 
+	Yii theme files:
+	theme_name (directory)
+		css (subdirectory)
+			<contains various css files, possibly image files>
+		views (subdirectory)
+			layouts (subdirectory)
+				main.php
+				column1.php
+				column2.php
+				...
+			site (subdirectory)
+				index.php
+			system (subdirectory)
+	The Artisteer files are straightforward. You have a set of stylesheets (i.e. CSS files) and images to support them. You also have a file called page.html. Page.html demonstrates the use of the various styles supported by the template. For example, you'll see the H1 tag, how links are styled, and the default format for HTML tables. You'll also see Artisteer specific classes demonstrated. I will revisit this file in more detail when I cover the second approach.
+
+	The Yii theme files are a little more involved. The css subdirectory is obvious. In many ways, CSS is like a structural foundation. The views, then, are the walls and the doors, the windows and the floors that complete the theme. Layouts are those special views that define the header, the footer, and column layouts. (see the Yii Definitive Guide for more info)
+
+	Approach #1: Fast and Furious 
+	So, you've generated an Artisteer theme that you like and exported it as an HTML template. Or you've downloaded one of the freebies online. Step 1: Download a copy of one of the Artisteer – based themes from http://yiithemes.mehesz.net/ If possible, find one that is structured close to the one that you want to convert. For example, if your menu position is below the header, you'll do less editing if the theme you download as a starting point already matches. Install the theme according to the instructions. When you're sure the theme works, move on to the next step.
+
+	Step 2: Make a copy of the working theme from Step 1 and give it a new name.
+
+	Step 3: Remove the css/images subdirectory from the new theme
+
+	Step 4: Copy the Artisteer files from the generated HTML template into the css directory. Overwrite any files with matching names. Note: form.css is from the standard Yii install. Artisteer does not provide forms CSS in their generated template.
+
+	Step 5: Set 'theme'=>'yournewtheme' in the main.php config file and tweak! Basically, go to the home page of your webapp (something like http://localhost/myapp/). You should see a one column display very similar to what you get if you view page.html. This page is generated from yourtheme/views/site/index.php (it will say so on the screen). When present in your theme, this file takes precedence over your webapp's site/index.php.
+	Compare the browser display (i.e. http://localhost/myapp/) with an open window/tab of page.html. If the menu, for example, is in the wrong location, viewing the HTML source for both web pages and noting the differences will help you alter the various layout files. In particular, note which DIV tags are nested within others and which blocks of tags follow each other. You might even be missing a set of tags if a header is included in one theme, but not in another.
+	If you need the column2.php layout (or others of your own design), you'll need to setup a test to use it. There is dummy info included in the column2.php layout to further demonstrate use of Artisteer CSS classes.
+
+	Second Approach: More General 
+	A more general approach to converting HTML templates to Yii themes can be summed up in the following steps:
+
+	Step 1: Find a theme/template you like and download it.
+
+	Step 2: Find the “demo” page that shows the various CSS styles and formatting. Page.html, index.html, etc. and view the source.
+
+	Step 3: Copy the header into a new text file. This will become your main.php file in the layout subdirectory. Replace any references to files on the filesystem with paths that take into account the location of the theme. For example,
+
+	<script type="text/javascript" src="<?php echo Yii::app()->theme->baseUrl; ?>/css/script.js"></script>
+	Step 4: Examine the source and figure out where to separate the HTML that should be the rest of main.php and what would go into a single column display (i.e. column1.php). Note: Upon execution, column1.php gets inserted into main.php replacing the placeholder variable $content. (Examine any existing theme to get an idea of how this works.) You have to understand how layouts work and the resulting HTML before you can successfully look at a file and know where to separate. Of course, you can always try something and if it isn't quite right, adjust it.
+
+	Step 5: Create other layouts as needed.
+
+	Final Thoughts 
+	That covers converting Artisteer themes and in general, other HTML templates. This document does not pretend to cover every detail of every step, but if you take the time to look at HTML source, existing themes, and this guide, you'll be well on your way to converting your own themes.
+			
+	
+
+82- MbMenu is a professional menu for Yii. we can download it from Yii website and in our
+	project in protected\views\layout\main.php
+	
+	replace
+	
+	<div id="mainmenu">
+		<?php $this->widget('zii.widgets.CMenu',array(
+			'items'=>array(
+				array('label'=>'Home', 'url'=>array('/site/index')),
+				array('label'=>'About', 'url'=>array('/site/page', 'view'=>'about')),
+				array('label'=>'Contact', 'url'=>array('/site/contact')),
+				array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+				array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest)
+			),
+		)); ?>
+	</div><!-- mainmenu -->
+	
+	with
+	
+	
+	<div id="mainMbMenu">
+    <?php 
+       
+        $visibility = MenuVisibility::getMenuVisibility();
+        
+        $this->widget('application.extensions.mbmenu.MbMenu',array(
+            'items'=>array(
+                // show 'Home' menu to all users 
+                array('label'=>'Home', 'url'=>array('/site/index')),
+                
+                // show 'Search' menu to all users 
+                array('label'=>'Search',
+                  'items'=>array(
+                    array('label'=>'Hotels', 'url'=>array('/search/hotel','view'=>'admin')),
+                    array('label'=>'Flights', 'url'=>array('/search/flight','view'=>'admin')),
+                  ),
+                ),
+                
+                // show 'Global info' menu to NONE guest users
+                array('label'=>'Global info', 'visible' => $visibility['General'],
+                  'items'=>array(
+                    array('label'=>'Users\' Management', 'url'=>array('/user/admin','view'=>'admin')),
+                    array('label'=>'Countries', 'url'=>array('/country/admin','view'=>'admin')),
+                    array('label'=>'Cities', 'url'=>array('/city/admin','view'=>'admin')),
+                  ),
+                ),
+                
+                // show 'Flight info' menu to admin and Flight_operator users 
+                array('label'=>'Flight info', 'visible' => $visibility['Flight'],
+                  'items'=>array(
+                    array('label'=>'Flights', 'url'=>array('/flight/admin','view'=>'admin')),
+                    array('label'=>'Airplanes', 'url'=>array('/airplane/admin','view'=>'admin')),
+                    array('label'=>'Airports', 'url'=>array('/airport/admin','view'=>'admin')),
+                    array('label'=>'Airplane Specifications', 'url'=>array('/airplaneSpecification/admin','view'=>'admin')),
+                    array('label'=>'Airlines', 'url'=>array('/airline/admin','view'=>'admin')),
+                    array('label'=>'Seats', 'url'=>array('/seat/admin','view'=>'admin')),
+                    array('label'=>'Clients', 'url'=>array('/client/admin','view'=>'admin')),
+                  ),
+                ),
+                
+                // show 'Hotel info' menu to admin and Hotel_operator users 
+                
+                array('label'=>'Hotel info', 'visible' => $visibility['Hotel'], 
+                  'items'=>array(
+                    array('label'=>'Hotels', 'url'=>array('/hotel/admin','view'=>'admin')),
+                    array('label'=>'Rooms', 'url'=>array('/room/admin','view'=>'admin')),
+                    array('label'=>'Room Types', 'url'=>array('/roomType/admin','view'=>'admin')),
+                    array('label'=>'Clients', 'url'=>array('/client/admin','view'=>'admin')),
+                  ),
+                ),
+                
+                /* a menu with SUB SUB MENU
+                array('label'=>'Test',
+                  'items'=>array(
+                    array('label'=>'Sub 1', 'url'=>array('/site/page','view'=>'sub1')),
+                    array('label'=>'Sub 2',
+                      'items'=>array(
+                        array('label'=>'Sub sub 1', 'url'=>array('/site/page','view'=>'subsub1')),
+                        array('label'=>'Sub sub 2', 'url'=>array('/site/page','view'=>'subsub2')),
+                      ),
+                    ),
+                  ),
+                ),
+                */
+                // show 'Hotel info' menu to all users
+                array('label'=>'Contact', 'url'=>array('/site/contact'),
+                  'items'=>array(
+                    array('label'=>'Contact us', 'url'=>array('/site/contact')),
+                    array('label'=>'About us', 'url'=>array('/site/about')),
+                  ),
+                ),
+                // show 'Hotel info' menu to all users 
+                array('label'=>'Admin Tasks', 'visible' => $visibility['Admin'],
+                  'items'=>array(
+                    array('label'=>'RBAC', 'url'=>array('/rights/assignment/','view'=>'view')),
+                    array('label'=>'Create Reports', 'url'=>array('/report/admin','view'=>'admin')),
+                    array('label'=>'Change Forms', 'url'=>array('/changeForm/admin','view'=>'admin')),
+                  ),
+                ),
+                
+                array('label'=>'Login', 'url'=>array('/site/login'), 'visible'=>Yii::app()->user->isGuest),
+                array('label'=>'Logout ('.Yii::app()->user->name.')', 'url'=>array('/site/logout'), 'visible'=>!Yii::app()->user->isGuest),
+            ),
+    )); ?>	
+	</div><!-- mainMbMenu -->
+	
+	IMPORTANT Note: to change the color of MbMenu edit this css file \protected\extensions\mbmenu\source\mbmenu.css
+	
+83- changing theme in Yii according to type of user
+	
+	We can't configure multiple themes in config.php file, we can do this in your controller:
+
+	public function init()
+	{
+	   if(Yii::app()->user->isGuest)
+		  Yii::app()->theme = 'bluebox';
+	   else
+		  Yii::app()->theme = 'classic';
+
+	   parent::init();
+	}
+
+	
+84- to apply a new theme to a module in Yii, we should write this line on the init() fuction of the module:
+
+	class RightsModule extends CWebModule
+	{
+		.........
+		
+		public function init()
+		{
+			// Set the theme
+			Yii::app()->theme = 'MyTheme';
+			............
+		}
+		..........
+	}
+	
+	BUT somethimes it does not work for example for Rights module we should write
+	
+		public function init()
+		{
+			
+			/ apply the site theme to Rights module
+			$this->appLayout = 'webroot.themes.'. Yii::app()->theme->name .'.views.layouts.main';
+			...........
+		}
+		and a theme should be defined in the /config/main.php too
+		
+		'theme'=>'freshy2', 
+		
+		
+85- put a text in transparent box
+			
+		http://www.w3schools.com/css/css_image_transparency.asp
+		
+	
+		<html>
+		<head>
+		<style>
+		div.background
+		  {
+		  width:500px;
+		  height:250px;
+		  background:url(klematis.jpg) repeat;
+		  border:2px solid black;
+		  }
+		div.transbox
+		  {
+		  width:400px;
+		  height:180px;
+		  margin:30px 50px;
+		  background-color:#ffffff;
+		  border:1px solid black;
+		  opacity:0.6;
+		  filter:alpha(opacity=60); /* For IE8 and earlier */
+		  }
+		div.transbox p
+		  {
+		  margin:30px 40px;
+		  font-weight:bold;
+		  color:#000000;
+		  }
+		</style>
+		</head>
+
+		<body>
+
+		<div class="background">
+		<div class="transbox">
+		<p>This is some text that is placed in the transparent box.
+		This is some text that is placed in the transparent box.
+		This is some text that is placed in the transparent box.
+		This is some text that is placed in the transparent box.
+		This is some text that is placed in the transparent box.
+		</p>
+		</div>
+		</div>
+
+		</body>
+		</html>
+		
+86- IMPORTANT NOTE: catching problems in Yii applications:
+
+	when I edited a CSS in Yii, the results never apply to HTML even after ctrl+F5 on the browser. I tried many times and still the color
+	was unchanged. the soultion is 'DELETING EVRYTHING FROM"ASSESTS" FOLDER OF PROJECT'. after that if we refresh the page, our new source 
+	code will be shown.
+	when we are changing javascript and CSS files, this will happen a alot.
+	
+	
+87- The best way to add a transparent background picture to a theme:
+
+	a) copy background.jpg file in \themes\kamran_theme1\css\ folder
+	
+	b) open \themes\kamran_theme1\css\main.css file and change body {} section of it like below
+	
+	body
+	{
+		margin: 0;
+		padding: 0;
+		color: #555;
+		font: normal 10pt Arial,Helvetica,sans-serif;
+		/*background: #EFEFEF;*/
+		
+		/* background picture (kamran)*/
+		background-image: url( 'background.jpg' );
+		background-repeat: no-repeat;
+		background-attachment: fixed;
+		background-position: top center;
+		
+		/* backgound transparency 80% (kamran)*/
+		opacity:0.8;
+		filter:alpha(opacity=80); /* For IE8 and earlier */
+	}
+	
+	These lines will create 80% transparency to ANY THEME that has background picture. Even mosules like 
+	"Rights" will have transparency in this way.
+	
+
+88- ANOTHER WAY to change the transparency of our main screen on Yii, supposing we are using YiiBooster
+	we should change g:\GitHub\travelagency\protected\extensions\bootstrap\assets\css\bootstrap.css file
+	
+	find  body{  ... } section on it and add these lines to end of body{} section
+	
+	opacity:0.8;
+    filter:alpha(opacity=80); /* For IE8 and earlier */
+	
+	but the first method is better.
+	
+	
+88- to change the theme of website using code in the siteController.php write
+
+			// changes the theme of website
+			public function actionChangeTheme($name)
+			{
+			   Yii::app()->theme = $name;
+			   
+			   // save theme name on session
+			   Yii::app()->session['currentTheme']= $name;
+			   
+			   $this->render('index');
+			}	
+			
+		the next step is in ALL contollers we should add an init() function like
+	
+		public function init() 
+		{
+			// apply the theme dynamically
+			$theme=Yii::app()->session['currentTheme'];
+			if (!empty($theme))
+				Yii::app()->theme=$theme;
+		
+			// if our class extends a class, we need this line too
+			parent::init();
+		}
+		
+		if a controller has already has init() function, just add these lines to the first of init() function of it:
+		
+			// apply the theme dynamically
+			$theme=Yii::app()->session['currentTheme'];
+			if (!empty($theme))
+				Yii::app()->theme=$theme;
+				
+	now in the program code we can change the theme using this call
+	
+		http://kamran.dev.travelagancy.com:81/index.php?r=site/changeTheme/name/kamran_theme1
+
+89- to handle cookies, we can create a new class like below and save it on the components folder
+
+
+	  <?php
+  
+		class MyCookie extends CWebUser
+		{
+			public static function myHasCookie($name)
+			  {
+				return !empty(Yii::app()->request->cookies[$name]->value);
+			  }
+
+			  public static function myGetCookie($name)
+			  {
+				return Yii::app()->request->cookies[$name]->value;
+			  }
+
+			  public static function mySetCookie($name, $value)
+			  {
+				$cookie = new CHttpCookie($name,$value);
+				Yii::app()->request->cookies[$name] = $cookie;
+			  }
+
+			  public static function myRemoveCookie($name)
+			  {
+				unset(Yii::app()->request->cookies[$name]);
+			  }
+		}
+		
+		in our code we can save data in cookie like
+			
+			// save theme name on user's pc
+			MyCookie::mySetCookie('theme',$name);
+	   
+	   end retrieve like
+	   
+			$theme=MyCookie::myGetCookie('theme');
+			
+90- session variables in Yii
+
+	saving a variable in session
+		
+		// save $name on session
+       Yii::app()->session['name']= $name;
+	
+	restoring variable
+	
+		$name=Yii::app()->session['name'];
+		
+91- in Yii we should not use class constructor for Controllers' initialization and instead we should have an init() function like this
+
+	public function init() 
+	{
+		// do you init here
+		//.............
+	
+		// if our class extends a class, we need this line too
+		parent::init();
+	}
+	
+	but for normal clases that we create by ownself and does not extends the Yii's classes, we can have constructor as ususal
+	
+	
+92- Integrating Wordpress and Yii,Working Out The Details. 
+	
+		http://www.yiiframework.com/wiki/382/integrating-wordpress-and-yii-working-out-the-details/
+		
+93- Include Yii framework in a Joomla module
+
+		http://www.yiiframework.com/wiki/137/include-yii-framework-in-a-joomla-module
+		
+94- codelobster pro 4.3.3 is a PHP IDE for Yii and jQuery and Joomla development (125$) --> very handy and easy to work with Yii
+
+95- How to work with flash messages
+
+	Set your messages in a controller:
+	
+	Yii::app()->user->setFlash('success', "Data1 saved!");
+	Yii::app()->user->setFlash('error', "Data2 failed!");
+	Yii::app()->user->setFlash('notice', "Data3 ignored.");
+
+	Display them in your view:
+
+	<?php
+		foreach(Yii::app()->user->getFlashes() as $key => $message) {
+			echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+		}
+	?>
+
+	
+96- for sending simple emails we can use mail() function that is s pear function.
+	
+	
+97- Sending Email in Yii based on a view
+	
+			http://www.yiiframework.com/extension/email/
+		
+		IMPORTANT NOTE: SMTP is NOT installed on Win7 by default, use this article to install Gmail support on win 7
+		
+			http://digiex.net/guides-reviews/guides-tutorials/application-guides/544-configuring-php-under-windows-use-gmail-external-smtp-server-ssl.html
+		
+		or 
+		
+		you should use a big package from MS website to add SMTP support to win7 PRO and ENTRPRISE only!!!
+		
+		IIS 7 that comes with Windows 7 does not include an SMTP server by default. But you can get it by installing the remote admin tools from here:
+		 
+			http://support.microsoft.com/kb/974877/en-us[^]
+		 
+		Once you do that, here's how you can configure SMTP:
+		 
+			http://technet.microsoft.com/en-us/library/cc772058(WS.10).aspx[^]
+		
+		otherwise you will get error when you try to send email with above component
+		
+98- Transactions on Yii:
+	when we are going to be sure that more than one DB action should be done correctly and when Evene one of them is not correct, we should
+	roolback ALL, transactions should be used. 
+	
+	Using Transaction with AR 
+	
+	Every AR instance contains a property named dbConnection which is a CDbConnection instance. We thus can use the transaction feature provided by Yii DAO if it is desired when working with AR:
+
+		$model=Post::model();
+		$transaction=$model->dbConnection->beginTransaction();
+		try
+		{
+			// find and save are two steps which may be intervened by another request
+			// we therefore use a transaction to ensure consistency and integrity
+			$post=$model->findByPk(10);
+			$post->title='new post title';
+			if(!$post->save())
+			{
+				$msg = 'Error in save post.';
+                Yii::app()->user->setFlash('error', $msg);
+				
+				// raise an exception
+                throw new CException($msg);
+			}
+			
+			$user=User::model()->findByPk(5);
+			$user->title='new user title';
+			if(!$user->save())
+			{
+				$msg = 'Error in save user.';
+                Yii::app()->user->setFlash('error', $msg);
+				
+				// raise an exception
+                throw new CException($msg);
+			}
+			
+			$transaction->commit();
+			$model->unsetAttributes(); //unset attributes 
+		}
+		catch(Exception $e)
+		{
+			$transaction->rollback();
+			
+			// show error message
+		    $msg = $e->getMessage();
+            Yii::app()->user->setFlash('error', $msg);
+		}
+		
+		
+99- adding catcha in yii is very simple
+
+	a) in the model class add this public variable
+		
+		public $verifyCode;  
+	
+	   and add these rules to the rules() function
+
+		// verifyCode needs to be entered correctly
+        array('verifyCode', 'captcha', 'allowEmpty'=>!CCaptcha::checkRequirements()),
+		array('verifyCode', 'required'),
+
+	b) in the view (_form.php) add these lines
+	
+		<?php if(CCaptcha::checkRequirements()): ?>
+		<div class="row">
+			<?php echo $form->labelEx($model,'verifyCode'); ?>
+			<div>
+			<?php $this->widget('CCaptcha'); ?>
+			<?php echo $form->textField($model,'verifyCode'); ?>
+			</div>
+			<div class="hint">Please enter the letters as they are shown in the image above.
+			<br/>Letters are not case-sensitive.</div>
+			<?php echo $form->error($model,'verifyCode'); ?>
+		</div>
+		<?php endif; ?>
+		
+		that is all.
+
+		
+100- we can use Xdebug to debug and Profile our php program. read this page to realize how
+	
+		http://xdebug.org/docs/profiler
+	
+101- installing xdebug on Ubuntu is described in another file, but in win 7 and using xampp 1.7.7 we should	just add these lines to php.ini file
+	
+
+	You can install XAMPP anywhere on your system, but for this tutorial, we will use d:\xampp as the installing directory, as its easier to type.
+
+	Install XAMPP to d:\xampp. If you want to run a web server, install the services. Its recommended if you want to test your site locally.
+
+	WinCacheGrind
+
+		Download WinCacheGrind and install into its default location: c:\Program Files\WinCacheGrind\
+
+	PHP.ini
+
+		Open d:\xampp\php\php.ini in a text editor. Find php_xdebug.dll:
+
+		extension=php_xdebug.dll
+		in the file php.ini and make sure it is commented out (has a ; at the beginning of the line). If it isn't, it will cause problems later.
+
+	In the same file, find the line [Zend]:
+
+		[Zend]
+		
+	and comment out all lines in that section with a single ; in front of each line. Xdebug cannot load if zend is operational.
+
+	In the next section [Xdebug]:
+
+		[Xdebug]
+		
+	replace the entire section with the following:
+
+		;---------------------------------------------------
+		; added by kamran
+		;---------------------------------------------------
+		[xDebug]
+		;; Only Zend OR (!) XDebug
+
+		zend_extension="d:\xampp\php\ext\php_xdebug.dll"
+
+		; profile section
+
+		xdebug.profiler_append = 0
+		xdebug.profiler_enable = 1
+		xdebug.profiler_enable_trigger = 0
+		xdebug.profiler_output_dir = "d:\xampp\tmp"
+		xdebug.profiler_output_name = "cachegrind.out.%t-%s"
+		xdebug.remote_enable = 1
+		xdebug.remote_handler = "dbgp"
+		xdebug.remote_host = "127.0.0.1"
+		xdebug.trace_output_dir = "d:\xampp\tmp"
+
+		;debug section
+
+		xdebug.remote_enable=on
+		xdebug.remote_handler=dbgp
+		xdebug.remote_mode=req
+		xdebug.remote_host=192.168.2.11  ; 192.168.2.11 = win 7 ip address (netbeans 7.3 is installed on win 7 pc not Ubuntu)
+		xdebug.remote_port=9000
+		xdebug.remote_log="d:\php_xdebug.log"
+
+		;-----------------------------------------------------
+
+	The dll name changes occasionally, so if things aren't working, go to C:\xampp\php\ext\ and look for it, and copy its file name into the code above, replacing php_xdebug-2.0.0-5.2.2.dll then see if things work better.
+
+	Tip:
+
+	From PHP 5.3 onwards, you always need to use zend_extension and not zend_extension_ts.
+
+	Finally, save the file php.ini and close it. and restart apache webserver
+	
+	-- to analyse data download WinCacheGrind from
+		
+		http://sourceforge.net/projects/wincachegrind/files/latest/download
+		
+	and use it to open the log file created by analyzer--> d:\xamp\tmp\cachegrind.out.*
+	
+	
+	for linux use KCacheGrind or similar software ( Webgrind : php version of KCacheGrind ) introduced here:
+	
+		http://xdebug.org/docs/profiler
+	
+	IMPORTANT NOTE: Xdebug profiler creates a very big files. never leave it 'on' when you are not analyzing your code. it will consume your hard disk
+					very very fast.
+					
+					
+102- smarty is a very famouse PHP templating system but savant is easier to use and in PHP
+
+	Savant is a powerful but lightweight object-oriented template system for PHP.
+
+	Unlike other template systems, Savant by default does not compile your templates into PHP; instead, it uses PHP itself as its template language so you don't need to learn a new markup system.
+
+	Why Use Savant for Templates?
+
+	You don't need to learn a new language or markup to create a template. The template language is PHP, and the template file is a regular PHP file.
+	You don't have to worry about separate directories (or permissions on those directories) for compiled template sources, because Savant is not a compiling engine (the template scripts are already written in PHP).
+	Even though Savant is not itself a compiling system, you can write your own compiler and plug it into Savant; this means you can use any template markup system you like.
+	The Savant source code is easy to read, understand, and extend, because it is exceptionally well-commented.
+	The object-oriented plugin, filter, error, and compiler classes for Savant are easy to use, understand, and extend.
+	Because your template script is a regular PHP script, you can sprinkle it with comments and use phpDocumentor to document it.
+
+
+103-  INSTALL APC ON XAMPP 1.7.7
+
+	This is how I installed APC on Xampp on Windows 7
+
+	Go to this webpage: http://downloads.php.net/pierre/
+	READ THIS BIT CAREFULLY AS THE WEBSITE ABOVE IS CONSTANTLY UPDATED. Look for a file that starts with “php_apc” and then something like “-3.1.10? (APC version) then “-5.3? (Your Xampp PHP version) then “-vc9? (unimportant) then “-x86? (32 bit pc) () .zip
+	At the time of writing if you were running xampp with php 5.3 then you would want this file http://downloads.php.net/pierre/php_apc-3.1.10-5.3-vc9-x86.zip
+	Download and unzip this file
+	Copy php_apc.dll to d:\xampp\php\ext
+	Open php.ini (d:\xampp\php\php.ini) and add 
+		
+		extension=php_apc.dll
+		apc.enabled=on 
+		
+	You also needed to change a couple of settings inside apache.
+
+	Go to the directory of installation\apache\conf
+	Open and edit httpd.conf in a text editor
+	Find all occurrences of
+	
+	AllowOverride None
+	
+	and change to
+
+	AllowOverride All
+	
+	I think it appears 2 or 3 times on the configuration file.
+	Reset Apache
+	Should work for you as well.
+
+	Using APC :
+	
+	Using APC is simply a matter of creating your PHP script as you normally do and allowing 
+	users to request the script. The initial request to the script will prime the cache, meaning 
+	that when the initial request for the script is done or a change to the original PHP script 
+	has been made, the Zend engine will create the Opcode in the background and store the 
+	generated Opcode within shared memory using APC. APC works in the background of 
+	your code and contains no special functions to cache the generated Opcode 
+	
+	benefits of using APC within our application. The code shown in Listing 4–5 creates an 
+	array with 10,000 elements and then displays the data on the screen.  
+	Listing 4–5. Sample Code to Test Using ab 
+	<?php 
+	$max = 10000; 
+	$x = 0; 
+	$array = array(); 
+	while($x < $max) 
+	{ 
+	 
+			$array[x] = $x; 
+			$x++; 
+	} 
+	 
+	 
+	foreach($array as $z) 
+	{ 
+	   echo "$z<br/>"; 
+	} 
+
+	We need to check on the improvement APC adds when applied to our PHP script. By 
+	taking two tests—the initial test to simulate the speed of our application while APC is 
+	turned off and a secondary test to determine the change in performance while APC is 
+	turned on—we can accomplish this. We will test this by simulating 1,000 requests with 5 
+	concurrent requests using ab, as shown in below
+
+	ab -n 1000 -c 5 http://kamran.dev.travelagancy.com:81/k1.php
+	
+	Installing the Admin tool for APC
+	
+	To install the web interface, each APC installation includes an apc.php file. The file is the
+	only item that is required to run the web interface and must simply be installed within the
+	web server to access it.  
+	If you installed APC from source or if you’re on a Windows machine, you will need to
+	download the installation package
+
+104- apache benchmark that is available in apache package can be used to benchmark a single page for example in xampp
+	go to d:\xampp\apache\bin folder and run
+
+		ab -n 100 http://kamran.dev.travelagancy.com:81/
+	
+	this command sends 100 request to the requested URL and after few MINUTS shows the results. in the results page
+	two items are very importane: Requests per second, and Time per request.
+	
+		ab -n 100 -c 10 http://kamran.dev.travelagancy.com:81/
+	
+	sends 10 request in each time 10 cuncurent requests
+	
+	These fields give us a glimpse into the amount of data the web server has sent back 
+ 	for a single request, the total number of requests the web server can handle in a single 
+	second, and the total elapsed time in which a single request successfully requested data 
+	and received a response from the web server. 
+	Our goal is to successfully lower the HTML transferred, increase the Requests per 
+	second, and lower the Time per request values
+
+105- Firebug has tools for javascript and CSS profiling.
+
+106- By putting all of javascripts on the end of page, page loading will seems very faster for end user.
+
+107-  Minification Tools 
+	We introduce two JavaScript minification tools, YUI Compressor by Yahoo! and Closure 
+	Compiler by Google. Using both tools, we will compress the JQuery JavaScript framework. of course the min version of jQuery is
+	avalable in their website too
+	
+108- File compression is another method of reducing the size of JavaScript as well as CSS files. 
+	 Using compression on an already minified JavaScript or CSS file can reduce the size even 
+	 further. The most widely used compression to date is GZip.
+	
+109- Smush.it 
+	Smush.it is a lossless compression tool created by Yahoo! to reduce the file size of your 
+	images even further. The tool is available at www.smushit.com and allows you to either 
+	upload your files or reference them using a list of URLs (Figure 2–15). There is a file size 
+	restriction of 1MB. 
+	
+111- decreasing the number of call to javascript files can reduce the load time of a page too. to do that merge all of your
+	 *.js files to one or two js file.
+	 
+112- 	APC variable Caching 
+
+		In previous notes, we implemented APC to exclusively cache PHP Opcode. In this section, we 
+		will use APC to store information. To do so, we’re going to focus on a subset of internal 
+		PHP APC methods shown below. Before we begin, make sure you have the APC 
+		PHP extension fully installed. 
+		
+			apc_add()  		apc_add(String key, Mixed var, int Expiration Time)  	Adds content into cache using specific key if key does not 	already exist. 
+			apc_fetch()     apc_fetch(Mixed key)    Fetches content of a specific key within cache. Returns false if key not found. 
+			acp_store()     apc_store(String key, Mixed var, int Expiration Time)   Stores a value in cache using a specific key. Will replace 
+																					value if key exists
+			apc_exists()    apc_exists(mixed keys)  Checks if the key is present in cache. Returns true if key 
+													exists, false otherwise
+			apc_delete()    apc_delete(String key)	Removes a specific key from cache. Returns true if
+													successful, false otherwise
+													
+		The functions outlined above allow us to add data into shared memory, fetch 
+		data from shared memory using a specific key, check to determine if the key is present, 
+		and finally remove content from cache that is associated to a specific key. 
+		
+		example: a hit counter using APC functions
+		
+			<?php 
+			/** 
+			 * Example visitor counter using APC. 
+			 * 
+			 **/ 
+			if(!$counter = apc_fetch('myCounter')) 
+			{ 
+			   $counter = 1; 
+			   //Add the new value to memcached 
+			   apc_add('myCounter', $counter, 120); 
+			 
+			} 
+			else 
+			{ 
+			 
+			   $counter++; 
+			 
+			   //Update the counter in cache 
+			   apc_store('myCounter', $counter, 120); 
+			 
+			} 
+ 
+			echo "Your visitor number: ".$counter; 
+
+											
+113- Saving files to a blob field in the database
+	
+		http://sudwebdesign.com/yii-uploading-and-saving-images/541
+		
+		and
+
+		http://www.yiiframework.com/wiki/95/saving-files-to-a-blob-field-in-the-database/
+		
+		as we can see it is very similar to uploading image and saving in a folder
+		but just controler is different and data type in table should be BLOB
+		
+		the controler should be like:
+		
+ 
+		public function actionCreate()
+			{
+				$model=new Photos;
+		 
+				if(isset($_POST['Photos']))
+				{
+							$model->attributes=$_POST['Photos'];
+							$myfile = CUploadedFile::getInstance($model,'image');
+							$model->image=$myfile;
+		 
+							if($model->save())
+								$this->updatePhoto($model, $myfile);
+		 
+							$this->redirect('view'.'id'=>$model->id);
+				}
+		 
+				$this->render('create',array(
+					'model'=>$model,
+				));
+			}
+		 
+			/*------------------------------------------------
+	        * Upload and crunch an image
+	        ------------------------------------------------*/
+			public function updatePhoto($model, $myfile ) {
+			   if (is_object($myfile) && get_class($myfile)==='CUploadedFile') {
+					$ext = $model->image->getExtensionName();
+	 
+			//generate a filename for the uploaded image based on a random number
+			// but check that the random number has not already been used
+					if ($model->filename=='' or is_null($model->filename)) {
+						$n=1;
+						// loop until random is unqiue - which it probably is first time!
+						while ($n>0) {
+							$rnd=dechex(rand()%999999999);
+							$filename=$model->property->ref . '_' . $rnd . '.' . $ext;
+							$n=Photos::model()->count('filename=:filename',array('filename'=>$filename));
+						}
+					$model->filename=$filename;
+					}
+	 
+					$model->save();
+	 
+					$model->image->saveAs($model->getPath());  //model->getPath see below
+	 
+					$image = Yii::app()->image->load($model->getPath());
+			//Crunch the photo to a size set in my System Options Table
+			//I hold the max size as 800 meaning to fit in an 800px x 800px square
+					$size=$this->getOption('PhotoLarge');
+					$image->resize($size[0], $size[0])->quality(75)->sharpen(20);
+					$image->save(); 
+	 
+			// Now create a thumb - again the thumb size is held in System Options Table
+			$size=$this->getOption('PhotoThumb');
+					$image->resize($size[0], $size[0])->quality(75)->sharpen(20);
+					$image->save($model->getThumb()); // or $image->save('images/small.jpg');
+					return true;
+				 } else return false;
+			}
+
+			
+			-- model should have these lines too
+			
+			public function getThumbnail(){
+				 // here i return the image
+					if (!empty($this->filename) && $this->filename!='')
+					 return CHtml::image($this->getURL(),$this->alt_text,array('width'=>options::model()->getOption('PhotoThumb').'px','max-height'=>options::model()->getOption('PhotoThumb').'px'
+				 ));
+			}
+			public function getPath($all=true){
+				if (is_null($this->_PhotoPath)) {
+					 // I hold the image path and system directory separator in the config/main.php
+					 // this is because I develop on a windows server and normally deploy on Linux
+					 $this->_PhotoPath=Yii::app()->params['imagePATH'];
+					 $this->_PathSep=Yii::app()->params['pathSep'];
+				}
+				$path=$this->_PhotoPath.$this->_PathSep;
+				if ($all) $path.=$this->filename;
+				return $path;
+			}
+
+		
+		
+114- to learn about REST
+
+		http://rest.elkstein.org/
+		
+	REST is an architecture style for designing networked applications. The idea is that, rather than using complex mechanisms such as CORBA, RPC or SOAP to connect between machines, simple HTTP is used to make calls between machines.
+	
+	RESTful applications use HTTP requests to post data (create and/or update), read data (e.g., make queries), and delete data. Thus, REST uses HTTP for all four CRUD (Create/Read/Update/Delete) operations.
+
+	REST is a lightweight alternative to mechanisms like RPC (Remote Procedure Calls) and Web Services (SOAP, WSDL, et al.).
+
+	Much like Web Services, a REST service is:
+
+		Platform-independent (you don't care if the server is Unix, the client is a Mac, or anything else),
+		Language-independent (C# can talk to Java, etc.),
+		Standards-based (runs on top of HTTP), and
+		Can easily be used in the presence of firewalls.
+	
+	Like Web Services, REST offers no built-in security features, encryption, session management, QoS guarantees, etc. But also as with Web Services, these can be added by building on top of HTTP:
+
+		For security, username/password tokens are often used.
+		For encryption, REST can be used on top of HTTPS (secure sockets).
+		... etc.
+		One thing that is not part of a good REST design is cookies: The "ST" in "REST" stands for "State Transfer", and indeed, in a good REST design operations are self-contained, and each request carries with it (transfers) all the information (state) that the server needs in order to complete it.
+
+		In REST the request that a machine sends to other is like:
+		
+			http://www.acme.com/phonebook/UserDetails?firstName=John&lastName=Doe
+		
+		and response will be an XML, JSON, CSV or ... file.
+		
+		Here's a simple example: the following URL sends a REST request to Twitter's search service: http://search.twitter.com/search.atom?q=elkstein&count=5. This specific search request searches for the string "elkstein", as set by the q parameter (vanity searches are always fun); and limits the response to at most 5 results, using the count parameter. There are, of course, many additional parameters, as documented on Twitter's developer pages.
+		
+115- REST and AJAX
+		AJAX is a popular web development technique that makes web pages interactive using JavaScript.
+
+		In AJAX, requests are sent to the server using XMLHttpRequest objects. The response is used by the JavaScript code to dynamically change the current page.
+
+		In many ways, AJAX applications follow the REST design principles. Each XMLHttpRequest can be viewed as a REST service request, sent using GET. And the response is often in JSON, a popular response format for REST.
+		
+		
+	
+116- USING REST in PHP
+
+	Modern versions of PHP make it trivial to GET web pages: any file-access function (even include!) works seamlessly with URLs, too. Thus, you can use fopen, file_get_contents, and any other file-reading function to issue GET requests. For example:
+
+		$url = "http://www.acme.com/products/3322";
+		$response = file_get_contents($url);
+		echo $response;
+		
+	Any parameters passed to GET requests must be encoded (e.g., a space is %20); you can encode strings using the "urlencode" function.
+
+	Issuing POST Requests
+	In stark contrast to the ease of doing a GET, there's no simple way to do a POST in PHP. You have to open a connection to the server and manually send all HTTP headers. Here's a simple function that will do the trick, for any HTTP method:
+
+	function httpRequest($host, $port, $method, $path, $params) {
+	  // Params are a map from names to values
+	  $paramStr = "";
+	  foreach ($params as $name, $val) {
+		$paramStr .= $name . "=";
+		$paramStr .= urlencode($val);
+		$paramStr .= "&";
+	  }
+
+	  // Assign defaults to $method and $port, if needed
+	  if (empty($method)) {
+		$method = 'GET';
+	  }
+	  $method = strtoupper($method);
+	  if (empty($port)) {
+		$port = 80; // Default HTTP port
+	  }
+
+	  // Create the connection
+	  $sock = fsockopen($host, $port);
+	  if ($method == "GET") {
+		$path .= "?" . $paramStr;
+	  }
+	  fputs($sock, "$method $path HTTP/1.1\r\n");
+	  fputs($sock, "Host: $host\r\n");
+	  fputs($sock, "Content-type: " .
+				   "application/x-www-form-urlencoded\r\n");
+	  if ($method == "POST") {
+		fputs($sock, "Content-length: " . 
+					 strlen($paramStr) . "\r\n");
+	  }
+	  fputs($sock, "Connection: close\r\n\r\n");
+	  if ($method == "POST") {
+		fputs($sock, $paramStr);
+	  }
+
+	  // Buffer the result
+	  $result = "";
+	  while (!feof($sock)) {
+		$result .= fgets($sock,1024);
+	  }
+
+	  fclose($sock);
+	  return $result;
+	}
+	Issuing a POST request using this function is as simple as:
+
+	$resp = httpRequest("www.acme.com",
+		80, "POST", "/userDetails",
+		array("firstName" => "John", "lastName" => "Doe"));
+	One alternative to this approach is using PHP's CURL support; however, I'm not sure if it's really easier.
+
+117- REST implementation in Yii
+	
+		http://www.yiiframework.com/wiki/175/how-to-create-a-rest-api/
+
+118- if we are going to add a validation error or any type of error to model class, "inside" controller we can write:
+	
+		$this->addError($attribute,'Phone number should be in correct formats');
+
+119- to create a link like   <a href='index.php?r=controller/action'>Link Text</a>
+
+	we should use CHtml class in this way:
+		
+		<?php echo CHtml::link('Link Text',array('controller/action')); ?>
+	
+	or even better
+	
+		<?php echo CHtml::Link('Link Text',$this->createUrl('controller/action')); ?>
+	
+	in the second method we have used the createUrl() function of Controller class to create the URL of the page.
+	
+120- Xdebug + Netbeans 7.2.1 is NOT as strong as PhpED + its built in debugger and cannot show all properties of PHP objects. 
+	so PhpEd is recommneded for serious	programming tasks. but for source formatting and beatifuller we can use Netbeans.
+	It is better than eclipse's beautifuller and any other source beatifuller when you customize netbeans options.
+	
+	
+121-	render():
+			is commonly used to render a view that corresponds to what a user sees as a "page" in your application. It first renders the view you have specified and then renders the layout for the current controller action (if applicable), placing the result of the first render into the layout. It then performs output processing (which at this time means automatically inserting any necessary <script> tags and updating dynamic content) and finally outputs the result.
+
+		renderPartial():
+			is commonly used to render a "piece" of a page. The main difference from render() is that this method does not place the results of the render in a layout. By default it also does not perform output processing, but you can override this behavior using the $processOutput parameter.
+
+		renderFile() :
+			is a low-level method that does the grunt work of rendering: it extracts the data variables in the current scope and then runs the view code. The other two methods internally call this one, but you should practically never need to call it yourself. If you do, keep in mind that you need to pass in a file path (not a view path).
+
+122- when we have a combination of HTML and php like
+		
+		<div id="footer">
+			Copyright &copy; <?php echo date('Y'); ?> by Kamran Khoshnasib.<br/>
+			All Rights Reserved.<br/>
+			<?php echo Yii::powered(); ?>
+		</div><!-- footer -->
+	
+		and we are going to comment all of it , we should put all on 
+		
+			<?php /*
+			
+			
+			*/ ?>
+			
+123- In the themes, if the footer goes to write side of screen, we should add
+
+			<div class="clear"></div> 
+		
+		before
+		
+			<div id="footer">
+			
+		at the views/layouts/main.php file.
+		
+	
+124- An example of using criteria in Yii
+
+		$criteria = new CDbCriteria;
+
+        $criteria->compare('Id', $this->Id);
+        $criteria->compare('Name', $this->Name, true);
+        $criteria->compare('Family', $this->Family, true);
+        
+        
+        // kamran
+		$criteria->select = "Id, Name, Family";
+        $criteria->condition = "Name > '' ";
+        
+        return new CActiveDataProvider($this, array(
+			'criteria' => $criteria,
+		));
+
+
+125- Normally a textField (input tag) is like this in YiiBooster of zii
+
+		echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256)); 	
+		
+	to add some htmlOptions to it we should change it like below: (e.g. to make it readonly)
+	
+		echo $form->textFieldRow($model,'username',array('class'=>'span5','maxlength'=>256, 'readonly' => 'readonly')); 
+	
+	be careful that textField has 3 parameters and the third one is htmlOptions. but Dropdown has 4 and the forth is HtmlOptions.
+		
+126- to add HtmlOptions in Form widget
+
+		<?php $form=$this->beginWidget('CActiveForm', array(
+			'id'=>'clm-dtl-claims-form',
+			'enableAjaxValidation'=>false,
+			'htmlOptions'=>array('enctype' => 'multipart/form-data')
+			));
+		?>
+
+	and YiiBooster forms
+	
+		<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+			'id'=>'client-form',
+			'enableClientValidation' => true,
+			'enableAjaxValidation' => false,
+			'clientOptions' => array(
+				'validateOnSubmit' => true,
+			),
+			// for image upload, we need these lines
+			'htmlOptions' => array(
+				'enctype' => 'multipart/form-data',
+			),
+		)); ?>
+	
+127- 
+
+
+
+
+
+
+
+
+		
+Kamran

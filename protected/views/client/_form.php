@@ -5,7 +5,7 @@
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
-    // for image upload , we need these lines
+    // for image upload, we need these lines
     'htmlOptions' => array(
         'enctype' => 'multipart/form-data',
     ),
