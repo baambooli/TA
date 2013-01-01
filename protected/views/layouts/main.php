@@ -38,7 +38,7 @@
     
 	<div class="clear"></div>
 
-	<div id="footer">
+	<div id="footer" >
 		Copyright &copy; <?php echo date('Y'); ?> by Kamran Khoshnasib.<br/>
 		All Rights Reserved.<br/>
 		<?php echo Yii::powered(); ?>

@@ -127,7 +127,10 @@ class Client extends CActiveRecord
         $criteria->compare('Sex', $this->Sex, true);
         $criteria->compare('Image', $this->Image, true);
         $criteria->compare('BirthDay', $this->BirthDay, true);
-
+        
+        // kamran
+        $criteria->condition('Name NOT NULL');
+        
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
                 ));
