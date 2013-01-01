@@ -2,17 +2,18 @@
 
 class HotelController extends RController
 {
-    public function init() 
+
+    public function init()
     {
         // apply the theme dynamically
-        $theme=Yii::app()->session['currentTheme'];
+        $theme = Yii::app()->session['currentTheme'];
         if (!empty($theme))
-            Yii::app()->theme=$theme;
-    
+            Yii::app()->theme = $theme;
+
         // if our class extends a class, we need this line too
         parent::init();
     }
-    
+
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -24,11 +25,11 @@ class HotelController extends RController
      */
     public function filters()
     {
-         return array(
+        return array(
             'rights',
         );
     }
-   
+
     /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
@@ -53,36 +54,36 @@ class HotelController extends RController
 
         if (isset($_POST['Hotel']))
         {
-            $hasPicture = true; 
+            $hasPicture = true;
             $model->attributes = $_POST['Hotel'];
-            $uploadedFile=CUploadedFile::getInstance($model,'Image');
-            
-            if($uploadedFile === NULL || empty($uploadedFile))
+            $uploadedFile = CUploadedFile::getInstance($model, 'Image');
+
+            if ($uploadedFile === NULL || empty($uploadedFile))
             {
                 $model->Image = $model->Name;
-                
+
                 // create a default flag picture
-                $file = Yii::app()->basePath.'/../images_hotel/'.'default.jpg';
-                $toFile = Yii::app()->basePath.'/../images_hotel/'.$model->Name;
-                copy($file,$toFile);
-                
-                $hasPicture = false;   
+                $file = Yii::app()->basePath . '/../images_hotel/' . 'default.jpg';
+                $toFile = Yii::app()->basePath . '/../images_hotel/' . $model->Name;
+                copy($file, $toFile);
+
+                $hasPicture = false;
             }
             else
             {
-                $fileName = $model->Name.'_'.$uploadedFile;  
+                $fileName = $model->Name . '_' . $uploadedFile;
                 $model->Image = $fileName;
             }
-            
+
             if ($model->save())
             {
                 if ($hasPicture)
                 {
-                    $image = Yii::app()->basePath.'/../images_hotel/'.$fileName;
+                    $image = Yii::app()->basePath . '/../images_hotel/' . $fileName;
                     // image will uplode to rootDirectory/images_hotel/
                     $uploadedFile->saveAs($image);
-                }  
-                $this->redirect(array('view','id'=>$model->ID));
+                }
+                $this->redirect(array('view', 'id' => $model->ID));
             }
         }
 
@@ -107,23 +108,23 @@ class HotelController extends RController
         {
             if ($model->Image === NULL || empty($model->Image))
             {
-                $model->Image = $model->Name.'_'.rand(1,999999);
+                $model->Image = $model->Name . '_' . rand(1, 999999);
             }
-            
-            $_POST['Hotel']['Image'] = $model->Image; 
-            
+
+            $_POST['Hotel']['Image'] = $model->Image;
+
             $model->attributes = $_POST['Hotel'];
-            
-            $uploadedFile=CUploadedFile::getInstance($model,'Image'); 
-            
-            if($model->save())
+
+            $uploadedFile = CUploadedFile::getInstance($model, 'Image');
+
+            if ($model->save())
             {
-                if(!empty($uploadedFile))  // check if uploaded file is set or not
+                if (!empty($uploadedFile))  // check if uploaded file is set or not
                 {
-                    $image = Yii::app()->basePath.'/../images_hotel/'.$model->Image;
+                    $image = Yii::app()->basePath . '/../images_hotel/' . $model->Image;
                     $uploadedFile->saveAs($image);
                 }
-                $this->redirect(array('view','id'=>$model->ID));
+                $this->redirect(array('view', 'id' => $model->ID));
             }
         }
 
@@ -151,7 +152,7 @@ class HotelController extends RController
         else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
     }
-    
+
     /**
      * Lists all models.
      */

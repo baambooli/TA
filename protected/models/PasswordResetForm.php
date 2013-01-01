@@ -1,9 +1,9 @@
 <?php
-  
-class PasswordResetForm  extends CFormModel
+
+class PasswordResetForm extends CFormModel
 {
-    public  $emailAddress;
-    
+    public $emailAddress;
+
     public function rules()
     {
         return array(
@@ -11,5 +11,6 @@ class PasswordResetForm  extends CFormModel
             array('emailAddress', 'email'),
         );
     }
+
 }
 ?>

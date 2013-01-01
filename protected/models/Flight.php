@@ -25,108 +25,109 @@
  */
 class Flight extends CActiveRecord
 {
-	/**
-	 * Returns the static model of the specified AR class.
-	 * @param string $className active record class name.
-	 * @return Flight the static model class
-	 */
-	public static function model($className=__CLASS__)
-	{
-		return parent::model($className);
-	}
 
-	/**
-	 * @return string the associated database table name
-	 */
-	public function tableName()
-	{
-		return 'flights';
-	}
+    /**
+     * Returns the static model of the specified AR class.
+     * @param string $className active record class name.
+     * @return Flight the static model class
+     */
+    public static function model($className = __CLASS__)
+    {
+        return parent::model($className);
+    }
 
-	/**
-	 * @return array validation rules for model attributes.
-	 */
-	public function rules()
-	{
-		// NOTE: you should only define rules for those attributes that
-		// will receive user inputs.
-		return array(
-			array('FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, TakeoffTime, LandingTime, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'required'),
-			array('AirlineId, AirplaneId, DepartureAirportId, DestinationAirportId', 'numerical', 'integerOnly'=>true),
-			array('PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'numerical'),
-			array('FlightNumber', 'length', 'max'=>50),
-			// The following rule is used by search().
-			// Please remove those attributes that should not be searched.
-			array('Id, FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'safe', 'on'=>'search'),
-		);
-	}
+    /**
+     * @return string the associated database table name
+     */
+    public function tableName()
+    {
+        return 'flights';
+    }
 
-	/**
-	 * @return array relational rules.
-	 */
-	public function relations()
-	{
-		// NOTE: you may need to adjust the relation name and the related
-		// class name for the relations automatically generated below.
-		return array(
-			'flightPassengers' => array(self::HAS_MANY, 'FlightPassengers', 'FlightId'),
-			'airline' => array(self::BELONGS_TO, 'Airlines', 'AirlineId'),
-			'airplane' => array(self::BELONGS_TO, 'Airplanes', 'AirplaneId'),
-			'departureAirport' => array(self::BELONGS_TO, 'Airports', 'DepartureAirportId'),
-			'destinationAirport' => array(self::BELONGS_TO, 'Airports', 'DestinationAirportId'),
-		);
-	}
+    /**
+     * @return array validation rules for model attributes.
+     */
+    public function rules()
+    {
+        // NOTE: you should only define rules for those attributes that
+        // will receive user inputs.
+        return array(
+            array('FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, TakeoffTime, LandingTime, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'required'),
+            array('AirlineId, AirplaneId, DepartureAirportId, DestinationAirportId', 'numerical', 'integerOnly' => true),
+            array('PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'numerical'),
+            array('FlightNumber', 'length', 'max' => 50),
+            // The following rule is used by search().
+            // Please remove those attributes that should not be searched.
+            array('Id, FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'safe', 'on' => 'search'),
+        );
+    }
 
-	/**
-	 * @return array customized attribute labels (name=>label)
-	 */
-	public function attributeLabels()
-	{
-		return array(
-			'Id' => 'ID',
-			'FlightNumber' => 'Flight Number',
-			'AirlineId' => 'Airline',
-			'AirplaneId' => 'Airplane',
-			'TakeoffDate' => 'Takeoff Date',
-			'LandingDate' => 'Landing Date',
+    /**
+     * @return array relational rules.
+     */
+    public function relations()
+    {
+        // NOTE: you may need to adjust the relation name and the related
+        // class name for the relations automatically generated below.
+        return array(
+            'flightPassengers' => array(self::HAS_MANY, 'FlightPassengers', 'FlightId'),
+            'airline' => array(self::BELONGS_TO, 'Airlines', 'AirlineId'),
+            'airplane' => array(self::BELONGS_TO, 'Airplanes', 'AirplaneId'),
+            'departureAirport' => array(self::BELONGS_TO, 'Airports', 'DepartureAirportId'),
+            'destinationAirport' => array(self::BELONGS_TO, 'Airports', 'DestinationAirportId'),
+        );
+    }
+
+    /**
+     * @return array customized attribute labels (name=>label)
+     */
+    public function attributeLabels()
+    {
+        return array(
+            'Id' => 'ID',
+            'FlightNumber' => 'Flight Number',
+            'AirlineId' => 'Airline',
+            'AirplaneId' => 'Airplane',
+            'TakeoffDate' => 'Takeoff Date',
+            'LandingDate' => 'Landing Date',
             'TakeoffTime' => 'Takeoff Time',
             'LandingTime' => 'Landing Time',
-			'DepartureAirportId' => 'Departure Airport',
-			'DestinationAirportId' => 'Destination Airport',
-			'PriceOfFirstClassSeats' => 'Price Of First Class Seats (US$)',
-			'PriceOfBusinessClassSeats' => 'Price Of Business Class Seats (US$)',
-			'PriceOfEconomyClassSeats' => 'Price Of Economy Class Seats (US$)',
-		);
-	}
+            'DepartureAirportId' => 'Departure Airport',
+            'DestinationAirportId' => 'Destination Airport',
+            'PriceOfFirstClassSeats' => 'Price Of First Class Seats (US$)',
+            'PriceOfBusinessClassSeats' => 'Price Of Business Class Seats (US$)',
+            'PriceOfEconomyClassSeats' => 'Price Of Economy Class Seats (US$)',
+        );
+    }
 
-	/**
-	 * Retrieves a list of models based on the current search/filter conditions.
-	 * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
-	 */
-	public function search()
-	{
-		// Warning: Please modify the following code to remove attributes that
-		// should not be searched.
+    /**
+     * Retrieves a list of models based on the current search/filter conditions.
+     * @return CActiveDataProvider the data provider that can return the models based on the search/filter conditions.
+     */
+    public function search()
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
 
-		$criteria=new CDbCriteria;
+        $criteria = new CDbCriteria;
 
-		$criteria->compare('Id',$this->Id);
-		$criteria->compare('FlightNumber',$this->FlightNumber,true);
-		$criteria->compare('AirlineId',$this->AirlineId);
-		$criteria->compare('AirplaneId',$this->AirplaneId);
-		$criteria->compare('TakeoffDate',$this->TakeoffDate,true);
-		$criteria->compare('LandingDate',$this->LandingDate,true);
-		$criteria->compare('DepartureAirportId',$this->DepartureAirportId);
-		$criteria->compare('DestinationAirportId',$this->DestinationAirportId);
-		$criteria->compare('PriceOfFirstClassSeats',$this->PriceOfFirstClassSeats);
-		$criteria->compare('PriceOfBusinessClassSeats',$this->PriceOfBusinessClassSeats);
-		$criteria->compare('PriceOfEconomyClassSeats',$this->PriceOfEconomyClassSeats);
+        $criteria->compare('Id', $this->Id);
+        $criteria->compare('FlightNumber', $this->FlightNumber, true);
+        $criteria->compare('AirlineId', $this->AirlineId);
+        $criteria->compare('AirplaneId', $this->AirplaneId);
+        $criteria->compare('TakeoffDate', $this->TakeoffDate, true);
+        $criteria->compare('LandingDate', $this->LandingDate, true);
+        $criteria->compare('DepartureAirportId', $this->DepartureAirportId);
+        $criteria->compare('DestinationAirportId', $this->DestinationAirportId);
+        $criteria->compare('PriceOfFirstClassSeats', $this->PriceOfFirstClassSeats);
+        $criteria->compare('PriceOfBusinessClassSeats', $this->PriceOfBusinessClassSeats);
+        $criteria->compare('PriceOfEconomyClassSeats', $this->PriceOfEconomyClassSeats);
 
-		return new CActiveDataProvider($this, array(
-			'criteria'=>$criteria,
-		));
-	}
-    
+        return new CActiveDataProvider($this, array(
+                    'criteria' => $criteria,
+                ));
+    }
+
     // Kamran
     public function getAirlines()
     {
@@ -136,7 +137,7 @@ class Flight extends CActiveRecord
         $airlinesArray = CHtml::listData($airlines, 'Id', 'Name');
         return $airlinesArray;
     }
-    
+
     // get name of the Airline related to the specific Id
     public function getAirlineName($id)
     {
@@ -144,7 +145,7 @@ class Flight extends CActiveRecord
         $airLineName = Airline::model()->findByPK($id)->Name;
         return $airLineName;
     }
-    
+
     public function getAirports()
     {
         // get list of Airports
@@ -153,7 +154,7 @@ class Flight extends CActiveRecord
         $airportsArray = CHtml::listData($airports, 'Id', 'Name');
         return $airportsArray;
     }
-    
+
     // get name of the Airport related to the specific Id
     public function getAirportName($id)
     {
@@ -161,8 +162,8 @@ class Flight extends CActiveRecord
         $airportName = Airport::model()->findByPK($id)->Name;
         return $airportName;
     }
-    
-     public function getAirplanes()
+
+    public function getAirplanes()
     {
         // get list of Airplanes
         $airplanes = Airplane::model()->findAll();
@@ -170,7 +171,7 @@ class Flight extends CActiveRecord
         $airplanesArray = CHtml::listData($airplanes, 'Id', 'Name');
         return $airplanesArray;
     }
-    
+
     // get name of the Airplane related to the specific Id
     public function getAirplaneName($id)
     {
@@ -178,4 +179,5 @@ class Flight extends CActiveRecord
         $airplaneName = Airplane::model()->findByPK($id)->Name;
         return $airplaneName;
     }
+
 }

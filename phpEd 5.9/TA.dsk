@@ -17,17 +17,17 @@ ActiveWorkset=
 
 [Files]
 File0=D:\xampp\htdocs\TA\protected\views\site\login.php
-IsActive0=0
-ZIndex3=3
+IsActive0=1
+ZIndex3=0
 File1=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
 IsActive1=0
-ZIndex2=2
+ZIndex2=3
 File2=D:\xampp\htdocs\TA\protected\controllers\UserController.php
 IsActive2=0
-ZIndex1=1
+ZIndex1=2
 File3=D:\xampp\htdocs\TA\protected\components\menuItems.php
-IsActive3=1
-ZIndex0=0
+IsActive3=0
+ZIndex0=1
 Files=4
 
 [breakpoints]
