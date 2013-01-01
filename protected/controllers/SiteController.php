@@ -182,7 +182,7 @@ class SiteController extends Controller
                 $client = new Client('register');
                 $client->UserId = $model->id;
                 $client->Username = $model->username;
-                
+
                 // set a default country
                 $countryId = Country::model()->find()->Id;
                 $client->CountryId = $countryId;
