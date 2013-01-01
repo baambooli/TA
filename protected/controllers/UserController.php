@@ -55,14 +55,94 @@ class UserController extends RController
         if (isset($_POST['User']))
         {
             $model->attributes = $_POST['User'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->id));
+
+            $transaction = $model->dbConnection->beginTransaction();
+
+            try
+            {
+                // first save user on users table
+                if (!$model->save())
+                {
+                    $msg = 'Error in saving user.';
+                    Yii::app()->user->setFlash('error', $msg);
+
+                    // raise an exception
+                    throw new CException($msg);
+                }
+
+                // second: add a row to authassignment table to
+                // make this user as authenticated user
+                // first save user on users table
+                $auth = new Authassignment();
+                $auth->itemname = 'Authenticated';
+                $auth->userid = $model->id;
+                $auth->data = 'N;';
+                if (!$auth->save())
+                {
+                    $msg = 'Error in saving the role of the user.';
+                    Yii::app()->user->setFlash('error', $msg);
+
+                    // raise an exception
+                    throw new CException($msg);
+                }
+
+                // third: creat a row in clients table for user
+                $client = new Client('register');
+                $client->UserId = $model->id;
+                $client->Username = $model->username;
+                
+                // set a default country
+                $countryId = Country::model()->find()->Id;
+                $client->CountryId = $countryId;
+                if (!$client->save())
+                {
+                    $msg = 'Error in saving the client.';
+                    Yii::app()->user->setFlash('error', $msg);
+
+                    // raise an exception
+                    throw new CException($msg);
+                }
+
+                // forth: send email to the user
+                $email = Yii::app()->email;
+                $email->from = Yii::app()->params['adminEmail']; //admin's email in config/main.php file
+                $email->to = $model->email;
+                $email->subject = 'Registeration';
+                $email->view = 'registerationConfirmEmail';
+                $email->viewVars = array('username' => $model->username,
+                    'emailAddress' => $model->email);
+                // IMPORTANT LINE
+                // there in no SMTP in Win7, so I commneted this line
+                // in production machine(Ubuntu), uncomment it
+                //$email->send();
+                // fifth: commit the transaction
+                $transaction->commit();
+
+                // sexth: unset attributes
+                $model->unsetAttributes();
+                $model->password_repeat = '';
+                $model->verifyCode = '';
+
+                // seventh: show success message to the user
+                $msg = 'Your have been successfully registered. An email will be sent to you soon.
+                    (Email is disabled on win7, because it does not have SMTP support by default)';
+                Yii::app()->user->setFlash('success', $msg);
+            }
+            catch (Exception $e)
+            {
+                $transaction->rollback();
+
+                // show error message
+                $msg = $e->getMessage();
+                Yii::app()->user->setFlash('error', $msg);
+            }
         }
 
         $this->render('create', array(
             'model' => $model,
-            'updateMode' => 0, 
         ));
+
+        
     }
 
     /**
@@ -100,8 +180,36 @@ class UserController extends RController
     {
         if (Yii::app()->request->isPostRequest)
         {
+            DebugBreak();
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+             
+            // delete related records on the authassignment and clients tables
+            // first  authassignment table
+            $total = Authassignment::model()->count('userid = :id', array(':id' => $id));
+            
+            if ($total > 0)
+            {
+                $auth = Authassignment::model()->findAll('userid = :id', array(':id' => $id));
+                for ($i = 0; $i < $total; $i++)
+                {
+                    $auth[$i]->delete();   
+                }
+               
+            }
+            
+             // second clients table
+            $total = Client::model()->count('UserId = :id', array(':id' => $id));
+            
+            if ($total > 0)
+            {
+                $client = Client::model()->findAll('UserId = :id', array(':id' => $id));
+                for ($i = 0; $i < $total; $i++)
+                {
+                    $client[$i]->delete();   
+                }
+               
+            }
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))

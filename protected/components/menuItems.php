@@ -33,7 +33,7 @@
                 // show 'User info' menu to NONE guest users
                 array('label'=>'User info', 'visible' => $visibility['Authenticated'],
                   'items'=>array(
-                    array('label'=>'Change my user/pass', 'url'=>array('/user/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label'=>'Change my email/pass', 'url'=>array('/user/updateMyself/id/'.Yii::app()->user->id)),
                     array('label'=>'Change my info', 'url'=>array('/client/updateMyself/id/'.Yii::app()->user->id)),
                   ),
                 ),
@@ -41,7 +41,6 @@
                 // show 'Global info' menu to NONE guest users
                 array('label'=>'Global info', 'visible' => $visibility['General'],
                   'items'=>array(
-                    array('label'=>'Users\' Management', 'url'=>array('/user/admin','view'=>'admin')),
                     array('label'=>'Countries', 'url'=>array('/country/admin','view'=>'admin')),
                     array('label'=>'Cities', 'url'=>array('/city/admin','view'=>'admin')),
                   ),
@@ -95,6 +94,7 @@
                 array('label'=>'Admin Tasks', 'visible' => $visibility['Admin'],
                   'items'=>array(
                     array('label'=>'RBAC', 'url'=>array('/rights/assignment/','view'=>'view')),
+                    array('label'=>'Users\' Management', 'url'=>array('/user/admin','view'=>'admin')),
                     array('label'=>'Create Reports', 'url'=>array('/report/admin','view'=>'admin')),
                     array('label'=>'Change Forms', 'url'=>array('/changeForm/admin','view'=>'admin')),
                     array('label'=>'Reset users\' password', 'url'=>array('/site/resetPassword')),
