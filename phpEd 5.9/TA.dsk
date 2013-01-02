@@ -16,25 +16,19 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\models\Hotel.php
+File0=D:\xampp\htdocs\TA\protected\views\room\_form.php
 IsActive0=0
-ZIndex6=4
-File1=D:\xampp\htdocs\TA\protected\models\Room.php
+ZIndex3=3
+File1=D:\xampp\htdocs\TA\protected\views\roomClient\_form.php
 IsActive1=0
-ZIndex5=3
-File2=D:\xampp\htdocs\TA\protected\views\roomClient\_form.php
+ZIndex2=2
+File2=D:\xampp\htdocs\TA\protected\models\RoomClient.php
 IsActive2=1
-ZIndex4=0
-File3=D:\xampp\htdocs\TA\protected\models\RoomClient.php
+ZIndex1=0
+File3=D:\xampp\htdocs\TA\protected\controllers\RoomClientController.php
 IsActive3=0
-ZIndex3=2
-File4=D:\xampp\htdocs\TA\protected\models\City.php
-IsActive4=0
-ZIndex2=5
-File5=D:\xampp\htdocs\TA\protected\controllers\RoomClientController.php
-IsActive5=0
 ZIndex0=1
-Files=6
+Files=4
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

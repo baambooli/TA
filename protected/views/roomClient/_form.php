@@ -9,56 +9,82 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         ));
 ?>
 
-<p class="help-block">Fields with <span class="required">*</span> are required.</p>
-
 <?php echo $form->errorSummary($model); ?>
 
-<?php
-echo CHtml::dropDownList('country_id', '', $model->getCountries(), array(
-    'ajax' => array(
-        'type' => 'POST', //request type
-        'url' => CController::createUrl('roomClient/dynamicCities'), //url to call.
-//Style: CController::createUrl('currentController/methodToCall')
-        'update' => '#city_id', //selector to update
-//'data'=>'js:javascript statement'
-//leave out the data key to pass all form values through
-        )));
+<div class="span5">
 
-//empty since it will be filled by the other dropdown
-echo CHtml::dropDownList('city_id','', array(), array(
-                        'ajax' => array(
-                        'type' => 'POST',
-                        'url' => CController::createUrl('roomClient/dynamicHotels'),
-                        'update' => "#hotel_id"
-                    )));
-echo CHtml::dropDownList('hotel_id','', array(), array(
-                        'ajax' => array(
-                        'type' => 'POST',
-                        'url' => CController::createUrl('roomClient/dynamicRooms'),
-                        'update' => "#room_id"
-                    )));
-echo CHtml::dropDownList('room_id','', array()); 
-?>
-<?php echo $form->textFieldRow($model, 'RoomId', array('class' => 'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'ClientId', $model->getClients(), array('class' => 'span5')); ?>
 
-<?php echo $form->textFieldRow($model, 'ClientId', array('class' => 'span5')); ?>
-
-<?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
-
-<?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
-
-<?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
-
-
-<div class="form-actions">
+    Country Name:<br>
     <?php
-    $this->widget('bootstrap.widgets.TbButton', array(
-        'buttonType' => 'submit',
-        'type' => 'primary',
-        'id' => 'save_update',
-        'label' => $model->isNewRecord ? 'Create' : 'Save',
-    ));
+    echo CHtml::dropDownList('country_id', '', $model->getCountries(), array(
+        'class' => 'span5',
+        'ajax' => array(
+            'type' => 'POST', //request type
+            'url' => CController::createUrl('roomClient/dynamicCities'), //url to call.
+            //Style: CController::createUrl('currentController/methodToCall')
+            'update' => '#city_id', //selector to update
+        //'data'=>'js:javascript statement'
+        //leave out the data key to pass all form values through
+            )));
     ?>
+</div>
+<div class="span5">
+    City Name:<br>
+    <?php
+    //empty since it will be filled by the other dropdown
+    echo CHtml::dropDownList('city_id', '', array(), array(
+        'class' => 'span5',
+        'ajax' => array(
+            'type' => 'POST',
+            'url' => CController::createUrl('roomClient/dynamicHotels'),
+            'update' => "#hotel_id"
+            //'data'=>'js:javascript statement'
+            //leave out the data key to pass all form values through
+            )));
+    ?>
+</div>
+<div class="span5">
+    Hotel Name:<br>
+    <?php
+//empty since it will be filled by the other dropdown
+    echo CHtml::dropDownList('hotel_id', '', array(), array(
+        'class' => 'span5',
+        'ajax' => array(
+            'type' => 'POST',
+            'url' => CController::createUrl('roomClient/dynamicRooms'),
+            'update' => "#room_id"
+            //'data'=>'js:javascript statement'
+            //leave out the data key to pass all form values through
+            )));
+    ?>
+</div>
+<div class="span5">
+    Room Number:<br>
+    <?php
+    //empty since it will be filled by the other dropdown
+    echo CHtml::dropDownList('room_id', '', array(), array('class' => 'span5'));
+    ?>
+</div>
+<div class="span5">
+    <?php echo $form->dropDownListRow($model, 'RoomId', $model->getDynamicRooms(1) , array('class' => 'span5', 'id' => 'room_id')); ?>
+
+    <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
+
+    <?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
+
+    <?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
+
+    <div class="form-actions">
+        <?php
+        $this->widget('bootstrap.widgets.TbButton', array(
+            'buttonType' => 'submit',
+            'type' => 'primary',
+            'id' => 'save_update',
+            'label' => $model->isNewRecord ? 'Create' : 'Save',
+        ));
+        ?>
+    </div>
 </div>
 <?php $this->endWidget(); ?>
 <script>
@@ -68,7 +94,7 @@ echo CHtml::dropDownList('room_id','', array());
         endDate = $('#end_date').val();
         if (startDate > endDate)
         {
-            alert('start date should be smaller or equal to end date.');
+            alert('Check in date should be smaller than or equal to Check out date.');
             return;
         }
         $('#save_update').html('Saving, Please wait ....');

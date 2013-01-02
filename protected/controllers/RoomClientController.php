@@ -190,9 +190,10 @@ class RoomClientController extends RController
     public function actionDynamicCities()
     {
         $countryId = (int) $_POST['country_id'];
-        $data = City::model()->findAll('CountryId = :country_id', array(':country_id' => $countryId)); 
-        $cities = CHtml::listData($data, 'Id', 'Name');
+        $cities = RoomClient::getDynamicCities($countryId);
         
+        // add one blank line
+        echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($cities as $value => $name)
         {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
@@ -202,9 +203,10 @@ class RoomClientController extends RController
     public function actionDynamicHotels()
     {
         $cityId = (int) $_POST['city_id'];
-        $data = Hotel::model()->findAll('CityId = :cityId', array(':cityId' => $cityId));
-        $hotels = CHtml::listData($data, 'ID', 'Name');
+        $hotels = RoomClient::getDynamicHotels($cityId) ;
         
+        // add one blank line
+        echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($hotels as $value => $name)
         {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
@@ -214,13 +216,13 @@ class RoomClientController extends RController
     public function actionDynamicRooms()
     {
         $hotelId = (int) $_POST['hotel_id'];
-        $data = Room::model()->findAll('HotelId = :hotelId', array(':hotelId' => $hotelId));
-        $rooms = CHtml::listData($data, 'Id', 'RoomNumber');
+        $rooms = RoomClient::getDynamicRooms($hotelId);
         
+        // add one blank line
+        echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($rooms as $value => $name)
         {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
-
 }

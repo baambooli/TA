@@ -73,8 +73,8 @@ class RoomClient extends CActiveRecord
             'Id' => 'ID',
             'RoomId' => 'Room',
             'ClientId' => 'Client',
-            'StartDate' => 'Start Date',
-            'EndDate' => 'End Date',
+            'StartDate' => 'Check in Date',
+            'EndDate' => 'Check out Date',
         );
     }
 
@@ -104,6 +104,7 @@ class RoomClient extends CActiveRecord
     public function getStatus()
     {
         return array(
+            'Available' => 'Available',
             'Reserved' => 'Reserved',
             'Reservation Request' => 'Reservation Request',
             'Cancelation Request' => 'Cancelation Request',
@@ -119,61 +120,48 @@ class RoomClient extends CActiveRecord
     {
         // get list of countries
         $countries = Country::model()->findAll();
+        
         // convert them to suitable format for comboBox or listbox
         $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        
+        //add one blank line on the first of array
+        array_unshift($countriesArray, 'Please select...');
+        
         return $countriesArray;
     }
 
-    // get name of the Country related to the specific Id
-    public function getCountryName($id)
+    public function getClients()
     {
-        // get name of Country
-        $CountryName = Country::model()->findByPK($id)->Name;
-        return $CountryName;
+        // get list of clients
+        $clients = Client::model()->findAll();
+        
+        // convert them to suitable format for comboBox or listbox
+        $clientsArray = CHtml::listData($clients, 'Id', 'Username');
+        
+        //add one blank line on the first of array
+        array_unshift($clientsArray, 'Please select...');
+
+        return $clientsArray;
     }
     
-     /**
-     * Create list of cities and their id and return as a list
-     * This will be used easily in a comboBox or listbox on the view files
-     * By Kmaran
-     */
-    public function getCities()
+    public static function getDynamicCities($countryId)
     {
-        // get list of cities
-        $cities = City::model()->findAll();
-        // convert them to suitable format for comboBox or listbox
-        $citiesArray = CHtml::listData($cities, 'Id', 'Name');
-        return $citiesArray;
-    }
-
-    // get name of the city related to the specific Id
-    public function getCityName($id)
-    {
-        // get name of city
-        $cityName = City::model()->findByPK($id)->Name;
-        return $cityName;
+        $data = City::model()->findAll('CountryId = :country_id', array(':country_id' => $countryId)); 
+        $cities = CHtml::listData($data, 'Id', 'Name');
+        return  $cities;
     }
     
-     /**
-     * Create list of cities and their id and return as a list
-     * This will be used easily in a comboBox or listbox on the view files
-     * By Kmaran
-     */
-    public function getHotels()
+    public static function getDynamicHotels($cityId)
     {
-        // get the list of hotels
-        $hotels = Hotel::model()->findAll();
-        // convert them to suitable format for comboBox or listbox
-        $hotelsArray = CHtml::listData($hotels, 'ID', 'Name');
-        return $hotelsArray;
+        $data = Hotel::model()->findAll('CityId = :cityId', array(':cityId' => $cityId));
+        $hotels = CHtml::listData($data, 'ID', 'Name');
+        return  $hotels;
     }
-
-    // get the name of the hotel related to the specific Id
-    public function getHotelName($id)
+    public static function getDynamicRooms($hotelId)
     {
-        // get the name of hotel
-        $hotelName = Hotel::model()->findByPK($id)->Name;
-        return $hotelName;
-    }
-
+        $data = Room::model()->findAll('HotelId = :hotelId', array(':hotelId' => $hotelId));
+        $rooms = CHtml::listData($data, 'Id', 'RoomNumber');
+        return  $rooms;
+    }       
+       
 }
