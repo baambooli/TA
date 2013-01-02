@@ -8,7 +8,6 @@ $this->menu = array(
     array('label' => 'Create RoomClient', 'url' => array('create')),
 );
 
-
 Yii::app()->clientScript->registerScript('search', "
 $('.search-button').click(function(){
 	$('.search-form').toggle();

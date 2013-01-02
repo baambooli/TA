@@ -109,5 +109,71 @@ class RoomClient extends CActiveRecord
             'Cancelation Request' => 'Cancelation Request',
         );
     }
+    
+    /**
+     * Create list of countries and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCountries()
+    {
+        // get list of countries
+        $countries = Country::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        return $countriesArray;
+    }
+
+    // get name of the Country related to the specific Id
+    public function getCountryName($id)
+    {
+        // get name of Country
+        $CountryName = Country::model()->findByPK($id)->Name;
+        return $CountryName;
+    }
+    
+     /**
+     * Create list of cities and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCities()
+    {
+        // get list of cities
+        $cities = City::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $citiesArray = CHtml::listData($cities, 'Id', 'Name');
+        return $citiesArray;
+    }
+
+    // get name of the city related to the specific Id
+    public function getCityName($id)
+    {
+        // get name of city
+        $cityName = City::model()->findByPK($id)->Name;
+        return $cityName;
+    }
+    
+     /**
+     * Create list of cities and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getHotels()
+    {
+        // get the list of hotels
+        $hotels = Hotel::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $hotelsArray = CHtml::listData($hotels, 'ID', 'Name');
+        return $hotelsArray;
+    }
+
+    // get the name of the hotel related to the specific Id
+    public function getHotelName($id)
+    {
+        // get the name of hotel
+        $hotelName = Hotel::model()->findByPK($id)->Name;
+        return $hotelName;
+    }
 
 }

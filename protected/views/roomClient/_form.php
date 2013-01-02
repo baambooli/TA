@@ -13,6 +13,26 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <?php echo $form->errorSummary($model); ?>
 
+<?php
+echo CHtml::dropDownList('country_id', '', $model->getCountries(), array(
+    'ajax' => array(
+        'type' => 'POST', //request type
+        'url' => CController::createUrl('roomClient/dynamicCities'), //url to call.
+//Style: CController::createUrl('currentController/methodToCall')
+        'update' => '#city_id', //selector to update
+//'data'=>'js:javascript statement'
+//leave out the data key to pass all form values through
+        )));
+
+//empty since it will be filled by the other dropdown
+echo CHtml::dropDownList('city_id','', array(), array(
+                        'ajax' => array(
+                        'type' => 'POST',
+                        'url' => CController::createUrl('roomClient/dynamicHotels'),
+                        'update' => "#hotel_id"
+                    )));
+echo CHtml::dropDownList('hotel_id','', array()); 
+?>
 <?php echo $form->textFieldRow($model, 'RoomId', array('class' => 'span5')); ?>
 
 <?php echo $form->textFieldRow($model, 'ClientId', array('class' => 'span5')); ?>

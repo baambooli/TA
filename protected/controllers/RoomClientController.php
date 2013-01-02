@@ -187,4 +187,38 @@ class RoomClientController extends RController
         }
     }
 
+    public function actionDynamicCities()
+    {
+        $countryId = (int) $_POST['country_id'];
+        $data = City::model()->findAll('CountryId = :country_id', array(':country_id' => $countryId));
+        /*$cities = CHtml::listData($data, 'Id', 'Name', array
+                                                        (
+                                                          'ajax' => array
+                                                          (
+                                                            'type' => 'POST',
+                                                            'url' => CController::createUrl('roomClient/dynamicHotels'),
+                                                            'update' => '#hotel_id',
+                                                          )
+                                                        ));*/ 
+        $cities = CHtml::listData($data, 'Id', 'Name');
+        
+        foreach ($cities as $value => $name)
+        {
+            echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+        }
+    }
+    
+    public function actionDynamicHotels()
+    {
+        DebugBreak();
+        $cityId = (int) $_POST['city_id'];
+        $data = Hotel::model()->findAll('CityId = :cityId', array(':cityId' => $cityId));
+        $hotels = CHtml::listData($data, 'ID', 'Name');
+        
+        foreach ($hotels as $value => $name)
+        {
+            echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+        }
+    }
+
 }
