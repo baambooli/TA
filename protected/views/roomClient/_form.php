@@ -31,7 +31,13 @@ echo CHtml::dropDownList('city_id','', array(), array(
                         'url' => CController::createUrl('roomClient/dynamicHotels'),
                         'update' => "#hotel_id"
                     )));
-echo CHtml::dropDownList('hotel_id','', array()); 
+echo CHtml::dropDownList('hotel_id','', array(), array(
+                        'ajax' => array(
+                        'type' => 'POST',
+                        'url' => CController::createUrl('roomClient/dynamicRooms'),
+                        'update' => "#room_id"
+                    )));
+echo CHtml::dropDownList('room_id','', array()); 
 ?>
 <?php echo $form->textFieldRow($model, 'RoomId', array('class' => 'span5')); ?>
 
