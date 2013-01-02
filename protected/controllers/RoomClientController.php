@@ -162,6 +162,7 @@ class RoomClientController extends RController
         }
     }
 
+    // Kamran
     public function actionDynamicCities()
     {
         $countryId = (int) $_POST['country_id'];

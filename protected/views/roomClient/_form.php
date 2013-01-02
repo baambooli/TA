@@ -33,7 +33,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     City Name:<br>
     <?php
     //empty since it will be filled by the other dropdown
-    echo CHtml::dropDownList('city_id', '', array('0' => 'Please select'), array(
+    echo CHtml::dropDownList('city_id', '', array(), array(
         'class' => 'span5',
         'ajax' => array(
             'type' => 'POST',
@@ -47,8 +47,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <div class="span5">
     Hotel Name:<br>
     <?php
-//empty since it will be filled by the other dropdown
-    echo CHtml::dropDownList('hotel_id', '', array('0' => 'Please select'), array(
+//empty since it will be filled by the other dropdown   
+    echo CHtml::dropDownList('hotel_id', '', array(), array(
         'class' => 'span5',
         'ajax' => array(
             'type' => 'POST',
@@ -63,7 +63,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     Room Number:<br>
     <?php
     //empty since it will be filled by the other dropdown
-    echo CHtml::dropDownList('room_id', '', array('0' => 'Please select'), array('class' => 'span5'));
+    echo CHtml::dropDownList('room_id', '', array(), array('class' => 'span5'));
     ?>
 </div>
 <div class="span5">

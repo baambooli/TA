@@ -18,16 +18,16 @@ ActiveWorkset=
 [Files]
 File0=D:\xampp\htdocs\TA\protected\views\roomClient\_form.php
 IsActive0=0
-ZIndex3=3
+ZIndex3=2
 File1=D:\xampp\htdocs\TA\protected\models\ClientFullnameView.php
 IsActive1=0
-ZIndex2=1
+ZIndex2=3
 File2=D:\xampp\htdocs\TA\protected\models\RoomClient.php
-IsActive2=1
-ZIndex1=0
+IsActive2=0
+ZIndex1=1
 File3=D:\xampp\htdocs\TA\protected\controllers\RoomClientController.php
-IsActive3=0
-ZIndex0=2
+IsActive3=1
+ZIndex0=0
 Files=4
 
 [breakpoints]
