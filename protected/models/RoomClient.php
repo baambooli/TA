@@ -100,4 +100,14 @@ class RoomClient extends CActiveRecord
                 ));
     }
 
+    // Kamran
+    public function getStatus()
+    {
+        return array(
+            'Reserved' => 'Reserved',
+            'Reservation Request' => 'Reservation Request',
+            'Cancelation Request' => 'Cancelation Request',
+        );
+    }
+
 }

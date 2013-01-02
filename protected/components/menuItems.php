@@ -66,6 +66,7 @@
                     array('label' => 'Rooms', 'url' => array('/room/admin', 'view' => 'admin')),
                     array('label' => 'Room Types', 'url' => array('/roomType/admin', 'view' => 'admin')),
                     array('label' => 'Clients', 'url' => array('/client/admin', 'view' => 'admin')),
+                    array('label' => 'Rooms/Clients', 'url' => array('/roomClient/admin', 'view' => 'admin')),
                 ),
             ),
 
