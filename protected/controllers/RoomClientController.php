@@ -220,7 +220,7 @@ class RoomClientController extends RController
             
             return false;
         }
-        
+
         $roomClients = RoomClient::model()->findAll('RoomId = :roomId',
             array(':roomId' => $roomId));
 
@@ -232,36 +232,38 @@ class RoomClientController extends RController
             
             if ((($startDate >= $start) && ($startDate <= $end))
                 || (($endDate >= $start) && ($endDate <= $end))
-                || ($status !== NULL)
             )
             {
              
                 $clientId = $roomClients[$key]->ClientId;
-                $clientFullName = ClientFullnameView::model()->findByPk($clientId);
+                $clientFullName = ClientFullnameView::model()->
+                    findByPk($clientId)->FullName;
                 
                 $result = 'This room is taken by '.$clientFullName.'. The room status = '.
-                    $status.', Checkin date = '.$start.', Checkout date = '.$end;
+                    $status.', Check in date = '.$start.', Check out date = '.$end;
 
                 return false;    
             } 
         }
-        $result = 'Room is available.';
+        $result = 'Room is available between '.$startDate.' and '.$endDate.'.';
         return true;
     }       
-    public function actionCheck()
+    public function actionCheck($isAjaxCall = true)
     {
         $roomId = (int) $_POST['room_id'];
         $start = $_POST['RoomClient']['StartDate'];
         $end = $_POST['RoomClient']['EndDate'];
         $result = '';
-         
+
         $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $result);
         
         // to show the result using jQuery we should use 'echo' function
-        echo $result;
+        if($isAjaxCall)
+        {
+            echo $result;
+        }        
         
-        DebugBreak();
-        return $result;
+        return $res;
         
     }
      

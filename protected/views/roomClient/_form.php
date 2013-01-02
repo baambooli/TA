@@ -75,16 +75,13 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     <?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
 
     <?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
+    <br>
     
-    <div class="row buttons">
-        <?php echo CHtml::Button('Check availability of room',array('onclick'=>'sendAjaxRequest();')); ?> 
-    </div>
+    <?php echo CHtml::Button('Check availability of room',array('onclick'=>'sendAjaxRequest();')); ?> 
     
-    <br>Current status of the room:<br>
+    <br><br>  
     <span id="room_availability" style= "color:green"></span>
-    <br>
-    <br>
-
+    <br><br>
     <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
 
     <div class="form-actions">
@@ -125,6 +122,7 @@ function sendAjaxRequest()
  {
    var data=$('#room-client-form').serialize();
    //alert('<?php echo Yii::app()->createAbsoluteUrl('roomClient/check'); ?>');
+   $('#room_availability').text('Checking, Please wait ...');
    
   $.ajax({
    type: 'POST',
@@ -133,7 +131,8 @@ function sendAjaxRequest()
    success: function(data) {
                 //alert('success');
                 //alert(data);
-                $('#room_availability').text(data); // change the text
+                // change the text on the screen with id = room_availability 
+                $('#room_availability').text(data); 
               },
    error: function(data) { // if error occured
          alert('Error occured. please try again');
