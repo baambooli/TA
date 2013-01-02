@@ -43,7 +43,7 @@ class RoomClient extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('RoomId, ClientId, StartDate, EndDate', 'required'),
+            array('RoomId, ClientId', 'required'),
             array('RoomId, ClientId', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
@@ -130,17 +130,16 @@ class RoomClient extends CActiveRecord
         return $countriesArray;
     }
 
-    public function getClients()
+    public function getClientsFullName()
     {
-        // get list of clients
-        $clients = Client::model()->findAll();
+        // get list of ClientFullnameView
+        $clients = ClientFullnameView::model()->findAll();
         
         // convert them to suitable format for comboBox or listbox
-        $clientsArray = CHtml::listData($clients, 'Id', 'Username');
+        $clientsArray = CHtml::listData($clients, 'ClientId', 'FullName');
         
         //add one blank line on the first of array
-        array_unshift($clientsArray, 'Please select...');
-
+        //array_unshift($clientsArray, 'Please select...');
         return $clientsArray;
     }
     
@@ -157,11 +156,11 @@ class RoomClient extends CActiveRecord
         $hotels = CHtml::listData($data, 'ID', 'Name');
         return  $hotels;
     }
+    
     public static function getDynamicRooms($hotelId)
     {
         $data = Room::model()->findAll('HotelId = :hotelId', array(':hotelId' => $hotelId));
         $rooms = CHtml::listData($data, 'Id', 'RoomNumber');
         return  $rooms;
     }       
-       
 }

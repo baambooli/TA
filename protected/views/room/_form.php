@@ -19,7 +19,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <?php echo $form->dropDownListRow($model, 'RoomTypeId', $model->getRoomTypes(), array('class' => 'span5')); ?>
 
-    <?php echo $form->textFieldRow($model, 'Tell', array('class' => 'span5', 'maxlength' => 25)); ?>
+<?php echo $form->textFieldRow($model, 'Tell', array('class' => 'span5', 'maxlength' => 25)); ?>
 
 <div class="form-actions">
     <?php

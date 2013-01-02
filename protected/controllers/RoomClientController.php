@@ -48,26 +48,16 @@ class RoomClientController extends RController
      */
     public function actionCreate()
     {
-        //$this->layout = '//layouts/column2';
         $model = new RoomClient;
-        // Uncomment the following line if AJAX validation is needed
-        $this->performAjaxValidation($model);
 
         if (isset($_POST['RoomClient']))
         {
             $model->attributes = $_POST['RoomClient'];
+            $model->RoomId = (int) $_POST['room_id'];
 
-            $result = $this->_checkDates($_POST['RoomClient']['StartDate'], $_POST['RoomClient']['EndDate']);
-            if (!$result)
+            if ($model->save())
             {
-                // add flash message error to start date field and end date field
-                $model->addError('StartDate', 'Start date should not be greater than end date.');
-                $model->addError('EndDate', 'Start date should not be greater than end date.');
-            }
-            else
-            {
-                if ($model->save())
-                    $this->redirect(array('view', 'id' => $model->Id));
+                Yii::app()->user->setFlash('success', 'Data saved successfully!');
             }
         }
 
@@ -83,7 +73,6 @@ class RoomClientController extends RController
      */
     public function actionUpdate($id)
     {
-        $this->layout = '//layouts/column2';
         $model = $this->loadModel($id);
 
         // Uncomment the following line if AJAX validation is needed
@@ -126,7 +115,6 @@ class RoomClientController extends RController
      */
     public function actionIndex()
     {
-        $this->layout = '//layouts/column2';
         $dataProvider = new CActiveDataProvider('RoomClient');
         $this->render('index', array(
             'dataProvider' => $dataProvider,
@@ -138,7 +126,6 @@ class RoomClientController extends RController
      */
     public function actionAdmin()
     {
-        $this->layout = '//layouts/column1Kamran';
         $modelSearchHotelView = new SearchHotelView('search');
         $modelSearchHotelView->unsetAttributes();  // clear any default values
         if (isset($_GET['SearchHotelView']))
@@ -175,23 +162,11 @@ class RoomClientController extends RController
         }
     }
 
-    private function _checkDates($startDate, $endDate)
-    {
-        if ($startDate > $endDate)
-        {
-            return false;
-        }
-        else
-        {
-            return true;
-        }
-    }
-
     public function actionDynamicCities()
     {
         $countryId = (int) $_POST['country_id'];
         $cities = RoomClient::getDynamicCities($countryId);
-        
+
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($cities as $value => $name)
@@ -199,12 +174,12 @@ class RoomClientController extends RController
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
-    
+
     public function actionDynamicHotels()
     {
         $cityId = (int) $_POST['city_id'];
-        $hotels = RoomClient::getDynamicHotels($cityId) ;
-        
+        $hotels = RoomClient::getDynamicHotels($cityId);
+
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($hotels as $value => $name)
@@ -212,12 +187,12 @@ class RoomClientController extends RController
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
-    
+
     public function actionDynamicRooms()
     {
         $hotelId = (int) $_POST['hotel_id'];
         $rooms = RoomClient::getDynamicRooms($hotelId);
-        
+
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($rooms as $value => $name)
@@ -225,4 +200,5 @@ class RoomClientController extends RController
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
+
 }

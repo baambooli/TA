@@ -13,7 +13,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <div class="span5">
 
-    <?php echo $form->dropDownListRow($model, 'ClientId', $model->getClients(), array('class' => 'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'ClientId', $model->getClientsFullName(), array('class' => 'span5')); ?>
 
     Country Name:<br>
     <?php
@@ -33,14 +33,14 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     City Name:<br>
     <?php
     //empty since it will be filled by the other dropdown
-    echo CHtml::dropDownList('city_id', '', array(), array(
+    echo CHtml::dropDownList('city_id', '', array('0' => 'Please select'), array(
         'class' => 'span5',
         'ajax' => array(
             'type' => 'POST',
             'url' => CController::createUrl('roomClient/dynamicHotels'),
             'update' => "#hotel_id"
-            //'data'=>'js:javascript statement'
-            //leave out the data key to pass all form values through
+        //'data'=>'js:javascript statement'
+        //leave out the data key to pass all form values through
             )));
     ?>
 </div>
@@ -48,14 +48,14 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     Hotel Name:<br>
     <?php
 //empty since it will be filled by the other dropdown
-    echo CHtml::dropDownList('hotel_id', '', array(), array(
+    echo CHtml::dropDownList('hotel_id', '', array('0' => 'Please select'), array(
         'class' => 'span5',
         'ajax' => array(
             'type' => 'POST',
             'url' => CController::createUrl('roomClient/dynamicRooms'),
             'update' => "#room_id"
-            //'data'=>'js:javascript statement'
-            //leave out the data key to pass all form values through
+        //'data'=>'js:javascript statement'
+        //leave out the data key to pass all form values through
             )));
     ?>
 </div>
@@ -63,12 +63,10 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     Room Number:<br>
     <?php
     //empty since it will be filled by the other dropdown
-    echo CHtml::dropDownList('room_id', '', array(), array('class' => 'span5'));
+    echo CHtml::dropDownList('room_id', '', array('0' => 'Please select'), array('class' => 'span5'));
     ?>
 </div>
 <div class="span5">
-    <?php echo $form->dropDownListRow($model, 'RoomId', $model->getDynamicRooms(1) , array('class' => 'span5', 'id' => 'room_id')); ?>
-
     <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
 
     <?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
@@ -85,6 +83,14 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         ));
         ?>
     </div>
+</div>
+<div class="span5"> 
+<?php
+foreach (Yii::app()->user->getFlashes() as $key => $message)
+{
+    echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+}
+?>
 </div>
 <?php $this->endWidget(); ?>
 <script>

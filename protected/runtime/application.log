@@ -10471,3 +10471,268 @@ Stack trace:
 REQUEST_URI=/index.php?r=roomClient/create
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/admin&view=admin
 ---
+2013/01/02 06:49:44 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (57)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 06:49:44 [error] [php] Undefined index: room_id (G:\GitHub\travelagency\protected\controllers\RoomClientController.php:58)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): RoomClientController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RoomClientController->filterRights()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(265): RoomClientController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(282): RoomClientController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=roomClient/create
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 06:51:20 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 06:51:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (71)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 06:51:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3)' in G:\GitHub\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\RoomClientController.php(71): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): RoomClientController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('roomClient/crea...')
+#14 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=roomClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/create
+---
+2013/01/02 06:56:38 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 06:56:38 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (70)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 06:56:38 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3)' in G:\GitHub\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\RoomClientController.php(70): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): RoomClientController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('roomClient/crea...')
+#14 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=roomClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/create
+---
+2013/01/02 07:00:41 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:00:41 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (74)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:00:41 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3)' in G:\GitHub\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\RoomClientController.php(74): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): RoomClientController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('roomClient/crea...')
+#14 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=roomClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/create
+---
+2013/01/02 07:02:37 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:03:35 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (74)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:04:04 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3)' in G:\GitHub\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\RoomClientController.php(74): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): RoomClientController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('roomClient/crea...')
+#14 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=roomClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/create
+---
+2013/01/02 07:07:43 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:13:55 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:31:37 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:37:21 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:37:21 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3).
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:37:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_clients_Id` FOREIGN KEY (`ClientId`) REFERENCES `clients` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `StartDate`, `EndDate`, `RoomId`) VALUES (:yp0, :yp1, :yp2, :yp3)' in G:\GitHub\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\RoomClientController.php(58): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): RoomClientController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('roomClient/crea...')
+#14 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=roomClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/create
+---
+2013/01/02 07:38:25 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:40:21 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:41:04 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:43:00 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:48:08 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:49:16 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:49:16 [warning] [application] Failed to set unsafe attribute "StartDate" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:49:16 [warning] [application] Failed to set unsafe attribute "EndDate" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:49:21 [error] [system.db.CDbCommand] CDbCommand::execute() failed: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_rooms_Id` FOREIGN KEY (`RoomId`) REFERENCES `rooms` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `RoomId`) VALUES (:yp0, :yp1).
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (58)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:49:21 [error] [exception.CDbException] exception 'CDbException' with message 'CDbCommand failed to execute the SQL statement: SQLSTATE[23000]: Integrity constraint violation: 1452 Cannot add or update a child row: a foreign key constraint fails (`travelagency`.`room_clients`, CONSTRAINT `FK_room_clients_rooms_Id` FOREIGN KEY (`RoomId`) REFERENCES `rooms` (`Id`) ON DELETE CASCADE ON UPDATE CASCADE). The SQL statement executed was: INSERT INTO `room_clients` (`ClientId`, `RoomId`) VALUES (:yp0, :yp1)' in G:\GitHub\yii\framework\db\CDbCommand.php:357
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(1023): CDbCommand->execute()
+#1 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(795): CActiveRecord->insert(NULL)
+#2 G:\GitHub\travelagency\protected\controllers\RoomClientController.php(58): CActiveRecord->save()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): RoomClientController->actionCreate()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#6 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#7 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#10 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#11 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#13 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('roomClient/crea...')
+#14 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#15 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/index.php?r=roomClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=roomClient/create
+---
+2013/01/02 07:50:31 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:50:31 [warning] [application] Failed to set unsafe attribute "StartDate" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:50:31 [warning] [application] Failed to set unsafe attribute "EndDate" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:53:29 [warning] [application] Failed to set unsafe attribute "Status" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:53:29 [warning] [application] Failed to set unsafe attribute "StartDate" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/02 07:53:29 [warning] [application] Failed to set unsafe attribute "EndDate" of "RoomClient".
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (55)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
