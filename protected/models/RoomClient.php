@@ -86,7 +86,7 @@ class RoomClient extends CActiveRecord
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
-
+         DebugBreak();
         $criteria = new CDbCriteria;
 
         $criteria->compare('Id', $this->Id);
@@ -104,7 +104,6 @@ class RoomClient extends CActiveRecord
     public function getStatus()
     {
         return array(
-            'Available' => 'Available',
             'Reserved' => 'Reserved',
             'Reservation Request' => 'Reservation Request',
             'Cancelation Request' => 'Cancelation Request',

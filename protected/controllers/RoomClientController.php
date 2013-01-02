@@ -55,10 +55,15 @@ class RoomClientController extends RController
             $model->attributes = $_POST['RoomClient'];
             $model->RoomId = (int) $_POST['room_id'];
 
-            if ($model->save())
+            
+            
+            if ($res)
             {
-                Yii::app()->user->setFlash('success', 'Data saved successfully!');
-            }
+                if($model->save())
+                {
+                    Yii::app()->user->setFlash('success', 'Data saved successfully!');
+                }
+            } 
         }
 
         $this->render('create', array(
@@ -129,7 +134,7 @@ class RoomClientController extends RController
         $modelSearchHotelView = new SearchHotelView('search');
         $modelSearchHotelView->unsetAttributes();  // clear any default values
         if (isset($_GET['SearchHotelView']))
-            $model->attributes = $_GET['SearchHotelView'];
+            $modelSearchHotelView->attributes = $_GET['SearchHotelView'];
 
         $this->render('admin', array(
             'modelSearchHotelView' => $modelSearchHotelView,
@@ -201,5 +206,63 @@ class RoomClientController extends RController
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
+    
+    public function checkAvailabilityOfRoom( 
+            $roomId, $startDate, $endDate, &$result)
+    {
+        if ($startDate > $endDate)
+        {
+            // add flash message error to start date field and end date field
+            $model->addError('StartDate', 'Start date should not be greater than end date.');
+            $model->addError('EndDate', 'Start date should not be greater than end date.');
+            
+            $result = 'Error in dates.';
+            
+            return false;
+        }
+        
+        $roomClients = RoomClient::model()->findAll('RoomId = :roomId',
+            array(':roomId' => $roomId));
 
+        foreach ($roomClients as $key => $value)
+        {
+            $start = $roomClients[$key]->StartDate;
+            $end = $roomClients[$key]->EndDate;
+            $status = $roomClients[$key]->Status;
+            
+            if ((($startDate >= $start) && ($startDate <= $end))
+                || (($endDate >= $start) && ($endDate <= $end))
+                || ($status !== NULL)
+            )
+            {
+             
+                $clientId = $roomClients[$key]->ClientId;
+                $clientFullName = ClientFullnameView::model()->findByPk($clientId);
+                
+                $result = 'This room is taken by '.$clientFullName.'. The room status = '.
+                    $status.', Checkin date = '.$start.', Checkout date = '.$end;
+
+                return false;    
+            } 
+        }
+        $result = 'Room is available.';
+        return true;
+    }       
+    public function actionCheck()
+    {
+        $roomId = (int) $_POST['room_id'];
+        $start = $_POST['RoomClient']['StartDate'];
+        $end = $_POST['RoomClient']['EndDate'];
+        $result = '';
+         
+        $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $result);
+        
+        // to show the result using jQuery we should use 'echo' function
+        echo $result;
+        
+        DebugBreak();
+        return $result;
+        
+    }
+     
 }

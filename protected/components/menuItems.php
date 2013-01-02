@@ -7,7 +7,7 @@
       <?php require_once('menuItems.php'); ?>
 
     on correct place of views/layouts/main.php file in each theme AND
-    /protected/views/layouts/main.php for classic theme
+    /protected/views/layouts/main.php for classic theme 
 
     Kamran
 
@@ -67,6 +67,7 @@
                     array('label' => 'Room Types', 'url' => array('/roomType/admin', 'view' => 'admin')),
                     array('label' => 'Clients', 'url' => array('/client/admin', 'view' => 'admin')),
                     array('label' => 'Rooms/Clients', 'url' => array('/roomClient/admin', 'view' => 'admin')),
+                    array('label' => 'Reserve Room', 'url' => array('/roomClient/create')),
                 ),
             ),
 

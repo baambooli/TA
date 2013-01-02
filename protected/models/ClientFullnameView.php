@@ -83,4 +83,10 @@ class ClientFullnameView extends CActiveRecord
 			'criteria'=>$criteria,
 		));
 	}
+    
+    // Kamran
+    public function primaryKey()
+    {
+        return 'ClientId';
+    }
 }

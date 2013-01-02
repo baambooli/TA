@@ -6,6 +6,10 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
+    'htmlOptions'=>array(
+       'onsubmit'=>"return false;",/* Disable normal form submit */
+       'onkeypress'=>" if(event.keyCode == 13){ sendAjaxRequest(); } " /* Do ajax call when user presses enter key */
+     ),
         ));
 ?>
 
@@ -67,11 +71,21 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     ?>
 </div>
 <div class="span5">
-    <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
-
+    
     <?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
 
     <?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
+    
+    <div class="row buttons">
+        <?php echo CHtml::Button('Check availability of room',array('onclick'=>'sendAjaxRequest();')); ?> 
+    </div>
+    
+    <br>Current status of the room:<br>
+    <span id="room_availability" style= "color:green"></span>
+    <br>
+    <br>
+
+    <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
 
     <div class="form-actions">
         <?php
@@ -103,6 +117,32 @@ foreach (Yii::app()->user->getFlashes() as $key => $message)
             alert('Check in date should be smaller than or equal to Check out date.');
             return;
         }
-        $('#save_update').html('Saving, Please wait ....');
+        $('#save_update').html('Saving, Please wait....');
     });
+
+    
+function sendAjaxRequest()
+ {
+   var data=$('#room-client-form').serialize();
+   //alert('<?php echo Yii::app()->createAbsoluteUrl('roomClient/check'); ?>');
+   
+  $.ajax({
+   type: 'POST',
+   url: '<?php echo Yii::app()->createAbsoluteUrl('roomClient/check'); ?>',
+   data: data,
+   success: function(data) {
+                //alert('success');
+                //alert(data);
+                $('#room_availability').text(data); // change the text
+              },
+   error: function(data) { // if error occured
+         alert('Error occured. please try again');
+         //alert(data);
+    },
+ 
+  dataType:'html',
+  timeout:60000,
+  });
+ 
+}
 </script>
