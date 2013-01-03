@@ -75,7 +75,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
     <?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
     <br>
-
+</div>
+<div class="span13"> 
     <?php echo CHtml::Button('Check availability of room', array('onclick' => 'sendAjaxRequest();')); ?>
 
     <br><br>
@@ -157,7 +158,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 //alert('success');
                 //alert(data);
                 // change the text on the screen with id = room_availability
-                $('#room_availability').text(data);
+                $('#room_availability').text('');  //clear div
+                $('#room_availability').append(data);
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again');

@@ -36,7 +36,7 @@ class RoomClientController extends RController
      */
     public function actionView($id)
     {
-        $this->layout = '//layouts/column2';
+        // $this->layout = '//layouts/column2';
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
@@ -258,7 +258,7 @@ class RoomClientController extends RController
             $model->addError('StartDate', 'Start date should not be greater than end date.');
             $model->addError('EndDate', 'Start date should not be greater than end date.');
 
-            $result[] = 'Error in dates.';
+            $result = 'Error in dates.';
 
             return false;
         }
@@ -279,13 +279,17 @@ class RoomClientController extends RController
         }
 
 
-
+        $result = '<table ><tr><td style="border: 1px solid black;">Fullname, Username</td>
+            <td style="border: 1px solid black;">Status of room</td>
+            <td style="border: 1px solid black;">Check in</td>
+            <td style="border: 1px solid black;">Check out</td></tr>';
         foreach ($roomClients as $key => $value)
         {
             $start = $roomClients[$key]->StartDate;
             $end = $roomClients[$key]->EndDate;
             $status = $roomClients[$key]->Status;
-
+            
+            // check that the room is taken or not
             if ((($startDate >= $start) && ($startDate <= $end))
                     || (($endDate >= $start) && ($endDate <= $end))
                     || (($start >= $startDate) && ($start <= $endDate))
@@ -297,13 +301,15 @@ class RoomClientController extends RController
                 $clientFullName = ClientFullnameView::model()->
                                 findByPk($clientId)->FullName;
 
-                $result .= '--- This room is taken by ' . $clientFullName . '. The room status = ' .
-                        $status . ', Check in date = ' . $start . ', Check out date = ' . $end;
+                $result .= '<tr><td style="border: 1px solid black;"> ' .
+                             $clientFullName . '</td><td style="border: 1px solid black;">' .
+                             $status . '</td><td style="border: 1px solid black;">' . 
+                             $start . '</td><td style="border: 1px solid black;">' . $end.'</td></tr>';
 
                 $res = false;
             }
         }
-
+        $result .= '</table>'; 
         if ($res == true)
         {
             $result = 'This room is available between ' . $startDate . ' and ' . $endDate . '.';

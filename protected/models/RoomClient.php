@@ -141,6 +141,14 @@ class RoomClient extends CActiveRecord
         return $clientsArray;
     }
     
+    public function getOneClientFullName($id)
+    {
+        // get  ClientFullnameView
+        $client = ClientFullnameView::model()->find('ClientId = :id',
+                     array(':id' => $id));
+        return $client->FullName;
+    }
+    
     public static function getDynamicCities($countryId)
     {
         $data = City::model()->findAll('CountryId = :country_id', array(':country_id' => $countryId)); 
