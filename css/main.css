@@ -32,6 +32,13 @@ body
 	padding: 20px 20px 20px 0;
 }
 
+.right
+{
+    position:absolute;
+    right:100px;
+    width:200px;
+
+}
 #footer
 {
 	padding: 10px;
@@ -161,7 +168,7 @@ div.search-form
 .portlet-decoration
 {
 	padding: 3px 8px;
-	background: #B7D6E7;
+	background: #00ff00;
 	border-left: 5px solid #6FACCF;
 }
 

@@ -1,12 +1,12 @@
 <?php
-$this->breadcrumbs=array(
-	'Rooms'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array(
+    'Rooms' => array('index'),
+    'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'List Room','url'=>array('index')),
-	array('label'=>'Create Room','url'=>array('create')),
+$this->menu = array(
+    array('label' => 'List Room', 'url' => array('index')),
+    array('label' => 'Create Room', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -24,18 +24,20 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Manage Rooms</h1>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'room-grid',
-	'dataProvider'=>$modelRoomView->search(),
-	'filter'=>$modelRoomView,
-	'columns'=>array(
-		'Id',
-		'HotelName',
-		'RoomNumber',
-		'RoomTypeName',
-		'Tell',
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
-	),
-)); ?>
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'room-grid',
+    'dataProvider' => $modelRoomView->search(),
+    'filter' => $modelRoomView,
+    'columns' => array(
+        'Id',
+        'HotelName',
+        'RoomNumber',
+        'RoomTypeName',
+        'Tell',
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+        ),
+    ),
+));
+?>

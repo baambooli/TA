@@ -13,9 +13,9 @@
 
 	<?php echo $form->textFieldRow($model,'SeatNumber',array('class'=>'span5','maxlength'=>20)); ?>
 
-    <?php echo $form->dropDownListRow($model,'SeatType',$model->getTypes(), array('class'=>'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'SeatType', $model->getTypes(), array('class' => 'span5')); ?>
 
-    <?php echo $form->dropDownListRow($model,'AirplaneSpecId',$model->getAirplaneSpecifications(), array('class'=>'span5')); ?> 
+    <?php echo $form->dropDownListRow($model,'AirplaneSpecId',$model->getAirplaneSpecifications(), array('class'=>'span5')); ?>
 
 	<div class="form-actions">
 		<?php $this->widget('bootstrap.widgets.TbButton', array(

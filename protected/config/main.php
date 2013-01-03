@@ -7,22 +7,20 @@
 return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Kamran Travel Agency',
-    'theme'=>'kamran_theme1',
-    
+    'theme' => 'kamran_theme1',
     // preloading 'log' component
     'preload' => array('log', 'bootstrap'),
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
         'application.components.*',
-        'application.modules.rights.*', 
-        'application.modules.rights.components.*', 
+        'application.modules.rights.*',
+        'application.modules.rights.components.*',
     ),
     'modules' => array(
-        'rights'=>array( 
-            'install'=>true,  // Enables the installer. 
-        ), 
-   
+        'rights' => array(
+            'install' => true, // Enables the installer.
+        ),
         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => '123',
@@ -39,26 +37,22 @@ return array(
             // enable cookie-based authentication
             'allowAutoLogin' => true,
             // this is the default website page
-            'loginUrl'=>array('site/login'),
-            
+            'loginUrl' => array('site/login'),
             // for RBAC (Rights module)
-            'class' => 'RWebUser', 
+            'class' => 'RWebUser',
         ),
-        
         // for sending email (Email extension)
-        'email'=>array(
-            'class'=>'application.extensions.email.Email',
-            'delivery'=>'php', //Will use the php mailing function.  
-            //May also be set to 'debug' to instead dump the contents of the email into the view
+        'email' => array(
+            'class' => 'application.extensions.email.Email',
+            'delivery' => 'php', //Will use the php mailing function.
+        //May also be set to 'debug' to instead dump the contents of the email into the view
         ),
-         
-         'authManager'=>array( 
-            'class'=>'RDbAuthManager',  // Provides support authorization item sorting. 
-         ), 
-         
-        // enable APC cache 
-        'cache'=>array(
-            'class'=>'system.caching.CApcCache',
+        'authManager' => array(
+            'class' => 'RDbAuthManager', // Provides support authorization item sorting.
+        ),
+        // enable APC cache
+        'cache' => array(
+            'class' => 'system.caching.CApcCache',
         ),
         // uncomment the following to enable URLs in path-format
         /* 'urlManager' => array(
@@ -70,7 +64,7 @@ return array(
           'showScriptName' => false,
           ),
          */
-        // Yii booster   
+        // Yii booster
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
             'responsiveCss' => true,
@@ -108,10 +102,9 @@ return array(
     'params' => array(
         // this is used in contact page
         'adminEmail' => 'Admin@ta.com',
-        
         // AES256 encryption key
         'key' => 'my aes256 key.....kamran',
-        // MD5 salt 
+        // MD5 salt
         'salt' => 'this is kamran\'s salt for hashing passwords',
     ),
 );

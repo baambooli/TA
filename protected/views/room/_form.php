@@ -1,38 +1,42 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'room-form',
-	'enableClientValidation' => true,
+<?php
+$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    'id' => 'room-form',
+    'enableClientValidation' => true,
     'enableAjaxValidation' => true,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
-)); ?>
+        ));
+?>
 
-	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
+<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model); ?>
 
-	   <?php echo $form->dropDownListRow($model,'HotelId',$model->getHotels(), array('class'=>'span5')); ?>  
-    
-	<?php echo $form->textFieldRow($model,'RoomNumber',array('class'=>'span5','maxlength'=>20)); ?>
+<?php echo $form->dropDownListRow($model, 'HotelId', $model->getHotels(), array('class' => 'span5')); ?>
 
-    <?php echo $form->dropDownListRow($model,'RoomTypeId',$model->getRoomTypes(), array('class'=>'span5')); ?>  
-    
-	<?php echo $form->textFieldRow($model,'Tell',array('class'=>'span5','maxlength'=>25)); ?>
+<?php echo $form->textFieldRow($model, 'RoomNumber', array('class' => 'span5', 'maxlength' => 20)); ?>
 
-	<div class="form-actions">
-		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType'=>'submit',
-			'type'=>'primary',
-            'id'=>'save_update',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
-		)); ?>
-	</div>
+<?php echo $form->dropDownListRow($model, 'RoomTypeId', $model->getRoomTypes(), array('class' => 'span5')); ?>
+
+<?php echo $form->textFieldRow($model, 'Tell', array('class' => 'span5', 'maxlength' => 25)); ?>
+
+<div class="form-actions">
+    <?php
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'submit',
+        'type' => 'primary',
+        'id' => 'save_update',
+        'label' => $model->isNewRecord ? 'Create' : 'Save',
+    ));
+    ?>
+</div>
 
 <?php $this->endWidget(); ?>
 <script>
 
-// jQuery function to change the caption of key after click
-$('#save_update').click(function() {
-    $('#save_update').html('Saving, Please wait ....');
-});
+    // jQuery function to change the caption of key after click
+    $('#save_update').click(function() {
+        $('#save_update').html('Saving, Please wait ....');
+    });
 </script>
