@@ -108,7 +108,6 @@ class RoomClientController extends RController
             
             $model->RoomId = (int) $_POST['room_id'];
              
-             DebugBreak();
             // check the avalability of room
             $res = $this->actionCheck(false);
             
@@ -321,7 +320,6 @@ class RoomClientController extends RController
           
     public function actionCheck($isAjaxCall = true, $roomClientId = NULL)
     {
-        DebugBreak();
         // First check all of the fields should be selected by the user
         if (!empty($_POST['room_id']))
             $roomId = (int) $_POST['room_id'];
@@ -354,7 +352,7 @@ class RoomClientController extends RController
             $roomClientId = $_POST['roomClientId'];
         
         $result = '';
-         DebugBreak();
+
         // Second: send information for getting availability of the room
         $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $roomClientId , $result);
         

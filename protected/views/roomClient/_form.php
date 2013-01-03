@@ -81,9 +81,9 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     <br><br>  
     <div id="room_availability" style= "color:green"></div>
     <br><br>
+    
     <!-- two hidden fields-->
     <?php echo CHtml::hiddenField('roomClientId', '', array()); ?>
-    
     
     <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
 
@@ -104,7 +104,6 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 foreach (Yii::app()->user->getFlashes() as $key => $message)
 {
     echo '<div class="flash-'.$key.'">'.$message."</div>\n";
-    echo $updateMode;
 }
 ?>
 </div>
@@ -128,7 +127,7 @@ function sendAjaxRequest()
    $('#room_availability').text('Checking, Please wait ...');
    
    var updateMode = '<?php echo $updateMode ?>' ;
-   alert('updateMode is : '+ updateMode); 
+   // alert('updateMode is : '+ updateMode); 
       
    var roomClientId = '<?php echo $model->Id ?>';
    //alert('roomClientId is : ' + roomClientId);
