@@ -16,13 +16,10 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\views\roomClient\_form.php
+File0=D:\xampp\htdocs\TA\protected\views\roomClient\admin.php
 IsActive0=1
-ZIndex1=0
-File1=D:\xampp\htdocs\TA\protected\controllers\RoomClientController.php
-IsActive1=0
-ZIndex0=1
-Files=2
+ZIndex0=0
+Files=1
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

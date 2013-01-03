@@ -36,7 +36,7 @@ class RoomClientController extends RController
      */
     public function actionView($id)
     {
-        $this->layout = '//layouts/column2';
+        // $this->layout = '//layouts/column2';
         $this->render('view', array(
             'model' => $this->loadModel($id),
         ));
@@ -53,21 +53,21 @@ class RoomClientController extends RController
         if (isset($_POST['RoomClient']))
         {
             // this does not work !!( very strange)
-            //$model->attributes = $_POST['RoomClient']; 
-            // so we should use this method 
+            //$model->attributes = $_POST['RoomClient'];
+            // so we should use this method
             $model->StartDate = $_POST['RoomClient']['StartDate'];
             $model->EndDate = $_POST['RoomClient']['EndDate'];
             $model->Status = $_POST['RoomClient']['Status'];
             $model->ClientId = $_POST['RoomClient']['ClientId'];
-            
+
             $model->RoomId = (int) $_POST['room_id'];
-              
+
             // check the avalability of room
             $res = $this->actionCheck(false, NULL);
-            
+
             if ($res)
             {
-                if($model->save())
+                if ($model->save())
                 {
                     Yii::app()->user->setFlash('success', 'Data saved successfully!');
                 }
@@ -99,21 +99,21 @@ class RoomClientController extends RController
         if (isset($_POST['RoomClient']))
         {
             // this does not work !!( very strange)
-            //$model->attributes = $_POST['RoomClient']; 
-            // so we should use this method 
+            //$model->attributes = $_POST['RoomClient'];
+            // so we should use this method
             $model->StartDate = $_POST['RoomClient']['StartDate'];
             $model->EndDate = $_POST['RoomClient']['EndDate'];
             $model->Status = $_POST['RoomClient']['Status'];
             $model->ClientId = $_POST['RoomClient']['ClientId'];
-            
+
             $model->RoomId = (int) $_POST['room_id'];
-             
+
             // check the avalability of room
             $res = $this->actionCheck(false);
-            
+
             if ($res)
             {
-                if($model->save())
+                if ($model->save())
                 {
                     Yii::app()->user->setFlash('success', 'Data saved successfully!');
                 }
@@ -245,79 +245,82 @@ class RoomClientController extends RController
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
         }
     }
-    
-    public function checkAvailabilityOfRoom( 
-            $roomId, $startDate, $endDate, $roomClientId, &$result)
+
+    public function checkAvailabilityOfRoom(
+    $roomId, $startDate, $endDate, $roomClientId, &$result)
     {
         $res = true;
-        $result = ''; 
-        
+        $result = '';
+
         if ($startDate > $endDate)
         {
             // add flash message error to start date field and end date field
             $model->addError('StartDate', 'Start date should not be greater than end date.');
             $model->addError('EndDate', 'Start date should not be greater than end date.');
-            
-            $result[] = 'Error in dates.';
-            
+
+            $result = 'Error in dates.';
+
             return false;
         }
 
         if ($roomClientId !== NULL)
-        {   
+        {
             // process update request
             // VERY Important note:
             // In the update mode we should excluse the current
             // reservation of room from search results (VERY IMPORTANT)
-            
-            $roomClients = RoomClient::model()->findAll('RoomId = :roomId AND Id <> :roomClientId',
-            array(':roomId' => $roomId, ':roomClientId' => $roomClientId)); 
+
+            $roomClients = RoomClient::model()->findAll('RoomId = :roomId AND Id <> :roomClientId', array(':roomId' => $roomId, ':roomClientId' => $roomClientId));
         }
         else
-        {   
+        {
             // process create a new reservation process
-            $roomClients = RoomClient::model()->findAll('RoomId = :roomId',
-            array(':roomId' => $roomId)); 
+            $roomClients = RoomClient::model()->findAll('RoomId = :roomId', array(':roomId' => $roomId));
         }
-        
-        
 
+
+        $result = '<table ><tr><td style="border: 1px solid black;">Fullname, Username</td>
+            <td style="border: 1px solid black;">Status of room</td>
+            <td style="border: 1px solid black;">Check in</td>
+            <td style="border: 1px solid black;">Check out</td></tr>';
         foreach ($roomClients as $key => $value)
         {
             $start = $roomClients[$key]->StartDate;
             $end = $roomClients[$key]->EndDate;
             $status = $roomClients[$key]->Status;
             
+            // check that the room is taken or not
             if ((($startDate >= $start) && ($startDate <= $end))
-                || (($endDate >= $start) && ($endDate <= $end))
-                || (($start >= $startDate) && ($start <= $endDate))
-                || (($end >= $startDate) && ($end <= $endDate))
+                    || (($endDate >= $start) && ($endDate <= $end))
+                    || (($start >= $startDate) && ($start <= $endDate))
+                    || (($end >= $startDate) && ($end <= $endDate))
             )
             {
-             
+
                 $clientId = $roomClients[$key]->ClientId;
                 $clientFullName = ClientFullnameView::model()->
-                    findByPk($clientId)->FullName;
-                
-                $result .= '--- This room is taken by '.$clientFullName.'. The room status = '.
-                    $status.', Check in date = '.$start.', Check out date = '.$end;
+                                findByPk($clientId)->FullName;
 
-                $res = false;    
-            } 
+                $result .= '<tr><td style="border: 1px solid black;"> ' .
+                             $clientFullName . '</td><td style="border: 1px solid black;">' .
+                             $status . '</td><td style="border: 1px solid black;">' . 
+                             $start . '</td><td style="border: 1px solid black;">' . $end.'</td></tr>';
+
+                $res = false;
+            }
         }
-        
+        $result .= '</table>'; 
         if ($res == true)
         {
-            $result = 'This room is available between '.$startDate.' and '.$endDate.'.';
+            $result = 'This room is available between ' . $startDate . ' and ' . $endDate . '.';
             return true;
         }
         else
         {
             return false;
         }
-    } 
-    
-          
+    }
+
     public function actionCheck($isAjaxCall = true, $roomClientId = NULL)
     {
         // First check all of the fields should be selected by the user
@@ -325,45 +328,41 @@ class RoomClientController extends RController
             $roomId = (int) $_POST['room_id'];
         else
         {
-            echo 'some of input are missed. select all of the fields on screen';
+            echo 'some of the input fields are empty. select all of the fields on screen';
             return false;
-            
         }
-        
+
         if (!empty($_POST['RoomClient']['StartDate']))
             $start = $_POST['RoomClient']['StartDate'];
         else
         {
-            echo 'some of input are missed. select all of the fields on screen';
+            echo 'some of the input fields are empty. select all of the fields on screen';
             return false;
-            
         }
-        
+
         if (!empty($_POST['RoomClient']['EndDate']))
             $end = $_POST['RoomClient']['EndDate'];
         else
         {
-            echo 'some of input are missed. select all of the fields on screen';
+            echo 'some of the input fields are empty. select all of the fields on screen';
             return false;
-            
         }
-        
+
         if (empty($roomClientId) && !empty($_POST['roomClientId']))
             $roomClientId = $_POST['roomClientId'];
-        
+
         $result = '';
 
         // Second: send information for getting availability of the room
-        $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $roomClientId , $result);
-        
+        $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $roomClientId, $result);
+
         // to send the $result to jQuery ajax caller, we should use 'echo' function
-        if($isAjaxCall)
+        if ($isAjaxCall)
         {
-           echo $result;
-        }        
-        
+            echo $result;
+        }
+
         return $res;
     }
-    
-   
+
 }

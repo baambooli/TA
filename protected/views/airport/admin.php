@@ -27,6 +27,7 @@ $('.search-form form').submit(function(){
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'airport-grid',
+    'type'=>'striped bordered condensed',
     'dataProvider' => $modelAirportView->search(),
     'filter' => $modelAirportView,
     'columns' => array(

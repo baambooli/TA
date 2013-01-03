@@ -2,7 +2,7 @@
 $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'id' => 'air-plane-specification-form',
     'enableClientValidation' => true,
-    'enableAjaxValidation' => true,
+    'enableAjaxValidation' => false,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),

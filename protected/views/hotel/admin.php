@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'hotel-grid',
+    'type'=>'striped bordered condensed',
     'dataProvider' => $hotelsViewModel->search(),
     'filter' => $hotelsViewModel,
     'columns' => array(

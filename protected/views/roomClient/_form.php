@@ -6,10 +6,10 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
-    'htmlOptions'=>array(
-       /*'onsubmit'=>"return false;",  */  /* Disable normal form submit */
-       'onkeypress'=>" if(event.keyCode == 13){ sendAjaxRequest(); } " /* Do ajax call when user presses enter key */
-     ),
+    'htmlOptions' => array(
+        /* 'onsubmit'=>"return false;",  */ /* Disable normal form submit */
+        'onkeypress' => " if(event.keyCode == 13){ sendAjaxRequest(); } " /* Do ajax call when user presses enter key */
+    ),
         ));
 ?>
 
@@ -50,7 +50,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <div class="span5">
     Hotel Name:<br>
     <?php
-//empty since it will be filled by the other dropdown   
+//empty since it will be filled by the other dropdown
     echo CHtml::dropDownList('hotel_id', '', array(), array(
         'class' => 'span5',
         'ajax' => array(
@@ -70,21 +70,22 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     ?>
 </div>
 <div class="span5">
-    
+
     <?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
 
     <?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
     <br>
-    
-    <?php echo CHtml::Button('Check availability of room',array('onclick'=>'sendAjaxRequest();')); ?> 
-    
-    <br><br>  
-    <div id="room_availability" style= "color:green"></div>
+</div>
+<div class="span13"> 
+    <?php echo CHtml::Button('Check availability of room', array('onclick' => 'sendAjaxRequest();')); ?>
+
     <br><br>
-    
-    <!-- two hidden fields-->
+    <div id="room_availability" style="color:green"></div>
+    <br><br>
+
+    <!-- a hidden field -->
     <?php echo CHtml::hiddenField('roomClientId', '', array()); ?>
-    
+
     <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
 
     <div class="form-actions">
@@ -97,20 +98,21 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
         ));
         ?>
     </div>
-    
+
 </div>
-<div class="span5"> 
-<?php
-foreach (Yii::app()->user->getFlashes() as $key => $message)
-{
-    echo '<div class="flash-'.$key.'">'.$message."</div>\n";
-}
-?>
+<div class="span5">
+    <?php
+    foreach (Yii::app()->user->getFlashes() as $key => $message)
+    {
+        echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+    }
+    ?>
 </div>
 <?php $this->endWidget(); ?>
 <script>
     // jQuery function to change the caption of key after click
     $('#save_update').click(function() {
+        
         startDate = $('#start_date').val();
         endDate = $('#end_date').val();
         if (startDate > endDate)
@@ -121,43 +123,52 @@ foreach (Yii::app()->user->getFlashes() as $key => $message)
         //$('#save_update').html('Saving, Please wait....');
     });
 
-    
-function sendAjaxRequest()
- {
-   $('#room_availability').text('Checking, Please wait ...');
-   
-   var updateMode = '<?php echo $updateMode ?>' ;
-   // alert('updateMode is : '+ updateMode); 
-      
-   var roomClientId = '<?php echo $model->Id ?>';
-   //alert('roomClientId is : ' + roomClientId);
-   
-   $('#roomClientId').val(roomClientId);
-   
-   var data=$('#room-client-form').serialize();
-   
-   urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('roomClient/check'); ?>'
-   
-   //alert(urlAjax);
-   
-  $.ajax({
-   type: 'POST',
-   url: urlAjax,
-   data: data,
-   success: function(data) {
+
+    function sendAjaxRequest()
+    {
+        startDate = $('#start_date').val();
+        endDate = $('#end_date').val();
+        if (startDate > endDate)
+        {
+            alert('Check in date should be smaller than or equal to Check out date.');
+            return;
+        }
+        
+        $('#room_availability').text('Checking, Please wait ...');
+
+        var updateMode = '<?php echo $updateMode ?>' ;
+        // alert('updateMode is : '+ updateMode);
+
+        var roomClientId = '<?php echo $model->Id ?>';
+        //alert('roomClientId is : ' + roomClientId);
+
+        $('#roomClientId').val(roomClientId);
+
+        var data=$('#room-client-form').serialize();
+
+        urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('roomClient/check'); ?>'
+
+        //alert(urlAjax);
+
+        $.ajax({
+            type: 'POST',
+            url: urlAjax,
+            data: data,
+            success: function(data) {
                 //alert('success');
                 //alert(data);
-                // change the text on the screen with id = room_availability 
-                $('#room_availability').text(data); 
-              },
-   error: function(data) { // if error occured
-         alert('Error occured. please try again');
-         //alert(data);
-    },
- 
-  dataType:'html',
-  timeout:60000,
-  });
- 
-}
+                // change the text on the screen with id = room_availability
+                $('#room_availability').text('');  //clear div
+                $('#room_availability').append(data);
+            },
+            error: function(data) { // if error occured
+                alert('Error occured. please try again');
+                //alert(data);
+            },
+
+            dataType:'html',
+            timeout:60000
+        });
+
+    }
 </script>
