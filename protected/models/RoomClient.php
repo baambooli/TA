@@ -86,7 +86,6 @@ class RoomClient extends CActiveRecord
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
-         DebugBreak();
         $criteria = new CDbCriteria;
 
         $criteria->compare('Id', $this->Id);

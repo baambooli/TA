@@ -52,10 +52,18 @@ class RoomClientController extends RController
 
         if (isset($_POST['RoomClient']))
         {
-            $model->attributes = $_POST['RoomClient'];
-            $model->RoomId = (int) $_POST['room_id'];
-
+            // this does not work !!( very strange)
+            //$model->attributes = $_POST['RoomClient']; 
+            // so we should use this method 
+            $model->StartDate = $_POST['RoomClient']['StartDate'];
+            $model->EndDate = $_POST['RoomClient']['EndDate'];
+            $model->Status = $_POST['RoomClient']['Status'];
+            $model->ClientId = $_POST['RoomClient']['ClientId'];
             
+            $model->RoomId = (int) $_POST['room_id'];
+              
+            // check the avalability of room
+            $res = $this->actionCheck(false, NULL);
             
             if ($res)
             {
@@ -63,11 +71,19 @@ class RoomClientController extends RController
                 {
                     Yii::app()->user->setFlash('success', 'Data saved successfully!');
                 }
-            } 
+                else
+                {
+                    Yii::app()->user->setFlash('error', 'error in saving room!');
+                }
+            }
+            else
+            {
+                Yii::app()->user->setFlash('error', 'Room is not available!');
+            }
         }
 
         $this->render('create', array(
-            'model' => $model,
+            'model' => $model, 'updateMode' => 1,
         ));
     }
 
@@ -80,18 +96,42 @@ class RoomClientController extends RController
     {
         $model = $this->loadModel($id);
 
-        // Uncomment the following line if AJAX validation is needed
-        //$this->performAjaxValidation($model);
-
         if (isset($_POST['RoomClient']))
         {
-            $model->attributes = $_POST['RoomClient'];
-            if ($model->save())
-                $this->redirect(array('view', 'id' => $model->Id));
+            // this does not work !!( very strange)
+            //$model->attributes = $_POST['RoomClient']; 
+            // so we should use this method 
+            $model->StartDate = $_POST['RoomClient']['StartDate'];
+            $model->EndDate = $_POST['RoomClient']['EndDate'];
+            $model->Status = $_POST['RoomClient']['Status'];
+            $model->ClientId = $_POST['RoomClient']['ClientId'];
+            
+            $model->RoomId = (int) $_POST['room_id'];
+             
+             DebugBreak(); 
+            // check the avalability of room
+            $res = $this->actionCheck(false, $model->Id);
+            
+            if ($res)
+            {
+                if($model->save())
+                {
+                    Yii::app()->user->setFlash('success', 'Data saved successfully!');
+                }
+                else
+                {
+                    Yii::app()->user->setFlash('error', 'error in saving room!');
+                }
+            }
+            else
+            {
+                Yii::app()->user->setFlash('error', 'Room is not available!');
+            }
         }
 
+
         $this->render('update', array(
-            'model' => $model,
+            'model' => $model, 'updateMode' => 1,
         ));
     }
 
@@ -208,21 +248,40 @@ class RoomClientController extends RController
     }
     
     public function checkAvailabilityOfRoom( 
-            $roomId, $startDate, $endDate, &$result)
+            $roomId, $startDate, $endDate, $roomClientId, &$result)
     {
+        $res = true;
+        $result = ''; 
+        
         if ($startDate > $endDate)
         {
             // add flash message error to start date field and end date field
             $model->addError('StartDate', 'Start date should not be greater than end date.');
             $model->addError('EndDate', 'Start date should not be greater than end date.');
             
-            $result = 'Error in dates.';
+            $result[] = 'Error in dates.';
             
             return false;
         }
 
-        $roomClients = RoomClient::model()->findAll('RoomId = :roomId',
-            array(':roomId' => $roomId));
+        if ($roomClientId !== NULL)
+        {   
+            // process update request
+            // VERY Important note:
+            // In the update mode we should excluse the current
+            // reservation of room from search results (VERY IMPORTANT)
+            
+            $roomClients = RoomClient::model()->findAll('RoomId = :roomId AND Id <> :roomClientId',
+            array(':roomId' => $roomId, ':roomClientId' => $roomClientId)); 
+        }
+        else
+        {   
+            // process create a new reservation process
+            $roomClients = RoomClient::model()->findAll('RoomId = :roomId',
+            array(':roomId' => $roomId)); 
+        }
+        
+        
 
         foreach ($roomClients as $key => $value)
         {
@@ -232,6 +291,8 @@ class RoomClientController extends RController
             
             if ((($startDate >= $start) && ($startDate <= $end))
                 || (($endDate >= $start) && ($endDate <= $end))
+                || (($start >= $startDate) && ($start <= $endDate))
+                || (($end >= $startDate) && ($end <= $endDate))
             )
             {
              
@@ -239,32 +300,71 @@ class RoomClientController extends RController
                 $clientFullName = ClientFullnameView::model()->
                     findByPk($clientId)->FullName;
                 
-                $result = 'This room is taken by '.$clientFullName.'. The room status = '.
+                $result .= '--- This room is taken by '.$clientFullName.'. The room status = '.
                     $status.', Check in date = '.$start.', Check out date = '.$end;
 
-                return false;    
+                $res = false;    
             } 
         }
-        $result = 'Room is available between '.$startDate.' and '.$endDate.'.';
-        return true;
-    }       
-    public function actionCheck($isAjaxCall = true)
-    {
-        $roomId = (int) $_POST['room_id'];
-        $start = $_POST['RoomClient']['StartDate'];
-        $end = $_POST['RoomClient']['EndDate'];
-        $result = '';
-
-        $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $result);
         
-        // to show the result using jQuery we should use 'echo' function
+        if ($res == true)
+        {
+            $result = 'This room is available between '.$startDate.' and '.$endDate.'.';
+            $res = true;
+        }
+        else
+        {
+            return $res;
+        }
+    } 
+    
+          
+    public function actionCheck($isAjaxCall = true, $roomClientId = NULL)
+    {
+        // First check all of the fields should be selected by the user
+        if (!empty($_POST['room_id']))
+            $roomId = (int) $_POST['room_id'];
+        else
+        {
+            echo 'some of input are missed. select all of the fields on screen';
+            return false;
+            
+        }
+        
+        if (!empty($_POST['RoomClient']['StartDate']))
+            $start = $_POST['RoomClient']['StartDate'];
+        else
+        {
+            echo 'some of input are missed. select all of the fields on screen';
+            return false;
+            
+        }
+        
+        if (!empty($_POST['RoomClient']['EndDate']))
+            $end = $_POST['RoomClient']['EndDate'];
+        else
+        {
+            echo 'some of input are missed. select all of the fields on screen';
+            return false;
+            
+        }
+        
+        if (empty($roomClientId) && !empty($_POST['roomClientId']))
+            $roomClientId = $_POST['roomClientId'];
+        
+        $result = '';
+        
+        // Second: send information for getting availability of the room
+        $res = $this->checkAvailabilityOfRoom($roomId, $start, $end, $roomClientId , $result);
+        
+        // to send the $result to jQuery ajax caller, we should use 'echo' function
         if($isAjaxCall)
         {
-            echo $result;
+           echo $result;
         }        
         
         return $res;
-        
     }
-     
+    
+   
 }
