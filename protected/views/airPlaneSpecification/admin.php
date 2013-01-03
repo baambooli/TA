@@ -28,6 +28,7 @@ $('.search-form form').submit(function(){
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'air-plane-specification-grid',
     'dataProvider' => $model->search(),
+    'type'=>'striped bordered condensed',
     'filter' => $model,
     'columns' => array(
         'Id',

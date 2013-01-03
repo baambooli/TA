@@ -26,6 +26,7 @@ $('.search-form form').submit(function(){
 <h1>Manage Cities</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'city-grid',
+    'type'=>'striped bordered condensed',
 	'dataProvider'=>$modelCityView->search(),
 	'filter'=>$modelCityView,
 	'columns'=>array(
