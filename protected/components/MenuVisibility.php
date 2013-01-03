@@ -1,6 +1,8 @@
 <?php
+
 class MenuVisibility
 {
+
     public static function getMenuVisibility()
     {
         // get current user's roles
@@ -8,44 +10,45 @@ class MenuVisibility
             $roles = array('Guest');
         else
             $roles = Yii::app()->user->roles;
-        
-        if (in_array('Admin',$roles) || in_array('FlightOperator',$roles))
-            $visibleFlightMenu= true;
+
+        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles))
+            $visibleFlightMenu = true;
         else
-            $visibleFlightMenu= false;
-            
-        if (in_array('Admin',$roles) || in_array('FlightOperator',$roles)
-            || in_array('HotelOperator',$roles) || in_array('Authenticated',$roles))
-            $visibleAuthenticatedMenu= true;
+            $visibleFlightMenu = false;
+
+        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles)
+                || in_array('HotelOperator', $roles) || in_array('Authenticated', $roles))
+            $visibleAuthenticatedMenu = true;
         else
-            $visibleAuthenticatedMenu= false;
-            
-            
-        if (in_array('Admin',$roles) || in_array('FlightOperator',$roles)
-            || in_array('HotelOperator',$roles)
+            $visibleAuthenticatedMenu = false;
+
+
+        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles)
+                || in_array('HotelOperator', $roles)
         )
-            $visibleGeneralMenu= true;
+            $visibleGeneralMenu = true;
         else
-            $visibleGeneralMenu= false;
-            
-        if (in_array('Admin',$roles) || in_array('HotelOperator',$roles))
-            $visibleHotelMenu= true;
+            $visibleGeneralMenu = false;
+
+        if (in_array('Admin', $roles) || in_array('HotelOperator', $roles))
+            $visibleHotelMenu = true;
         else
-            $visibleHotelMenu= false;
-            
-        if (in_array('Admin',$roles))
-            $visibleAdminMenu= true;
+            $visibleHotelMenu = false;
+
+        if (in_array('Admin', $roles))
+            $visibleAdminMenu = true;
         else
-            $visibleAdminMenu= false;
+            $visibleAdminMenu = false;
 
         $result = array(
             'General' => $visibleGeneralMenu,
-            'Hotel'   => $visibleHotelMenu,
-            'Flight'  => $visibleFlightMenu,
+            'Hotel' => $visibleHotelMenu,
+            'Flight' => $visibleFlightMenu,
             'Admin' => $visibleAdminMenu,
-            'Authenticated' => $visibleAuthenticatedMenu, 
+            'Authenticated' => $visibleAuthenticatedMenu,
         );
         return $result;
-    } 
+    }
+
 }
 ?>

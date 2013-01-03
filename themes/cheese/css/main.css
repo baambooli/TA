@@ -8,7 +8,7 @@ body
     background-repeat: no-repeat;
     background-attachment: fixed;
     background-position: top center;
-    
+
     /* backgound transparency 80% (kamran)*/
     opacity:0.8;
     filter:alpha(opacity=80); /* For IE8 and earlier */
@@ -30,7 +30,13 @@ body
 	background-repeat: no-repeat;
 	height: 125px;
 }
+.right
+{
+    position:absolute;
+    right:100px;
+    width:200px;
 
+}
 #content
 {
     padding: 20px;
@@ -176,7 +182,7 @@ div.search-form
 .portlet-decoration
 {
 	padding: 3px 8px;
-	background: #B7D6E7;
+	background: #00ff00;
 	border-left: 5px solid #6FACCF;
 }
 

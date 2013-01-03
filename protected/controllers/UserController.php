@@ -90,7 +90,7 @@ class UserController extends RController
                 $client = new Client('register');
                 $client->UserId = $model->id;
                 $client->Username = $model->username;
-                
+
                 // set a default country
                 $countryId = Country::model()->find()->Id;
                 $client->CountryId = $countryId;
@@ -141,8 +141,6 @@ class UserController extends RController
         $this->render('create', array(
             'model' => $model,
         ));
-
-        
     }
 
     /**
@@ -167,7 +165,7 @@ class UserController extends RController
 
         $this->render('update', array(
             'model' => $model,
-            'updateMode' => '1', 
+            'updateMode' => '1',
         ));
     }
 
@@ -183,32 +181,30 @@ class UserController extends RController
             DebugBreak();
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
-             
+
             // delete related records on the authassignment and clients tables
             // first  authassignment table
             $total = Authassignment::model()->count('userid = :id', array(':id' => $id));
-            
+
             if ($total > 0)
             {
                 $auth = Authassignment::model()->findAll('userid = :id', array(':id' => $id));
                 for ($i = 0; $i < $total; $i++)
                 {
-                    $auth[$i]->delete();   
+                    $auth[$i]->delete();
                 }
-               
             }
-            
-             // second clients table
+
+            // second clients table
             $total = Client::model()->count('UserId = :id', array(':id' => $id));
-            
+
             if ($total > 0)
             {
                 $client = Client::model()->findAll('UserId = :id', array(':id' => $id));
                 for ($i = 0; $i < $total; $i++)
                 {
-                    $client[$i]->delete();   
+                    $client[$i]->delete();
                 }
-               
             }
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser

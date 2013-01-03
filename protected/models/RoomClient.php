@@ -43,7 +43,7 @@ class RoomClient extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('RoomId, ClientId, StartDate, EndDate', 'required'),
+            array('RoomId, ClientId', 'required'),
             array('RoomId, ClientId', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
@@ -73,8 +73,8 @@ class RoomClient extends CActiveRecord
             'Id' => 'ID',
             'RoomId' => 'Room',
             'ClientId' => 'Client',
-            'StartDate' => 'Start Date',
-            'EndDate' => 'End Date',
+            'StartDate' => 'Check in Date',
+            'EndDate' => 'Check out Date',
         );
     }
 
@@ -86,7 +86,6 @@ class RoomClient extends CActiveRecord
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
-
         $criteria = new CDbCriteria;
 
         $criteria->compare('Id', $this->Id);
@@ -100,4 +99,66 @@ class RoomClient extends CActiveRecord
                 ));
     }
 
+    // Kamran
+    public function getStatus()
+    {
+        return array(
+            'Reserved' => 'Reserved',
+            'Reservation Request' => 'Reservation Request',
+            'Cancelation Request' => 'Cancelation Request',
+        );
+    }
+    
+    /**
+     * Create list of countries and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCountries()
+    {
+        // get list of countries
+        $countries = Country::model()->findAll();
+        
+        // convert them to suitable format for comboBox or listbox
+        $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        
+        //add one blank line on the first of array
+        array_unshift($countriesArray, 'Please select...');
+        
+        return $countriesArray;
+    }
+
+    public function getClientsFullName()
+    {
+        // get list of ClientFullnameView
+        $clients = ClientFullnameView::model()->findAll();
+        
+        // convert them to suitable format for comboBox or listbox
+        $clientsArray = CHtml::listData($clients, 'ClientId', 'FullName');
+        
+        //add one blank line on the first of array
+        //array_unshift($clientsArray, 'Please select...');
+        return $clientsArray;
+    }
+    
+    public static function getDynamicCities($countryId)
+    {
+        $data = City::model()->findAll('CountryId = :country_id', array(':country_id' => $countryId)); 
+        $cities = CHtml::listData($data, 'Id', 'Name');
+        return  $cities;
+    }
+    
+    public static function getDynamicHotels($cityId)
+    {
+        $data = Hotel::model()->findAll('CityId = :cityId', array(':cityId' => $cityId));
+        $hotels = CHtml::listData($data, 'ID', 'Name');
+        return  $hotels;
+    }
+    
+    public static function getDynamicRooms($hotelId)
+    {
+        $data = Room::model()->findAll('HotelId = :hotelId', array(':hotelId' => $hotelId));
+        $rooms = CHtml::listData($data, 'Id', 'RoomNumber');
+        return  $rooms;
+    }       
 }

@@ -901,7 +901,7 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
     echo "bye bye"
 ?>
 
-58- An Easy Solution for Dependent dropDownList Using AJAX
+58- VERY IMPORTANT: An Easy Solution for Dependent dropDownList Using AJAX
 
 	http://www.yiiframework.com/wiki/429/an-easy-solution-for-dependent-dropdownlist-using-ajax/
 	
@@ -2504,7 +2504,439 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 			),
 		)); ?>
 	
-127- 
+	
+127-    the meaning of some constants in PHP
+
+		__LINE__	 The current line number of the file.
+		
+		__FILE__	 The full path and filename of the file. If used inside an include, the name of the included file is returned. Since PHP 4.0.2, __FILE__ always contains an absolute path with symlinks resolved whereas in older versions it contained relative path under some circumstances.
+		
+		__DIR__	     The directory of the file. If used inside an include, the directory of the included file is returned. This is equivalent to dirname(__FILE__). This directory name does not have a trailing slash unless it is the root directory. (Added in PHP 5.3.0.)
+		
+		__FUNCTION__  The function name. (Added in PHP 4.3.0) As of PHP 5 this constant returns the function name as it was declared (case-sensitive). In PHP 4 its value is always lowercased.
+		
+		__CLASS__	The class name. (Added in PHP 4.3.0) As of PHP 5 this constant returns the class name as it was declared (case-sensitive). In PHP 4 its value is always lowercased. The class name includes the namespace it was declared in (e.g. Foo\Bar). Note that as of PHP 5.4 __CLASS__ works also in traits. When used in a trait method, __CLASS__ is the name of the class the trait is used in.
+		
+		__TRAIT__	The trait name. (Added in PHP 5.4.0) As of PHP 5.4 this constant returns the trait as it was declared (case-sensitive). The trait name includes the namespace it was declared in (e.g. Foo\Bar).
+		
+		__METHOD__	The class method name. (Added in PHP 5.0.0) The method name is returned as it was declared (case-sensitive).
+
+		__NAMESPACE__	The name of the current namespace (case-sensitive). This constant is defined in compile-time (Added in PHP 5.3.0). 
+
+
+128- to change the CSS of screen we should change the protected/views/layouts/column1.php, protected/views/layouts/column2.php,
+		protected/views/layouts/main.php and simliar files in the Themes/Theme_name/views/layouts/  folders.
+		the CSS' could be found in protected/CSS/Screen.css and protected/CSS/main.css
+		
+		for example to increase the width of page change
+		
+			.container {width:950px;margin:0 auto;} 
+
+		in screen.css file and to increase the left panel in 2 column layout change
+		
+			.span-23 {width:910px;}
+			
+		and in addition change this line on column2.php
+		
+			<div class="span-19">
+		to
+			<div class="span-23">
+			
+		IMPORTANT NOTE: the best way is using FIREBUG to find which css are used by the program and then change it for example 
+					just changing .container {width:950px;margin:0 auto;}  does not increase the width of main screen . Using Firebug we
+					realize that .container{} in /protected/extensions/bootstrap/assests/css/bootstrapo-reposive.css  in responsible for that
+					and we should change .container{} on that css not .container{} on the screen.css
+					
+
+129- How to generate Yii-like Documentation
+	
+		http://www.yiiframework.com/wiki/186/how-to-generate-yii-like-documentation/
+		
+130- to change size of netbeans' menu and panels' font we should Tools > Option > Fonts and colors > Syntax > Font. 
+
+		or
+		
+		open g:\NetBeans 7.2.1\etc\netbeans.conf file and add a --fontsize XX parameter to 
+		netbeans_default_options (where XX is the numeric pixel size of the font). 
+		
+		
+131-  to right aligh a div, create a css class like
+
+		.right
+		{
+			position:absolute;
+			right:100px;
+			width:200px;
+
+		}
+	
+	then add it to you div block:
+	
+		<div id="sidebar" class="right">
+			<?php
+			$this->beginWidget('zii.widgets.CPortlet', array(
+				'title' => 'Operations',
+			));
+			$this->widget('zii.widgets.CMenu', array(
+				'items' => $this->menu,
+				'htmlOptions' => array('class' => 'operations'),
+			));
+			$this->endWidget();
+			?>
+		</div><!-- sidebar -->
+	
+132- a small help about HTmlOptions
+
+		http://www.yiiframework.com/wiki/143/htmloptions-explained-for-various-controls/
+
+133- my method to implement 3 depended combo boxes( 3 cascade depended combo box with ajax call to contollers)
+
+	a) I added these actions to controller class(RoomClientController.php)
+		
+		//-----------------------------------------------------
+		// Kamran
+			public function actionDynamicCities()
+			{
+				$countryId = (int) $_POST['country_id'];
+				$cities = RoomClient::getDynamicCities($countryId);
+
+				// add one blank line
+				echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
+				foreach ($cities as $value => $name)
+				{
+					echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+				}
+			}
+
+			public function actionDynamicHotels()
+			{
+				$cityId = (int) $_POST['city_id'];
+				$hotels = RoomClient::getDynamicHotels($cityId);
+
+				// add one blank line
+				echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
+				foreach ($hotels as $value => $name)
+				{
+					echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+				}
+			}
+
+			public function actionDynamicRooms()
+			{
+				$hotelId = (int) $_POST['hotel_id'];
+				$rooms = RoomClient::getDynamicRooms($hotelId);
+
+				// add one blank line
+				echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
+				foreach ($rooms as $value => $name)
+				{
+					echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+				}
+			}
+
+		//-----------------------------------------------------
+		
+		b) add this functions to the model class (RoomClient.php)
+		
+		//-----------------------------------------------------
+		
+			/**
+			 * Create list of countries and their id and return as a list
+			 * This will be used easily in a comboBox or listbox on the view files
+			 * By Kmaran
+			 */
+			public function getCountries()
+			{
+				// get list of countries
+				$countries = Country::model()->findAll();
+				
+				// convert them to suitable format for comboBox or listbox
+				$countriesArray = CHtml::listData($countries, 'Id', 'Name');
+				
+				//add one blank line on the first of array
+				array_unshift($countriesArray, 'Please select...');
+				
+				return $countriesArray;
+			}
+
+			public function getClientsFullName()
+			{
+				// get list of ClientFullnameView
+				$clients = ClientFullnameView::model()->findAll();
+				
+				// convert them to suitable format for comboBox or listbox
+				$clientsArray = CHtml::listData($clients, 'ClientId', 'FullName');
+				
+				//add one blank line on the first of array
+				//array_unshift($clientsArray, 'Please select...');
+				return $clientsArray;
+			}
+			
+			public static function getDynamicCities($countryId)
+			{
+				$data = City::model()->findAll('CountryId = :country_id', array(':country_id' => $countryId)); 
+				$cities = CHtml::listData($data, 'Id', 'Name');
+				return  $cities;
+			}
+			
+			public static function getDynamicHotels($cityId)
+			{
+				$data = Hotel::model()->findAll('CityId = :cityId', array(':cityId' => $cityId));
+				$hotels = CHtml::listData($data, 'ID', 'Name');
+				return  $hotels;
+			}
+			
+			public static function getDynamicRooms($hotelId)
+			{
+				$data = Room::model()->findAll('HotelId = :hotelId', array(':hotelId' => $hotelId));
+				$rooms = CHtml::listData($data, 'Id', 'RoomNumber');
+				return  $rooms;
+			}  
+			//-----------------------------------------------------			
+		
+		c) view file(_form.php) is like this
+		
+			//-----------------------------------------------------
+			<?php
+			$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+				'id' => 'room-client-form',
+				'enableClientValidation' => true,
+				'enableAjaxValidation' => false,
+				'clientOptions' => array(
+					'validateOnSubmit' => true,
+				),
+					));
+			?>
+
+			<?php echo $form->errorSummary($model); ?>
+
+			<div class="span5">
+
+				<?php echo $form->dropDownListRow($model, 'ClientId', $model->getClientsFullName(), array('class' => 'span5')); ?>
+
+				Country Name:<br>
+				<?php
+				echo CHtml::dropDownList('country_id', '', $model->getCountries(), array(
+					'class' => 'span5',
+					'ajax' => array(
+						'type' => 'POST', //request type
+						'url' => CController::createUrl('roomClient/dynamicCities'), //url to call.
+						//Style: CController::createUrl('currentController/methodToCall')
+						'update' => '#city_id', //selector to update
+					//'data'=>'js:javascript statement'
+					//leave out the data key to pass all form values through
+						)));
+				?>
+			</div>
+			<div class="span5">
+				City Name:<br>
+				<?php
+				//empty since it will be filled by the other dropdown
+				echo CHtml::dropDownList('city_id', '', array('0' => 'Please select'), array(
+					'class' => 'span5',
+					'ajax' => array(
+						'type' => 'POST',
+						'url' => CController::createUrl('roomClient/dynamicHotels'),
+						'update' => "#hotel_id"
+					//'data'=>'js:javascript statement'
+					//leave out the data key to pass all form values through
+						)));
+				?>
+			</div>
+			<div class="span5">
+				Hotel Name:<br>
+				<?php
+			//empty since it will be filled by the other dropdown
+				echo CHtml::dropDownList('hotel_id', '', array('0' => 'Please select'), array(
+					'class' => 'span5',
+					'ajax' => array(
+						'type' => 'POST',
+						'url' => CController::createUrl('roomClient/dynamicRooms'),
+						'update' => "#room_id"
+					//'data'=>'js:javascript statement'
+					//leave out the data key to pass all form values through
+						)));
+				?>
+			</div>
+			<div class="span5">
+				Room Number:<br>
+				<?php
+				//empty since it will be filled by the other dropdown
+				echo CHtml::dropDownList('room_id', '', array('0' => 'Please select'), array('class' => 'span5'));
+				?>
+			</div>
+			<div class="span5">
+				<?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
+
+				<?php echo $form->datepickerRow($model, 'StartDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'start_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
+
+				<?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
+
+				<div class="form-actions">
+					<?php
+					$this->widget('bootstrap.widgets.TbButton', array(
+						'buttonType' => 'submit',
+						'type' => 'primary',
+						'id' => 'save_update',
+						'label' => $model->isNewRecord ? 'Create' : 'Save',
+					));
+					?>
+				</div>
+			</div>
+			<div class="span5"> 
+			<?php
+			foreach (Yii::app()->user->getFlashes() as $key => $message)
+			{
+				echo '<div class="flash-' . $key . '">' . $message . "</div>\n";
+			}
+			?>
+			</div>
+			<?php $this->endWidget(); ?>
+			<script>
+				// jQuery function to change the caption of key after click
+				$('#save_update').click(function() {
+					startDate = $('#start_date').val();
+					endDate = $('#end_date').val();
+					if (startDate > endDate)
+					{
+						alert('Check in date should be smaller than or equal to Check out date.');
+						return;
+					}
+					$('#save_update').html('Saving, Please wait ....');
+				});
+			</script>
+			
+			
+			
+134- a sample of creating complex fields in mysql using concat() function
+
+	SELECT clients.Id as ClientId
+		 , concat(clients.Name , ' ' ,  clients.Family , ', username = ' ,  users.username) as FullName
+	FROM
+	  clients
+	INNER JOIN users
+	ON clients.UserId = users.id
+
+
+135-  very good example of using Ajax and Php and my sql
+
+		http://www.w3schools.com/php/php_ajax_database.asp
+		
+	
+		-- HTML file
+		
+			
+			<html>
+			<head>
+			<script>
+			function showUser(str)
+			{
+			if (str=="")
+			  {
+			  document.getElementById("txtHint").innerHTML="";
+			  return;
+			  } 
+			if (window.XMLHttpRequest)
+			  {// code for IE7+, Firefox, Chrome, Opera, Safari
+			  xmlhttp=new XMLHttpRequest();
+			  }
+			else
+			  {// code for IE6, IE5
+			  xmlhttp=new ActiveXObject("Microsoft.XMLHTTP");
+			  }
+			xmlhttp.onreadystatechange=function()
+			  {
+			  if (xmlhttp.readyState==4 && xmlhttp.status==200)
+				{
+				document.getElementById("txtHint").innerHTML=xmlhttp.responseText;
+				}
+			  }
+			xmlhttp.open("GET","getuser.php?q="+str,true);
+			xmlhttp.send();
+			}
+			</script>
+			</head>
+			<body>
+
+			<form>
+			<select name="users" onchange="showUser(this.value)">
+			<option value="">Select a person:</option>
+			<option value="1">Peter Griffin</option>
+			<option value="2">Lois Griffin</option>
+			<option value="3">Glenn Quagmire</option>
+			<option value="4">Joseph Swanson</option>
+			</select>
+			</form>
+			<br>
+			<div id="txtHint"><b>Person info will be listed here.</b></div>
+
+			</body>
+			</html>
+			
+			
+		-- PHP file
+		
+			<?php
+			$q=$_GET["q"];
+
+			$con = mysql_connect('localhost', 'peter', 'abc123');
+			if (!$con)
+			  {
+			  die('Could not connect: ' . mysql_error());
+			  }
+
+			mysql_select_db("ajax_demo", $con);
+
+			$sql="SELECT * FROM user WHERE id = '".$q."'";
+
+			$result = mysql_query($sql);
+
+			echo "<table border='1'>
+			<tr>
+			<th>Firstname</th>
+			<th>Lastname</th>
+			<th>Age</th>
+			<th>Hometown</th>
+			<th>Job</th>
+			</tr>";
+
+			while($row = mysql_fetch_array($result))
+			  {
+			  echo "<tr>";
+			  echo "<td>" . $row['FirstName'] . "</td>";
+			  echo "<td>" . $row['LastName'] . "</td>";
+			  echo "<td>" . $row['Age'] . "</td>";
+			  echo "<td>" . $row['Hometown'] . "</td>";
+			  echo "<td>" . $row['Job'] . "</td>";
+			  echo "</tr>";
+			  }
+			echo "</table>";
+
+			mysql_close($con);
+			?>
+		
+
+136- correct format for PHP dates that is compatible with MySQL is
+	
+		$today = date("Y-m-d H:i:s");   // 2001-03-10 17:16:18 (the MySQL DATETIME format)
+		
+		or
+		
+		$s = '06/Oct/2011:19:00:02';
+		$date1 = strtotime($s);
+		$date2 = date('d/M/Y:H:i:s', $date1);
+		
+137- 
+
+
+
+
+
+
+
+
+
+
 
 
 
