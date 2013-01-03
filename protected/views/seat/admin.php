@@ -26,6 +26,7 @@ $('.search-form form').submit(function(){
 <h1>Manage Seats</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'seat-grid',
+    'type'=>'striped bordered condensed',
 	'dataProvider'=>$modelSeatView->search(),
 	'filter'=>$modelSeatView,
 	'columns'=>array(

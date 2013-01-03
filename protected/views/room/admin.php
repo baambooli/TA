@@ -27,6 +27,7 @@ $('.search-form form').submit(function(){
 <?php
 $this->widget('bootstrap.widgets.TbGridView', array(
     'id' => 'room-grid',
+    'type'=>'striped bordered condensed',
     'dataProvider' => $modelRoomView->search(),
     'filter' => $modelRoomView,
     'columns' => array(

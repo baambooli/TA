@@ -128,8 +128,6 @@ class SearchHotelView extends CActiveRecord
         // should not be searched.
         $criteria = new CDbCriteria;
 
-        $criteria->compare('CountryName', $this->CountryName, true);
-        $criteria->compare('CityName', $this->CityName, true);
         $criteria->compare('HotelName', $this->HotelName, true);
         $criteria->compare('HotelCategory', $this->HotelCategory);
         $criteria->compare('HotelTel', $this->HotelTel, true);
@@ -139,8 +137,6 @@ class SearchHotelView extends CActiveRecord
         $criteria->compare('HotelImage', $this->HotelImage, true);
         $criteria->compare('RoomNumber', $this->RoomNumber, true);
         $criteria->compare('RoomTel', $this->RoomTel, true);
-        $criteria->compare('RoomType', $this->RoomType, true);
-        $criteria->compare('RoomCapacity', $this->RoomCapacity);
         $criteria->compare('RoomClientId', $this->RoomClientId);
         $criteria->compare('StartDate', $this->StartDate, true);
         $criteria->compare('EndDate', $this->EndDate, true);

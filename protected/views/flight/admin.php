@@ -26,6 +26,7 @@ $('.search-form form').submit(function(){
 <h1>Manage Flights</h1>
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'flight-grid',
+    'type'=>'striped bordered condensed',
 	'dataProvider'=>$model->search(),
 	'filter'=>$model,
 	'columns'=>array(

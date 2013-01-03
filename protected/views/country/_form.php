@@ -1,7 +1,7 @@
 <?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
 	'id'=>'country-form',
 	'enableClientValidation' => true,
-    'enableAjaxValidation' => true,
+    'enableAjaxValidation' => false,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
@@ -43,6 +43,6 @@
 
 // jQuery function to change the caption of key after click
 $('#save_update').click(function() {
-    $('#save_update').html('Saving, Please wait ....'); 
+    //$('#save_update').html('Saving, Please wait ....'); 
 });
 </script>
