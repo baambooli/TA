@@ -237,29 +237,37 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 /* Kamran */
 .KContainer {
-width: 70em;
-margin: 0;
-padding: 0;
-background-color: #564b47;
+    width: 85em;
+    margin: 0;
+    padding: 0;
+    background-color: #564b47;
 }
 
 .KContent {
-float: left;
-width: 40em;
-background-color: #ffffff;
-padding: 20px;
-margin: 20px;
+    float: left;
+    width: 48em;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    margin-right: 20px;
 }
 
 .KLeft {
-float: left;
-width: 20em;
-margin: 0;
-padding: 15px 0 0 0;
-color: #0;
+    float: left;
+    width: 20em;
+    margin: 0;
+    padding: 15px 0 0 0;
+    color: #000000;
 }
 
 .Kheight
 {
-    height: 500px;
+    min-height: 570px;
+}
+
+.KFont
+{
+    font-family: Arial;
+    font-size: 10;
+    color: #000;
 }

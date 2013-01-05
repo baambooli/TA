@@ -2,7 +2,8 @@
 
 class SiteController extends Controller
 {
-
+    public $layout = '//layouts/column1';
+    
     public function init()
     {
         // apply the theme dynamically
@@ -332,7 +333,6 @@ class SiteController extends Controller
     {
         $a=$_POST;
         print_r($a);
-        debugbreak();
 
     }
 
