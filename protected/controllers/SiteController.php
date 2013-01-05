@@ -41,18 +41,32 @@ class SiteController extends Controller
     {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
+
+        $model = new SearchHotelForm();
+        $modelHotel = new SearchHotelForm();
         
-        // load a custom layout
-        $layout = '//layouts/double';
-        
+        $a = $_POST;
+        debugbreak();
+         
         // load name of cities
-        $cities = City::model()->FindAll();
-        foreach ($cities as $key =>$value)
+        $cities = City::model()->findAll();
+        foreach ($cities as $key => $value)
         {
             $citiesName[] = $cities[$key]->Name;
         }
         
-        $this->render('index', array('citiesName' => $citiesName));
+        // load roomTypes
+        $roomTypes1 = RoomType::model()->findAll();
+        foreach ($roomTypes1 as $key => $value)
+        {
+            $roomTypes[] = $roomTypes1[$key]->Name;
+        }
+
+        $this->render('index', array('modelHotel' => $modelHotel,
+            'model' => $model,
+            'citiesName' => $citiesName,
+            'roomTypes' => $roomTypes,
+        ));
     }
 
     /**
@@ -314,6 +328,14 @@ class SiteController extends Controller
         $this->render('resetPassword', array(
             'model' => $model,
         ));
+    }
+
+    // Kamran
+    public function actionSearchHotel()
+    {
+        $a=$_POST;
+        DebugBreak();
+
     }
 
 }
