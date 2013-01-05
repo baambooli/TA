@@ -44,17 +44,14 @@ class SiteController extends Controller
 
         $model = new SearchHotelForm();
         $modelHotel = new SearchHotelForm();
-        
-        $a = $_POST;
-        debugbreak();
-         
+
         // load name of cities
         $cities = City::model()->findAll();
         foreach ($cities as $key => $value)
         {
             $citiesName[] = $cities[$key]->Name;
         }
-        
+
         // load roomTypes
         $roomTypes1 = RoomType::model()->findAll();
         foreach ($roomTypes1 as $key => $value)
@@ -334,7 +331,8 @@ class SiteController extends Controller
     public function actionSearchHotel()
     {
         $a=$_POST;
-        DebugBreak();
+        print_r($a);
+        debugbreak();
 
     }
 
