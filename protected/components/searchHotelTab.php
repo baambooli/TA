@@ -1,3 +1,21 @@
+<!-- datepicker function call-->
+<script>
+    $(function() {
+        $("#datepickerCheckin").datepicker({
+            changeMonth: true, //user can change month
+            changeYear: true, //user can change year
+            yearRange: '2013:2100', //range of valid years
+            dateFormat: 'yy/mm/dd', //date format
+        });
+        $("#datepickerCheckout").datepicker({
+            changeMonth: true, //user can change month
+            changeYear: true, //user can change year
+            yearRange: '2013:2100', //range of valid years
+            dateFormat: 'yy/mm/dd', //date format
+        });
+    });
+</script>
+<!-- end of datepicker function call-->
 <div class="KContainer">
     <div class="KLeft">
         <?php
@@ -10,16 +28,10 @@
             ),
             'htmlOptions' => array(
                 'class' => 'well',
-                /* Disable normal form submit */
-                'onsubmit' => "return false;",
-                /* Do ajax call when user presses enter key */
-                'onkeypress' => " if(event.keyCode == 13){ sendAjaxRequestSearchHotel(); } "
             ),
                 ));
         ?>
-
         <?php echo $form->errorSummary($modelHotel); ?>
-
         <div>
             City:<br>
             <?php
@@ -84,57 +96,64 @@
             ));
             ?>
         </div>
-
-        <?php echo $form->datepickerRow($modelHotel, 'checkinDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'checkinDate1', 'prepend' => '<i class="icon-calendar"></i>')); ?>
-        <?php echo $form->datepickerRow($modelHotel, 'checkoutDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'checkoutDate1', 'prepend' => '<i class="icon-calendar"></i>')); ?>
-
+        <!-- datepickers come here-->
+        <div >
+            Check in date:<br>
+            <input type="text" name="datepickerCheckin" id="datepickerCheckin" />
+        </div>
+        <div >
+            Check out date:<br>
+            <input type="text" name="datepickerCheckout" id="datepickerCheckout" />
+        </div>
+        <!-- end of datepickers -->
         <br>
-
         <?php
         //this is one method to ajax call by normal html button
         // echo CHtml::Button('search Hotel2', array('onclick' => 'sendAjaxRequestSearchHotel();'));
         ?>
-
-        <?php
-        $this->widget('zii.widgets.jui.CJuiButton', array(
-            'name' => 'submit',
-            'caption' => 'Search Hotel',
-            // you can easily change the look of the button by providing the correct class
-            // ui-button-error, ui-button-primary, ui-button-success
-            'htmlOptions' => array('class' => 'ui-button-error'),
-            // this is a sample of calling inline jQuery function
-            // 'onclick'=>new CJavaScriptExpression('function(){alert("Yes kamran");}'),
-            //
-            // this is a sample of calling a function that uses ajax method to send request to controller
-            'onclick' => new CJavaScriptExpression('function(){sendAjaxRequestSearchHotel();}'),
-        ));
-        ?>
-<?php $this->endWidget(); ?>
+        <div class="KOuterDiv">
+            <div class="KCenter">
+                <?php
+                $this->widget('zii.widgets.jui.CJuiButton', array(
+                    'name' => 'submit',
+                    'caption' => 'Search Hotel',
+                    // you can easily change the look of the button by providing the correct class
+                    // ui-button-error, ui-button-primary, ui-button-success
+                    'htmlOptions' => array('class' => 'ui-button-success'),
+                    // this is a sample of calling inline jQuery function
+                    //'onclick' => new CJavaScriptExpression('function(){alert("Yes kamran");}'),
+                    // this is a sample of calling a function that uses ajax method to send request to controller
+                    'onclick' => new CJavaScriptExpression('function(){sendAjaxRequestSearchHotel();}'),
+                ));
+                ?>
+            </div>
+        </div>
+        <?php $this->endWidget(); ?>
     </div>
-
     <div class="well KContent" id="searchHotelResults">
         right section................
     </div>
-
 </div>
 <script>
     function sendAjaxRequestSearchHotel()
     {
-        //alert('hi2');
-
+        var checkinDate = $('#datepickerCheckin').val();
+        var checkoutDate = $('#datepickerCheckout').val();
+        if (checkoutDate < checkinDate)
+        {
+            alert('chechout date should be greater than or equal to checkin date.');
+            return false;
+        }
         var data = $('#SearcHotelTabForm').serialize();
-
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
-
-        //alert(urlAjax);
-
+        alert(urlAjax);
         $.ajax({
             type: 'POST',
             url: urlAjax,
             data: data,
             success: function(data) {
-                alert('success');
-                alert(data);
+                //alert('success');
+                //alert(data);
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
                 $('#searchHotelResults').append(data);
@@ -146,6 +165,5 @@
             dataType: 'html',
             timeout: 60000
         });
-
     }
 </script>

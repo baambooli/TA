@@ -271,3 +271,12 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
     font-size: 10;
     color: #000;
 }
+
+.KOuterDiv
+{
+    text-align: center;
+}
+.KCenter
+{
+    display: inline-block;
+}

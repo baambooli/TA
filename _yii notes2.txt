@@ -1383,7 +1383,7 @@ or
 		Yii::app()->user->isGuest)
 		Yii::app()->user->name
 		Yii::app()->user->id
-		Yii::app()->request->baseUrl
+		Yii::app()->request->baseUrl  //base url
 		Yii::app()->theme->baseUrl
 
 
@@ -2580,15 +2580,31 @@ or
 		netbeans_default_options (where XX is the numeric pixel size of the font). 
 		
 		
-131-  to right aligh a div, create a css class like
+131-  to right align a div, create a css class like
 
-		.right
+		.KRight
 		{
 			position:absolute;
 			right:100px;
 			width:200px;
 
 		}
+		and for left align
+		
+		.KLeft
+		{
+			/* position:absolute; */
+			left:100px;
+			width:200px;
+
+		}
+		
+		good links:
+		
+		http://www.intensivstation.ch/en/templates/
+		
+		http://www.intensivstation.ch/files/en_templates/temp03.html
+		
 	
 	then add it to you div block:
 	
@@ -3142,22 +3158,504 @@ or
 	RIGHT JOIN: Return all rows from the right table, even if there are no matches in the left table
 	FULL JOIN: Return rows when there is a match in one of the tables
 	
-139 -
+139 - netbeans from version 7.3 have breakpoint in javascript code, even 7.2.1 cannot do that. but xdebug should be enabled on it too
+
+
+140- some good examples for REST full with jquery and PHP (VERY GOOD EXAMPLES)
+
+			http://coenraets.org/blog/2011/12/restful-services-with-jquery-php-and-the-slim-framework/
+			
+			and
+			
+			http://www.9lessons.info/2012/05/create-restful-services-api-in-php.html
+			
+			and
+			
+			http://blog.garethj.com/2009/02/17/building-a-restful-web-application-with-php/
+			
+141- MySQL DB backup
+
+	Database backups can be made in two ways: by copying the data directory directly (either
+	manually or by means of the mysqlhotcopy script on Unix) or by using the mysqldump tool to
+	write out a SQL file that will replicate your database. The former is a little faster, but the latter
+	is more flexible. With mysqldump you can choose to copy just the structure of the database,
+	just the data, or both.
+	The most basic usage of mysqldump is:
+	mysqldump -u username -p databasename > dumpfilename.sql
+	This command will dump a text file that can be read into another database server, like this:
+	mysql -u root -p databasename < dumpfilename.sql
+	Instead of directing the output of mysqldump to a file, you can also pipe it directly to another
+	server, like so:
+	mysqldump -u username -p databasename |
+	mysql -h remote-host -u remoteuser -p -C databasename
+	
+
+142-  MySQl replication
+
+	In a nutshell, the operations that must be performed to establish MySQL replication are these:
+	1. Grant permissions to slave user on master.
+	2. Take snapshot of master data; copy to slave machines.
+	3. Shut down MySQL servers.
+	4. Restart MySQL servers with correct server-ids.
+	5. Establish master-slave relationship from each slave.
+	Now we’ll explain the process in more detail.
+	You will need to create an account on the master database for slaves to use, with the 
+	REPLICATE SLAVE privilege. You do not need to grant any other privileges to this account.
+	GRANT REPLICATE SLAVE ON *.*
+	TO replicant@’%’ IDENTIFIED BY ‘replpwd’;
+	Next, lock the master server and take a snapshot of its state immediately before the replica-
+	tion. On the master server, log in to a MySQL client session as the root user and issue the
+	commands:
+	FLUSH TABLES WITH READ LOCK;
+	SHOW MASTER STATUS;
+	This will prevent any changes from being made to the database until you are ready to bring
+	up the cluster. You may also (depending on whether this server has been run with binary 
+	logging) see some data about the location of the binary log file and offset. If so, write it down;
+	if not, use the default values ‘’ (empty string) and 4, respectively.
+	Next, copy the master database structure and data. There are two ways to do this. The first 
+	is to simply copy the mysql/data directory into a tarball or zip file by using one of these
+	commands or a GUI procedure:
+	tar -cvf master_snapshot.tar data/
+	zip master_snapshot.zip data/
+	Alternatively, you can use mysqldumpto make a backup as described in the next section. Copy
+	this snapshot file to each slave server.
+	Now shut down all the master and slave servers. Quit out of any mysql client shell sessions,
+	and issue the command:
+	mysqladmin -u root -p shutdown
+	on each server. The reason you are shutting the servers down is to give them unique server-
+	id values. They will use these values to find each other when they establish the master-slave
+	relationship. This value is set in each server’s my.cnf file and will be read in on startup. On
+	Windows, the my.cnf file is located in one of two places: C:\my.cnf or C:\[Windows
+	directory]\my.ini. On Unix systems, the global my.cnf file is found in /etc/my.cnf and
+	the server-specific file (which is probably the one you want to use) is found in /path/to/
+	mysql/data/my.cnf.
+	First, set the server-id on the master machine. Find or create a file called my.cnf in the
+	proper location for your platform, and make sure it contains the lines:
+	[mysqld]
+	log-bin
+	server-id=1276 Part II ?  PHP and MySQL
+	Restart the master server:
+	bin/mysqld_safe --user=mysql
+	In each slave server’s my.cnf files, you need only the server-id, not the log-bin line. The
+	most important thing is that you are absolutely positive that all the server-id values in your
+	cluster are unique! If they are not, bad things will happen. So the first slave’s my.cnf file
+	would contain this line:
+	[mysqld]
+	server-id=2
+	The second slave would set server-id=3, and so forth.
+	Now, before you bring up each slave server, you may need to do a little bit of housekeeping. 
+	If this MySQL server has been used as a slave before, you may want to delete the files data/
+	master.info and data/relay-log.info. You may also want to delete the .err and .pid
+	files in the data directory. Also, if you copied the master’s data snapshot into a tarball or 
+	zipfile, now is the time to copy it to the slave with a command like one of these (from the
+	mysql directory):
+	tar -xvf master_snapshot.tar
+	unzip master_snapshot.zip
+	If you used mysqldump instead, you have to wait until the server is back up.
+	Now bring up the slave:
+	bin/mysqld_safe --user=mysql --skip-slave-start --log-warnings
+	If you took your master data snapshot with mysqldump, now is the time to apply the SQL file
+	to the slave:
+	mysql -u root -p databasename < master_snapshot.sql
+	Finally, you will establish the master-slave relationship. Log in to a mysql shell and then 
+	enter the following commands, substituting the values you wrote down at the beginning of
+	the process:
+	CHANGE MASTER TO
+	MASTER_HOST=’masterhostname’,
+	MASTER_USER=’replicant’,
+	MASTER_PASSWORD=’replpwd’,
+	MASTER_LOG_FILE=’’,
+	MASTER_LOG_POS=4;
+	START SLAVE;
+	If there are problems, they will appear in the slave machine’s error log.
+
+
+
+144- MySQL Recovery
+
+	Normally, MySQL does not require much attention. MySQL servers have happily puttered
+	away for months if not years with minimal administration. However, bad things do happen 
+	to data: Hard disks melt down, hosting centers lose power suddenly, and human error is a
+	constant and awful probability. If you have insufficient memory for all the applications you’re
+	running on a server, or insufficient disk space on a partition, you may also get an error that
+	requires a recovery process. It must be admitted that MySQL seems to have minor database
+	corruption events with greater frequency than heavier-weight databases — or perhaps it’s
+	just easier for the administrator to notice these events.
+	
+145-  the method of adding jQuery UI tabs to a html or php page
+
+		<!-- we need these two lines fot tabs-->   
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		
+		<!-- we do not need this one. it will be included by Yii-->
+		<!-- <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script> -->
+			
+		<script>
+		$(function() {
+			$("#tabs").tabs();
+		});
+		</script>
+		 
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Search Hotel</a></li>
+				<li><a href="#tabs-2">Search Flight</a></li>
+			</ul>
+			<div id="tabs-1">
+				<p>search hotel contents....</p>
+			</div>
+			<div id="tabs-2">
+				<p>Search Flight contents....</p>
+			</div>
+		</div>
+
+		
+146-  an example og using jquery ui in a view file
+
+		<?php
+		/* @var $this SiteController */
+		$this->pageTitle=Yii::app()->name;   
+		?>
+
+		<!-- we need these two lines for tabs-->   
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+		<!-- tabs function call -->     
+		<script>
+		$(function() {
+			$("#tabs").tabs();
+		});
+		</script>
+
+		<!-- datepicker function call-->
+		<script>
+			$(function() {
+				$( "#datepickerCheckin" ).datepicker({
+				changeMonth: true,//user can change month
+				changeYear: true, //user can change year
+				yearRange: '2012:2100', //range of valid years
+				dateFormat : 'dd/mm/yy',//date format
+				});
+				
+				$( "#datepickerCheckout" ).datepicker({
+				changeMonth: true,//user can change month
+				changeYear: true, //user can change year
+				yearRange: '2012:2100', //range of valid years
+				dateFormat : 'dd/mm/yy',//date format
+				});
+			});
+		</script>
+		<!-- end of datepicker function call--> 
+
+		<div id="tabs">
+			<ul>
+				<li><a href="#tabs-1">Search Hotel</a></li>
+				<li><a href="#tabs-2">Search Flight</a></li>
+			</ul>
+			<div id="tabs-1">
+				<div>
+					City:<br>
+					<?php $this->widget('bootstrap.widgets.TbSelect2', array(
+								'asDropDownList' => false,
+								'name' => 'city',
+								'options' => array(
+									'tags' => $citiesName,
+									'placeholder' => 'City Name',
+									'width' => '20%',
+									//'tokenSeparators' => array(',', ' ')
+								)  
+							));
+					 ?> 
+				 </div>
+				 <div>
+					 Category:<br>
+					 <?php $this->widget('bootstrap.widgets.TbSelect2', array(
+								'asDropDownList' => false,
+								'name' => 'category',
+								'options' => array(
+									'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts' ),
+									'placeholder' => 'Category of Hotel',
+									'width' => '20%',
+									//'tokenSeparators' => array(',', ' ')
+								)  
+							));
+					 ?> 
+				 </div>
+				 <div>
+					 Room Type:<br>
+					 <?php $this->widget('bootstrap.widgets.TbSelect2', array(
+								'asDropDownList' => false,
+								'name' => 'roomType',
+								'options' => array(
+									'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts' ),
+									'placeholder' => 'Room type',
+									'width' => '20%',
+									//'tokenSeparators' => array(',', ' ')
+								)  
+							));
+					 ?> 
+				 </div>
+				 <div>
+					 Number of room(s):<br>
+					 <?php $this->widget('bootstrap.widgets.TbSelect2', array(
+								'asDropDownList' => false,
+								'name' => 'noOfRooms',
+								'options' => array(
+									'tags' => array('1','2','3','4','5','6','7','8','9','10'),
+									'placeholder' => 'Number of rooms',
+									'width' => '20%',
+									//'tokenSeparators' => array(',', ' ')
+								)  
+							));
+					 ?> 
+				 </div>
+				 
+				<!-- datepickers-->
+				<div >
+					Check in date:<br>
+					<input type="text" id="datepickerCheckin" />
+				</div>
+				<div >
+					Check out date:<br>
+					<input type="text" id="datepickerCheckout" />
+				</div>
+			</div>
+			<div id="tabs-2">
+				my second tab
+			</div>
+		</div>
+
+
+147- some global variables in yii
+
+		Yii::app()->homeUrl
+		Yii::app()->user->isGuest)
+		Yii::app()->user->name
+		Yii::app()->user->id
+		Yii::app()->request->baseUrl  //base url
+		Yii::app()->theme->baseUrl
+		Yii::app()->request->createAbsoluteUrl('/site/index')
+		
+		
+		
+148- the way we can use zii.widgets.jui.CJuiButton button for ajax call
+		
+		IMPORTANT NOTE: DatePicker that is included in Yiibooster has bug, that is why I have used datepicker of jQuery UI
+
+		<!-- we need these two lines for tabs and datepickers-->
+		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+
+		<!-- datepicker function call-->
+		<script>
+			$(function() {
+				$("#datepickerCheckin").datepicker({
+					changeMonth: true, //user can change month
+					changeYear: true, //user can change year
+					yearRange: '2013:2100', //range of valid years
+					dateFormat: 'yy/mm/dd', //date format
+				});
+				$("#datepickerCheckout").datepicker({
+					changeMonth: true, //user can change month
+					changeYear: true, //user can change year
+					yearRange: '2013:2100', //range of valid years
+					dateFormat: 'yy/mm/dd', //date format
+				});
+			});
+		</script>
+		<!-- end of datepicker function call-->
+		<div class="KContainer">
+			<div class="KLeft">
+				<?php
+				$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+					'id' => 'SearcHotelTabForm',
+					'enableClientValidation' => true,
+					'enableAjaxValidation' => false,
+					'clientOptions' => array(
+						'validateOnSubmit' => true,
+					),
+					'htmlOptions' => array(
+						'class' => 'well',
+					),
+						));
+				?>
+				<?php echo $form->errorSummary($modelHotel); ?>
+				<div>
+					City:<br>
+					<?php
+					$this->widget('bootstrap.widgets.TbSelect2', array(
+						'asDropDownList' => false,
+						'model' => $modelHotel,
+						'attribute' => 'cityName',
+						'options' => array(
+							'tags' => $citiesName,
+							'placeholder' => 'City Name',
+							'width' => '243px;',
+						//'tokenSeparators' => array(',', ' ')
+						)
+					));
+					?>
+				</div>
+				<div>
+					Category:<br>
+					<?php
+					$this->widget('bootstrap.widgets.TbSelect2', array(
+						'asDropDownList' => false,
+						'model' => $modelHotel,
+						'attribute' => 'category',
+						'options' => array(
+							'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts'),
+							'placeholder' => 'Category of Hotel',
+							'width' => '243px;',
+						//'tokenSeparators' => array(',', ' ')
+						)
+					));
+					?>
+				</div>
+				<div>
+					Room Type:<br>
+					<?php
+					$this->widget('bootstrap.widgets.TbSelect2', array(
+						'asDropDownList' => false,
+						'model' => $modelHotel,
+						'attribute' => 'roomType',
+						'options' => array(
+							'tags' => $roomTypes,
+							'placeholder' => 'Room type',
+							'width' => '243px;',
+						//'tokenSeparators' => array(',', ' ')
+						)
+					));
+					?>
+				</div>
+				<div>
+					Number of room(s):<br>
+					<?php
+					$this->widget('bootstrap.widgets.TbSelect2', array(
+						'asDropDownList' => false,
+						'model' => $modelHotel,
+						'attribute' => 'noOfRooms',
+						'options' => array(
+							'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
+							'placeholder' => 'Number of rooms',
+							'width' => '243px;',
+						//'tokenSeparators' => array(',', ' ')
+						)
+					));
+					?>
+				</div>
+				<!-- datepickers come here-->
+				<div >
+					Check in date:<br>
+					<input type="text" name="datepickerCheckin" id="datepickerCheckin" />
+				</div>
+				<div >
+					Check out date:<br>
+					<input type="text" name="datepickerCheckout" id="datepickerCheckout" />
+				</div>
+				<!-- end of datepickers -->
+				<br>
+				<?php
+				//this is one method to ajax call by normal html button
+				// echo CHtml::Button('search Hotel2', array('onclick' => 'sendAjaxRequestSearchHotel();'));
+				?>
+				<div class="KOuterDiv">
+					<div class="KCenter">
+						<?php
+						$this->widget('zii.widgets.jui.CJuiButton', array(
+							'name' => 'submit',
+							'caption' => 'Search Hotel',
+							// you can easily change the look of the button by providing the correct class
+							// ui-button-error, ui-button-primary, ui-button-success
+							'htmlOptions' => array('class' => 'ui-button-success'),
+							// this is a sample of calling inline jQuery function
+							//'onclick' => new CJavaScriptExpression('function(){alert("Yes kamran");}'),
+							// this is a sample of calling a function that uses ajax method to send request to controller
+							'onclick' => new CJavaScriptExpression('function(){sendAjaxRequestSearchHotel();}'),
+						));
+						?>
+					</div>
+				</div>
+				<?php $this->endWidget(); ?>
+			</div>
+			<div class="well KContent" id="searchHotelResults">
+				right section................
+			</div>
+		</div>
+		<script>
+			function sendAjaxRequestSearchHotel()
+			{
+				var checkinDate = $('#datepickerCheckin').val();
+				var checkoutDate = $('#datepickerCheckout').val();
+				if (checkoutDate < checkinDate)
+				{
+					alert('chechout date should be greater than or equal to checkin date.');
+					return false;
+				}
+				var data = $('#SearcHotelTabForm').serialize();
+				urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
+				alert(urlAjax);
+				$.ajax({
+					type: 'POST',
+					url: urlAjax,
+					data: data,
+					success: function(data) {
+						//alert('success');
+						//alert(data);
+						// change the text on the screen with id = searchHotelResults
+						$('#searchHotelResults').text('');  //clear div
+						$('#searchHotelResults').append(data);
+					},
+					error: function(data) { // if error occured
+						alert('Error occured. please try again');
+						//alert(data);
+					},
+					dataType: 'html',
+					timeout: 60000
+				});
+			}
+		</script>
 
 
 
 
+149- the way to center a div inside another div
 
+	<style>
+		.Outer {
+		  width: 100%;
+		  text-align: center;
+		}
 
+		.Center {
+		  display: inline-block;
+		}
+	</style>
+	
+	<body>
+		<div class="Outer" >  
+		 <div class="Center">Foo foo</div>
+		</div>
+	</body>
+	
 
+150- Store JavaScript Result In Php variable :
+		Javascript doesn't run until it reaches the user's browser. This is called client side.	PHP is server side. All your PHP code executes before the web page is delivered to the user. Then your Javascript is executed on their own computer, by their web browser.
+		
+		but the reverse is possible. we can save PHP expressions and variables is javascript variables. for example:
+		
+			<script>
+			function sendAjaxRequestSearchHotel()
+			{
+				urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
+				....
+			}
+			</script>
 
-
-
-
-
-
-
-
+			
+151- 
 
 
 
