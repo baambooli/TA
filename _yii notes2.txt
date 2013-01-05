@@ -176,7 +176,7 @@ or
 	to the same page, but with an error message. Refreshing the index page will hide  
 	the message.
 	
-10- Do not use __conctruct() in Yii, use init() function instead!!
+10- Do not use __conctruct() in Yii controller classes, use init() function instead!!
 
 11- To show the error messages of a model AR or a model Form class
 
@@ -301,35 +301,55 @@ or
         header('Content-Type: text/html; charset=utf-8');
     ?>    
     
-21- to convert one column of bootstrap.widgets.TbGridView to link we should use a code like bellow
+21- to convert one column of bootstrap.widgets.TbGridView to a "link" we should use a code like bellow
 
-$   this->widget('bootstrap.widgets.TbGridView', array(
-        'id'            => 'site-grid',
-        'dataProvider'  => $model->search(),
-        'type'          => 'striped bordered condensed',
-        'filter'        => $model,
-        'columns'       => array(
-            'name',
-            'id',
-            // make it link
-            array(
-                'class'=>'CLinkColumn',
-                'labelExpression'=>'$data->url',
-                'urlExpression'=>'"/site/".$data->id',
-                'header'=>'url'
-            ),
-            
-            'customerServicePhone',
-            /*
-            'customerServiceEmail',
-            'webHookUrl',
-            'isDeleted',
-            */
-            array(
-                'class' => 'bootstrap.widgets.TbButtonColumn',
-            ),
-        ),
-    )); 
+	<?php 
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	// very important line
+	// if we use $modelSearchHotelView in CLinkColumn, it does not work
+	// so we should define this line
+	///////////////////////////////////////////////////////////////////////////////////////////////
+	$data = $modelSearchHotelView;
+
+	$this->widget('bootstrap.widgets.TbGridView', array(
+		'type'=>'striped bordered condensed',
+		'id' => 'room-client-grid',
+		'dataProvider' => $modelSearchHotelView->search(),
+		'filter' => $modelSearchHotelView,
+		'columns' => array(
+			'HotelName',
+			'RoomNumber',
+			//'ClientName',
+			////////////////////////////////////////////////////////////////////////////////////// 
+			// make it a linkable column
+			array(
+					'class'=>'CLinkColumn',
+					// create a sortable header for column
+					'header'=>"<a href='index.php?r=roomClient/admin&SearchHotelView_sort=ClientName'>Client Name</a>",
+					// label that user will see
+					'labelExpression'=>'$data->ClientName',
+					// url of the link
+					'urlExpression'=>'Yii::app()->createUrl("/client/view/id/".$data->ClientId)',
+					// tool tip
+					'linkHtmlOptions'=>array('title'=>'See the details of this client')
+				),
+			///////////////////////////////////////////////////////////////////////////////////////
+				
+			'ClientFamily',
+			'ClientTel',
+			'ClientUsername',
+			'StartDate',
+			'EndDate',
+			'Status',
+			array(
+				'class' => 'bootstrap.widgets.TbButtonColumn',
+			),
+		),
+	));
+	?>
+	
+	NOTE: the only problem is we will lose the search inputbox at the top of the column ;-(
+	
     
 22- check URL validation so it could not be contain french characters:
 
@@ -3103,7 +3123,26 @@ $   this->widget('bootstrap.widgets.TbGridView', array(
 		$date1 = strtotime($s);
 		$date2 = date('d/M/Y:H:i:s', $date1);
 		
-137- 
+137- if we are going to add some information to a div tag using jQuery and we like to just add simple text we can use
+		
+		$('#room_availability').text(data); 
+		
+	but if we are going to add HTML tags too we should use
+	
+		$('#room_availability').append(data); 
+		
+
+138- Different SQL JOINs
+
+	Before we continue with examples ( http://www.w3schools.com/sql/sql_join.asp ),
+	we will list the types of JOIN you can use, and the differences between them.
+
+	JOIN: Return rows when there is at least one match in both tables
+	LEFT JOIN: Return all rows from the left table, even if there are no matches in the right table
+	RIGHT JOIN: Return all rows from the right table, even if there are no matches in the left table
+	FULL JOIN: Return rows when there is a match in one of the tables
+	
+139 -
 
 
 

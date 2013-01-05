@@ -41,7 +41,18 @@ class SiteController extends Controller
     {
         // renders the view file 'protected/views/site/index.php'
         // using the default layout 'protected/views/layouts/main.php'
-        $this->render('index');
+        
+        // load a custom layout
+        $layout = '//layouts/double';
+        
+        // load name of cities
+        $cities = City::model()->FindAll();
+        foreach ($cities as $key =>$value)
+        {
+            $citiesName[] = $cities[$key]->Name;
+        }
+        
+        $this->render('index', array('citiesName' => $citiesName));
     }
 
     /**
