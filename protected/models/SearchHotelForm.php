@@ -13,10 +13,9 @@ Class SearchHotelForm extends CFormModel
     {
         return array(
             array('noOfRooms', 'numerical', 'integerOnly' => true),
-            array('noOfRooms', 'numerical', 'min' => 1, 'max' =>10),
+            array('noOfRooms', 'numerical', 'min' => 1, 'max' => 10),
             array('cityName, noOfRooms', 'required'),
         );
     }
-
 }
 ?>

@@ -48,6 +48,7 @@
                     'placeholder' => 'City Name',
                     'maximumSelectionSize' => '1', // just select one item
                     'width' => '217px;',
+                    'id' =>'citynameId',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
@@ -116,7 +117,7 @@
         <!-- end of datepickers -->
         <br>
         <?php
-        //this is one method to ajax call by normal html button
+        // this is one method to ajax call by normal html button
         // echo CHtml::Button('search Hotel2', array('onclick' => 'sendAjaxRequestSearchHotel();'));
         ?>
         <div class="KOuterDiv">
@@ -145,8 +146,21 @@
 <script>
     function sendAjaxRequestSearchHotel()
     {
+
+        var cityName = $('#citynameId').val();
+
+        if ($.trim(cityName) == '')
+        {
+            alert('City name could not be empty.');
+            return false;
+        }
         var checkinDate = $('#datepickerCheckin').val();
         var checkoutDate = $('#datepickerCheckout').val();
+        if ($.trim(checkinDate) == '' || $.trim(checkoutDate) == '')
+        {
+            alert('dates could not be empty.');
+            return false;
+        }
         if (checkoutDate < checkinDate)
         {
             alert('Checkout date should be greater than or equal to checkin date.');
