@@ -25,14 +25,14 @@ $('.search-form form').submit(function(){
 <h1>Manage Room Clients</h1>
 
 
-<?php 
+<?php
 //very important line
 // if we use $modelSearchHotelView in CLinkColumn, it does nor work
 // so we should define this line
 $data = $modelSearchHotelView;
 
 $this->widget('bootstrap.widgets.TbGridView', array(
-    'type'=>'striped bordered condensed',
+    'type' => 'striped bordered condensed',
     'id' => 'room-client-grid',
     'dataProvider' => $modelSearchHotelView->search(),
     'filter' => $modelSearchHotelView,
@@ -40,22 +40,22 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         //'RoomClientId',
         'HotelName',
         'RoomNumber',
-        ////////////////////////// 
+        //////////////////////////
         // make it a link
         array(
-                'class'=>'CLinkColumn',
-                // header of column
-                //'header'=>'Client Name',
-                'header'=>"<a href='index.php?r=roomClient/admin&SearchHotelView_sort=ClientName'>Client Name</a>",
-                // label that user will see
-                'labelExpression'=>'$data->ClientName',
-                // url of the link
-                'urlExpression'=>'Yii::app()->createUrl("/client/view/id/".$data->ClientId)',
-                // tool tip
-                'linkHtmlOptions'=>array('title'=>'See the details of this client')
-            ),
+            'class' => 'CLinkColumn',
+            // header of column
+            //'header'=>'Client Name',
+            'header' => "<a href='index.php?r=roomClient/admin&SearchHotelView_sort=ClientName'>Client Name</a>",
+            // label that user will see
+            'labelExpression' => '$data->ClientName',
+            // url of the link
+            'urlExpression' => 'Yii::app()->createUrl("/client/view/id/".$data->ClientId)',
+            // tool tip
+            'linkHtmlOptions' => array('title' => 'See the details of this client')
+        ),
         //////////////////////////
-            
+
         'ClientFamily',
         'ClientTel',
         'ClientUsername',
