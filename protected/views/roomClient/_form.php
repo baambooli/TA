@@ -76,7 +76,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     <?php echo $form->datepickerRow($model, 'EndDate', array('options' => array('format' => 'yyyy-mm-dd'), 'id' => 'end_date', 'prepend' => '<i class="icon-calendar"></i>')); ?>
     <br>
 </div>
-<div class="span13"> 
+<div class="span13">
     <?php echo CHtml::Button('Check availability of room', array('onclick' => 'sendAjaxRequest();')); ?>
 
     <br><br>
@@ -112,7 +112,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 <script>
     // jQuery function to change the caption of key after click
     $('#save_update').click(function() {
-        
+
         startDate = $('#start_date').val();
         endDate = $('#end_date').val();
         if (startDate > endDate)
@@ -133,18 +133,18 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             alert('Check in date should be smaller than or equal to Check out date.');
             return;
         }
-        
+
         $('#room_availability').text('Checking, Please wait ...');
 
-        var updateMode = '<?php echo $updateMode ?>' ;
+        var updateMode = '<?php echo $updateMode; ?>';
         // alert('updateMode is : '+ updateMode);
 
-        var roomClientId = '<?php echo $model->Id ?>';
+        var roomClientId = '<?php echo $model->Id; ?>';
         //alert('roomClientId is : ' + roomClientId);
 
         $('#roomClientId').val(roomClientId);
 
-        var data=$('#room-client-form').serialize();
+        var data = $('#room-client-form').serialize();
 
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('roomClient/check'); ?>'
 
@@ -165,9 +165,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
                 alert('Error occured. please try again');
                 //alert(data);
             },
-
-            dataType:'html',
-            timeout:60000
+            dataType: 'html',
+            timeout: 60000
         });
 
     }

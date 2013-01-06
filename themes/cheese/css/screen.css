@@ -233,3 +233,49 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix:after, .container:after {content:"\0020";display:block;height:0;clear:both;visibility:hidden;overflow:hidden;}
 .clearfix, .container {display:block;}
 .clear {clear:both;}
+
+/* Kamran */
+.KContainer {
+    width: 85em;
+    margin: 0;
+    padding: 0;
+    background-color: #564b47;
+}
+
+.KContent {
+    float: left;
+    width: 48em;
+    background-color: #ffffff;
+    padding: 20px;
+    margin: 15px;
+    margin-right: 20px;
+}
+
+.KLeft {
+    float: left;
+    width: 20em;
+    margin: 0;
+    padding: 15px 0 0 0;
+    color: #000000;
+}
+
+.Kheight
+{
+    min-height: 570px;
+}
+
+.KFont
+{
+    font-family: Arial;
+    font-size: 10;
+    color: #000;
+}
+
+.KOuterDiv
+{
+    text-align: center;
+}
+.KCenter
+{
+    display: inline-block;
+}

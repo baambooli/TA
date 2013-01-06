@@ -1,20 +1,29 @@
 <?php
 /* @var $this SiteController */
-
 $this->pageTitle=Yii::app()->name;
 ?>
 
-<h1>Kamran Welcome to <i><?php echo CHtml::encode(Yii::app()->name); ?></i></h1>
+<!-- we need these two lines for tabs-->
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
+<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
 
-<p>Congratulations! You have successfully created your Yii application.</p>
+<!-- tabs function call -->
+<script>
+$(function() {
+    $("#tabs").tabs();
+});
+</script>
 
-<p>You may change the content of this page by modifying the following two files:</p>
-<ul>
-	<li>View file: <code><?php echo __FILE__; ?></code></li>
-	<li>Layout file: <code><?php echo $this->getLayoutFile('main'); ?></code></li>
-</ul>
+<div id="tabs" class="Kheight">
+    <ul>
+        <li><a href="#tabs-1">Search Hotel</a></li>
+        <li><a href="#tabs-2">Search Flight</a></li>
+    </ul>
+    <div id="tabs-1" >
+        <?php require_once('searchHotelTab.php'); ?>
+    </div>
+    <div id="tabs-2">
+        <!-- <?php require_once('searchFlightTab.php'); ?> -->
+    </div>
+</div>
 
-<p>For more details on how to further develop this application, please read
-the <a href="http://www.yiiframework.com/doc/">documentation</a>.
-Feel free to ask in the <a href="http://www.yiiframework.com/forum/">forum</a>,
-should you have any questions.</p>

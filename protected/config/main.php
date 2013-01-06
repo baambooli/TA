@@ -21,6 +21,7 @@ return array(
         'rights' => array(
             'install' => true, // Enables the installer.
         ),
+        
         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => '123',

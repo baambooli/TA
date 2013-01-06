@@ -23,13 +23,14 @@
             array('label' => 'Home', 'url' => array('/site/index')),
 
             // show 'Search' menu to all users
-            array('label' => 'Search',
+            /*array('label' => 'Search',
                 'items' => array(
                     array('label' => 'Hotels', 'url' => array('/search/hotel', 'view' => 'admin')),
                     array('label' => 'Flights', 'url' => array('/search/flight', 'view' => 'admin')),
                 ),
             ),
-
+             */
+             
             // show 'User info' menu to NONE guest users
             array('label' => 'User info', 'visible' => $visibility['Authenticated'],
                 'items' => array(
