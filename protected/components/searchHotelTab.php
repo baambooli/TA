@@ -47,7 +47,7 @@
                     'tags' => $citiesName,
                     'placeholder' => 'City Name',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
@@ -64,7 +64,7 @@
                     'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts'),
                     'placeholder' => 'Category of Hotel',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
@@ -81,7 +81,7 @@
                     'tags' => $roomTypes,
                     'placeholder' => 'Room type',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
@@ -98,7 +98,7 @@
                     'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
                     'placeholder' => 'Number of rooms',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
@@ -164,6 +164,7 @@
                 //alert(data);
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
+                // write new data on it (results of actionSearchHotel() function on siteController)
                 $('#searchHotelResults').append(data);
             },
             error: function(data) { // if error occured
