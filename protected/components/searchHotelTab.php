@@ -28,6 +28,10 @@
             ),
             'htmlOptions' => array(
                 'class' => 'well',
+                /* Disable normal form submit */
+                'onsubmit' => "return false;",
+                /* Do ajax call when user presses enter key */
+                'onkeypress' => " if(event.keyCode == 13){ sendAjaxRequestSearchHotel(); } "
             ),
                 ));
         ?>
@@ -42,6 +46,7 @@
                 'options' => array(
                     'tags' => $citiesName,
                     'placeholder' => 'City Name',
+                    'maximumSelectionSize' => '1', // just select one item
                     'width' => '243px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
@@ -58,6 +63,7 @@
                 'options' => array(
                     'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts'),
                     'placeholder' => 'Category of Hotel',
+                    'maximumSelectionSize' => '1', // just select one item
                     'width' => '243px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
@@ -74,6 +80,7 @@
                 'options' => array(
                     'tags' => $roomTypes,
                     'placeholder' => 'Room type',
+                    'maximumSelectionSize' => '1', // just select one item
                     'width' => '243px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
@@ -90,6 +97,7 @@
                 'options' => array(
                     'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
                     'placeholder' => 'Number of rooms',
+                    'maximumSelectionSize' => '1', // just select one item
                     'width' => '243px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
@@ -141,12 +149,12 @@
         var checkoutDate = $('#datepickerCheckout').val();
         if (checkoutDate < checkinDate)
         {
-            alert('chechout date should be greater than or equal to checkin date.');
+            alert('Checkout date should be greater than or equal to checkin date.');
             return false;
         }
         var data = $('#SearcHotelTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
-        alert(urlAjax);
+        // alert(urlAjax);
         $.ajax({
             type: 'POST',
             url: urlAjax,

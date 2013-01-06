@@ -3478,6 +3478,10 @@ or
 					),
 					'htmlOptions' => array(
 						'class' => 'well',
+						/* Disable normal form submit */
+						'onsubmit' => "return false;",
+						/* Do ajax call when user presses enter key */
+						'onkeypress' => " if(event.keyCode == 13){ sendAjaxRequestSearchHotel(); } "
 					),
 						));
 				?>
@@ -3641,21 +3645,34 @@ or
 	</body>
 	
 
-150- Store JavaScript Result In Php variable :
-		Javascript doesn't run until it reaches the user's browser. This is called client side.	PHP is server side. All your PHP code executes before the web page is delivered to the user. Then your Javascript is executed on their own computer, by their web browser.
+150- Can I assign a java script variable to a PHP variable ?
+		NO. Javascript doesn't run until it reaches the user's browser. This is called client side.	PHP is server side. All your PHP code executes before the web page is delivered to the user. Then your Javascript is executed on their own computer, by their web browser.
 		
-		but the reverse is possible. we can save PHP expressions and variables is javascript variables. for example:
+		but the reverse is possible. we can save PHP expressions or variables in javascript variables. for example:
 		
 			<script>
 			function sendAjaxRequestSearchHotel()
 			{
-				urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
+				urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>';
 				....
 			}
 			</script>
 
 			
-151- 
+151- netbeans and javascript debugging
+
+	My advice is to ignore the Netbeans JS debugger and just use Firebug. It's 
+	annoying not to be able to do all your debugging from Netbeans, but the Netbeans 
+	JavaScript debugger is just too unreliable to be usable.
+	
+	so in short: forget about netbeans' javascript debugging and use firebug inside firefox.
+	the firebug lite for chrome cannot do single step or breakpoint!!!
+	
+	when you have clicked the debug button on netbeans (ctrl + F5), the firefox will be open. press F12 key
+	when firefox is focused and select reload, the source of web page will be reload on the firebug. now you can
+	put breakpoints on the lines you like and do single step inside firefox
+	
+	
 
 
 
