@@ -6,12 +6,14 @@
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
             dateFormat: 'yy/mm/dd', //date format
+            minDate : +0, //disable past days
         });
         $("#datepickerCheckout").datepicker({
             changeMonth: true, //user can change month
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
             dateFormat: 'yy/mm/dd', //date format
+            minDate : +0, //disable past days
         });
     });
 </script>
@@ -20,9 +22,9 @@
     <div class="KLeft">
         <?php
         $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-            'id' => 'SearcHotelTabForm',
+            'id' => 'SearchHotelTabForm',
             'enableClientValidation' => true,
-            'enableAjaxValidation' => false,
+            'enableAjaxValidation' => true,
             'clientOptions' => array(
                 'validateOnSubmit' => true,
             ),
@@ -47,24 +49,24 @@
                     'tags' => $citiesName,
                     'placeholder' => 'City Name',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
-                )
+                ),
             ));
             ?>
         </div>
         <div>
-            Category:<br>
+            Category (Stars):<br>
             <?php
             $this->widget('bootstrap.widgets.TbSelect2', array(
                 'asDropDownList' => false,
                 'model' => $modelHotel,
                 'attribute' => 'category',
                 'options' => array(
-                    'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts'),
+                    'tags' => array('2','3','4','5'), //array('Two stars', 'Three stars', 'Four stars', 'Five stars'),
                     'placeholder' => 'Category of Hotel',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
@@ -81,12 +83,13 @@
                     'tags' => $roomTypes,
                     'placeholder' => 'Room type',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
             ?>
         </div>
+        <?php /*
         <div>
             Number of room(s):<br>
             <?php
@@ -98,12 +101,13 @@
                     'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
                     'placeholder' => 'Number of rooms',
                     'maximumSelectionSize' => '1', // just select one item
-                    'width' => '243px;',
+                    'width' => '217px;',
                 //'tokenSeparators' => array(',', ' ')
                 )
             ));
             ?>
         </div>
+        */ ?>
         <!-- datepickers come here-->
         <div >
             Check in date:<br>
@@ -111,7 +115,7 @@
         </div>
         <div >
             Check out date:<br>
-            <input type="text" name="datepickerCheckout" id="datepickerCheckout" />
+            <input type="text" name="datepickerCheckout" id="datepickerCheckout"  />
         </div>
         <!-- end of datepickers -->
         <br>
@@ -147,12 +151,17 @@
     {
         var checkinDate = $('#datepickerCheckin').val();
         var checkoutDate = $('#datepickerCheckout').val();
+        
+        if (checkinDate.length != 10)
+            alert('Bad checkin Date');
+        if (checkoutDate.length != 10)
+            alert('Bad checkout Date');
         if (checkoutDate < checkinDate)
         {
             alert('Checkout date should be greater than or equal to checkin date.');
             return false;
         }
-        var data = $('#SearcHotelTabForm').serialize();
+        var data = $('#SearchHotelTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
         // alert(urlAjax);
         $.ajax({
@@ -164,6 +173,7 @@
                 //alert(data);
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
+                // write new data on it (results of actionSearchHotel() function on siteController)
                 $('#searchHotelResults').append(data);
             },
             error: function(data) { // if error occured

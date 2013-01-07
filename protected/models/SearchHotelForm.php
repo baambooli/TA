@@ -5,17 +5,18 @@ Class SearchHotelForm extends CFormModel
     public $cityName;
     public $category;
     public $roomType;
-    public $noOfRooms;
+    //public $noOfRooms;
     public $checkinDate;
     public $checkoutDate;
 
     public function rules()
     {
         return array(
-            array('noOfRooms', 'numerical', 'integerOnly' => true),
-            array('noOfRooms', 'numerical', 'min' => 1, 'max' =>10),
-            array('cityName, noOfRooms', 'required'),
+            array('cityName, checkinDate, checkoutDate', 'required'),
+            array('category, roomType','safe'),  // for bunch assignment we need this line
+            array('cityName, checkinDate, checkoutDate, category, roomType', 'safe', 'on' =>'search'),
         );
+        
     }
 
 }

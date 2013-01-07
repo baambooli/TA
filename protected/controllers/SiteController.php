@@ -330,10 +330,159 @@ class SiteController extends Controller
 
     // Kamran
     public function actionSearchHotel()
-    {
-        $a=$_POST;
-        print_r($a);
+    {    
+        $modelSearchHotelForm = new SearchHotelForm;
+        $modelSearchHotelForm->attributes = $_POST['SearchHotelForm'];
+        $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
+        $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
+         
+        if(empty($modelSearchHotelForm->cityName))
+        {
+            echo '<div style="color:red;">City name could not be empty.</div>';
+            return true; // if we return false an error will be shown
+                         // but we need to show an error message on screen
+                         // so we should return 'true'
+        } 
+        // Uncomment the following line if AJAX validation is needed
+        //$this->performAjaxValidation($modelSearchHotelForm);
+        
+        // send information for getting availability of the rooms
+        $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
 
+        return $res;
     }
 
+    private function findRoomsUsingCriteria($modelSearchHotelForm, &$roomIds)
+    {
+        $criteria = new CDbCriteria;
+        $criteria->select = array('RoomId');
+        $criteria->distinct = true;        
+        //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
+        $criteria->compare('CityName', $modelSearchHotelForm->cityName);
+        $criteria->compare('HotelCategory', $modelSearchHotelForm->category);
+        $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
+        
+        // get all roomIds having the criteria        
+        $roomIds = Search4EmptyRoomView::model()->findAll($criteria);
+    }
+    
+    private function checkAvailabilityOfRoom($modelSearchHotelForm)
+    {
+        $freeRoomIds = array();
+        $roomIds = null;
+        
+        $this->findRoomsUsingCriteria($modelSearchHotelForm, $roomIds);
+        
+        $startDate = $modelSearchHotelForm->checkinDate;
+        $endDate = $modelSearchHotelForm->checkoutDate;
+        
+        // for each room
+        foreach ($roomIds as $key0 => $value0)
+        {
+            // find related records on Roomclient subtable or Search4EmptyRoomView
+            $roomReservations = Search4EmptyRoomView::model()->findAll(
+                'RoomId = :roomId', array(':roomId' => $roomIds[$key0]->RoomId));
+            
+            $isFree = true;
+            foreach ($roomReservations as $key => $value)
+            {
+                $start = $roomReservations[$key]->CheckinDate;
+                $end = $roomReservations[$key]->CheckoutDate;
+                //$status = $roomReservations[$key]->RoomStatus;
+
+                // check that the room is taken or not in that interval
+                if ((($startDate >= $start) && ($startDate <= $end))
+                    || (($endDate >= $start) && ($endDate <= $end))
+                    || (($start >= $startDate) && ($start <= $endDate))
+                    || (($end >= $startDate) && ($end <= $endDate))
+                )
+                {
+                    // room is taken
+                    $isFree = false;
+                    break;
+                }
+            }
+            // add free room to array
+            if ($isFree)
+            {
+                $freeRoomIds[] = $roomIds[$key0]->RoomId;    
+            }
+        }
+        
+        $result = '';
+        $res = $this->createResultTable($freeRoomIds, $result);
+        
+        // send the results to ajax caller function
+        echo $result;
+        
+        // send the status of operation to ajax caller function
+        return $res;
+    }
+
+       /**
+     * Performs the AJAX validation.
+     * @param CModel the model to be validated
+     */
+    protected function performAjaxValidation($model)
+    {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'SearchHotelTabForm')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        
+        /*if (isset($_POST['ajax']) && $_POST['ajax'] === 'SearchFlightTabForm')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }  */
+    }
+    
+    private function createResultTable($freeRoomIds, &$result)
+    {
+        $result ='';
+        
+        if (count($freeRoomIds) == 0)
+        {
+            $result = 'Sorry, There is no empty room.';
+            return true;
+        }
+         
+        // create the collection of RoomIds
+        $set = '(-1';
+        foreach ($freeRoomIds as $key => $value)
+        {
+             $set .= ', '.$freeRoomIds[$key];  
+        }
+        $set .= ')';
+
+        // get all rooms having the criteria        
+        $criteria= new CDbCriteria;
+        $criteria->select = array('RoomId', 'RoomNumber', 'CityName', 'HotelName', 
+            'HotelCategory', 'RoomType', 'PricePerDay', 'HotelTel');
+        $criteria->distinct = true;
+        $criteria->condition = " RoomId IN $set";
+        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        
+        // create output table
+        $result = '<h1 style= "text-align: center"> Search results</h1><br>';
+        $result .= '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
+        $result .= 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
+        $result .= '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+        $result .= 'Hotel Phone number</td></tr>';
+        
+        foreach ($rooms as $key => $value)
+        {
+            $result .= '<tr><td style= "padding: .3em; border: 1px #ccc solid;">'
+                .$rooms[$key]->CityName.'</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            $result .= $rooms[$key]->HotelName.'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+                .$rooms[$key]->HotelCategory.'</td>';
+            $result .= '<td style= "padding: .3em; border: 1px #ccc solid;">'.$rooms[$key]->RoomType.'</td><td style= "padding: .3em; border: 1px #ccc solid;">'.$rooms[$key]->PricePerDay.
+                '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            $result .= $rooms[$key]->HotelTel.'</td></tr>';  
+        }
+        
+        $result .= '</table>';
+        return true; 
+    }
 }
