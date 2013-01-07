@@ -1367,3 +1367,29 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/searchHotel
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
 ---
+2013/01/07 02:42:01 [error] [php] Undefined variable: freeRoomIds (G:\GitHub\travelagency\protected\controllers\SiteController.php:404)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (404)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (350)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/07 02:43:16 [error] [php] Undefined variable: freeRoomIds (G:\GitHub\travelagency\protected\controllers\SiteController.php:404)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (404)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (350)
+in g:\GitHub\travelagency\index.php (13)

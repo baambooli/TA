@@ -338,7 +338,7 @@ class SiteController extends Controller
          
         if(empty($modelSearchHotelForm->cityName))
         {
-            echo 'City Name could not be empty';
+            echo '<div style="color:red;">City name could not be empty.</div>';
             return true; // if we return false an error will be shown
                          // but we need to show an error message on screen
                          // so we should return 'true'
@@ -358,15 +358,14 @@ class SiteController extends Controller
 
     public function checkAvailabilityOfRoom($modelSearchHotelForm, &$result)
     {
-        $res = true;
         $result = '';
-
+        $freeRoomIds = array();
+        
         $criteria = new CDbCriteria;
         // just select those that are candidate to be empty at that interval
         $criteria->condition = "(CheckinDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckinDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
         $criteria->condition .= " AND (CheckoutDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckoutDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
         $criteria->params = array(':checkinDate' => $modelSearchHotelForm->checkinDate, ':checkoutDate' => $modelSearchHotelForm->checkoutDate);
-        
         //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
         $criteria->compare('CityName', $modelSearchHotelForm->cityName);
         if (!empty($modelSearchHotelForm->category))
@@ -375,15 +374,13 @@ class SiteController extends Controller
             $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
         // $criteria->compare('noOfRooms', $modelSearchHotelForm->noOfRooms,true);
         
+        DebugBreak();
+        // get all rooms having the criteria        
         $rooms = Search4EmptyRoomView::model()->findAll($criteria);
         
         $startDate = $modelSearchHotelForm->checkinDate;
         $endDate = $modelSearchHotelForm->checkoutDate;
-         
-        $result = '<table><tr><td style="border: 1px solid black;">Fullname, Username</td>
-            <td style="border: 1px solid black;">Status of room</td>
-            <td style="border: 1px solid black;">Check in</td>
-            <td style="border: 1px solid black;">Check out</td></tr>';
+        
         foreach ($rooms as $key => $value)
         {
             $start = $rooms[$key]->CheckinDate;
@@ -391,27 +388,25 @@ class SiteController extends Controller
             $status = $rooms[$key]->RoomStatus;
 
             // check that the room is taken or not
-            if ((($startDate >= $start) && ($startDate <= $end))
+            if (! ((($startDate >= $start) && ($startDate <= $end))
                     || (($endDate >= $start) && ($endDate <= $end))
                     || (($start >= $startDate) && ($start <= $endDate))
                     || (($end >= $startDate) && ($end <= $endDate))
-            )
+            ))
             {
-                // room is taken
-                $isTaken = true;
-                
+                $freeRoomIds[] = $rooms->RoomId.'<br>'; 
             }
         }
-        $result .= '</table>';
-        if ($res == true)
+        
+        if (count($freeRoomIds) > 0)
         {
-            $result = 'This room is available between ' . $startDate . ' and ' . $endDate . '.';
-            return true;
+            $result = $freeRoomIds;
         }
         else
         {
-            return false;
+            $result = 'Sorry, There is no empty room.';
         }
+        return true;
     }
 
        /**
