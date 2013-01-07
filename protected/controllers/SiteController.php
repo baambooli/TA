@@ -355,14 +355,8 @@ class SiteController extends Controller
         return $res;
     }
 
-
-    public function checkAvailabilityOfRoom($modelSearchHotelForm, &$result)
+    private function findRoomsWithCriteria($modelSearchHotelForm, &$roomIds)
     {
-        $result = '';
-        $freeRoomIds = array();
-        
-        DebugBreak();
-        
         $criteria = new CDbCriteria;
         $criteria->select = array('RoomId');
         $criteria->distinct = true;        
@@ -373,6 +367,15 @@ class SiteController extends Controller
         
         // get all roomIds having the criteria        
         $roomIds = Search4EmptyRoomView::model()->findAll($criteria);
+    }
+    
+    public function checkAvailabilityOfRoom($modelSearchHotelForm, &$result)
+    {
+        $result = '';
+        $freeRoomIds = array();
+        $roomIds = null;
+        
+        $this->findRoomsWithCriteria ($modelSearchHotelForm, $roomIds);
         
         $startDate = $modelSearchHotelForm->checkinDate;
         $endDate = $modelSearchHotelForm->checkoutDate;
@@ -411,7 +414,8 @@ class SiteController extends Controller
         
         if (count($freeRoomIds) > 0)
         {
-            $result = implode($freeRoomIds);
+            //$result = implode($freeRoomIds);
+            $result = $this->createResultTable($freeRoomIds); 
         }
         else
         {
@@ -437,6 +441,11 @@ class SiteController extends Controller
             echo CActiveForm::validate($model);
             Yii::app()->end();
         }  */
+    }
+    
+    private function createResultTable($freeRoomIds)
+    {
+        return implode($freeRoomIds);
     }
 
 }
