@@ -330,10 +330,107 @@ class SiteController extends Controller
 
     // Kamran
     public function actionSearchHotel()
-    {
-        $a=$_POST;
-        print_r($a);
+    {    
+        $modelSearchHotelForm = new SearchHotelForm;
+        $modelSearchHotelForm->attributes = $_POST['SearchHotelForm'];
+        $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
+        $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
+         
+        if(empty($modelSearchHotelForm->cityName))
+        {
+            echo 'City Name could not be empty';
+            return true; // if we return false an error will be shown
+                         // but we need to show an error message on screen
+                         // so we should return 'true'
+        } 
+        // Uncomment the following line if AJAX validation is needed
+        //$this->performAjaxValidation($modelSearchHotelForm);
+        
+        // send information for getting availability of the rooms
+        $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm, $result);
 
+        // send results to Ajax function
+        echo $result;
+
+        return $res;
+    }
+
+
+    public function checkAvailabilityOfRoom($modelSearchHotelForm, &$result)
+    {
+        $res = true;
+        $result = '';
+
+        $criteria = new CDbCriteria;
+        // just select those that are candidate to be empty at that interval
+        $criteria->condition = "(CheckinDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckinDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
+        $criteria->condition .= " AND (CheckoutDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckoutDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
+        $criteria->params = array(':checkinDate' => $modelSearchHotelForm->checkinDate, ':checkoutDate' => $modelSearchHotelForm->checkoutDate);
+        
+        //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
+        $criteria->compare('CityName', $modelSearchHotelForm->cityName);
+        if (!empty($modelSearchHotelForm->category))
+            $criteria->compare('HotelCategory', $modelSearchHotelForm->category);
+        if (!empty($modelSearchHotelForm->roomType))
+            $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
+        // $criteria->compare('noOfRooms', $modelSearchHotelForm->noOfRooms,true);
+        
+        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        
+        $startDate = $modelSearchHotelForm->checkinDate;
+        $endDate = $modelSearchHotelForm->checkoutDate;
+         
+        $result = '<table><tr><td style="border: 1px solid black;">Fullname, Username</td>
+            <td style="border: 1px solid black;">Status of room</td>
+            <td style="border: 1px solid black;">Check in</td>
+            <td style="border: 1px solid black;">Check out</td></tr>';
+        foreach ($rooms as $key => $value)
+        {
+            $start = $rooms[$key]->CheckinDate;
+            $end = $rooms[$key]->CheckoutDate;
+            $status = $rooms[$key]->RoomStatus;
+
+            // check that the room is taken or not
+            if ((($startDate >= $start) && ($startDate <= $end))
+                    || (($endDate >= $start) && ($endDate <= $end))
+                    || (($start >= $startDate) && ($start <= $endDate))
+                    || (($end >= $startDate) && ($end <= $endDate))
+            )
+            {
+                // room is taken
+                $isTaken = true;
+                
+            }
+        }
+        $result .= '</table>';
+        if ($res == true)
+        {
+            $result = 'This room is available between ' . $startDate . ' and ' . $endDate . '.';
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+       /**
+     * Performs the AJAX validation.
+     * @param CModel the model to be validated
+     */
+    protected function performAjaxValidation($model)
+    {
+        if (isset($_POST['ajax']) && $_POST['ajax'] === 'SearchHotelTabForm')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }
+        
+        /*if (isset($_POST['ajax']) && $_POST['ajax'] === 'SearchFlightTabForm')
+        {
+            echo CActiveForm::validate($model);
+            Yii::app()->end();
+        }  */
     }
 
 }

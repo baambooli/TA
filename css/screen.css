@@ -237,6 +237,7 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 .clearfix, .container {display:block;}
 .clear {clear:both;}
 
+
 /* Kamran */
 .KContainer {
     width: 85em;
@@ -247,7 +248,7 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 .KContent {
     float: left;
-    width: 48em;
+    width: 51em;
     background-color: #ffffff;
     padding: 20px;
     margin: 15px;
@@ -256,7 +257,7 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 .KLeft {
     float: left;
-    width: 20em;
+    width: 17em;
     margin: 0;
     padding: 15px 0 0 0;
     color: #000000;
