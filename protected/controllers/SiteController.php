@@ -347,15 +347,12 @@ class SiteController extends Controller
         //$this->performAjaxValidation($modelSearchHotelForm);
         
         // send information for getting availability of the rooms
-        $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm, $result);
-
-        // send results to Ajax function
-        echo $result;
+        $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
 
         return $res;
     }
 
-    private function findRoomsWithCriteria($modelSearchHotelForm, &$roomIds)
+    private function findRoomsUsingCriteria($modelSearchHotelForm, &$roomIds)
     {
         $criteria = new CDbCriteria;
         $criteria->select = array('RoomId');
@@ -369,17 +366,15 @@ class SiteController extends Controller
         $roomIds = Search4EmptyRoomView::model()->findAll($criteria);
     }
     
-    public function checkAvailabilityOfRoom($modelSearchHotelForm, &$result)
+    private function checkAvailabilityOfRoom($modelSearchHotelForm)
     {
-        $result = '';
         $freeRoomIds = array();
         $roomIds = null;
         
-        $this->findRoomsWithCriteria ($modelSearchHotelForm, $roomIds);
+        $this->findRoomsUsingCriteria($modelSearchHotelForm, $roomIds);
         
         $startDate = $modelSearchHotelForm->checkinDate;
         $endDate = $modelSearchHotelForm->checkoutDate;
-        
         
         // for each room
         foreach ($roomIds as $key0 => $value0)
@@ -409,19 +404,19 @@ class SiteController extends Controller
             }
             // add free room to array
             if ($isFree)
-                $freeRoomIds[] = $roomIds[$key0]->RoomId.'<br>';    
+            {
+                $freeRoomIds[] = $roomIds[$key0]->RoomId;    
+            }
         }
         
-        if (count($freeRoomIds) > 0)
-        {
-            //$result = implode($freeRoomIds);
-            $result = $this->createResultTable($freeRoomIds); 
-        }
-        else
-        {
-            $result = 'Sorry, There is no empty room.';
-        }
-        return true;
+        $result = '';
+        $res = $this->createResultTable($freeRoomIds, $result);
+        
+        // send the results to ajax caller function
+        echo $result;
+        
+        // send the status of operation to ajax caller function
+        return $res;
     }
 
        /**
@@ -443,9 +438,48 @@ class SiteController extends Controller
         }  */
     }
     
-    private function createResultTable($freeRoomIds)
+    private function createResultTable($freeRoomIds, &$result)
     {
-        return implode($freeRoomIds);
-    }
+        $result ='';
+        
+        if (count($freeRoomIds) == 0)
+        {
+            $result = 'Sorry, There is no empty room.';
+            return true;
+        }
+         
+        // create the collection of RoomIds
+        $set = '(-1';
+        foreach ($freeRoomIds as $key => $value)
+        {
+             $set .= ', '.$freeRoomIds[$key];  
+        }
+        $set .= ')';
 
+        // get all rooms having the criteria        
+        $criteria= new CDbCriteria;
+        $criteria->select = array('RoomId', 'RoomNumber', 'CityName', 'HotelName', 
+            'HotelCategory', 'RoomType', 'PricePerDay', 'HotelTel');
+        $criteria->distinct = true;
+        $criteria->condition = " RoomId IN $set";
+        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        
+        // create output table
+        
+        $result  = '<table class="Ktable"><tr><td class="Ktd">';
+        $result .= 'City Name</td><td class="Ktd">Hotel Name</td><td class="Ktd">Hotel Category</td>';
+        $result .= '<td class="Ktd">Room Type</td><td class="Ktd">Price/day (CND)</td><td class="Ktd">';
+        $result .= 'Hotel Phone number</td></tr>';
+        
+        foreach ($rooms as $key => $value)
+        {
+            $result .= '<tr><td class="Ktd">'.$rooms[$key]->CityName.'</td><td class="Ktd">';
+            $result .= $rooms[$key]->HotelName.'</td><td class="Ktd">'.$rooms[$key]->HotelCategory.'</td>';
+            $result .= '<td class="Ktd">'.$rooms[$key]->RoomType.'</td><td class="Ktd">'.$rooms[$key]->PricePerDay.'</td><td class="Ktd">';
+            $result .= $rooms[$key]->HotelTel.'</td></tr>';  
+        }
+        
+        $result .= '</table>';
+        return true; 
+    }
 }
