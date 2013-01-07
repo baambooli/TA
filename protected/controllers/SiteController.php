@@ -465,17 +465,20 @@ class SiteController extends Controller
         $rooms = Search4EmptyRoomView::model()->findAll($criteria);
         
         // create output table
-        
-        $result  = '<table class="Ktable"><tr><td class="Ktd">';
-        $result .= 'City Name</td><td class="Ktd">Hotel Name</td><td class="Ktd">Hotel Category</td>';
-        $result .= '<td class="Ktd">Room Type</td><td class="Ktd">Price/day (CND)</td><td class="Ktd">';
+        $result = '<h1 style= "text-align: center"> Search results</h1><br>';
+        $result .= '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
+        $result .= 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
+        $result .= '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
         $result .= 'Hotel Phone number</td></tr>';
         
         foreach ($rooms as $key => $value)
         {
-            $result .= '<tr><td class="Ktd">'.$rooms[$key]->CityName.'</td><td class="Ktd">';
-            $result .= $rooms[$key]->HotelName.'</td><td class="Ktd">'.$rooms[$key]->HotelCategory.'</td>';
-            $result .= '<td class="Ktd">'.$rooms[$key]->RoomType.'</td><td class="Ktd">'.$rooms[$key]->PricePerDay.'</td><td class="Ktd">';
+            $result .= '<tr><td style= "padding: .3em; border: 1px #ccc solid;">'
+                .$rooms[$key]->CityName.'</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            $result .= $rooms[$key]->HotelName.'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+                .$rooms[$key]->HotelCategory.'</td>';
+            $result .= '<td style= "padding: .3em; border: 1px #ccc solid;">'.$rooms[$key]->RoomType.'</td><td style= "padding: .3em; border: 1px #ccc solid;">'.$rooms[$key]->PricePerDay.
+                '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
             $result .= $rooms[$key]->HotelTel.'</td></tr>';  
         }
         
