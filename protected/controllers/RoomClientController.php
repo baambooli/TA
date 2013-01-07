@@ -278,11 +278,11 @@ class RoomClientController extends RController
             $roomClients = RoomClient::model()->findAll('RoomId = :roomId', array(':roomId' => $roomId));
         }
 
-
         $result = '<table ><tr><td style="border: 1px solid black;">Fullname, Username</td>
             <td style="border: 1px solid black;">Status of room</td>
             <td style="border: 1px solid black;">Check in</td>
             <td style="border: 1px solid black;">Check out</td></tr>';
+  
         foreach ($roomClients as $key => $value)
         {
             $start = $roomClients[$key]->StartDate;

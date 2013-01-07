@@ -361,46 +361,57 @@ class SiteController extends Controller
         $result = '';
         $freeRoomIds = array();
         
+        DebugBreak();
+        
         $criteria = new CDbCriteria;
-        // just select those that are candidate to be empty at that interval
-        $criteria->condition = "(CheckinDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckinDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
-        $criteria->condition .= " AND (CheckoutDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckoutDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
-        $criteria->params = array(':checkinDate' => $modelSearchHotelForm->checkinDate, ':checkoutDate' => $modelSearchHotelForm->checkoutDate);
+        $criteria->select = array('RoomId');
+        $criteria->distinct = true;        
         //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
         $criteria->compare('CityName', $modelSearchHotelForm->cityName);
-        if (!empty($modelSearchHotelForm->category))
-            $criteria->compare('HotelCategory', $modelSearchHotelForm->category);
-        if (!empty($modelSearchHotelForm->roomType))
-            $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
-        // $criteria->compare('noOfRooms', $modelSearchHotelForm->noOfRooms,true);
+        $criteria->compare('HotelCategory', $modelSearchHotelForm->category);
+        $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
         
-        DebugBreak();
-        // get all rooms having the criteria        
-        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        // get all roomIds having the criteria        
+        $roomIds = Search4EmptyRoomView::model()->findAll($criteria);
         
         $startDate = $modelSearchHotelForm->checkinDate;
         $endDate = $modelSearchHotelForm->checkoutDate;
         
-        foreach ($rooms as $key => $value)
+        
+        // for each room
+        foreach ($roomIds as $key0 => $value0)
         {
-            $start = $rooms[$key]->CheckinDate;
-            $end = $rooms[$key]->CheckoutDate;
-            $status = $rooms[$key]->RoomStatus;
+            // find related records on Roomclient subtable or Search4EmptyRoomView
+            $roomReservations = Search4EmptyRoomView::model()->findAll(
+                'RoomId = :roomId', array(':roomId' => $roomIds[$key0]->RoomId));
+            
+            $isFree = true;
+            foreach ($roomReservations as $key => $value)
+            {
+                $start = $roomReservations[$key]->CheckinDate;
+                $end = $roomReservations[$key]->CheckoutDate;
+                //$status = $roomReservations[$key]->RoomStatus;
 
-            // check that the room is taken or not
-            if (! ((($startDate >= $start) && ($startDate <= $end))
+                // check that the room is taken or not in that interval
+                if ((($startDate >= $start) && ($startDate <= $end))
                     || (($endDate >= $start) && ($endDate <= $end))
                     || (($start >= $startDate) && ($start <= $endDate))
                     || (($end >= $startDate) && ($end <= $endDate))
-            ))
-            {
-                $freeRoomIds[] = $rooms->RoomId.'<br>'; 
+                )
+                {
+                    // room is taken
+                    $isFree = false;
+                    break;
+                }
             }
+            // add free room to array
+            if ($isFree)
+                $freeRoomIds[] = $roomIds[$key0]->RoomId.'<br>';    
         }
         
         if (count($freeRoomIds) > 0)
         {
-            $result = $freeRoomIds;
+            $result = implode($freeRoomIds);
         }
         else
         {
