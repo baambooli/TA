@@ -212,7 +212,7 @@
         result += '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
         result += 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
         result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-        result += 'Hotel Phone number</td></tr>';
+        result += 'Hotel Phone number</td><td style= "padding: .3em; border: 1px #ccc solid;">Room Id</td></tr>';
 
         for (var i = 0; i < data.length; i++)
         {
@@ -223,7 +223,9 @@
             result += '<td style= "padding: .3em; border: 1px #ccc solid;">' + data[i].RoomType + '</td><td style= "padding: .3em; border: 1px #ccc solid;">'
                     + data[i].PricePerDay +
                     '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            result += data[i].HotelTel + '</td></tr>';
+            result += data[i].HotelTel + '</td>';
+            result += '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            result += data[i].RoomId + '</td></tr>'; 
         }
 
         result += '</table>';
