@@ -150,7 +150,7 @@ class SearchHotelView extends CActiveRecord
         $criteria->compare('ClientUsername', $this->ClientUsername, true);
 
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
+            'criteria' => $criteria,
                 ));
     }
 
@@ -159,5 +159,4 @@ class SearchHotelView extends CActiveRecord
     {
         return 'RoomClientId';
     }
-
 }

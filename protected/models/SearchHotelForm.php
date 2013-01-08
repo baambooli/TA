@@ -13,11 +13,9 @@ Class SearchHotelForm extends CFormModel
     {
         return array(
             array('cityName, checkinDate, checkoutDate', 'required'),
-            array('category, roomType','safe'),  // for bunch assignment we need this line
-            array('cityName, checkinDate, checkoutDate, category, roomType', 'safe', 'on' =>'search'),
+            array('category, roomType', 'safe'), // for bunch assignment we need this line
+            array('cityName, checkinDate, checkoutDate, category, roomType', 'safe', 'on' => 'search'),
         );
-        
     }
-
 }
 ?>

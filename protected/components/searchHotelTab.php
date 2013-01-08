@@ -6,14 +6,14 @@
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
             dateFormat: 'yy/mm/dd', //date format
-            minDate : +0, //disable past days
+            minDate: +0, //disable past days
         });
         $("#datepickerCheckout").datepicker({
             changeMonth: true, //user can change month
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
             dateFormat: 'yy/mm/dd', //date format
-            minDate : +0, //disable past days
+            minDate: +0, //disable past days
         });
     });
 </script>
@@ -63,7 +63,7 @@
                 'model' => $modelHotel,
                 'attribute' => 'category',
                 'options' => array(
-                    'tags' => array('2','3','4','5'), //array('Two stars', 'Three stars', 'Four stars', 'Five stars'),
+                    'tags' => array('2', '3', '4', '5'), //array('Two stars', 'Three stars', 'Four stars', 'Five stars'),
                     'placeholder' => 'Category of Hotel',
                     'maximumSelectionSize' => '1', // just select one item
                     'width' => '217px;',
@@ -90,24 +90,24 @@
             ?>
         </div>
         <?php /*
-        <div>
-            Number of room(s):<br>
-            <?php
-            $this->widget('bootstrap.widgets.TbSelect2', array(
-                'asDropDownList' => false,
-                'model' => $modelHotel,
-                'attribute' => 'noOfRooms',
-                'options' => array(
-                    'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
-                    'placeholder' => 'Number of rooms',
-                    'maximumSelectionSize' => '1', // just select one item
-                    'width' => '217px;',
-                //'tokenSeparators' => array(',', ' ')
-                )
-            ));
-            ?>
-        </div>
-        */ ?>
+          <div>
+          Number of room(s):<br>
+          <?php
+          $this->widget('bootstrap.widgets.TbSelect2', array(
+          'asDropDownList' => false,
+          'model' => $modelHotel,
+          'attribute' => 'noOfRooms',
+          'options' => array(
+          'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
+          'placeholder' => 'Number of rooms',
+          'maximumSelectionSize' => '1', // just select one item
+          'width' => '217px;',
+          //'tokenSeparators' => array(',', ' ')
+          )
+          ));
+          ?>
+          </div>
+         */ ?>
         <!-- datepickers come here-->
         <div >
             Check in date:<br>
@@ -143,39 +143,39 @@
         <?php $this->endWidget(); ?>
     </div>
     <div class="well KContent" id="searchHotelResults">
-        right section................
+
     </div>
 </div>
 <script>
     function sendAjaxRequestSearchHotel()
     {
-        var cityName= $('#SearchHotelForm_cityName').val();
-        
-        if (cityName.trim()== '')
+        var cityName = $('#SearchHotelForm_cityName').val();
+
+        if (cityName.trim() == '')
         {
             alert('City name could not be empty.');
             return;
         }
-        
+
         var checkinDate = $('#datepickerCheckin').val();
         var checkoutDate = $('#datepickerCheckout').val();
-        
+
         if (checkinDate.length != 10)
         {
             alert('Bad checkin Date');
-            return; 
+            return;
         }
         if (checkoutDate.length != 10)
         {
             alert('Bad checkout Date');
-            return; 
+            return;
         }
         if (checkoutDate < checkinDate)
         {
             alert('Checkout date should be greater than or equal to checkin date+');
             return;
         }
-        
+
         var data = $('#SearchHotelTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
         // alert(urlAjax);
@@ -193,13 +193,13 @@
                 alert('Error occured. please try again');
             },
             dataType: 'json', // this is the type of data we are receiving
-                              // from the controller not the data we 
+                              // from the controller not the data we
                               // are sending to it
             timeout: 60000
         });
     }
-    
-    // creates an HTML table according to the json data 
+
+    // creates an HTML table according to the json data
     // that is received from the controller
     function showResults(data)
     {
@@ -213,20 +213,20 @@
         result += 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
         result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
         result += 'Hotel Phone number</td></tr>';
-        
-        for (var i=0; i< data.length; i++)
+
+        for (var i = 0; i < data.length; i++)
         {
             result += '<tr><td style= "padding: .3em; border: 1px #ccc solid;">'
-                +data[i].CityName+'</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            result += data[i].HotelName+'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
-                +data[i].HotelCategory+'</td>';
-            result += '<td style= "padding: .3em; border: 1px #ccc solid;">'+data[i].RoomType+'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
-                +data[i].PricePerDay+
-                '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            result += data[i].HotelTel+'</td></tr>';  
-        } 
-        
+                    + data[i].CityName + '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            result += data[i].HotelName + '</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+                    + data[i].HotelCategory + '</td>';
+            result += '<td style= "padding: .3em; border: 1px #ccc solid;">' + data[i].RoomType + '</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+                    + data[i].PricePerDay +
+                    '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            result += data[i].HotelTel + '</td></tr>';
+        }
+
         result += '</table>';
         return result;
-    } 
+    }
 </script>
