@@ -143,13 +143,21 @@
         <?php $this->endWidget(); ?>
     </div>
     <div class="well KContent" id="searchHotelResults">
-        right section................
+        <div  id="jqxgridSerachHotel">
+            <?php require_once('showSearchHotelResults.php');?>
+        </div>
     </div>
 </div>
 <script>
+
+    // on page load, hide grid, because there is no results to show
+    $(document).ready(function () { 
+        //$('#jqxgridSerachHotel').hide();
+    });
+    
     function sendAjaxRequestSearchHotel()
     {
-        var checkinDate = $('#datepickerCheckin').val();
+        /*var checkinDate = $('#datepickerCheckin').val();
         var checkoutDate = $('#datepickerCheckout').val();
         
         if (checkinDate.length != 10)
@@ -160,8 +168,10 @@
         {
             alert('Checkout date should be greater than or equal to checkin date.');
             return false;
-        }
+        }         */
         var data = $('#SearchHotelTabForm').serialize();
+        
+        
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
         // alert(urlAjax);
         $.ajax({
@@ -169,12 +179,15 @@
             url: urlAjax,
             data: data,
             success: function(data) {
-                //alert('success');
+                alert('success');
                 //alert(data);
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
                 // write new data on it (results of actionSearchHotel() function on siteController)
                 $('#searchHotelResults').append(data);
+                // show on grid
+                //showData(data);
+                
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again');

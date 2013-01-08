@@ -330,7 +330,11 @@ class SiteController extends Controller
 
     // Kamran
     public function actionSearchHotel()
-    {    
+    {   
+    //test 
+        echo '[{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Single","PricePerDay":"100","HotelTel":null},{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Double King","PricePerDay":"200","HotelTel":null},{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Triple","PricePerDay":"220","HotelTel":null}]';
+        return true;
+        
         $modelSearchHotelForm = new SearchHotelForm;
         $modelSearchHotelForm->attributes = $_POST['SearchHotelForm'];
         $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
@@ -410,11 +414,14 @@ class SiteController extends Controller
         }
         
         $result = '';
-        $res = $this->createResultTable($freeRoomIds, $result);
+        $res = $this->createResultTable2($freeRoomIds, $result);
         
         // send the results to ajax caller function
-        echo $result;
+        //echo $result;
         
+        // test 
+        
+        echo '[{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Single","PricePerDay":"100","HotelTel":null},{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Double King","PricePerDay":"200","HotelTel":null},{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Triple","PricePerDay":"220","HotelTel":null}]';
         // send the status of operation to ajax caller function
         return $res;
     }
@@ -486,8 +493,85 @@ class SiteController extends Controller
         return true; 
     }
     
+    private function createResultTable2($freeRoomIds, &$result)
+    {
+        $result ='';
+        if (count($freeRoomIds) == 0)
+        {
+            $result = 'Sorry, There is no empty room.';
+            return true;
+        }
+         
+        // create the collection of RoomIds
+        $set = '(-1';
+        foreach ($freeRoomIds as $key => $value)
+        {
+             $set .= ', '.$freeRoomIds[$key];  
+        }
+        $set .= ')';
+
+        // get all rooms having the criteria        
+        $criteria= new CDbCriteria;
+        $criteria->select = array('RoomId', 'RoomNumber', 'CityName', 'HotelName', 
+            'HotelCategory', 'RoomType', 'PricePerDay', 'HotelTel');
+        $criteria->distinct = true;
+        $criteria->condition = " RoomId IN $set";
+        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        
+        // create output table in as array
+        
+        foreach ($rooms as $key => $value)
+        {
+            $result[] = array(
+                'CityName' => $rooms[$key]->CityName,
+                'HotleName' => $rooms[$key]->HotelName,
+                'RoomType' => $rooms[$key]->RoomType,
+                'PricePerDay' => $rooms[$key]->PricePerDay,
+                'HotelTel' => $rooms[$key]->HotelTel
+            );  
+        }
+
+        // convert array to json
+        $result = json_encode($result);
+        return true; 
+    }
+    
     public function actionIndex2()
     {
         $this->render('index2');
+    }
+    
+    public function actionIndex3()
+    {
+        
+        $model = new SearchHotelForm();
+        $modelHotel = new SearchHotelForm();
+
+        // load name of cities
+        $cities = City::model()->findAll();
+        foreach ($cities as $key => $value)
+        {
+            $citiesName[] = $cities[$key]->Name;
+        }
+
+        // load roomTypes
+        $roomTypes1 = RoomType::model()->findAll();
+        foreach ($roomTypes1 as $key => $value)
+        {
+            $roomTypes[] = $roomTypes1[$key]->Name;
+        }
+
+        $this->render('index3', array('modelHotel' => $modelHotel,
+            'model' => $model,
+            'citiesName' => $citiesName,
+            'roomTypes' => $roomTypes,
+        ));
+    }
+    
+    public function actionGetCities()
+    {   
+    //test 
+        echo '[{"CityName":"montreal","HotleName":"Hotel1","RoomType":"Single","PricePerDay":"100","HotelTel":null},{"CityName":"montreal2","HotleName":"Hotel1","RoomType":"Double King","PricePerDay":"200","HotelTel":null},{"CityName":"montreal3","HotleName":"Hotel1","RoomType":"Triple","PricePerDay":"220","HotelTel":null}]';
+        return true;
     }
 }
