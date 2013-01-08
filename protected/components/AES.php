@@ -13,7 +13,7 @@ class AES
             $key = hash('MD5', $key, true);
         $padding = 16 - (strlen($data) % 16);
         $data .= str_repeat(chr($padding), $padding);
-        return mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16));
+        return base64_encode(mcrypt_encrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16)));
     }
 
     public static function aes256Encrypt($key, $data)
@@ -27,6 +27,7 @@ class AES
 
     public static function aes128Decrypt($key, $data)
     {
+        $data = base64_decode($data);
         if (16 !== strlen($key))
             $key = hash('MD5', $key, true);
         $data = mcrypt_decrypt(MCRYPT_RIJNDAEL_128, $key, $data, MCRYPT_MODE_CBC, str_repeat("\0", 16));

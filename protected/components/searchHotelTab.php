@@ -158,7 +158,7 @@
             alert('Bad checkout Date');
         if (checkoutDate < checkinDate)
         {
-            alert('Checkout date should be greater than or equal to checkin date.');
+            alert('Checkout date should be greater than or equal to checkin date+');
             return false;
         }
         var data = $('#SearchHotelTabForm').serialize();
@@ -169,19 +169,49 @@
             url: urlAjax,
             data: data,
             success: function(data) {
-                //alert('success');
-                //alert(data);
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
                 // write new data on it (results of actionSearchHotel() function on siteController)
-                $('#searchHotelResults').append(data);
+                $('#searchHotelResults').append(showResults(data));
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again');
-                //alert(data);
             },
-            dataType: 'html',
+            dataType: 'json', // this is the type of data we are receiving
+                              // from the controller not the data we 
+                              // are sending to it
             timeout: 60000
         });
     }
+    
+    // creates an HTML table according to the json data 
+    // that is received from the controller
+    function showResults(data)
+    {
+        if (data[0].RoomId == 'NOT FOUND')
+        {
+            return '<h1 style= "text-align: center"> Sorry, there is not any result.</h1>';
+        }
+        // create output table
+        var result = '<h1 style= "text-align: center"> Search results</h1><br>';
+        result += '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
+        result += 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
+        result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+        result += 'Hotel Phone number</td></tr>';
+        
+        for (var i=0; i< data.length; i++)
+        {
+            result += '<tr><td style= "padding: .3em; border: 1px #ccc solid;">'
+                +data[i].CityName+'</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            result += data[i].HotelName+'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+                +data[i].HotelCategory+'</td>';
+            result += '<td style= "padding: .3em; border: 1px #ccc solid;">'+data[i].RoomType+'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+                +data[i].PricePerDay+
+                '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            result += data[i].HotelTel+'</td></tr>';  
+        } 
+        
+        result += '</table>';
+        return result;
+    } 
 </script>
