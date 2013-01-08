@@ -412,6 +412,7 @@ class SiteController extends Controller
         $result = '';
         $res = $this->createResultTable($freeRoomIds, $result);
         
+        DebugBreak();
         // send the results to ajax caller function
         echo $result;
         
@@ -419,32 +420,14 @@ class SiteController extends Controller
         return $res;
     }
 
-       /**
-     * Performs the AJAX validation.
-     * @param CModel the model to be validated
-     */
-    protected function performAjaxValidation($model)
-    {
-        if (isset($_POST['ajax']) && $_POST['ajax'] === 'SearchHotelTabForm')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }
-        
-        /*if (isset($_POST['ajax']) && $_POST['ajax'] === 'SearchFlightTabForm')
-        {
-            echo CActiveForm::validate($model);
-            Yii::app()->end();
-        }  */
-    }
-    
     private function createResultTable($freeRoomIds, &$result)
     {
         $result ='';
-        
         if (count($freeRoomIds) == 0)
         {
-            $result = 'Sorry, There is no empty room.';
+            $result[0] =  array('RoomId' => 'NOT FOUND');  
+            $result = json_encode($result);
+            
             return true;
         }
          
@@ -464,25 +447,23 @@ class SiteController extends Controller
         $criteria->condition = " RoomId IN $set";
         $rooms = Search4EmptyRoomView::model()->findAll($criteria);
         
-        // create output table
-        $result = '<h1 style= "text-align: center"> Search results</h1><br>';
-        $result .= '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
-        $result .= 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
-        $result .= '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-        $result .= 'Hotel Phone number</td></tr>';
+        // create output table in as array
         
         foreach ($rooms as $key => $value)
         {
-            $result .= '<tr><td style= "padding: .3em; border: 1px #ccc solid;">'
-                .$rooms[$key]->CityName.'</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            $result .= $rooms[$key]->HotelName.'</td><td style= "padding: .3em; border: 1px #ccc solid;">'
-                .$rooms[$key]->HotelCategory.'</td>';
-            $result .= '<td style= "padding: .3em; border: 1px #ccc solid;">'.$rooms[$key]->RoomType.'</td><td style= "padding: .3em; border: 1px #ccc solid;">'.$rooms[$key]->PricePerDay.
-                '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            $result .= $rooms[$key]->HotelTel.'</td></tr>';  
+            $result[] = array(
+                'RoomId' => $rooms[$key]->RoomId,
+                'CityName' => $rooms[$key]->CityName,
+                'HotleName' => $rooms[$key]->HotelName,
+                'RoomType' => $rooms[$key]->RoomType,
+                'PricePerDay' => $rooms[$key]->PricePerDay,
+                'HotelTel' => $rooms[$key]->HotelTel
+            );  
         }
-        
-        $result .= '</table>';
+
+        // convert array to json
+        $result = json_encode($result);
         return true; 
     }
+    
 }
