@@ -149,18 +149,33 @@
 <script>
     function sendAjaxRequestSearchHotel()
     {
+        var cityName= $('#SearchHotelForm_cityName').val();
+        
+        if (cityName.trim()== '')
+        {
+            alert('City name could not be empty.');
+            return;
+        }
+        
         var checkinDate = $('#datepickerCheckin').val();
         var checkoutDate = $('#datepickerCheckout').val();
         
         if (checkinDate.length != 10)
+        {
             alert('Bad checkin Date');
+            return; 
+        }
         if (checkoutDate.length != 10)
+        {
             alert('Bad checkout Date');
+            return; 
+        }
         if (checkoutDate < checkinDate)
         {
             alert('Checkout date should be greater than or equal to checkin date+');
-            return false;
+            return;
         }
+        
         var data = $('#SearchHotelTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
         // alert(urlAjax);

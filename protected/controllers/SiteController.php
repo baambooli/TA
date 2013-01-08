@@ -412,7 +412,6 @@ class SiteController extends Controller
         $result = '';
         $res = $this->createResultTable($freeRoomIds, $result);
         
-        DebugBreak();
         // send the results to ajax caller function
         echo $result;
         
@@ -425,7 +424,7 @@ class SiteController extends Controller
         $result ='';
         if (count($freeRoomIds) == 0)
         {
-            $result[0] =  array('RoomId' => 'NOT FOUND');  
+            $result[0] = array('RoomId' => 'NOT FOUND');  
             $result = json_encode($result);
             
             return true;
