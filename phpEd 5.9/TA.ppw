@@ -5,13 +5,7 @@ ActiveProject=G:\GitHub\travelagency\phpEd 5.9\TA_prj.ppj
 [Expanded]
 TA=1
 TA:TA_prj=1
-TA:TA_prj:css=1
 TA:TA_prj:protected=1
-TA:TA_prj:protected:components=1
-TA:TA_prj:protected:controllers=1
-TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:search4EmptyRoomView=1
-TA:TA_prj:themes=1
-TA:TA_prj:themes:cheese=1
-TA:TA_prj:themes:cheese:css=1
-TA:TA_prj:themes:kamran_theme1=1
+TA:TA_prj:protected:config=1
+TA:TA_prj:protected:extensions=1
+TA:TA_prj:protected:extensions:jqwidgets-ver2.6.0=1

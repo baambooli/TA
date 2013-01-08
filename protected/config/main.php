@@ -52,19 +52,24 @@ return array(
             'class' => 'RDbAuthManager', // Provides support authorization item sorting.
         ),
         // enable APC cache
+        /*
         'cache' => array(
             'class' => 'system.caching.CApcCache',
         ),
-        // uncomment the following to enable URLs in path-format
-        /* 'urlManager' => array(
-          'urlFormat' => 'path',
-          'rules' => array(
-          'commentfeed' => array('comment/feed', 'urlSuffix' => '.xml', 'caseSensitive' => false),
-          '<pid:\d+>/commentfeed' => array('comment/feed', 'urlSuffix' => '.xml', 'caseSensitive' => false),
-          ),
-          'showScriptName' => false,
-          ),
          */
+         
+        //make url(s) in search engine friendly way(kamran)
+        // this works on vagrant machine with 'showScriptName'=>false;
+        // but on XAMPP on win7  we should put 'showScriptName'=>true;
+        'urlManager'=>array(
+            'urlFormat'=>'path',
+            'rules'=>array(
+                    'commentfeed'=>array('comment/feed', 'urlSuffix'=>'.xml', 'caseSensitive'=>false),
+                    '<pid:\d+>/commentfeed'=>array('comment/feed', 'urlSuffix'=>'.xml', 'caseSensitive'=>false),
+            ), 
+            'showScriptName'=>true,   
+        ),
+                
         // Yii booster
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',

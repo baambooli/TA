@@ -485,4 +485,9 @@ class SiteController extends Controller
         $result .= '</table>';
         return true; 
     }
+    
+    public function actionIndex2()
+    {
+        $this->render('index2');
+    }
 }

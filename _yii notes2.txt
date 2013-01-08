@@ -1379,12 +1379,14 @@ or
 		
 78- some global variables in yii
 
-		Yii::app()->homeUrl
-		Yii::app()->user->isGuest)
-		Yii::app()->user->name
-		Yii::app()->user->id
-		Yii::app()->request->baseUrl  //base url
-		Yii::app()->theme->baseUrl
+		Yii::app()->homeUrl           ---->/index.php
+		Yii::app()->user->isGuest     ---->1
+		Yii::app()->user->name        ---->Guest
+		Yii::app()->user->id          ---->
+		Yii::app()->request->baseUrl  ---->
+		Yii::app()->theme->baseUrl    ---->/themes/kamran_theme1
+		Yii::app()->createAbsoluteUrl('') ---->http://kamran.dev.travelagancy.com:81/index.php
+		Yii::app()->basePath         ---->G:\GitHub\travelagency\protected 
 
 
 79- an example of findByAttributes()
@@ -3430,13 +3432,15 @@ or
 
 147- some global variables in yii
 
-		Yii::app()->homeUrl
-		Yii::app()->user->isGuest)
-		Yii::app()->user->name
-		Yii::app()->user->id
-		Yii::app()->request->baseUrl  //base url
-		Yii::app()->theme->baseUrl
-		Yii::app()->request->createAbsoluteUrl('/site/index')
+		Yii::app()->homeUrl           ---->/index.php
+		Yii::app()->user->isGuest     ---->1
+		Yii::app()->user->name        ---->Guest
+		Yii::app()->user->id          ---->
+		Yii::app()->request->baseUrl  ---->
+		Yii::app()->theme->baseUrl    ---->/themes/kamran_theme1
+		Yii::app()->createAbsoluteUrl('hotel/admin') ---->http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin
+		Yii::app()->basePath          ---->G:\GitHub\travelagency\protected 
+		Yii::app()->baseUrl           ---->
 		
 		
 		
@@ -3659,7 +3663,9 @@ or
 			</script>
 
 			
-151- netbeans and javascript debugging
+151- Javascript debugging and Netbeans or PhpEd
+	
+	netbeans and javascript debugging
 
 	My advice is to ignore the Netbeans JS debugger and just use Firebug. It's 
 	annoying not to be able to do all your debugging from Netbeans, but the Netbeans 
@@ -3672,9 +3678,266 @@ or
 	when firefox is focused and select reload, the source of web page will be reload on the firebug. now you can
 	put breakpoints on the lines you like and do single step inside firefox
 	
+	NOTE: this method can be used with PhpEd too.
+
+
+152- when we see in bunch assignments like
 	
+			$searchHotelForm->attributes = $_POST['SearchHotelForm']
+		
+		some attributes NEVER be assigned to correct values, we should define them as safe in the rules function of model class
+		
+			 public function rules()
+			{
+				return array(
+					....
+					array('category, roomType', 'safe'),
+					....
+				);
+			}
+		
+		
+		
+153- the way to write a criteria with some conditions and sql injection safe
+
+		example 1:
+		
+			$criteria = new CDbCriteria;
+			$schedule_run = new schedule_run;
+			$criteria->condition = "1 ";
+			if(isset($_POST['sch_script']))
+			{
+				$criteria->condition .= " AND sch_script like :input_script";
+				$criteria->params = array_merge($criteria->params,array(":input_script"=>"%".$_POST['sch_script']."%"));
+			}
+			if(isset($_GET['sch_stat']))
+			{
+				$criteria->condition .= " AND sch_stat like :input_stat";
+				$criteria->params = array_merge($criteria->params,array(":input_script"=>"%".$_GET['sch_stat']."%"));
+			}
+
+			if (!isset($_GET['sort']))
+			{
+				$criteria->order = "schrun_start desc";
+			} 
+		
+		example 2:
+		
+			$criteria = new CDbCriteria;
+			// just select those that are candidate to be empty at that interval
+			$criteria->condition = "(CheckinDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckinDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
+			$criteria->condition .= " AND (CheckoutDate < str_to_date(:checkinDate, '%Y-%m-%d') AND CheckoutDate > str_to_date(:checkoutDate, '%Y-%m-%d'))";
+			$criteria->params = array(':checkinDate' => $searchHotelForm->checkinDate, ':checkoutDate' => $searchHotelForm->checkoutDate);
+			
+			//NOTE: $criteria->compare: Adds a comparison expression to the condition property.
+			$criteria->compare('CityName', $searchHotelForm->cityName);
+			if (!empty($searchHotelForm->category))
+				$criteria->compare('HotelCategory', $searchHotelForm->category);
+			if (!empty($searchHotelForm->roomType))
+				$criteria->compare('RoomType', $searchHotelForm->roomType);
+			// $criteria->compare('noOfRooms', $searchHotelForm->noOfRooms);
+			
+			$criteria->order = "RoomId desc";
+			
+			$roomClients = Search4EmptyRoomView::model()->findAll($criteria);
+
+		example3:
+		
+			$set = '(-1';
+			foreach ($freeRoomIds as $key => $value)
+			{
+				 $set .= ', '.$freeRoomIds[$key];  
+			}
+			$set .= ')';
+		
+			$criteria= new CDbCriteria;
+			$criteria->select = array('RoomId', 'RoomNumber', 'HotelName', 
+				'HotelCategory', 'RoomType', 'PricePerDay', 'HotelAddress');
+			$criteria->distinct = true;
+			$criteria->condition = " RoomId IN $set";
+			$rooms = Search4EmptyRoomView::model()->findAll($criteria);
+			
+			
+		
+154- 	To include a css file that is in the webroot/css directory, put this in the view file:
+
+			<?php Yii::app()->clientScript->registerCssFile(Yii::app()->baseUrl.'/css/some-file.css'); ?>
+			
+		Or for JS file in the  webroot/js directory, put this in the view file:
+
+			<?php Yii::app()->clientScript->registerScriptFile(Yii::app()->baseUrl.'/js/some-file.js');?>
+	
+		as another example : for registering an external js or css file on Yii, on the top of caller view (e.g. index.php) we should write
+
+		<?php
+			// for js file -->  registerScriptFile
+		   Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/jqwidgets-ver2.6.0/jqwidgets/jqxcore.js'
+		   );
+		   Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/jqwidgets-ver2.6.0/jqwidgets/jqxdata.js'
+		   );
+		   Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/jqwidgets-ver2.6.0/scripts/jquery-1.8.2.min.js'
+		   );
+		   Yii::app()->clientScript->registerScriptFile(
+				Yii::app()->baseUrl.'/jqwidgets-ver2.6.0/jqwidgets/generatedata.js'
+		   );
+		   
+		   // for css file    --> registerCssFile
+		   Yii::app()->clientScript->registerCssFile(
+				Yii::app()->baseUrl.'/jqwidgets-ver2.6.0/styles/jqx.base.css'
+		   );
+		   
+		?>
+		
+		as third example: we can define a function in the controller class like:
+		
+			/**
+			* Registers the necessary scripts.
+			*/
+			public function registerScripts()
+			{
+				// Get the url to the assets
+				$assetsUrl = $this->getAssetsUrl();
+
+				// Register the necessary scripts
+				$cs = Yii::app()->getClientScript();
+				$cs->registerCoreScript('jquery');
+				$cs->registerCoreScript('jquery.ui');
+				$cs->registerScriptFile($assetsUrl.'/js/rights.js');
+				$cs->registerCssFile($assetsUrl.'/css/core.css');
+
+				// Make sure we want to register a style sheet.
+				if( $this->cssFile!==false )
+				{
+					// Default style sheet is used unless one is provided.
+					if( $this->cssFile===null )
+						$this->cssFile = $assetsUrl.'/css/default.css';
+					else
+						$this->cssFile = Yii::app()->request->baseUrl.$this->cssFile;
+
+					// Register the style sheet
+					$cs->registerCssFile($this->cssFile);
+				}
+			}
+			
+		and call this function on init() function of controllers
+		
+			public function init()
+			{
+				// do some initialization
+
+				// Register the scripts
+				$this->registerScripts();
+				
+				// maybe we need this too
+				parent::init();
+			}
+		
+155- 	but in the theme this method is used by Yii
+
+			<head>
+				<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+				<meta name="language" content="en" />
+
+				<!-- blueprint CSS framework -->
+				<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/screen.css" media="screen, projection" />
+				<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/print.css" media="print" />
+				<!--[if lt IE 8]>
+				<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/ie.css" media="screen, projection" />
+				<![endif]-->
+
+				<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/main.css" />
+				<link rel="stylesheet" type="text/css" href="<?php echo Yii::app()->theme->baseUrl; ?>/css/form.css" />
+
+				<title><?php echo CHtml::encode($this->pageTitle); ?></title>
+			</head>
+			
+			so when I did like this i really could use jqwidjet 2.6.0 on the view file ( e.g. index.php) . it is obvious that jqwidget-ver2.6.0
+			is in the webroot folder.  --> very important
+			
+			ALL of lines in the index.php file are (first copy generatedata.js file into /jqwidgets-ver2.6.0/jqwidgets/ folder):
+			
+				<title id='Description'>This example illustrates the Grid filtering feature. Enter some data into the Filter Row.</title>
+				<link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/styles/jqx.base.css" type="text/css" />
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/scripts/jquery-1.8.2.min.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxcore.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxdata.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxbuttons.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxscrollbar.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxlistbox.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxdropdownlist.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxmenu.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.filter.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.sort.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.selection.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxpanel.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxcalendar.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxdatetimeinput.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxcheckbox.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/globalization/jquery.global.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/scripts/gettheme.js"></script>
+				<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/generatedata.js"></script>
+				<script type="text/javascript">
+				
+					$(document).ready(function () {
+						var theme = getTheme();
+
+						var data = generatedata(500);
+						var source =
+						{
+							localdata: data,
+							datafields:
+							[
+								{ name: 'name', type: 'string' },
+								{ name: 'productname', type: 'string' },
+								{ name: 'available', type: 'bool' },
+								{ name: 'date', type: 'date'},
+								{ name: 'quantity', type: 'number' }
+							],
+							datatype: "array"
+						};
+
+						var dataAdapter = new $.jqx.dataAdapter(source);
+
+						$("#jqxgrid").jqxGrid(
+						{
+							width: 685,
+							source: dataAdapter,
+							showfilterrow: true,
+							filterable: true,
+							theme: theme,
+							selectionmode: 'multiplecellsextended',
+							columns: [
+							  { text: 'Name', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'name', width: 115 },
+							  {
+								  text: 'Product', filtertype: 'checkedlist', datafield: 'productname', width: 220
+							  },
+							  { text: 'Available', datafield: 'available', columntype: 'checkbox', filtertype: 'bool', width: 67 },
+							  { text: 'Ship Date', datafield: 'date', filtertype: 'date', width: 210, cellsalign: 'right', cellsformat: 'd' },
+							  { text: 'Qty.', datafield: 'quantity', filtertype: 'number',  cellsalign: 'right' }
+							]
+						});
+						$('#clearfilteringbutton').jqxButton({ height: 25, theme: theme });
+						$('#clearfilteringbutton').click(function () {
+							$("#jqxgrid").jqxGrid('clearfilters');
+						});
+					});
+				</script>
+				<div id="jqxgrid">
+				</div>
+				<input style="margin-top: 10px;" value="Remove Filter" id="clearfilteringbutton" type="button" />
 
 
-
+		
+		
+156- 
+		
+		
+		
+		
+		
 		
 Kamran
