@@ -1,14 +1,14 @@
 <!-- datepicker function call-->
 <script>
     $(function() {
-        $("#datepickerCheckin").datepicker({
+        $('#datepickerCheckin').datepicker({
             changeMonth: true, //user can change month
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
             dateFormat: 'yy/mm/dd', //date format
             minDate: +0, //disable past days
         });
-        $("#datepickerCheckout").datepicker({
+        $('#datepickerCheckout').datepicker({
             changeMonth: true, //user can change month
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
@@ -31,9 +31,9 @@
             'htmlOptions' => array(
                 'class' => 'well',
                 /* Disable normal form submit */
-                'onsubmit' => "return false;",
+                'onsubmit' => 'return false;',
                 /* Do ajax call when user presses enter key */
-                'onkeypress' => " if(event.keyCode == 13){ sendAjaxRequestSearchHotel(); } "
+                'onkeypress' => ' if(event.keyCode == 13){ sendAjaxRequestSearchHotel(); } '
             ),
                 ));
         ?>
@@ -179,6 +179,9 @@
         var data = $('#SearchHotelTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
         // alert(urlAjax);
+        // change the caption of button
+        $('#submit').val('Please wait...');
+        
         $.ajax({
             type: 'POST',
             url: urlAjax,
@@ -186,11 +189,18 @@
             success: function(data) {
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
+                
                 // write new data on it (results of actionSearchHotel() function on siteController)
                 $('#searchHotelResults').append(showResults(data));
+                
+                // restore the caption of button
+                $('#submit').val('Search Hotel');
             },
             error: function(data) { // if error occured
-                alert('Error occured. please try again');
+                alert('Error occured. please try again.');
+                
+                // restore the caption of button
+                $('#submit').val('Search Hotel');
             },
             dataType: 'json', // this is the type of data we are receiving
                               // from the controller not the data we
