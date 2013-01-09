@@ -461,4 +461,14 @@ class SiteController extends Controller
         $result = json_encode($result);
         return true;
     }
+    
+    public function actionReserveRooms()
+    {
+        $getParams= explode(';',$_GET['params']); 
+        $checkinDate= str_replace('-','/',$getParams[0]);
+        $checkoutDate= str_replace('-','/',$getParams[1]);
+        $rooms = explode(',',$getParams[2]);
+        DebugBreak();
+    }
+    
 }

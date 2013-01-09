@@ -235,7 +235,7 @@
             result += '<td style="padding: .3em; border: 1px #ccc solid;">' + data[i].RoomType + '</td><td style="padding: .3em; border: 1px #ccc solid;">'
                     + data[i].PricePerDay + '</td>';
             result += '<td style="padding: .3em; border: 1px #ccc solid;">';
-            result += '<input type="checkbox" id="id_' + data[i].RoomId + '" value="' + data[i].RoomId + '"></td></tr>'; 
+            result += '<input type="checkbox" name="reserveRoom" " value="' + data[i].RoomId + '"></td></tr>'; 
         }
 
         result += '</table><br><br>';
@@ -247,15 +247,86 @@
         }
         else
         {
-          result += '<div class="KOuterDiv"> <div class="KCenter"> <input class="ui-button ui-widget ui-state-default ui-corner-all" id="submit" name="submit" type="button" value="Reserve selected room(s)" onclick="reserveRooms();" /></div></div>';      
+          result += '<div class="KOuterDiv"> <div class="KCenter"> <input class="ui-button ui-widget ui-state-default ui-corner-all" id="reserveRoom" name="reserveRoom" type="button" value="Reserve selected room(s)" onclick="reserveRoomsUsingAjax();" /></div></div>';      
         } 
         
         return result; 
     }
     
-    function reserveRooms()
+    function reserveRoomsUsingAjax()
     {
-        alert('hi2');
+        // find all checkboxes
+        var selectedRooms = '';
+        $('input:checkbox[name=reserveRoom]:checked').each(function () {
+             selectedRooms +=  $(this).val() + ',';
+        });
+        
+        if (selectedRooms == '')
+        {
+            alert('you should select at least one room.');
+            return;
+        }
+        
+        var checkinDate = $('#datepickerCheckin').val();
+        var checkoutDate = $('#datepickerCheckout').val();
+        
+        // convert '/' to '-' character to avoid problems in url
+        // each time just ONE replacement happens
+        checkinDate = checkinDate.replace('/','-');
+        checkinDate = checkinDate.replace('/','-');
+        checkoutDate = checkoutDate.replace('/','-');
+        checkoutDate = checkoutDate.replace('/','-');
+
+        if (checkinDate.length != 10)
+        {
+            alert('Bad checkin Date.');
+            return;
+        }
+        if (checkoutDate.length != 10)
+        {
+            alert('Bad checkout Date.');
+            return;
+        }
+        if (checkoutDate < checkinDate)
+        {
+            alert('Checkout date should be greater than or equal to checkin date+');
+            return;
+        }
+        
+        var getData = 'params=' + checkinDate + ';'+ checkoutDate + ';'+ selectedRooms;
+        var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/reserveRooms'); ?>';
+        
+        // change the button caption
+        $('#reserveRoom').val('Sending, Please wait...');
+        
+        // send Ajax request
+        $.ajax({
+            type: 'GET',
+            url: urlAjax,
+            data: getData,
+            success: function(data) {
+                // change the text on the screen with id = searchHotelResults
+                $('#searchHotelResults').text('');  //clear div
+                
+                alert('data');
+                $('#searchHotelResults').append('reservation datails....');
+                
+                // hide the button
+                $('#reserveRoom').hide();
+                
+            },
+            error: function(data) { // if error occured
+                alert('Error occured. please try again.');
+                
+                // show the button
+                $('#reserveRoom').val('Reserve selected room(s)');
+            },
+            dataType: 'json', // this is the type of data we are receiving
+                              // from the controller not the data we
+                              // are sending to it
+            timeout: 60000
+        });
+        
     }
     
 </script>

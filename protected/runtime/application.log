@@ -1619,3 +1619,49 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/searchHotel
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
 ---
+2013/01/09 19:17:28 [error] [php] Undefined index: sDate (G:\GitHub\travelagency\protected\controllers\SiteController.php:468)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&/sDate/2013-01-09/eDate/2013-01-31/rooms/7,16,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:17:57 [error] [php] Undefined index: sDate (G:\GitHub\travelagency\protected\controllers\SiteController.php:469)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&/sDate/2013-01-09/eDate/2013-01-31/rooms/7,16,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (469)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:20:08 [error] [php] explode() expects parameter 2 to be string, array given (G:\GitHub\travelagency\protected\controllers\SiteController.php:468)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&/sDate/2013-01-09/eDate/2013-01-31/rooms/7,16,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:25:52 [error] [php] explode() expects parameter 2 to be string, array given (G:\GitHub\travelagency\protected\controllers\SiteController.php:468)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&params=2013-01-09;2013-01-31;7,4,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
+in g:\GitHub\travelagency\index.php (13)
