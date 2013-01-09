@@ -212,7 +212,7 @@
         result += '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
         result += 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
         result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-        result += 'Hotel Phone number</td><td style= "padding: .3em; border: 1px #ccc solid;">Room Id</td></tr>';
+        result += 'Hotel Phone number</td><td style= "padding: .3em; border: 1px #ccc solid;">Reserve</td></tr>';
 
         for (var i = 0; i < data.length; i++)
         {
@@ -225,7 +225,7 @@
                     '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
             result += data[i].HotelTel + '</td>';
             result += '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            result += data[i].RoomId + '</td></tr>'; 
+            result += '<input type="checkbox" id="id_' + data[i].RoomId + '" value="' + data[i].RoomId + '"></td></tr>'; 
         }
 
         result += '</table>';

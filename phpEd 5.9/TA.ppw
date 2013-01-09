@@ -9,5 +9,6 @@ TA:TA_prj:protected=1
 TA:TA_prj:protected:components=1
 TA:TA_prj:protected:config=1
 TA:TA_prj:protected:extensions=1
+TA:TA_prj:protected:modules=1
 TA:TA_prj:protected:views=1
 TA:TA_prj:protected:views:site=1
