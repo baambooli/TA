@@ -504,11 +504,42 @@ class SiteController extends Controller
         }
         
         $result[] = array(
-            'result' => '<h3>Your reservation request saved successfully.</h3>'
+            'result' => '<h3>Your reservation request(s) saved successfully.</h3>'
         );
         
         echo json_encode($result);
         return true;
+    }
+    
+    public function actionShowMyHotelReservations()
+    {
+        // first check the client is authorized or not
+        if (Yii::app()->user->isGuest)
+        {
+            $result = 'You are not an authorized user. So you cannot reserve a room.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+        }
+
+        // get clientId
+        $clientId = Client::model()->find('UserId = :userId', 
+            array(':userId' => Yii::app()->user->id))->Id;
+            
+        $modelSearchHotelView = new SearchHotelView('searchMyHoelReservations');
+        $modelSearchHotelView->unsetAttributes();  // clear any default values
+        
+        // just show information of loggen in user
+        $modelSearchHotelView->searchMyHoelReservations($clientId);
+        
+        if (isset($_GET['SearchHotelView']))
+            $modelSearchHotelView->attributes = $_GET['SearchHotelView'];
+
+        $this->render('myHotelReservation', array(
+            'modelSearchHotelView' => $modelSearchHotelView, 
+            'clientId' => $clientId,
+        ));
+
+            
     }
     
 }

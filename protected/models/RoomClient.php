@@ -47,7 +47,8 @@ class RoomClient extends CActiveRecord
             array('RoomId, ClientId', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, RoomId, ClientId, StartDate, EndDate', 'safe', 'on' => 'search'),
+            array('Id, RoomId, ClientId, StartDate, EndDate, Status', 'safe', 
+            'on' => 'search'),
         );
     }
 
@@ -93,13 +94,15 @@ class RoomClient extends CActiveRecord
         $criteria->compare('ClientId', $this->ClientId);
         $criteria->compare('StartDate', $this->StartDate, true);
         $criteria->compare('EndDate', $this->EndDate, true);
-
+        $criteria->compare('Status', $this->Status, true);
+        
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
                 ));
     }
 
     // Kamran
+   
     public function getStatus()
     {
         return array(

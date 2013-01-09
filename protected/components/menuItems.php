@@ -34,8 +34,10 @@
             // show 'User info' menu to NONE guest users
             array('label' => 'User info', 'visible' => $visibility['Authenticated'],
                 'items' => array(
-                    array('label' => 'Change my email/pass', 'url' => array('/user/updateMyself/id/' . Yii::app()->user->id)),
-                    array('label' => 'Change my info', 'url' => array('/client/updateMyself/id/' . Yii::app()->user->id)),
+                    array('label' => 'Change my email/pass', 'url' => array('/user/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label' => 'Change my info', 'url' => array('/client/updateMyself/id/'.Yii::app()->user->id)),
+                    array('label' => 'Hotel reservations', 'url' => array('/site/showMyHotelReservations')),
+                    array('label' => 'Flight reservations', 'url' => array('/site/showMyFlightReservations')),
                 ),
             ),
 
