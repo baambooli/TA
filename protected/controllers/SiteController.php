@@ -447,6 +447,7 @@ class SiteController extends Controller
         {
             $result[] = array(
                 'RoomId' => $rooms[$key]->RoomId,
+                'RoomNumber' => $rooms[$key]->RoomNumber,
                 'CityName' => $rooms[$key]->CityName,
                 'HotelName' => $rooms[$key]->HotelName,
                 'HotelCategory' => $rooms[$key]->HotelCategory,

@@ -208,23 +208,23 @@
             return '<h1 style= "text-align: center"> Sorry, there is not any result.</h1>';
         }
         // create output table
-        var result = '<h1 style= "text-align: center"> Search results</h1><br>';
-        result += '<table class="Ktable"><tr><td style= "padding: .3em; border: 1px #ccc solid;">';
-        result += 'City Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style= "padding: .3em; border: 1px #ccc solid;">Hotel Category</td>';
-        result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style= "padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-        result += 'Hotel Phone number</td><td style= "padding: .3em; border: 1px #ccc solid;">Reserve</td></tr>';
+        var result = '<h1 style= "text-align: center"> Search Results</h1><br>';
+        result += '<table class="Ktable"><tr><td style="padding: .3em; border: 1px #ccc solid;">';
+        result += 'Room #</td><td style="padding: .3em; border: 1px #ccc solid;">City Name</td><td style="padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style="padding: .3em; border: 1px #ccc solid;">Category</td>';
+        result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style="padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td>';
+        result += '<td style= "padding: .3em; border: 1px #ccc solid;">Reserve</td></tr>';
 
         for (var i = 0; i < data.length; i++)
         {
-            result += '<tr><td style= "padding: .3em; border: 1px #ccc solid;">'
-                    + data[i].CityName + '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            result += data[i].HotelName + '</td><td style= "padding: .3em; border: 1px #ccc solid;">'
+            result += '<tr><td style="padding: .3em; border: 1px #ccc solid;">'
+                    + data[i].RoomNumber + '</td>';
+            result += '<td style="padding: .3em; border: 1px #ccc solid;">'
+                    + data[i].CityName + '</td><td style="padding: .3em; border: 1px #ccc solid;">';
+            result += data[i].HotelName + '</td><td style="padding: .3em; border: 1px #ccc solid;">'
                     + data[i].HotelCategory + '</td>';
-            result += '<td style= "padding: .3em; border: 1px #ccc solid;">' + data[i].RoomType + '</td><td style= "padding: .3em; border: 1px #ccc solid;">'
-                    + data[i].PricePerDay +
-                    '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
-            result += data[i].HotelTel + '</td>';
-            result += '</td><td style= "padding: .3em; border: 1px #ccc solid;">';
+            result += '<td style="padding: .3em; border: 1px #ccc solid;">' + data[i].RoomType + '</td><td style="padding: .3em; border: 1px #ccc solid;">'
+                    + data[i].PricePerDay + '</td>';
+            result += '<td style="padding: .3em; border: 1px #ccc solid;">';
             result += '<input type="checkbox" id="id_' + data[i].RoomId + '" value="' + data[i].RoomId + '"></td></tr>'; 
         }
 
