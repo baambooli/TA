@@ -16,7 +16,10 @@
  */
 class RoomClient extends CActiveRecord
 {
-
+    const RESERVED = 'Reserved';
+    const CANCELATION_REQUEST = 'Cancelation Request';
+    const RESERVATION_REQUEST = 'Reservation Request';
+    
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -106,9 +109,9 @@ class RoomClient extends CActiveRecord
     public function getStatus()
     {
         return array(
-            'Reserved' => 'Reserved',
-            'Reservation Request' => 'Reservation Request',
-            'Cancelation Request' => 'Cancelation Request',
+            self::RESERVED => self::RESERVED,
+            self::CANCELATION_REQUEST => self::CANCELATION_REQUEST,
+            self::RESERVATION_REQUEST => self::RESERVATION_REQUEST,
         );
     }
     

@@ -506,7 +506,7 @@ class SiteController extends Controller
             $roomClient = new RoomClient();
             $roomClient->ClientId = $clientId;
             $roomClient->RoomId = $rooms[$key];
-            $roomClient->Status = 'Reservation Request';
+            $roomClient->Status = RoomClient::RESERVATION_REQUEST;
             $roomClient->StartDate = $checkinDate;
             $roomClient->EndDate = $checkoutDate;
             if(!$roomClient->save())
@@ -611,13 +611,13 @@ class SiteController extends Controller
             return;
         }
         
-        if ($roomClient->Status != 'Cancelation Request')
+        if ($roomClient->Status != RoomClient::CANCELATION_REQUEST)
         {
-            $roomClient->Status = 'Cancelation Request';
+            $roomClient->Status = RoomClient::CANCELATION_REQUEST;
         }   
-        else if ($roomClient->Status == 'Cancelation Request')
+        else if ($roomClient->Status == RoomClient::CANCELATION_REQUEST)
         {
-            $roomClient->Status = 'Reservation Request';
+            $roomClient->Status = RoomClient::RESERVATION_REQUEST;
         }
         
         if (!$roomClient->save())
