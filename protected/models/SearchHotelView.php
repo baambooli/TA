@@ -70,7 +70,7 @@ class SearchHotelView extends CActiveRecord
             array('ClientEmail, ClientUsername', 'length', 'max' => 256),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('CountryName, CityName, HotelName, HotelCategory, HotelTel, HotelFax, HotelAddress, HotelEmail, HotelImage, RoomNumber, RoomTel, RoomType, RoomCapacity, RoomClientId, StartDate, EndDate, Status, ClientName, ClientFamily, ClientBirthDay, ClientAddress, ClientTel, ClientEmail, ClientUsername', 'safe', 'on' => 'search'),
+            array('CountryName, CityName, HotelName, ClientId, HotelCategory, HotelTel, HotelFax, HotelAddress, HotelEmail, HotelImage, RoomNumber, RoomTel, RoomType, RoomCapacity, RoomClientId, StartDate, EndDate, Status, ClientName, ClientFamily, ClientBirthDay, ClientAddress, ClientTel, ClientEmail, ClientUsername', 'safe', 'on' => 'search'),
         );
     }
 
@@ -115,6 +115,7 @@ class SearchHotelView extends CActiveRecord
             'ClientTel' => 'Client Tel',
             'ClientEmail' => 'Client Email',
             'ClientUsername' => 'Client Username',
+            'ClientId' => 'ClientId',
         );
     }
 
@@ -150,14 +151,51 @@ class SearchHotelView extends CActiveRecord
         $criteria->compare('ClientUsername', $this->ClientUsername, true);
 
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
+            'criteria' => $criteria,
                 ));
     }
 
+    // kamran
+    
+     public function searchMyHoelReservations($clientId)
+    {
+        // Warning: Please modify the following code to remove attributes that
+        // should not be searched.
+        $criteria = new CDbCriteria;
+
+        // just show the logged in user info
+        $criteria->condition = "ClientId = $clientId";
+         
+        $criteria->compare('HotelName', $this->HotelName, true);
+        $criteria->compare('HotelCategory', $this->HotelCategory);
+        $criteria->compare('HotelTel', $this->HotelTel, true);
+        $criteria->compare('HotelFax', $this->HotelFax, true);
+        $criteria->compare('HotelAddress', $this->HotelAddress, true);
+        $criteria->compare('HotelEmail', $this->HotelEmail, true);
+        $criteria->compare('HotelImage', $this->HotelImage, true);
+        $criteria->compare('RoomNumber', $this->RoomNumber, true);
+        $criteria->compare('RoomTel', $this->RoomTel, true);
+        $criteria->compare('RoomClientId', $this->RoomClientId);
+        
+        $criteria->compare('StartDate', $this->StartDate, true);
+        $criteria->compare('EndDate', $this->EndDate, true);
+        $criteria->compare('Status', $this->Status, true);
+        $criteria->compare('ClientName', $this->ClientName, true);
+        $criteria->compare('ClientFamily', $this->ClientFamily, true);
+        $criteria->compare('ClientBirthDay', $this->ClientBirthDay, true);
+        $criteria->compare('ClientAddress', $this->ClientAddress, true);
+        $criteria->compare('ClientTel', $this->ClientTel, true);
+        $criteria->compare('ClientEmail', $this->ClientEmail, true);
+        $criteria->compare('ClientUsername', $this->ClientUsername, true);
+
+        return new CActiveDataProvider($this, array(
+            'criteria' => $criteria,
+                ));
+    }
+    
     // primary key of view
     Public function primaryKey()
     {
         return 'RoomClientId';
     }
-
 }
