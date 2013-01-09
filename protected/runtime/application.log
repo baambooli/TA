@@ -1619,3 +1619,115 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/searchHotel
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
 ---
+2013/01/09 19:17:28 [error] [php] Undefined index: sDate (G:\GitHub\travelagency\protected\controllers\SiteController.php:468)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&/sDate/2013-01-09/eDate/2013-01-31/rooms/7,16,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:17:57 [error] [php] Undefined index: sDate (G:\GitHub\travelagency\protected\controllers\SiteController.php:469)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&/sDate/2013-01-09/eDate/2013-01-31/rooms/7,16,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (469)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:20:08 [error] [php] explode() expects parameter 2 to be string, array given (G:\GitHub\travelagency\protected\controllers\SiteController.php:468)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&/sDate/2013-01-09/eDate/2013-01-31/rooms/7,16,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:25:52 [error] [php] explode() expects parameter 2 to be string, array given (G:\GitHub\travelagency\protected\controllers\SiteController.php:468)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#2 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/reserveRooms&params=2013-01-09;2013-01-31;7,4,
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:47:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in G:\GitHub\yii\framework\web\CController.php:336
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('reserveRooms')
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/reserveRoo...')
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=site/reserveRooms&params=2013/01/09;2013/01/31;7,4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2013/01/09 19:49:38 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in G:\GitHub\yii\framework\web\CController.php:336
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('reserveRooms')
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/reserveRoo...')
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=site/reserveRooms&params=2013/01/09;2013/01/31;7,4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2013/01/09 23:06:30 [error] [php] Use of undefined constant Cancel - assumed 'Cancel' (G:\GitHub\yii\framework\base\CComponent.php(606) : eval()'d code:1)
+Stack trace:
+#0 G:\GitHub\yii\framework\zii\widgets\grid\CGridColumn.php(144): CLinkColumn->renderDataCellContent()
+#1 G:\GitHub\yii\framework\zii\widgets\grid\CGridView.php(589): CLinkColumn->renderDataCell()
+#2 G:\GitHub\yii\framework\zii\widgets\grid\CGridView.php(545): TbGridView->renderTableRow()
+#3 G:\GitHub\yii\framework\zii\widgets\grid\CGridView.php(455): TbGridView->renderTableBody()
+#4 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(160): TbGridView->renderItems()
+#5 unknown(0): TbGridView->renderSection()
+#6 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(143): preg_replace_callback()
+#7 G:\GitHub\yii\framework\zii\widgets\CBaseListView.php(128): TbGridView->renderContent()
+#8 G:\GitHub\yii\framework\web\CBaseController.php(173): TbGridView->run()
+#9 G:\GitHub\travelagency\protected\views\site\myHotelReservation.php(46): SiteController->widget()
+#10 G:\GitHub\yii\framework\web\CBaseController.php(126): require()
+#11 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#12 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#13 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#14 G:\GitHub\travelagency\protected\controllers\SiteController.php(540): SiteController->render()
+#15 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionShowMyHotelReservations()
+#16 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#17 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#18 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#21 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/showMyHotelReservations
+in G:\GitHub\travelagency\protected\views\site\myHotelReservation.php (46)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (540)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/09 23:09:22 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "cancelMyRoomReservation".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('cancelMyRoomRes...')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('cancelMyRoomRes...')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/cancelMyRo...')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/cancelMyRoomReservation/id/25
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/showMyHotelReservations
+---

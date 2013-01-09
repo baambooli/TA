@@ -13,7 +13,6 @@ class RoomClientController extends RController
         // if our class extends a class, we need this line too
         parent::init();
     }
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -282,18 +281,18 @@ class RoomClientController extends RController
             <td style="border: 1px solid black;">Status of room</td>
             <td style="border: 1px solid black;">Check in</td>
             <td style="border: 1px solid black;">Check out</td></tr>';
-  
+
         foreach ($roomClients as $key => $value)
         {
             $start = $roomClients[$key]->StartDate;
             $end = $roomClients[$key]->EndDate;
             $status = $roomClients[$key]->Status;
-            
+
             // check that the room is taken or not
-            if ((($startDate >= $start) && ($startDate <= $end))
-                    || (($endDate >= $start) && ($endDate <= $end))
-                    || (($start >= $startDate) && ($start <= $endDate))
-                    || (($end >= $startDate) && ($end <= $endDate))
+            if ((($startDate >= $start) && ($startDate <= $end)) || 
+                (($endDate >= $start) && ($endDate <= $end)) || 
+                (($start >= $startDate) && ($start <= $endDate)) || 
+                (($end >= $startDate) && ($end <= $endDate))
             )
             {
 
@@ -302,14 +301,14 @@ class RoomClientController extends RController
                                 findByPk($clientId)->FullName;
 
                 $result .= '<tr><td style="border: 1px solid black;"> ' .
-                             $clientFullName . '</td><td style="border: 1px solid black;">' .
-                             $status . '</td><td style="border: 1px solid black;">' . 
-                             $start . '</td><td style="border: 1px solid black;">' . $end.'</td></tr>';
+                        $clientFullName . '</td><td style="border: 1px solid black;">' .
+                        $status . '</td><td style="border: 1px solid black;">' .
+                        $start . '</td><td style="border: 1px solid black;">' . $end . '</td></tr>';
 
                 $res = false;
             }
         }
-        $result .= '</table>'; 
+        $result .= '</table>';
         if ($res == true)
         {
             $result = 'This room is available between ' . $startDate . ' and ' . $endDate . '.';
@@ -333,7 +332,7 @@ class RoomClientController extends RController
         }
 
         if (!empty($_POST['RoomClient']['StartDate']))
-            $start = $_POST['RoomClient']['StartDate'];
+            $start = str_replace('/' ,'-', $_POST['RoomClient']['StartDate']);
         else
         {
             echo 'some of the input fields are empty. select all of the fields on screen';
@@ -341,7 +340,7 @@ class RoomClientController extends RController
         }
 
         if (!empty($_POST['RoomClient']['EndDate']))
-            $end = $_POST['RoomClient']['EndDate'];
+            $end = str_replace('/' ,'-', $_POST['RoomClient']['EndDate']);
         else
         {
             echo 'some of the input fields are empty. select all of the fields on screen';
@@ -364,5 +363,4 @@ class RoomClientController extends RController
 
         return $res;
     }
-
 }
