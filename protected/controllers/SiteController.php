@@ -208,6 +208,14 @@ class SiteController extends Controller
 
                 // set a default country
                 $countryId = Country::model()->find()->Id;
+                if (empty($countryId))
+                {
+                    $result = '<h3>No data is found for this country.</h3>';
+                    Yii::app()->user->setFlash('error',$result);
+                    $this->render('confirm');
+                    return;
+                }
+        
                 $client->CountryId = $countryId;
                 if (!$client->save())
                 {
@@ -481,8 +489,16 @@ class SiteController extends Controller
         }
 
         // get clientId
-        $clientId = Client::model()->find('UserId = :userId', 
-            array(':userId' => Yii::app()->user->id))->Id;
+        $client = Client::model()->find('UserId = :userId', 
+            array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+            return;
+        }
+        $clientId = $client->Id;
         
         // Reserve the rooms
         foreach ($rooms as $key => $value)
@@ -519,12 +535,21 @@ class SiteController extends Controller
             $result = 'You are not an authorized user. So you cannot reserve a room.</h3>';
             Yii::app()->user->setFlash('error',$result);
             $this->render('confirm');
+            return; 
         }
 
         // get clientId
-        $clientId = Client::model()->find('UserId = :userId', 
-            array(':userId' => Yii::app()->user->id))->Id;
-            
+        $client = Client::model()->find('UserId = :userId', 
+            array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+            return;
+        }
+        $clientId = $client->Id;
+        
         $modelSearchHotelView = new SearchHotelView('searchMyHoelReservations');
         $modelSearchHotelView->unsetAttributes();  // clear any default values
         
@@ -547,37 +572,62 @@ class SiteController extends Controller
         // check that this roomClientId is related to current user or not
         if (Yii::app()->user->isGuest)
         {
-            $result = 'You are not an authorized user. So you cannot reserve a room.</h3>';
+            $result = '<h3>You are not an authorized user. So you cannot reserve a room.</h3>';
             Yii::app()->user->setFlash('error',$result);
             $this->render('confirm');
+            return; 
         }
 
-        // get clientId of logged in user
-        $clientId = Client::model()->find('UserId = :userId', 
-            array(':userId' => Yii::app()->user->id))->Id;
-            
+        // get clientId
+        $client = Client::model()->find('UserId = :userId', 
+            array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+            return;
+        }
+        $clientId = $client->Id;
+               
         // get clientId related to the submitted reservation
         
         $roomClient = RoomClient::model()->find(' Id = :roomClientId',
             array(':roomClientId' => $roomClientId));
             
+        if (empty($roomClient))
+        {
+            $result = '<h3>No data is found for this room.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+            return;
+        }
+            
         if ($roomClient->ClientId != $clientId)
         {
-            $result = 'You are not allowed to change data that is not related to you.</h3>';
+            $result = '<h3>You are not allowed to change data that is not related to you.</h3>';
             Yii::app()->user->setFlash('error',$result);
             $this->render('confirm');
+            return;
         }
         
-        $roomClient->Status = 'Cancelation Request';
+        if ($roomClient->Status != 'Cancelation Request')
+        {
+            $roomClient->Status = 'Cancelation Request';
+        }   
+        else if ($roomClient->Status == 'Cancelation Request')
+        {
+            $roomClient->Status = 'Reservation Request';
+        }
+        
         if (!$roomClient->save())
         {
-            $result = '<h3> error in canceling your reservation.</h3>';
+            $result = '<h3> Error in canceling your reservation.</h3>';
             Yii::app()->user->setFlash('error',$result);
             $this->render('confirm');
+            return; 
         }
         
          $this->actionShowMyHotelReservations();
-        
     }
-    
 }

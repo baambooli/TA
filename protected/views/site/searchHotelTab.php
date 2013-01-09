@@ -324,7 +324,6 @@
                               // are sending to it
             timeout: 60000
         });
-        
     }
     
 </script>

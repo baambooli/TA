@@ -1731,3 +1731,14 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/cancelMyRoomReservation/id/25
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=site/showMyHotelReservations
 ---
+2013/01/09 23:49:50 [error] [php] Trying to get property of non-object (G:\GitHub\travelagency\protected\controllers\SiteController.php:566)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/cancelMyRoomReservation/id/1969
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (566)
+in g:\GitHub\travelagency\index.php (13)

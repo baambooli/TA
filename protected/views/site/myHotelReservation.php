@@ -29,7 +29,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         array(
             'class'=>'CLinkColumn',
             // create a sortable header for column
-            'header'=>'Cancel',
+            'header'=>'Cancel/Reserve',
             // label that user will see
             'labelExpression'=>'$data->RoomClientId',
             // url of the link
