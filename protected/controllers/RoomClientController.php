@@ -289,7 +289,10 @@ class RoomClientController extends RController
             $status = $roomClients[$key]->Status;
 
             // check that the room is taken or not
-            if ((($startDate >= $start) && ($startDate <= $end)) || (($endDate >= $start) && ($endDate <= $end)) || (($start >= $startDate) && ($start <= $endDate)) || (($end >= $startDate) && ($end <= $endDate))
+            if ((($startDate >= $start) && ($startDate <= $end)) || 
+                (($endDate >= $start) && ($endDate <= $end)) || 
+                (($start >= $startDate) && ($start <= $endDate)) || 
+                (($end >= $startDate) && ($end <= $endDate))
             )
             {
 
@@ -329,7 +332,7 @@ class RoomClientController extends RController
         }
 
         if (!empty($_POST['RoomClient']['StartDate']))
-            $start = $_POST['RoomClient']['StartDate'];
+            $start = str_replace('/' ,'-', $_POST['RoomClient']['StartDate']);
         else
         {
             echo 'some of the input fields are empty. select all of the fields on screen';
@@ -337,7 +340,7 @@ class RoomClientController extends RController
         }
 
         if (!empty($_POST['RoomClient']['EndDate']))
-            $end = $_POST['RoomClient']['EndDate'];
+            $end = str_replace('/' ,'-', $_POST['RoomClient']['EndDate']);
         else
         {
             echo 'some of the input fields are empty. select all of the fields on screen';

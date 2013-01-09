@@ -1665,3 +1665,29 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/reserveRooms&params=2013-01-09;2013-01-31;7,4,
 in G:\GitHub\travelagency\protected\controllers\SiteController.php (468)
 in g:\GitHub\travelagency\index.php (13)
+2013/01/09 19:47:18 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in G:\GitHub\yii\framework\web\CController.php:336
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('reserveRooms')
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/reserveRoo...')
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=site/reserveRooms&params=2013/01/09;2013/01/31;7,4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2013/01/09 19:49:38 [error] [exception.CHttpException.400] exception 'CHttpException' with message 'Your request is invalid.' in G:\GitHub\yii\framework\web\CController.php:336
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(309): CController->invalidActionParams(Object(CInlineAction))
+#1 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#2 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('reserveRooms')
+#4 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/reserveRoo...')
+#5 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#6 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#7 {main}
+REQUEST_URI=/index.php?r=site/reserveRooms&params=2013/01/09;2013/01/31;7,4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---

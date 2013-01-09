@@ -257,6 +257,7 @@
     {
         // find all checkboxes
         var selectedRooms = '';
+
         $('input:checkbox[name=reserveRoom]:checked').each(function () {
              selectedRooms +=  $(this).val() + ',';
         });
@@ -267,16 +268,13 @@
             return;
         }
         
+        // delete the last ','
+        var strLen = selectedRooms.length;
+        selectedRooms = selectedRooms.slice(0, strLen-1);
+        
         var checkinDate = $('#datepickerCheckin').val();
         var checkoutDate = $('#datepickerCheckout').val();
         
-        // convert '/' to '-' character to avoid problems in url
-        // each time just ONE replacement happens
-        checkinDate = checkinDate.replace('/','-');
-        checkinDate = checkinDate.replace('/','-');
-        checkoutDate = checkoutDate.replace('/','-');
-        checkoutDate = checkoutDate.replace('/','-');
-
         if (checkinDate.length != 10)
         {
             alert('Bad checkin Date.');
@@ -308,8 +306,8 @@
                 // change the text on the screen with id = searchHotelResults
                 $('#searchHotelResults').text('');  //clear div
                 
-                alert('data');
-                $('#searchHotelResults').append('reservation datails....');
+                //alert(data[0].result);
+                $('#searchHotelResults').append(data[0].result);
                 
                 // hide the button
                 $('#reserveRoom').hide();
@@ -317,7 +315,7 @@
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');
-                
+
                 // show the button
                 $('#reserveRoom').val('Reserve selected room(s)');
             },

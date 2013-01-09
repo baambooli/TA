@@ -372,8 +372,8 @@ class SiteController extends Controller
 
         $this->findRoomsUsingCriteria($modelSearchHotelForm, $roomIds);
 
-        $startDate = $modelSearchHotelForm->checkinDate;
-        $endDate = $modelSearchHotelForm->checkoutDate;
+        $startDate = str_replace('/' ,'-', $modelSearchHotelForm->checkinDate);
+        $endDate = str_replace('/' ,'-', $modelSearchHotelForm->checkoutDate);
 
         // for each room
         foreach ($roomIds as $key0 => $value0)
@@ -464,11 +464,51 @@ class SiteController extends Controller
     
     public function actionReserveRooms()
     {
-        $getParams= explode(';',$_GET['params']); 
-        $checkinDate= str_replace('-','/',$getParams[0]);
-        $checkoutDate= str_replace('-','/',$getParams[1]);
-        $rooms = explode(',',$getParams[2]);
-        DebugBreak();
+        // extract data from get parameters
+        $getParams = explode(';', $_GET['params']); 
+        $checkinDate = $getParams[0];
+        $checkoutDate = $getParams[1];
+        $rooms = explode(',', $getParams[2]);
+        
+        // first check the client is authorized
+        if (Yii::app()->user->isGuest)
+        {
+            $result[] = array(
+                'result' => '<h3>You are not an authorized user. So you cannot reserve a room.</h3>'
+            );
+            echo json_encode($result);
+            return true;
+        }
+
+        // get clientId
+        $clientId = Client::model()->find('UserId = :userId', 
+            array(':userId' => Yii::app()->user->id))->Id;
+        
+        // Reserve the rooms
+        foreach ($rooms as $key => $value)
+        {
+            $roomClient = new RoomClient();
+            $roomClient->ClientId = $clientId;
+            $roomClient->RoomId = $rooms[$key];
+            $roomClient->Status = 'Reservation Request';
+            $roomClient->StartDate = $checkinDate;
+            $roomClient->EndDate = $checkoutDate;
+            if(!$roomClient->save())
+            {
+                $result[] = array(
+                    'result' => '<h3>Error in saving data.</h3>'
+                );
+                echo json_encode($result);
+                return true;
+            }
+        }
+        
+        $result[] = array(
+            'result' => '<h3>Your reservation request saved successfully.</h3>'
+        );
+        
+        echo json_encode($result);
+        return true;
     }
     
 }
