@@ -538,8 +538,46 @@ class SiteController extends Controller
             'modelSearchHotelView' => $modelSearchHotelView, 
             'clientId' => $clientId,
         ));
+    }
+    
+    public function actionCancelMyRoomReservation()
+    {
+        $roomClientId = $_GET['id'];
 
+        // check that this roomClientId is related to current user or not
+        if (Yii::app()->user->isGuest)
+        {
+            $result = 'You are not an authorized user. So you cannot reserve a room.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+        }
+
+        // get clientId of logged in user
+        $clientId = Client::model()->find('UserId = :userId', 
+            array(':userId' => Yii::app()->user->id))->Id;
             
+        // get clientId related to the submitted reservation
+        
+        $roomClient = RoomClient::model()->find(' Id = :roomClientId',
+            array(':roomClientId' => $roomClientId));
+            
+        if ($roomClient->ClientId != $clientId)
+        {
+            $result = 'You are not allowed to change data that is not related to you.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+        }
+        
+        $roomClient->Status = 'Cancelation Request';
+        if (!$roomClient->save())
+        {
+            $result = '<h3> error in canceling your reservation.</h3>';
+            Yii::app()->user->setFlash('error',$result);
+            $this->render('confirm');
+        }
+        
+         $this->actionShowMyHotelReservations();
+        
     }
     
 }

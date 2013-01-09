@@ -215,7 +215,7 @@
     {
         if (data[0].RoomId == 'NOT FOUND')
         {
-            return '<h1 style= "text-align: center"> Sorry, there is not any result.</h1>';
+            return '<h3 style= "text-align: center"> Sorry, there is not any room available.</h3>';
         }
         // create output table
         var result = '<h1 style= "text-align: center"> Search Results</h1><br>';
