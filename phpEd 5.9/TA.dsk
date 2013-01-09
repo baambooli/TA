@@ -16,7 +16,7 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\components\AES.php
+File0=D:\xampp\htdocs\TA\protected\models\RoomClient.php
 IsActive0=0
 ZIndex2=2
 File1=D:\xampp\htdocs\TA\protected\views\site\searchHotelTab.php

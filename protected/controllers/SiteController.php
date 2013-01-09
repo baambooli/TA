@@ -453,7 +453,7 @@ class SiteController extends Controller
                 'HotelCategory' => $rooms[$key]->HotelCategory,
                 'RoomType' => $rooms[$key]->RoomType,
                 'PricePerDay' => $rooms[$key]->PricePerDay,
-                'HotelTel' => $rooms[$key]->HotelTel
+                //'HotelTel' => $rooms[$key]->HotelTel
             );
         }
 

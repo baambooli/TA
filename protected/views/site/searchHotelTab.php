@@ -110,11 +110,11 @@
          */ ?>
         <!-- datepickers come here-->
         <div >
-            Check in date:<br>
+            Checkin date:<br>
             <input type="text" name="datepickerCheckin" id="datepickerCheckin" />
         </div>
         <div >
-            Check out date:<br>
+            Checkout date:<br>
             <input type="text" name="datepickerCheckout" id="datepickerCheckout"  />
         </div>
         <!-- end of datepickers -->
@@ -162,12 +162,12 @@
 
         if (checkinDate.length != 10)
         {
-            alert('Bad checkin Date');
+            alert('Bad checkin Date.');
             return;
         }
         if (checkoutDate.length != 10)
         {
-            alert('Bad checkout Date');
+            alert('Bad checkout Date.');
             return;
         }
         if (checkoutDate < checkinDate)
@@ -238,7 +238,24 @@
             result += '<input type="checkbox" id="id_' + data[i].RoomId + '" value="' + data[i].RoomId + '"></td></tr>'; 
         }
 
-        result += '</table>';
-        return result;
+        result += '</table><br><br>';
+        
+        if ('<?php echo Yii::app()->user->isGuest;?>')
+        {
+            result += 'You are not loggen in. To reserve the hotel you should login to website.';
+            result += ' Click <a href="<?php echo Yii::app()->createAbsoluteUrl('site/login');?>" >here</a> to login.';
+        }
+        else
+        {
+          result += '<div class="KOuterDiv"> <div class="KCenter"> <input class="ui-button ui-widget ui-state-default ui-corner-all" id="submit" name="submit" type="button" value="Reserve selected room(s)" onclick="reserveRooms();" /></div></div>';      
+        } 
+        
+        return result; 
     }
+    
+    function reserveRooms()
+    {
+        alert('hi2');
+    }
+    
 </script>
