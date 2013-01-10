@@ -348,44 +348,44 @@ class SiteController extends Controller
             // but we need to show an error message on screen
             // so we should return 'true'
         }
-        // Uncomment the following line if AJAX validation is needed
-        //$this->performAjaxValidation($modelSearchHotelForm);
+
         // send information for getting availability of the rooms
         $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
 
         return $res;
     }
 
-    private function findRoomsUsingCriteria($modelSearchHotelForm, &$roomIds)
+    private function findRoomsUsingCriteria($modelSearchHotelForm, &$rooms)
     {
         $criteria = new CDbCriteria;
         $criteria->select = array('RoomId');
         $criteria->distinct = true;
+        
         //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
-        $criteria->compare('CityName', $modelSearchHotelForm->cityName);
-        $criteria->compare('HotelCategory', $modelSearchHotelForm->category);
-        $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
+        $criteria->compare('CityName', $modelSearchHotelForm->cityName, true);
+        $criteria->compare('HotelCategory', $modelSearchHotelForm->category, true);
+        $criteria->compare('RoomType', $modelSearchHotelForm->roomType, true);
 
-        // get all roomIds having the criteria
-        $roomIds = Search4EmptyRoomView::model()->findAll($criteria);
+        // get all roomIds having the criteria in ClientRoom table
+        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
     }
 
     private function checkAvailabilityOfRoom($modelSearchHotelForm)
     {
         $freeRoomIds = array();
-        $roomIds = null;
+        $rooms = null;
 
-        $this->findRoomsUsingCriteria($modelSearchHotelForm, $roomIds);
+        $this->findRoomsUsingCriteria($modelSearchHotelForm, $rooms);
 
         $startDate = str_replace('/' ,'-', $modelSearchHotelForm->checkinDate);
         $endDate = str_replace('/' ,'-', $modelSearchHotelForm->checkoutDate);
 
         // for each room
-        foreach ($roomIds as $key0 => $value0)
-        {
+        foreach ($rooms as $key0 => $value0)
+        {                 
             // find related records on Roomclient subtable or Search4EmptyRoomView
             $roomReservations = Search4EmptyRoomView::model()->findAll(
-                    'RoomId = :roomId', array(':roomId' => $roomIds[$key0]->RoomId));
+                    'RoomId = :roomId', array(':roomId' => $rooms[$key0]->RoomId));
 
             $isFree = true;
             foreach ($roomReservations as $key => $value)
@@ -405,9 +405,13 @@ class SiteController extends Controller
             // add free room to array
             if ($isFree)
             {
-                $freeRoomIds[] = $roomIds[$key0]->RoomId;
+                $freeRoomIds[] = $rooms[$key0]->RoomId;
             }
         }
+        
+        // we should find all the rooms that have never come in ClientRoom
+        // table to and append them to $freeRoomIds
+        NeverUsedRoomsView::model()->addUnusedRooms($modelSearchHotelForm, $freeRoomIds);
 
         $result = '';
         $res = $this->createResultTable($freeRoomIds, $result);
@@ -444,7 +448,7 @@ class SiteController extends Controller
             'HotelCategory', 'RoomType', 'PricePerDay', 'HotelTel');
         $criteria->distinct = true;
         $criteria->condition = " RoomId IN $set";
-        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        $rooms = NeverUsedRoomsView::model()->findAll($criteria);
 
         // create output table in as array
 

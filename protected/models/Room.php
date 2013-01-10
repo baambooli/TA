@@ -141,5 +141,4 @@ class Room extends CActiveRecord
         $roomTypeName = RoomType::model()->findByPK($id)->Name;
         return $roomTypeName;
     }
-
 }
