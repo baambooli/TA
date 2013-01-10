@@ -1742,3 +1742,20 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/cancelMyRoomReservation/id/1969
 in G:\GitHub\travelagency\protected\controllers\SiteController.php (566)
 in g:\GitHub\travelagency\index.php (13)
+2013/01/10 02:06:54 [error] [exception.CException] exception 'CException' with message 'CAssetManager.basePath "g:\GitHub\travelagency\assets" is invalid. Please make sure the directory exists and is writable by the Web server process.' in G:\GitHub\yii\framework\web\CAssetManager.php:138
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CAssetManager.php(123): CAssetManager->setBasePath('g:\GitHub\trave...')
+#1 G:\GitHub\yii\framework\web\CAssetManager.php(217): CAssetManager->getBasePath()
+#2 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(458): CAssetManager->publish('G:\GitHub\trave...', false, -1, true)
+#3 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(163): Bootstrap->getAssetsUrl()
+#4 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(124): Bootstrap->registerAssetCss('bootstrap.css')
+#5 G:\GitHub\travelagency\protected\extensions\bootstrap\components\Bootstrap.php(102): Bootstrap->registerCoreCss()
+#6 G:\GitHub\yii\framework\base\CModule.php(387): Bootstrap->init()
+#7 G:\GitHub\yii\framework\base\CModule.php(523): CModule->getComponent('bootstrap')
+#8 G:\GitHub\yii\framework\base\CApplication.php(152): CModule->preloadComponents()
+#9 G:\GitHub\yii\framework\YiiBase.php(125): CApplication->__construct('g:\GitHub\trave...')
+#10 G:\GitHub\yii\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'g:\GitHub\trave...')
+#11 g:\GitHub\travelagency\index.php(13): YiiBase::createWebApplication('g:\GitHub\trave...')
+#12 {main}
+REQUEST_URI=/
+---
