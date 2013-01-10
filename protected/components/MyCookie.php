@@ -23,5 +23,4 @@ class MyCookie extends CWebUser
     {
         unset(Yii::app()->request->cookies[$name]);
     }
-
 }

@@ -76,7 +76,7 @@
         ));
         ?>
     </div>
-<?php $this->widget('bootstrap.widgets.TbButton', array('buttonType' => 'submit', 'label' => 'Search For Flight')); ?>
+    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType' => 'submit', 'label' => 'Search For Flight')); ?>
 
-<?php $this->endWidget(); ?>
+    <?php $this->endWidget(); ?>
 </div>

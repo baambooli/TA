@@ -4204,7 +4204,96 @@ or
 			}
 		
 		
-161-
+161-	security note: whenever we do a search using model()->find() or model()->findAll() or similar methods we should check
+	    is there any result or not to avoid program break.
+		
+		the correct method is like below:
+			
+			// get clientId
+			$client = Client::model()->find('UserId = :userId', 
+				array(':userId' => Yii::app()->user->id));
+		
+			// check the results of the query
+			if (empty($client))
+			{
+				// there is no results, so just show error message
+				$result = '<h3>No data was found for this client.</h3>';
+				Yii::app()->user->setFlash('error',$result);
+				$this->render('confirm');
+				return;
+			}
+			
+			// there is a result, so use the object
+			$clientId = $client->Id;
+
+
+			
+162- Important note: How to upload travelagency on a real host (khpec.biz)
+
+		a) in the remote host(khpec.biz) create a folder and call it 'kamran', then create two subfolders and call them
+			'yii' and 'travelagency' inside 'kamran' folder.
+		b) ftp yii 1.1.13 inside kamran/yii folder
+		c) ftp inside of travelagency folder on local pc to kamran/travelagency folder on khpec.biz 
+			Note:
+			we do not need to copy assts, .git, .settings, phpEd5.9, and db_scripts folders, but create an empty assets folder on remote
+			kamran/travelagency folder (and chmod it to 777).
+		
+		d) create a db and a db user in khpec.biz using cPanel and assign the user to db with full previllage		
+		e) create a backup of your local db on your pc and save it as a SQL file (*.sql) BE SURE THAT DATA IS INCLUDED IN THIS FILE 
+			and it is not just db definition sql file.
+		f) open *.sql file with notepad++ and replace db name with db name you have created on the khpec( e.g. khpec_travelagency)
+		g) delete DEFINER = 'root'@'localhost' from *.sql file.(many times it apears on it. delete all of them.)
+		h) use mysqladmin on cpanel of the khpec.biz to import the sql file that is on our local pc on the remote server 
+			using import option of mysqladmin.
+		i) open kamran/travelagency/protected/config/main.php on the remote server and edit the mysql section of it. 
+			like:
+			
+			'db' => array(
+				'connectionString' => 'mysql:host=127.0.0.1;dbname=khpec_travelagency',
+				'emulatePrepare' => true,
+				'username' => 'khpec_joomla',
+				'password' => '123',
+				'charset' => 'utf8',
+			),
+			
+		j) create a subdomain for khpec.biz/kamran/travelagency like ta.khpec.biz
+		k) navigate to http://ta.khpec.biz
+		l) if we get an error about a table like :
+		
+					CDbCommand failed to execute the SQL statement: SQLSTATE[42S02]: Base table or view not found: 1146 Table 'khpec_travelagency.AuthAssignment' doesn't exist. The SQL statement executed was: SELECT *
+					FROM `AuthAssignment`
+					WHERE userid=:userid
+					
+			it is because that in windows, tables names are case insensitive but in linux it is. so we should adjust the case sensitivity of
+			table names for linux and change the name of tables to correct case using commands like
+				
+				RENAME TABLE `authassignment` TO `AuthAssignment` ; 
+				
+				on mysqladmin of remote site. In addition, model classes related to these tables should be changed too:
+					
+					public function tableName()
+					{
+						return 'authassignment';
+					}
+					
+					'authassignment' ---> 'AuthAssignment'
+					
+					the same process for these tables too:
+					
+					AuthItem
+					AuthItemChild
+					Rights
+					
+		m) navigate to http://ta.khpec.biz now everything should be ok
+		
+		SO:WE CAN REALIZE HOW MUCH IS IMPORTANT TO DEVELOPE ON REAL LINUX OR USE VAGRANT TO DEVELOPE PHP SOFTWARE.
+				
+				
+		
+
+		
+163-
+		
 
 
 

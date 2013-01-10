@@ -24,23 +24,23 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'StartDate',
         'EndDate',
         'Status',
-        ////////////////////////////////////////////////////////////////////////////////////// 
+        //////////////////////////////////////////////////////////////////////////////////////
         // make it a linkable column
         array(
-            'class'=>'CLinkColumn',
+            'class' => 'CLinkColumn',
             // create a sortable header for column
-            'header'=>'Cancel',
+            'header' => 'Cancel/Reserve',
             // label that user will see
-            'labelExpression'=>'$data->RoomClientId',
+            'labelExpression' => '$data->RoomClientId',
             // url of the link
-            'urlExpression'=>'Yii::app()->createUrl("/site/cancelMyRoomReservation/id/".$data->RoomClientId)',
+            'urlExpression' => 'Yii::app()->createUrl("/site/cancelMyRoomReservation/id/".$data->RoomClientId)',
             // tool tip
-            'linkHtmlOptions'=>array('title'=>'Cancel this reservation')
+            'linkHtmlOptions' => array('title' => 'Cancel this reservation')
         ),
-            ///////////////////////////////////////////////////////////////////////////////////////
-        /*array(
-            'class' => 'bootstrap.widgets.TbButtonColumn',
-        ),*/
+    ///////////////////////////////////////////////////////////////////////////////////////
+    /* array(
+      'class' => 'bootstrap.widgets.TbButtonColumn',
+      ), */
     ),
 ));
 ?>
