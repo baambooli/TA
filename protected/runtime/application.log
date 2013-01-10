@@ -1759,3 +1759,43 @@ Stack trace:
 #12 {main}
 REQUEST_URI=/
 ---
+2013/01/10 05:57:52 [error] [php] Undefined variable: modelHotel (G:\GitHub\travelagency\protected\views\site\searchHotelTab.php:40)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 G:\GitHub\travelagency\protected\controllers\SiteController.php(158): SiteController->render()
+#4 unknown(0): SiteController->actionChangeTheme()
+#5 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+in G:\GitHub\travelagency\protected\views\site\searchHotelTab.php (40)
+in G:\GitHub\travelagency\protected\views\site\index.php (23)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (158)
+2013/01/10 06:05:37 [error] [php] Undefined variable: modelHotel (G:\GitHub\travelagency\protected\views\site\searchHotelTab.php:40)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#1 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#2 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#3 G:\GitHub\travelagency\protected\controllers\SiteController.php(158): SiteController->render()
+#4 unknown(0): SiteController->actionChangeTheme()
+#5 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CInlineAction->runWithParamsInternal()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/changeTheme/name/cheese
+in G:\GitHub\travelagency\protected\views\site\searchHotelTab.php (40)
+in G:\GitHub\travelagency\protected\views\site\index.php (23)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (158)
