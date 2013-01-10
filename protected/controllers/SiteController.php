@@ -40,9 +40,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        // renders the view file 'protected/views/site/index.php'
-        // using the default layout 'protected/views/layouts/main.php'
-
         $model = new SearchHotelForm();
         $modelHotel = new SearchHotelForm();
 
@@ -155,7 +152,7 @@ class SiteController extends Controller
         // save theme's name on the session variable
         Yii::app()->session['currentTheme'] = $name;
 
-        $this->render('index');
+        $this->render('about');
     }
 
     // registers new user
@@ -208,6 +205,14 @@ class SiteController extends Controller
 
                 // set a default country
                 $countryId = Country::model()->find()->Id;
+                if (empty($countryId))
+                {
+                    $result = '<h3>No data is found for this country.</h3>';
+                    Yii::app()->user->setFlash('error', $result);
+                    $this->render('confirm');
+                    return;
+                }
+
                 $client->CountryId = $countryId;
                 if (!$client->save())
                 {
@@ -343,44 +348,44 @@ class SiteController extends Controller
             // but we need to show an error message on screen
             // so we should return 'true'
         }
-        // Uncomment the following line if AJAX validation is needed
-        //$this->performAjaxValidation($modelSearchHotelForm);
+
         // send information for getting availability of the rooms
         $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
 
         return $res;
     }
 
-    private function findRoomsUsingCriteria($modelSearchHotelForm, &$roomIds)
+    private function findRoomsUsingCriteria($modelSearchHotelForm, &$rooms)
     {
         $criteria = new CDbCriteria;
         $criteria->select = array('RoomId');
         $criteria->distinct = true;
-        //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
-        $criteria->compare('CityName', $modelSearchHotelForm->cityName);
-        $criteria->compare('HotelCategory', $modelSearchHotelForm->category);
-        $criteria->compare('RoomType', $modelSearchHotelForm->roomType);
 
-        // get all roomIds having the criteria
-        $roomIds = Search4EmptyRoomView::model()->findAll($criteria);
+        //NOTE: $criteria->compare: Adds a comparison expression to the condition property.
+        $criteria->compare('CityName', $modelSearchHotelForm->cityName, true);
+        $criteria->compare('HotelCategory', $modelSearchHotelForm->category, true);
+        $criteria->compare('RoomType', $modelSearchHotelForm->roomType, true);
+
+        // get all roomIds having the criteria in ClientRoom table
+        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
     }
 
     private function checkAvailabilityOfRoom($modelSearchHotelForm)
     {
         $freeRoomIds = array();
-        $roomIds = null;
+        $rooms = null;
 
-        $this->findRoomsUsingCriteria($modelSearchHotelForm, $roomIds);
+        $this->findRoomsUsingCriteria($modelSearchHotelForm, $rooms);
 
-        $startDate = str_replace('/' ,'-', $modelSearchHotelForm->checkinDate);
-        $endDate = str_replace('/' ,'-', $modelSearchHotelForm->checkoutDate);
+        $startDate = str_replace('/', '-', $modelSearchHotelForm->checkinDate);
+        $endDate = str_replace('/', '-', $modelSearchHotelForm->checkoutDate);
 
         // for each room
-        foreach ($roomIds as $key0 => $value0)
+        foreach ($rooms as $key0 => $value0)
         {
             // find related records on Roomclient subtable or Search4EmptyRoomView
             $roomReservations = Search4EmptyRoomView::model()->findAll(
-                    'RoomId = :roomId', array(':roomId' => $roomIds[$key0]->RoomId));
+                    'RoomId = :roomId', array(':roomId' => $rooms[$key0]->RoomId));
 
             $isFree = true;
             foreach ($roomReservations as $key => $value)
@@ -400,9 +405,13 @@ class SiteController extends Controller
             // add free room to array
             if ($isFree)
             {
-                $freeRoomIds[] = $roomIds[$key0]->RoomId;
+                $freeRoomIds[] = $rooms[$key0]->RoomId;
             }
         }
+
+        // we should find all the rooms that have never come in ClientRoom
+        // table to and append them to $freeRoomIds
+        NeverUsedRoomsView::model()->addUnusedRooms($modelSearchHotelForm, $freeRoomIds);
 
         $result = '';
         $res = $this->createResultTable($freeRoomIds, $result);
@@ -439,7 +448,7 @@ class SiteController extends Controller
             'HotelCategory', 'RoomType', 'PricePerDay', 'HotelTel');
         $criteria->distinct = true;
         $criteria->condition = " RoomId IN $set";
-        $rooms = Search4EmptyRoomView::model()->findAll($criteria);
+        $rooms = NeverUsedRoomsView::model()->findAll($criteria);
 
         // create output table in as array
 
@@ -453,7 +462,7 @@ class SiteController extends Controller
                 'HotelCategory' => $rooms[$key]->HotelCategory,
                 'RoomType' => $rooms[$key]->RoomType,
                 'PricePerDay' => $rooms[$key]->PricePerDay,
-                //'HotelTel' => $rooms[$key]->HotelTel
+                    //'HotelTel' => $rooms[$key]->HotelTel
             );
         }
 
@@ -461,15 +470,15 @@ class SiteController extends Controller
         $result = json_encode($result);
         return true;
     }
-    
+
     public function actionReserveRooms()
     {
         // extract data from get parameters
-        $getParams = explode(';', $_GET['params']); 
+        $getParams = explode(';', $_GET['params']);
         $checkinDate = $getParams[0];
         $checkoutDate = $getParams[1];
         $rooms = explode(',', $getParams[2]);
-        
+
         // first check the client is authorized
         if (Yii::app()->user->isGuest)
         {
@@ -481,19 +490,26 @@ class SiteController extends Controller
         }
 
         // get clientId
-        $clientId = Client::model()->find('UserId = :userId', 
-            array(':userId' => Yii::app()->user->id))->Id;
-        
+        $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            $this->render('confirm');
+            return;
+        }
+        $clientId = $client->Id;
+
         // Reserve the rooms
         foreach ($rooms as $key => $value)
         {
             $roomClient = new RoomClient();
             $roomClient->ClientId = $clientId;
             $roomClient->RoomId = $rooms[$key];
-            $roomClient->Status = 'Reservation Request';
+            $roomClient->Status = RoomClient::RESERVATION_REQUEST;
             $roomClient->StartDate = $checkinDate;
             $roomClient->EndDate = $checkoutDate;
-            if(!$roomClient->save())
+            if (!$roomClient->save())
             {
                 $result[] = array(
                     'result' => '<h3>Error in saving data.</h3>'
@@ -502,44 +518,51 @@ class SiteController extends Controller
                 return true;
             }
         }
-        
+
         $result[] = array(
             'result' => '<h3>Your reservation request(s) saved successfully.</h3>'
         );
-        
+
         echo json_encode($result);
         return true;
     }
-    
+
     public function actionShowMyHotelReservations()
     {
         // first check the client is authorized or not
         if (Yii::app()->user->isGuest)
         {
             $result = 'You are not an authorized user. So you cannot reserve a room.</h3>';
-            Yii::app()->user->setFlash('error',$result);
+            Yii::app()->user->setFlash('error', $result);
             $this->render('confirm');
+            return;
         }
 
         // get clientId
-        $clientId = Client::model()->find('UserId = :userId', 
-            array(':userId' => Yii::app()->user->id))->Id;
-            
+        $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            $this->render('confirm');
+            return;
+        }
+        $clientId = $client->Id;
+
         $modelSearchHotelView = new SearchHotelView('searchMyHoelReservations');
         $modelSearchHotelView->unsetAttributes();  // clear any default values
-        
         // just show information of loggen in user
         $modelSearchHotelView->searchMyHoelReservations($clientId);
-        
+
         if (isset($_GET['SearchHotelView']))
             $modelSearchHotelView->attributes = $_GET['SearchHotelView'];
 
         $this->render('myHotelReservation', array(
-            'modelSearchHotelView' => $modelSearchHotelView, 
+            'modelSearchHotelView' => $modelSearchHotelView,
             'clientId' => $clientId,
         ));
     }
-    
+
     public function actionCancelMyRoomReservation()
     {
         $roomClientId = $_GET['id'];
@@ -547,37 +570,60 @@ class SiteController extends Controller
         // check that this roomClientId is related to current user or not
         if (Yii::app()->user->isGuest)
         {
-            $result = 'You are not an authorized user. So you cannot reserve a room.</h3>';
-            Yii::app()->user->setFlash('error',$result);
+            $result = '<h3>You are not an authorized user. So you cannot reserve a room.</h3>';
+            Yii::app()->user->setFlash('error', $result);
             $this->render('confirm');
+            return;
         }
 
-        // get clientId of logged in user
-        $clientId = Client::model()->find('UserId = :userId', 
-            array(':userId' => Yii::app()->user->id))->Id;
-            
+        // get clientId
+        $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            $this->render('confirm');
+            return;
+        }
+        $clientId = $client->Id;
+
         // get clientId related to the submitted reservation
-        
-        $roomClient = RoomClient::model()->find(' Id = :roomClientId',
-            array(':roomClientId' => $roomClientId));
-            
+
+        $roomClient = RoomClient::model()->find(' Id = :roomClientId', array(':roomClientId' => $roomClientId));
+
+        if (empty($roomClient))
+        {
+            $result = '<h3>No data is found for this room.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            $this->render('confirm');
+            return;
+        }
+
         if ($roomClient->ClientId != $clientId)
         {
-            $result = 'You are not allowed to change data that is not related to you.</h3>';
-            Yii::app()->user->setFlash('error',$result);
+            $result = '<h3>You are not allowed to change data that is not related to you.</h3>';
+            Yii::app()->user->setFlash('error', $result);
             $this->render('confirm');
+            return;
         }
-        
-        $roomClient->Status = 'Cancelation Request';
+
+        if ($roomClient->Status != RoomClient::CANCELATION_REQUEST)
+        {
+            $roomClient->Status = RoomClient::CANCELATION_REQUEST;
+        }
+        else if ($roomClient->Status == RoomClient::CANCELATION_REQUEST)
+        {
+            $roomClient->Status = RoomClient::RESERVATION_REQUEST;
+        }
+
         if (!$roomClient->save())
         {
-            $result = '<h3> error in canceling your reservation.</h3>';
-            Yii::app()->user->setFlash('error',$result);
+            $result = '<h3> Error in canceling your reservation.</h3>';
+            Yii::app()->user->setFlash('error', $result);
             $this->render('confirm');
+            return;
         }
-        
-         $this->actionShowMyHotelReservations();
-        
+
+        $this->actionShowMyHotelReservations();
     }
-    
 }

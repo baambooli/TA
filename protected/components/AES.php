@@ -44,5 +44,4 @@ class AES
         $padding = ord($data[strlen($data) - 1]);
         return substr($data, 0, -$padding);
     }
-
 }

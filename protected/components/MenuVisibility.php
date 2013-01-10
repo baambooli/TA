@@ -16,15 +16,13 @@ class MenuVisibility
         else
             $visibleFlightMenu = false;
 
-        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles)
-                || in_array('HotelOperator', $roles) || in_array('Authenticated', $roles))
+        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles) || in_array('HotelOperator', $roles) || in_array('Authenticated', $roles))
             $visibleAuthenticatedMenu = true;
         else
             $visibleAuthenticatedMenu = false;
 
 
-        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles)
-                || in_array('HotelOperator', $roles)
+        if (in_array('Admin', $roles) || in_array('FlightOperator', $roles) || in_array('HotelOperator', $roles)
         )
             $visibleGeneralMenu = true;
         else
@@ -49,6 +47,5 @@ class MenuVisibility
         );
         return $result;
     }
-
 }
 ?>

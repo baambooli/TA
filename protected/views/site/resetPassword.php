@@ -4,6 +4,8 @@ $this->breadcrumbs=array(
 	'ResetPassword',
 );
  ?>
-<h1>Reset User's password</h1>
+<div class="well">
+    <h1>Reset User's password</h1>
 
-<?php echo $this->renderPartial('_formResetPassword', array('model'=>$model)); ?>
+    <?php echo $this->renderPartial('_formResetPassword', array('model'=>$model)); ?>
+</div>
