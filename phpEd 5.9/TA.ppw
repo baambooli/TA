@@ -7,5 +7,3 @@ TA=1
 TA:TA_prj=1
 TA:TA_prj:protected=1
 TA:TA_prj:protected:controllers=1
-TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:site=1

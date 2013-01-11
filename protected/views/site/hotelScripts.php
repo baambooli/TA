@@ -15,8 +15,8 @@
             minDate: +0, //disable past days
         });
     });
-
-
+</script>
+<script> 
     function sendAjaxRequestSearchHotel()
     {
         var cityName = $('#SearchHotelForm_cityName').val();

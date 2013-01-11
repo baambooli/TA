@@ -16,15 +16,15 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\views\site\hotelScripts.js
+File0=D:\xampp\htdocs\TA\protected\views\site\hotelScripts.php
 IsActive0=0
 ZIndex2=2
-File1=D:\xampp\htdocs\TA\protected\views\site\hotelScripts.php
-IsActive1=0
-ZIndex1=1
+File1=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
+IsActive1=1
+ZIndex1=0
 File2=D:\xampp\htdocs\TA\protected\views\site\searchHotelTab.php
-IsActive2=1
-ZIndex0=0
+IsActive2=0
+ZIndex0=1
 Files=3
 
 [breakpoints]

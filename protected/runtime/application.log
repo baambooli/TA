@@ -2038,3 +2038,43 @@ REQUEST_URI=/index.php?r=site/index
 in G:\GitHub\travelagency\protected\views\site\searchHotelTab.php (6)
 in G:\GitHub\travelagency\protected\views\site\searchHotelTab.php (6)
 in G:\GitHub\travelagency\protected\views\site\index.php (23)
+2013/01/11 07:06:46 [warning] [application] Failed to set unsafe attribute "Tel" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:06:46 [warning] [application] Failed to set unsafe attribute "Fax" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:06:46 [warning] [application] Failed to set unsafe attribute "Address" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:06:46 [warning] [application] Failed to set unsafe attribute "URL" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:06:46 [warning] [application] Failed to set unsafe attribute "Image" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:17:31 [warning] [application] Failed to set unsafe attribute "Tel" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:17:31 [warning] [application] Failed to set unsafe attribute "Fax" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:17:31 [warning] [application] Failed to set unsafe attribute "Address" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:17:31 [warning] [application] Failed to set unsafe attribute "URL" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 07:17:31 [warning] [application] Failed to set unsafe attribute "Image" of "Hotel".
+in G:\GitHub\travelagency\protected\controllers\HotelController.php (116)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
