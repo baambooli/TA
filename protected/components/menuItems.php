@@ -96,7 +96,7 @@
             array('label' => 'Login', 'url' => array('/site/login'), 'visible' => Yii::app()->user->isGuest),
             array('label' => 'Logout (' . Yii::app()->user->name . ')', 'url' => array('/site/logout'), 'visible' => !Yii::app()->user->isGuest),
             // register item
-            array('label' => 'Rigister', 'url' => array('/site/register'), 'visible' => Yii::app()->user->isGuest),
+            array('label' => 'Register', 'url' => array('/site/register'), 'visible' => Yii::app()->user->isGuest),
         ),
     ));
     ?>
