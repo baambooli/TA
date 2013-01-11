@@ -29,7 +29,7 @@ return array(
                 'bootstrap.gii'
             ),
             // If removed, Gii defaults to localhost only. Edit carefully to taste.
-            'ipFilters' => array('192.168.*', '*'),
+            'ipFilters' => array('127.0.0.*', '*'),
         ),
     ),
     // application components
@@ -72,7 +72,7 @@ return array(
         ),
         // uncomment the following to use a MySQL database
         'db' => array(
-            'connectionString' => 'mysql:host=192.168.2.11;dbname=travelagency',
+            'connectionString' => 'mysql:host=127.0.0.1;dbname=travelagency',
             'emulatePrepare' => true,
             'username' => 'user1',
             'password' => '123',
