@@ -13,9 +13,9 @@
 
 	<?php echo $form->textFieldRow($model,'FlightNumber',array('class'=>'span5','maxlength'=>50)); ?>
 
-	<?php echo $form->textFieldRow($model,'AirlineId',array('class'=>'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'AirlineId', $model->getAirlines(), array('class' => 'span5', 'onblur' => 'ajaxGetAirplane();')); ?>
 
-	<?php echo $form->textFieldRow($model,'AirplaneId',array('class'=>'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'AirplaneId', array(), array('class' => 'span5')); ?>
 
     <?php echo $form->datepickerRow($model, 'TakeoffDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
     
@@ -67,4 +67,36 @@ $('#save_update').click(function() {
         return;
     }
 });
+</script>
+
+<script >
+    function ajaxGetAirplane()
+    {
+        var airlineId= $('#Flight_AirlineId').val();
+        //alert(airlineId);
+        
+        var getData = 'airlineId=' + airlineId;
+        var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('flight/dynamicAirplane'); ?>';
+        
+        // send Ajax request
+        $.ajax({
+            type: 'GET',
+            url: urlAjax,
+            data: getData,
+            success: function(data) {
+                //alert('success');
+                //alert(data);
+                // change the text on the screen with id = Flight_AirplaneId
+                $('#Flight_AirplaneId').append(data);  
+            },
+            error: function(data) { // if error occured
+                alert('Error occured. please try again.');
+
+            },
+            dataType:'html', // this is the type of data we are receiving
+                              // from the controller not the data we
+                              // are sending to it
+            timeout: 60000
+        });
+    }
 </script>

@@ -163,16 +163,15 @@ class FlightController extends RController
     //Kamran
     public function actionDynamicAirplane()
     {
-        $airlineId = (int) $_POST['Flight_AirlineId'];
-        $airplanes = Airplane::findAllByAttribute(array('AirlineId' => $airlineId));
-        DebugBreak();
+        $airlineId = (int) $_GET['airlineId'];
+        $airplanes = Airplane::model()->findAll('AirlineId = :airlineId', array(':airlineId' => $airlineId));
+
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($airplanes as $value => $name)
         {
-            echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+            echo CHtml::tag('option', array('value' => $value), CHtml::encode($airplanes[$value]->Name), true);
         }
-
     }
 
 }
