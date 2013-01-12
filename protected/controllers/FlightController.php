@@ -159,5 +159,20 @@ class FlightController extends RController
             Yii::app()->end();
         }
     }
+    
+    //Kamran
+    public function actionDynamicAirplane()
+    {
+        $airlineId = (int) $_POST['Flight_AirlineId'];
+        $airplanes = Airplane::findAllByAttribute(array('AirlineId' => $airlineId));
+        DebugBreak();
+        // add one blank line
+        echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
+        foreach ($airplanes as $value => $name)
+        {
+            echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
+        } 
+        
+    }
 
 }
