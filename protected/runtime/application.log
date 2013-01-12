@@ -2215,3 +2215,113 @@ Stack trace:
 #17 {main}
 REQUEST_URI=/
 ---
+2013/01/11 22:57:28 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 22:58:26 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 22:59:13 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 23:00:06 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/11 23:01:00 [warning] [application] Failed to set unsafe attribute "Image" of "Client".
+in G:\GitHub\travelagency\protected\controllers\ClientController.php (120)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/12 01:03:46 [error] [php] Undefined index: country_id (G:\GitHub\travelagency\protected\controllers\RoomClientController.php:211)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): RoomClientController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RoomClientController->filterRights()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(265): RoomClientController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(282): RoomClientController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=roomClient/dynamicCities
+in G:\GitHub\travelagency\protected\controllers\RoomClientController.php (211)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/12 01:04:52 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dynamicAirplanes".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('dynamicAirplane...')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('dynamicAirplane...')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flight/dynamicA...')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=flight/dynamicAirplanes
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flight/create
+---
+2013/01/12 01:05:42 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "dynamicAirplanes".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('dynamicAirplane...')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('dynamicAirplane...')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flight/dynamicA...')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=flight/dynamicAirplanes
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flight/create
+---
+2013/01/12 01:06:53 [error] [php] Undefined index: Flight_AirlineId (G:\GitHub\travelagency\protected\controllers\FlightController.php:166)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightController->filterRights()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(265): FlightController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flight/dynamicAirplane
+in G:\GitHub\travelagency\protected\controllers\FlightController.php (166)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/12 01:47:07 [error] [php] Undefined index: Flight_AirlineId (G:\GitHub\travelagency\protected\controllers\FlightController.php:166)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightController->filterRights()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(265): FlightController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flight/dynamicAirplane
+in G:\GitHub\travelagency\protected\controllers\FlightController.php (166)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/12 01:50:20 [error] [php] Undefined index: Flight_AirlineId (G:\GitHub\travelagency\protected\controllers\FlightController.php:166)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightController->runAction()
+#1 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#2 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#3 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightController->filterRights()
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#5 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#6 G:\GitHub\yii\framework\web\CController.php(265): FlightController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flight/dynamicAirplane
+in G:\GitHub\travelagency\protected\controllers\FlightController.php (166)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)

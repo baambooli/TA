@@ -159,7 +159,7 @@ class FlightController extends RController
             Yii::app()->end();
         }
     }
-    
+
     //Kamran
     public function actionDynamicAirplane()
     {
@@ -171,8 +171,8 @@ class FlightController extends RController
         foreach ($airplanes as $value => $name)
         {
             echo CHtml::tag('option', array('value' => $value), CHtml::encode($name), true);
-        } 
-        
+        }
+
     }
 
 }
