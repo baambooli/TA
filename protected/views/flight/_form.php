@@ -13,9 +13,9 @@
 
 	<?php echo $form->textFieldRow($model,'FlightNumber',array('class'=>'span5','maxlength'=>50)); ?>
 
-    <?php echo $form->dropDownListRow($model, 'AirlineId', $model->getAirlines(), array('class' => 'span5', 'onblur' => 'ajaxGetAirplane();')); ?>
+    <?php echo $form->dropDownListRow($model, 'AirlineId', $model->getAirlines(), array('class' => 'span5', 'onclick' => 'ajaxGetAirplane();')); ?>
 
-    <?php echo $form->dropDownListRow($model, 'AirplaneId', array(), array('class' => 'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'AirplaneId', array('0' => 'First select the Airline'), array('class' => 'span5')); ?>
 
     <?php echo $form->datepickerRow($model, 'TakeoffDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
     
@@ -74,6 +74,7 @@ $('#save_update').click(function() {
     {
         var airlineId= $('#Flight_AirlineId').val();
         //alert(airlineId);
+        $('#Flight_AirplaneId').empty().append('please wait...');
         
         var getData = 'airlineId=' + airlineId;
         var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('flight/dynamicAirplane'); ?>';
@@ -86,6 +87,8 @@ $('#save_update').click(function() {
             success: function(data) {
                 //alert('success');
                 //alert(data);
+                // empty combobox
+                $('#Flight_AirplaneId').empty();
                 // change the text on the screen with id = Flight_AirplaneId
                 $('#Flight_AirplaneId').append(data);  
             },
