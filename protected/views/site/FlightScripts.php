@@ -7,7 +7,7 @@
             dateFormat: 'yy/mm/dd', //date format
             minDate: +0, //disable past days
         });
-        $('#datepickerReturnDate').datepicker({
+        $('#datepickerDestinationDate').datepicker({
             changeMonth: true, //user can change month
             changeYear: true, //user can change year
             yearRange: '2013:2100', //range of valid years
@@ -19,31 +19,28 @@
 <script> 
     function sendAjaxRequestSearchFlight()
     {
-        var cityName = $('#SearchFlightForm_cityName').val();
-
-        if (cityName.trim() == '')
+        if (!flightTypeChanged())
         {
-            alert('City name could not be empty.');
             return;
         }
 
         var depDate = $('#datepickerDepartureDate').val();
-        var deskoutDate = $('#datepickerReturnDate').val();
+        var deskoutDate = $('#datepickerDestinationDate').val();
 
         if (depDate.length != 10)
         {
             alert('Bad departure Date.');
-            return;
+            Destination;
         }
         if (desDate.length != 10)
         {
-            alert('Bad Return Date.');
-            return;
+            alert('Bad Destination Date.');
+            Destination;
         }
         if (desDate < depDate)
         {
             alert('Checkout date should be greater than or equal to checkin date+');
-            return;
+            Destination;
         }
 
         var data = $('#SearchFlightTabForm').serialize();
@@ -135,7 +132,7 @@
         if (selectedRooms == '')
         {
             alert('you should select at least one room.');
-            return;
+            Destination;
         }
 
         // delete the last ','
@@ -143,22 +140,22 @@
         selectedRooms = selectedRooms.slice(0, strLen - 1);
 
         var checkinDate = $('#datepickerDepartureDate').val();
-        var checkoutDate = $('#datepickerReturnDate').val();
+        var checkoutDate = $('#datepickerDestinationDate').val();
 
         if (checkinDate.length != 10)
         {
             alert('Bad checkin Date.');
-            return;
+            Destination;
         }
         if (checkoutDate.length != 10)
         {
             alert('Bad checkout Date.');
-            return;
+            Destination;
         }
         if (checkoutDate < checkinDate)
         {
             alert('Checkout date should be greater than or equal to checkin date+');
-            return;
+            Destination;
         }
 
         var getData = 'params=' + checkinDate + ';' + checkoutDate + ';' + selectedRooms;
@@ -194,6 +191,26 @@
             // are sending to it
             timeout: 60000
         });
+    }
+    
+    function flightTypeChanged()
+    {
+        var selectedType = $('#flightType').val();
+        
+        if (selectedType == 'ONE_WAY')
+        {
+            $('#destinationDiv').hide();
+        }
+        else if (selectedType == 'TWO_WAYS')
+        {
+            $('#destinationDiv').show();
+        }
+        else
+        {
+            alert('Please select type of flight.');
+            return false;
+        }
+        return true; 
     }
 
 </script>
