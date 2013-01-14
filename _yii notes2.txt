@@ -1,7 +1,7 @@
 
 
 ///////////////////////////////////////////////////
-Yii 1.1.12 notes:
+Yii 1.1.13 notes:
 ///////////////////////////////////////////////////
 
 1- the URL is always like this:
@@ -921,7 +921,7 @@ or
     echo "bye bye"
 ?>
 
-58- VERY IMPORTANT: An Easy Solution for Dependent dropDownList Using AJAX
+58- VERY IMPORTANT: An Easy Solution for Dependent dropDownList Using AJAX  --> NOTE: on 168 I gave easier and cleaner solution
 
 	http://www.yiiframework.com/wiki/429/an-easy-solution-for-dependent-dropdownlist-using-ajax/
 	
@@ -4098,7 +4098,7 @@ or
 				 var sThisVal = (this.checked ? $(this).val() : "");
 			});
 			
-160- in the previous notes we showed how to use Ajax call with POST method. here we show how to do a GET ajax call
+160- in the previous notes we showed how to use Ajax call with POST method. here we show how to do a GET ajax (ajax get)call
 
 		// the javascript/jQuery section in the view file:
 			function reserveRoomsUsingAjax()
@@ -4232,14 +4232,14 @@ or
 
 		a) in the remote host(khpec.biz) create a folder and call it 'kamran', then create two subfolders and call them
 			'yii' and 'travelagency' inside 'kamran' folder.
-		b) ftp yii 1.1.13 inside kamran/yii folder
+		b) ftp yii 1.1.13 inside kamran/yii folder (MAYBE we do not need to upload yii framework at all)
 		c) ftp inside of travelagency folder on local pc to kamran/travelagency folder on khpec.biz 
 			Note:
-			we do not need to copy assts, .git, .settings, phpEd5.9, and db_scripts folders, but create an empty assets folder on remote
-			kamran/travelagency folder (and chmod it to 777).
+			we do not need to copy assets, .git, .settings, phpEd5.9, and db_scripts folders, but create an empty assets folder on 
+			kamran/travelagency remote folder (and chmod it to 777).
 		
 		d) create a db and a db user in khpec.biz using cPanel and assign the user to db with full previllage		
-		e) create a backup of your local db on your pc and save it as a SQL file (*.sql) BE SURE THAT DATA IS INCLUDED IN THIS FILE 
+		e) create a "backup" of your local db on your pc and save it as a SQL file (*.sql) BE SURE THAT DATA IS INCLUDED IN THIS FILE 
 			and it is not just db definition sql file.
 		f) open *.sql file with notepad++ and replace db name with db name you have created on the khpec( e.g. khpec_travelagency)
 		g) delete DEFINER = 'root'@'localhost' from *.sql file.(many times it apears on it. delete all of them.)
@@ -4252,11 +4252,11 @@ or
 				'connectionString' => 'mysql:host=127.0.0.1;dbname=khpec_travelagency',
 				'emulatePrepare' => true,
 				'username' => 'khpec_joomla',
-				'password' => '123',
+				'password' => 'your_pass_here',
 				'charset' => 'utf8',
 			),
 			
-		j) create a subdomain for khpec.biz/kamran/travelagency like ta.khpec.biz
+		j) create a subdomain for http://khpec.biz/kamran/travelagency like ta.khpec.biz
 		k) navigate to http://ta.khpec.biz
 		l) if we get an error about a table like :
 		
@@ -4290,10 +4290,147 @@ or
 				
 				
 		
+163-  the creators of Yii and advanced users use this methods to update their remote servers for deploying yii projects
 
+		http://www.yiiframework.com/forum/index.php/topic/7368-deployment-automation/
 		
-163-
+		this is the way that creator of Yii does
 		
+			We are using "svn update" to deploy. It usually happens that you may find bugs or add new features after the system is deployed for the first time. Then you will appreciate how convenient "svn update" is. To make it safer, you could use svn branches to make sure you only "svn update" on the production server when you think the code is stable enough. 
+		
+		
+164-  a free software to replace a text in the files inside a folder and all of its subfolders:
+
+			Replace text 2.2 free
+
+			http://www.ecobyte.com/replacetext/
+		
+165- if we are going to add a javascript or ajax function to Yiibooster or zii components we should change
+
+			<?php echo $form->dropDownListRow($model, 'DepartureAirportId', $model->getAirports(), array('class' => 'span5')); ?>
+		
+		to this
+		
+			<?php echo $form->dropDownListRow($model, 'DepartureAirportId', $model->getAirports(), array('class' => 'span5', 'onchange' => 'Myfunction();')); ?>
+
+		and you ajax or javascript should be
+		
+			<script>
+				function Myfunction()
+				{
+					alert(' hi');
+					// other java script, jquery or even Ajax calls comes here
+				}
+			</script>
+
+166- IMPORTANT NOTE: the events we can add to input or list or combobox on html (or Yiibooster or zii widgets ) are:
+
+		HTML Event Attributes
+		
+		http://www.w3schools.com/tags/ref_eventattributes.asp
+		
+		
+167- a cleaner way to create a dependent combobox is
+
+			on the view (_form.php)
+				
+				<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
+					'id'=>'flight-form',
+					'enableClientValidation' => true,
+					'enableAjaxValidation' => false,
+					'clientOptions' => array(
+						'validateOnSubmit' => true,
+					),
+				)); ?>
+
+				<?php echo $form->dropDownListRow($model, 'AirlineId', $model->getAirlines(), array('class' => 'span5', 'onclick' => 'ajaxGetAirplane();')); ?>
+
+				<?php echo $form->dropDownListRow($model, 'AirplaneId', array(), array('class' => 'span5')); ?>
+
+				.....
+				.....
+				
+				<script >
+				function ajaxGetAirplane()
+				{
+					var airlineId= $('#Flight_AirlineId').val();
+					//alert(airlineId);
+					$('#Flight_AirplaneId').empty().append('please wait...');
+					
+					var getData = 'airlineId=' + airlineId;
+					var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('flight/dynamicAirplane'); ?>';
+					
+					// send Ajax request
+					$.ajax({
+						type: 'GET',
+						url: urlAjax,
+						data: getData,
+						success: function(data) {
+							//alert('success');
+							//alert(data);
+							// empty combobox
+							$('#Flight_AirplaneId').empty();
+							// change the text on the screen with id = Flight_AirplaneId
+							$('#Flight_AirplaneId').append(data);  
+						},
+						error: function(data) { // if error occured
+							alert('Error occured. please try again.');
+
+						},
+						dataType:'html', // this is the type of data we are receiving
+										  // from the controller not the data we
+										  // are sending to it
+						timeout: 60000
+					});
+				}
+			</script>
+		
+		-- and on the controller
+		
+			//Kamran
+			public function actionDynamicAirplane()
+			{
+				$airlineId = (int) $_GET['airlineId'];
+				$airplanes = Airplane::model()->findAll('AirlineId = :airlineId', array(':airlineId' => $airlineId));
+
+				// add one blank line
+				echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
+				foreach ($airplanes as $value => $name)
+				{
+					echo CHtml::tag('option', array('value' => $value), CHtml::encode($airplanes[$value]->Name), true);
+				}
+			}
+		
+		so when the lostfocus(onblur) event on the first combo happens, the second combo will be filled via ajax get call to 
+		the action actionDynamicAirplane() on the controller
+
+
+168- to encrypt your php code use sourceguardian 9.01 --> 200$
+	
+	 in addition--> NuSphere Nu-Coder is for encoding and increasing runtime speed of php -> 300$
+	 
+	 both of these products need you copy a file on php/ext folder and add extension=somefile to your
+	 php.ini file. so you should have access to php/ext folder and php.ini file too.
+	 
+	 
+169-
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

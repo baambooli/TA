@@ -626,4 +626,30 @@ class SiteController extends Controller
 
         $this->actionShowMyHotelReservations();
     }
+    
+    public function actionIndex2()
+    {
+        $model = new SearchHotelForm();
+        $modelHotel = new SearchHotelForm();
+
+        // load name of cities
+        $cities = City::model()->findAll();
+        foreach ($cities as $key => $value)
+        {
+            $citiesName[] = $cities[$key]->Name;
+        }
+
+        // load roomTypes
+        $roomTypes1 = RoomType::model()->findAll();
+        foreach ($roomTypes1 as $key => $value)
+        {
+            $roomTypes[] = $roomTypes1[$key]->Name;
+        }
+
+        $this->render('index2', array('modelHotel' => $modelHotel,
+            'model' => $model,
+            'citiesName' => $citiesName,
+            'roomTypes' => $roomTypes,
+        ));
+    }
 }
