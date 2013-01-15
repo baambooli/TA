@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/styles/jqx.base.css" type="text/css" />
+ <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/styles/jqx.base.css" type="text/css" />
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxcore.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxdata.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxbuttons.js"></script>
@@ -18,6 +18,15 @@
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/scripts/gettheme.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/generatedata.js"></script>
 
+<?php /*
+  in this page we should delete this line
+  
+  <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/scripts/jquery-1.8.2.min.js"></script>
+  
+  to avoid with the scripts in index.php. but normally we need that
+  
+  kamran
+*/ ?>
 
 <script >
     $(function() {
@@ -225,27 +234,6 @@
     }
 
 </script>
-
-<link rel="stylesheet" href="/jqwidgets-ver2.6.0/jqwidgets/styles/jqx.base.css" type="text/css" />
-<script type="/jqwidgets-ver2.6.0/scripts/jquery-1.8.2.min.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxcore.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxdata.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxbuttons.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxscrollbar.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxlistbox.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxdropdownlist.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxmenu.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.filter.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.sort.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.selection.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxpanel.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxcalendar.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxdatetimeinput.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/jqxcheckbox.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/globalization/jquery.global.js"></script>
-<script type="/jqwidgets-ver2.6.0/scripts/gettheme.js"></script>
-<script type="/jqwidgets-ver2.6.0/jqwidgets/generatedata.js"></script>
 
 <script type="text/javascript">
     $(document).ready(function () {
