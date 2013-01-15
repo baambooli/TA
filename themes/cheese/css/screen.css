@@ -254,9 +254,16 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 
 .KLeft {
     float: left;
-    width: 17em;
+    width: 15em;
     margin: 0;
     padding: 15px 0 0 0;
+    color: #000000;
+}
+.KLeft2 {
+    float: left;
+    width: 17.5em;
+    margin: 0;
+    padding: 0px 0 0 0;
     color: #000000;
 }
 

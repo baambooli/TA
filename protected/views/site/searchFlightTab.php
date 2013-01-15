@@ -3,10 +3,10 @@
 <script type="text/javascript" src="FlightScripts.js"> </script>
 
 <!-- so I should do like this -->
-<?php require_once('FlightScripts.php');?>  
+<?php require_once('flightScripts.php');?>
 
  <div class="KContainer">
-    <div class="KLeft">
+    <div class="KLeft2">
       <div class="well">
         <div >
             Select type of flight:<br>
@@ -16,7 +16,7 @@
               <option value="TWO_WAYS">Two ways</option>
             </select>
         </div>
-        
+
         <div >
             Departure city:<br>
             <input type="text"  id="datepickerDepartureCity" />
@@ -25,7 +25,7 @@
             Destination city:<br>
             <input type="text" id="datepickerDestinationCity" />
         </div>
-           
+
         <!-- datepickers come here-->
         <div >
             Departure date:<br>
