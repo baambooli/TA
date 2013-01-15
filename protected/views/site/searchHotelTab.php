@@ -63,11 +63,10 @@
                     ?>
                 </div>
             </div>
-
+        </form>
     </div>
-</form>
-<div class="well KContent" id="searchHotelResults">
-</div>
+    <div class="well KContent" id="searchHotelResults">
+    </div>
 </div>
 
 
