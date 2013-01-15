@@ -654,7 +654,9 @@ class SiteController extends Controller
     public function actionSearchFlight()
     {
         $res = $_POST;
-        debugbreak();
+        //debugbreak();
 
+        echo json_encode(array('a' =>'12345'));
+        return true;
     }
 }
