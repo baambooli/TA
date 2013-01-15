@@ -63,8 +63,8 @@ class HotelController extends RController
                 $model->Image = $model->Name;
 
                 // create a default flag picture
-                $file = Yii::app()->basePath . '/../images_hotel/' . 'default.jpg';
-                $toFile = Yii::app()->basePath . '/../images_hotel/' . $model->Name;
+                $file = Yii::app()->basePath . '/../images/hotel/' . 'default.jpg';
+                $toFile = Yii::app()->basePath . '/../images/hotel/' . $model->Name;
                 copy($file, $toFile);
 
                 $hasPicture = false;
@@ -79,8 +79,8 @@ class HotelController extends RController
             {
                 if ($hasPicture)
                 {
-                    $image = Yii::app()->basePath . '/../images_hotel/' . $fileName;
-                    // image will uplode to rootDirectory/images_hotel/
+                    $image = Yii::app()->basePath . '/../images/hotel/' . $fileName;
+                    // image will uplode to rootDirectory/images/hotel/
                     $uploadedFile->saveAs($image);
                 }
                 $this->redirect(array('view', 'id' => $model->ID));
@@ -121,7 +121,7 @@ class HotelController extends RController
             {
                 if (!empty($uploadedFile))  // check if uploaded file is set or not
                 {
-                    $image = Yii::app()->basePath . '/../images_hotel/' . $model->Image;
+                    $image = Yii::app()->basePath . '/../images/hotel/' . $model->Image;
                     $uploadedFile->saveAs($image);
                 }
                 $this->redirect(array('view', 'id' => $model->ID));

@@ -1,82 +1,75 @@
-<div>
-    <?php
-    $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
-        'id' => 'verticalForm2',
-        'enableClientValidation' => true,
-        'enableAjaxValidation' => false,
-        'clientOptions' => array(
-            'validateOnSubmit' => true,
-        ),
-        'htmlOptions' => array(
-            'class' => 'well',
-            /* Disable normal form submit */
-            /* 'onsubmit'=>"return false;",  */
-            'onkeypress' => " if(event.keyCode == 13){ sendAjaxRequestHotelSearch(); } " /* Do ajax call when user presses enter key */
-        ),
-            ));
-    ?>
 
-    <div>
-        Flight:<br>
-        <?php
-        $this->widget('bootstrap.widgets.TbSelect2', array(
-            'asDropDownList' => false,
-            'name' => 'flight',
-            'options' => array(
-                'tags' => $citiesName,
-                'placeholder' => 'City Name',
-                'width' => '20%',
-            //'tokenSeparators' => array(',', ' ')
-            )
-        ));
-        ?>
-    </div>
-    <div>
-        Category:<br>
-        <?php
-        $this->widget('bootstrap.widgets.TbSelect2', array(
-            'asDropDownList' => false,
-            'name' => 'category2222',
-            'options' => array(
-                'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts'),
-                'placeholder' => 'Category of Hotel',
-                'width' => '20%',
-            //'tokenSeparators' => array(',', ' ')
-            )
-        ));
-        ?>
-    </div>
-    <div>
-        Room Type:<br>
-        <?php
-        $this->widget('bootstrap.widgets.TbSelect2', array(
-            'asDropDownList' => false,
-            'name' => 'roomTypesss',
-            'options' => array(
-                'tags' => array('Two starts', 'Three starts', 'Four starts', 'Five starts'),
-                'placeholder' => 'Room type',
-                'width' => '20%',
-            //'tokenSeparators' => array(',', ' ')
-            )
-        ));
-        ?>
-    </div>
-    <div>
-        Number of room(s):<br>
-        <?php
-        $this->widget('bootstrap.widgets.TbSelect2', array(
-            'asDropDownList' => false,
-            'name' => 'noOfRoomssss',
-            'options' => array(
-                'tags' => array('1', '2', '3', '4', '5', '6', '7', '8', '9', '10'),
-                'placeholder' => 'Number of rooms',
-                'width' => '20%',
-            //'tokenSeparators' => array(',', ' ')
-            )
-        ));
-        ?>
-    </div>
-    <?php $this->widget('bootstrap.widgets.TbButton', array('buttonType' => 'submit', 'label' => 'Search For Flight')); ?>
+<!-- this does not work!! -->
+<script type="text/javascript" src="FlightScripts.js"></script>
 
-    <?php $this->endWidget(); ?>
+<!-- so I should do like this -->
+<?php require_once('flightScripts.php'); ?>
+
+<div class="KContainer">
+    <div class="KLeft2">
+        <div class="well">
+            <form id="SearchFlightTabForm" name="SearchFlightTabForm">
+                <div >
+                    Select type of flight:<br>
+                    <select id="flightType" name="flightType" onchange="flightTypeChanged();"/>
+                    <option value="0">Please select</option>
+                    <option value="ONE_WAY">One way</option>
+                    <option value="TWO_WAYS">Two ways</option>
+                    </select>
+                </div>
+
+                <div >
+                    Departure city and airport:<br>
+                    <select id="DepartureAirportName" name="DepartureAirportName"/>
+                    <option value="0">Please select</option>
+                    <?php
+                    foreach ($airportsName as $key => $value)
+                    {
+                        echo '<option value="' . $value . '">' . $value . '</option>';
+                    }
+                    ?>
+                    </select>
+                </div>
+                <div >
+                    Destination city and airport:<br>
+                    <select id="DestinationAirportName" name="DestinationAirportName"/>
+                    <option value="0">Please select</option>
+                    <?php
+                    foreach ($airportsName as $key => $value)
+                    {
+                        echo '<option value="' . $value . '">' . $value . '</option>';
+                    }
+                    ?>
+                    </select>
+                </div>
+
+                <!-- datepickers come here-->
+                <div >
+                    Departure date:<br>
+                    <input type="text" name="datepickerDepartureDate" id="datepickerDepartureDate" />
+                </div>
+                <div id="destinationDiv">
+                    Destination date:<br>
+                    <input type="text" name="datepickerDestinationDate" id="datepickerDestinationDate"  />
+                </div>
+                <!-- end of datepickers -->
+                <br>
+                <div class="KOuterDiv">
+                    <div class="KCenter">
+                        <?php
+                        //this is one method of ajax call (using normal html button)
+                        echo CHtml::Button('Search Flight', array('class' => ' ui-button ui-widget ui-state-default ui-corner-all',
+                            'id' => 'searchFlightButton', 'onclick' => 'sendAjaxRequestSearchFlight();'));
+                        ?>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+    <div class="well KContent" id="searchFlightResults">
+        right panel
+        <div id="jqxgrid">
+        </div>
+    </div>
 </div>
+

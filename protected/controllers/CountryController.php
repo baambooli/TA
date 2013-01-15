@@ -63,8 +63,8 @@ class CountryController extends RController
                 $model->FlagURL = $model->Name;
 
                 // create a default flag picture
-                $file = Yii::app()->basePath . '/../images_country/' . 'default.jpg';
-                $toFile = Yii::app()->basePath . '/../images_country/' . $model->Name;
+                $file = Yii::app()->basePath . '/../images/country/' . 'default.jpg';
+                $toFile = Yii::app()->basePath . '/../images/country/' . $model->Name;
                 copy($file, $toFile);
 
                 $hasFlagPicture = false;
@@ -79,7 +79,7 @@ class CountryController extends RController
             {
                 if ($hasFlagPicture)
                 {
-                    $flag = Yii::app()->basePath . '/../images_country/' . $fileName;
+                    $flag = Yii::app()->basePath . '/../images/country/' . $fileName;
                     // image will uplode to rootDirectory/banner/
                     $uploadedFile->saveAs($flag);
                 }
@@ -122,7 +122,7 @@ class CountryController extends RController
             {
                 if (!empty($uploadedFile))  // check if uploaded file is set or not
                 {
-                    $flag = Yii::app()->basePath . '/../images_country/' . $model->FlagURL;
+                    $flag = Yii::app()->basePath . '/../images/country/' . $model->FlagURL;
                     $uploadedFile->saveAs($flag);
                 }
                 $this->redirect(array('view', 'id' => $model->Id));

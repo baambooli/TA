@@ -37,6 +37,6 @@
     <br /> <br />
     
     <b><?php echo CHtml::encode($data->getAttributeLabel('Image')); ?>:</b>
-    <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images_hotel/'.$data->Image,'Image',array('width'=>200)); ?>  
+    <?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/hotel/'.$data->Image,'Image',array('width'=>200)); ?>  
     <br />
 </div>

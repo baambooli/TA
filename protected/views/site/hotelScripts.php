@@ -15,11 +15,11 @@
             minDate: +0, //disable past days
         });
     });
-
-
+</script>
+<script> 
     function sendAjaxRequestSearchHotel()
     {
-        var cityName = $('#SearchHotelForm_cityName').val();
+        var cityName = $('#CityName').val();
 
         if (cityName.trim() == '')
         {
@@ -50,7 +50,7 @@
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
         // alert(urlAjax);
         // change the caption of button
-        $('#submit').val('Please wait...');
+        $('#SearchHotelButton').val('Please wait...');
 
         $.ajax({
             type: 'POST',
@@ -64,13 +64,13 @@
                 $('#searchHotelResults').append(showResults(data));
 
                 // restore the caption of button
-                $('#submit').val('Search Hotel');
+                $('#SearchHotelButton').val('Search Hotel');
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');
 
                 // restore the caption of button
-                $('#submit').val('Search Hotel');
+                $('#SearchHotelButton').val('Search Hotel');
             },
             dataType: 'json', // this is the type of data we are receiving
             // from the controller not the data we

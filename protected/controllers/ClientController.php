@@ -67,8 +67,8 @@ class ClientController extends RController
                 $model->Image = $model->Name;
 
                 // create a default flag picture
-                $file = Yii::app()->basePath . '/../images_client/' . 'default.jpg';
-                $toFile = Yii::app()->basePath . '/../images_client/' . $model->Name;
+                $file = Yii::app()->basePath . '/../images/client/' . 'default.jpg';
+                $toFile = Yii::app()->basePath . '/../images/client/' . $model->Name;
                 copy($file, $toFile);
 
                 $hasPicture = false;
@@ -83,8 +83,8 @@ class ClientController extends RController
             {
                 if ($hasPicture)
                 {
-                    $image = Yii::app()->basePath . '/../images_client/' . $fileName;
-                    // image will uplode to rootDirectory/images_client/
+                    $image = Yii::app()->basePath . '/../images/client/' . $fileName;
+                    // image will uplode to rootDirectory/images/client/
                     $uploadedFile->saveAs($image);
                 }
                 $this->redirect(array('view', 'id' => $model->Id));
@@ -128,7 +128,7 @@ class ClientController extends RController
             {
                 if (!empty($uploadedFile))  // check if uploaded file is set or not
                 {
-                    $image = Yii::app()->basePath . '/../images_client/' . $model->Image;
+                    $image = Yii::app()->basePath . '/../images/client/' . $model->Image;
                     $uploadedFile->saveAs($image);
                 }
                 $this->redirect(array('view', 'id' => $model->Id));
@@ -278,7 +278,7 @@ class ClientController extends RController
                 {
                     if (!empty($uploadedFile))  // check if uploaded file is set or not
                     {
-                        $image = Yii::app()->basePath . '/../images_client/' . $model->Image;
+                        $image = Yii::app()->basePath . '/../images/client/' . $model->Image;
                         $uploadedFile->saveAs($image);
                     }
                     $msg = 'Your information is changed successfully.';

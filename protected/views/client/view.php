@@ -45,4 +45,4 @@ $this->menu=array(
 	),
 )); ?>
 <!-- show Image here-->
-<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images_client/'.$model->Image,'Image',array('width'=>200)); 
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/client/'.$model->Image,'Image',array('width'=>200)); 
