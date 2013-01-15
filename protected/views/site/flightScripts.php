@@ -85,13 +85,12 @@
             url: urlAjax,
             data: data,
             success: function(data) {
-                alert('Success.');
-                // change the text on the screen with id = searchFlightResults
-                $('#searchFlightResults').text('success2');  //clear div
+                //alert('Success.');
 
                 // write new data on it (results of actionSearchFlight() function on siteController)
-                $('#searchFlightResults').append(showResults(data));
-
+                 var data = generatedata(500)
+                 showFlightResults(data);
+                 
                 // restore the caption of button
                 $('#searchFlightButton').val('Search Flight');
             },
@@ -236,14 +235,11 @@
 </script>
 
 <script type="text/javascript">
-    $(document).ready(function () {
-    //function showResults(data1) {
-        alert('hi 3');
+
+    function showFlightResults(data) {
         var theme = getTheme();
-        alert('hi 4');
-        var data = generatedata(500);
-        alert('hi 5');
-        alert('data length is '+ data.length);
+
+        //alert('data length is '+ data.length);
 
         var source =
                 {
@@ -260,7 +256,7 @@
                 };
 
         var dataAdapter = new $.jqx.dataAdapter(source);
-
+        
         $("#jqxgrid").jqxGrid(
                 {
                     width: 800,
@@ -279,10 +275,5 @@
                         {text: 'Qty.', datafield: 'quantity', filtertype: 'number', cellsalign: 'right'}
                     ]
                 });
-        $('#clearfilteringbutton').jqxButton({height: 25, theme: theme});
-        $('#clearfilteringbutton').click(function() {
-            $("#jqxgrid").jqxGrid('clearfilters');
-        });
-    //}
-    });
+    }
 </script>

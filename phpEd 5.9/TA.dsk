@@ -16,15 +16,15 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\views\site\index.php
+File0=D:\xampp\htdocs\TA\protected\views\site\searchFlightTab.php
 IsActive0=0
-ZIndex2=2
+ZIndex2=1
 File1=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
 IsActive1=1
 ZIndex1=0
 File2=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
 IsActive2=0
-ZIndex0=1
+ZIndex0=2
 Files=3
 
 [breakpoints]
