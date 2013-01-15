@@ -40,7 +40,21 @@
     {
         if (!flightTypeChanged())
         {
-            return;
+            return false;
+        }
+
+        var departureAirport = $('#DepartureAirportName').val();
+        if (departureAirport == 0)
+        {
+            alert('You should select a departure Airport.');
+            return false;
+        }
+
+        var destinationAirport = $('#DestinationAirportName').val();
+        if (destinationAirport == 0)
+        {
+            alert('You should select a destination Airport.');
+            return false;
         }
 
         var depDate = $('#datepickerDepartureDate').val();
@@ -49,24 +63,29 @@
         if (depDate.length != 10)
         {
             alert('Bad departure Date.');
-            Destination;
+            return false;
         }
-        if (desDate.length != 10)
+
+        if ($('#flightType').val() == 'TWO_WAYS')
         {
-            alert('Bad Destination Date.');
-            Destination;
-        }
-        if (desDate < depDate)
-        {
-            alert('Checkout date should be greater than or equal to checkin date+');
-            Destination;
+            if (desDate.length != 10 )
+            {
+                alert('Bad Destination Date.');
+                return false;
+            }
+            if (desDate < depDate)
+            {
+                alert('return date should be greater than or equal to departure date.');
+                return false;
+            }
         }
 
         var data = $('#SearchFlightTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchFlight'); ?>'
-        // alert(urlAjax);
+        alert(urlAjax);
+
         // change the caption of button
-        $('#submit').val('Please wait...');
+        $('#searchFlightButton').val('Please wait...');
 
         $.ajax({
             type: 'POST',
@@ -80,13 +99,13 @@
                 $('#searchFlightResults').append(showResults(data));
 
                 // restore the caption of button
-                $('#submit').val('Search Flight');
+                $('#searchFlightButton').val('Search Flight');
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');
 
                 // restore the caption of button
-                $('#submit').val('Search Flight');
+                $('#searchFlightButton').val('Search Flight');
             },
             dataType: 'json', // this is the type of data we are receiving
             // from the controller not the data we

@@ -1,50 +1,69 @@
 
 <!-- this does not work!! -->
-<script type="text/javascript" src="FlightScripts.js"> </script>
+<script type="text/javascript" src="FlightScripts.js"></script>
 
 <!-- so I should do like this -->
-<?php require_once('flightScripts.php');?>
+<?php require_once('flightScripts.php'); ?>
 
- <div class="KContainer">
+<div class="KContainer">
     <div class="KLeft2">
-      <div class="well">
-        <div >
-            Select type of flight:<br>
-            <select id="flightType" onchange="flightTypeChanged();"/>
-              <option value="0">Please select</option>
-              <option value="ONE_WAY">One way</option>
-              <option value="TWO_WAYS">Two ways</option>
-            </select>
-        </div>
+        <div class="well">
+            <form id="SearchFlightTabForm" name="SearchFlightTabForm">
+                <div >
+                    Select type of flight:<br>
+                    <select id="flightType" name="flightType" onchange="flightTypeChanged();"/>
+                    <option value="0">Please select</option>
+                    <option value="ONE_WAY">One way</option>
+                    <option value="TWO_WAYS">Two ways</option>
+                    </select>
+                </div>
 
-        <div >
-            Departure city:<br>
-            <input type="text"  id="datepickerDepartureCity" />
-        </div>
-        <div >
-            Destination city:<br>
-            <input type="text" id="datepickerDestinationCity" />
-        </div>
+                <div >
+                    Departure city and airport:<br>
+                    <select id="DepartureAirportName" name="DepartureAirportName"/>
+                    <option value="0">Please select</option>
+                    <?php
+                    foreach ($airportsName as $key => $value)
+                    {
+                        echo '<option value="' . $value . '">' . $value . '</option>';
+                    }
+                    ?>
+                    </select>
+                </div>
+                <div >
+                    Destination city and airport:<br>
+                    <select id="DestinationAirportName" name="DestinationAirportName"/>
+                    <option value="0">Please select</option>
+                    <?php
+                    foreach ($airportsName as $key => $value)
+                    {
+                        echo '<option value="' . $value . '">' . $value . '</option>';
+                    }
+                    ?>
+                    </select>
+                </div>
 
-        <!-- datepickers come here-->
-        <div >
-            Departure date:<br>
-            <input type="text" name="datepickerDepartureDate" id="datepickerDepartureDate" />
-        </div>
-        <div id="destinationDiv">
-            Destination date:<br>
-            <input type="text" name="datepickerDestinationDate" id="datepickerDestinationDate"  />
-        </div>
-        <!-- end of datepickers -->
-        <br>
-        <div class="KOuterDiv">
-            <div class="KCenter">
-                <?php
-                 //this is one method to ajax call by normal html button
-                 echo CHtml::Button('Search Flight', array('class' => ' ui-button ui-widget ui-state-default ui-corner-all', 'onclick' => 'sendAjaxRequestSearchFlight();'));
-                ?>
-             </div>
-        </div>
+                <!-- datepickers come here-->
+                <div >
+                    Departure date:<br>
+                    <input type="text" name="datepickerDepartureDate" id="datepickerDepartureDate" />
+                </div>
+                <div id="destinationDiv">
+                    Destination date:<br>
+                    <input type="text" name="datepickerDestinationDate" id="datepickerDestinationDate"  />
+                </div>
+                <!-- end of datepickers -->
+                <br>
+                <div class="KOuterDiv">
+                    <div class="KCenter">
+                        <?php
+                        //this is one method of ajax call (using normal html button)
+                        echo CHtml::Button('Search Flight', array('class' => ' ui-button ui-widget ui-state-default ui-corner-all',
+                            'id' => 'searchFlightButton', 'onclick' => 'sendAjaxRequestSearchFlight();'));
+                        ?>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
     <div class="well KContent" id="searchFlightResults">

@@ -40,9 +40,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new SearchHotelForm();
-        $modelHotel = new SearchHotelForm();
-
         // load name of cities
         $cities = City::model()->findAll();
         foreach ($cities as $key => $value)
@@ -57,9 +54,17 @@ class SiteController extends Controller
             $roomsType[] = $roomsType1[$key]->Name;
         }
 
+        // load name of cities, airports
+        $airports = AirportView::model()->findAll();
+        foreach ($airports as $key => $value)
+        {
+            $airportsName[] = $airports[$key]->CityName.', '.$airports[$key]->AirportName;
+        }
+
         $this->render('index', array(
             'citiesName' => $citiesName,
             'roomsType' => $roomsType,
+            'airportsName' => $airportsName,
         ));
     }
 
@@ -341,7 +346,7 @@ class SiteController extends Controller
         $modelSearchHotelForm->roomType = $_POST['RoomType'] != 'ALL' ? $_POST['RoomType']: NULL;
         $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
         $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
-        
+
         // send information for getting availability of the rooms
         $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
 
@@ -619,7 +624,7 @@ class SiteController extends Controller
 
         $this->actionShowMyHotelReservations();
     }
-    
+
     public function actionIndex2()
     {
         $model = new SearchHotelForm();
@@ -644,5 +649,12 @@ class SiteController extends Controller
             'citiesName' => $citiesName,
             'roomTypes' => $roomTypes,
         ));
+    }
+
+    public function actionSearchFlight()
+    {
+        $res = $_POST;
+        debugbreak();
+
     }
 }
