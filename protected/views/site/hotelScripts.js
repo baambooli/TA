@@ -14,7 +14,7 @@
             minDate: +0, //disable past days
         });
     });
-    
+
     function sendAjaxRequestSearchHotel()
     {
         var cityName = $('#SearchHotelForm_cityName').val();
@@ -45,10 +45,10 @@
         }
 
         var data = $('#SearchHotelTabForm').serialize();
-        urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>'
+        urlAjax = "<?php echo Yii::app()->createAbsoluteUrl('site/searchHotel'); ?>";
         // alert(urlAjax);
         // change the caption of button
-        $('#submit').val('Please wait...');
+        $('#SearchHotelButton').val('Please wait...');
 
         $.ajax({
             type: 'POST',
@@ -62,7 +62,7 @@
                 $('#searchHotelResults').append(showResults(data));
 
                 // restore the caption of button
-                $('#submit').val('Search Hotel');
+                $('#SearchHotelButton').val('Search Hotel');
             },
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');

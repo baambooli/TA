@@ -2505,3 +2505,25 @@ Stack trace:
 #15 {main}
 REQUEST_URI=/
 ---
+2013/01/15 05:30:27 [error] [php] Undefined variable: roomsType (G:\GitHub\travelagency\protected\controllers\SiteController.php:62)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (62)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/15 05:30:58 [error] [php] Undefined variable: roomsType (G:\GitHub\travelagency\protected\controllers\SiteController.php:62)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (62)
+in g:\GitHub\travelagency\index.php (13)

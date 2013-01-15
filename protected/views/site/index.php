@@ -23,7 +23,7 @@ $(function() {
         <?php require_once('searchHotelTab.php'); ?>
     </div>
     <div id="tabs-2">
-         <?php require_once('searchFlightTab.php'); ?> 
+         <?php //require_once('searchFlightTab.php'); ?>
     </div>
 </div>
 

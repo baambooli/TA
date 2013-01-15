@@ -51,16 +51,15 @@ class SiteController extends Controller
         }
 
         // load roomTypes
-        $roomTypes1 = RoomType::model()->findAll();
-        foreach ($roomTypes1 as $key => $value)
+        $roomsType1 = RoomType::model()->findAll();
+        foreach ($roomsType1 as $key => $value)
         {
-            $roomTypes[] = $roomTypes1[$key]->Name;
+            $roomsType[] = $roomsType1[$key]->Name;
         }
 
-        $this->render('index', array('modelHotel' => $modelHotel,
-            'model' => $model,
+        $this->render('index', array(
             'citiesName' => $citiesName,
-            'roomTypes' => $roomTypes,
+            'roomsType' => $roomsType,
         ));
     }
 
@@ -337,18 +336,12 @@ class SiteController extends Controller
     public function actionSearchHotel()
     {
         $modelSearchHotelForm = new SearchHotelForm;
-        $modelSearchHotelForm->attributes = $_POST['SearchHotelForm'];
+        $modelSearchHotelForm->cityName = $_POST['CityName'];
+        $modelSearchHotelForm->category = $_POST['HotelCategory'] != 'ALL' ? $_POST['HotelCategory']: NULL;
+        $modelSearchHotelForm->roomType = $_POST['RoomType'] != 'ALL' ? $_POST['RoomType']: NULL;
         $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
         $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
-
-        if (empty($modelSearchHotelForm->cityName))
-        {
-            echo '<div style="color:red;">City name could not be empty.</div>';
-            return true; // if we return false an error will be shown
-            // but we need to show an error message on screen
-            // so we should return 'true'
-        }
-
+        
         // send information for getting availability of the rooms
         $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
 
