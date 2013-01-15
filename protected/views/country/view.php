@@ -24,4 +24,4 @@ $this->menu=array(
 	),
 )); ?>
 <!-- show flag here-->
-<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images_country/'.$model->FlagURL,'FlagURL',array('width'=>200)); 
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/country/'.$model->FlagURL,'FlagURL',array('width'=>200)); 

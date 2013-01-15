@@ -16,16 +16,25 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\views\site\hotelScripts.js
+File0=D:\xampp\htdocs\TA\protected\views\site\index.php
 IsActive0=0
-ZIndex2=2
-File1=D:\xampp\htdocs\TA\protected\views\site\hotelScripts.php
+ZIndex5=5
+File1=D:\xampp\htdocs\TA\protected\views\site\index2.php
 IsActive1=0
-ZIndex1=1
-File2=D:\xampp\htdocs\TA\protected\views\site\searchHotelTab.php
-IsActive2=1
-ZIndex0=0
-Files=3
+ZIndex4=4
+File2=D:\xampp\htdocs\TA\protected\views\site\FlightScripts.php
+IsActive2=0
+ZIndex3=1
+File3=D:\xampp\htdocs\TA\protected\views\site\hotelScripts.php
+IsActive3=1
+ZIndex2=0
+File4=D:\xampp\htdocs\TA\protected\views\site\searchHotelTab.php
+IsActive4=0
+ZIndex1=3
+File5=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
+IsActive5=0
+ZIndex0=2
+Files=6
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

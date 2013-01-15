@@ -40,9 +40,6 @@ class SiteController extends Controller
      */
     public function actionIndex()
     {
-        $model = new SearchHotelForm();
-        $modelHotel = new SearchHotelForm();
-
         // load name of cities
         $cities = City::model()->findAll();
         foreach ($cities as $key => $value)
@@ -51,16 +48,23 @@ class SiteController extends Controller
         }
 
         // load roomTypes
-        $roomTypes1 = RoomType::model()->findAll();
-        foreach ($roomTypes1 as $key => $value)
+        $roomsType1 = RoomType::model()->findAll();
+        foreach ($roomsType1 as $key => $value)
         {
-            $roomTypes[] = $roomTypes1[$key]->Name;
+            $roomsType[] = $roomsType1[$key]->Name;
         }
 
-        $this->render('index', array('modelHotel' => $modelHotel,
-            'model' => $model,
+        // load name of cities, airports
+        $airports = AirportView::model()->findAll();
+        foreach ($airports as $key => $value)
+        {
+            $airportsName[] = $airports[$key]->CityName.', '.$airports[$key]->AirportName;
+        }
+
+        $this->render('index', array(
             'citiesName' => $citiesName,
-            'roomTypes' => $roomTypes,
+            'roomsType' => $roomsType,
+            'airportsName' => $airportsName,
         ));
     }
 
@@ -337,17 +341,11 @@ class SiteController extends Controller
     public function actionSearchHotel()
     {
         $modelSearchHotelForm = new SearchHotelForm;
-        $modelSearchHotelForm->attributes = $_POST['SearchHotelForm'];
+        $modelSearchHotelForm->cityName = $_POST['CityName'];
+        $modelSearchHotelForm->category = $_POST['HotelCategory'] != 'ALL' ? $_POST['HotelCategory']: NULL;
+        $modelSearchHotelForm->roomType = $_POST['RoomType'] != 'ALL' ? $_POST['RoomType']: NULL;
         $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
         $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
-
-        if (empty($modelSearchHotelForm->cityName))
-        {
-            echo '<div style="color:red;">City name could not be empty.</div>';
-            return true; // if we return false an error will be shown
-            // but we need to show an error message on screen
-            // so we should return 'true'
-        }
 
         // send information for getting availability of the rooms
         $res = $this->checkAvailabilityOfRoom($modelSearchHotelForm);
@@ -625,5 +623,38 @@ class SiteController extends Controller
         }
 
         $this->actionShowMyHotelReservations();
+    }
+
+    public function actionIndex2()
+    {
+        $model = new SearchHotelForm();
+        $modelHotel = new SearchHotelForm();
+
+        // load name of cities
+        $cities = City::model()->findAll();
+        foreach ($cities as $key => $value)
+        {
+            $citiesName[] = $cities[$key]->Name;
+        }
+
+        // load roomTypes
+        $roomTypes1 = RoomType::model()->findAll();
+        foreach ($roomTypes1 as $key => $value)
+        {
+            $roomTypes[] = $roomTypes1[$key]->Name;
+        }
+
+        $this->render('index2', array('modelHotel' => $modelHotel,
+            'model' => $model,
+            'citiesName' => $citiesName,
+            'roomTypes' => $roomTypes,
+        ));
+    }
+
+    public function actionSearchFlight()
+    {
+        $res = $_POST;
+        debugbreak();
+
     }
 }

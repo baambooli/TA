@@ -5,7 +5,6 @@ Class SearchHotelForm extends CFormModel
     public $cityName;
     public $category;
     public $roomType;
-    //public $noOfRooms;
     public $checkinDate;
     public $checkoutDate;
 
