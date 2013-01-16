@@ -135,7 +135,7 @@
         }
 
         var depDate = $('#datepickerDepartureDate').val();
-        var deskoutDate = $('#datepickerDestinationDate').val();
+        var desDate = $('#datepickerDestinationDate').val();
 
         if (depDate.length != 10)
         {

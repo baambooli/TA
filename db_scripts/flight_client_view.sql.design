@@ -16,7 +16,7 @@
     <View Name="Design" Active="True" Visible="True">
       <Data>
         <ActiveQuery>0</ActiveQuery>
-        <SubQuery Id="0" Open="0" LocationX="6.89655168633871" LocationY="143.678160132056" Scale="0.87">
+        <SubQuery Id="0" Open="0" LocationX="6.89655168633871" LocationY="449.425284893073" Scale="0.87">
           <PageOptions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
             <HorizontalOverlap>0</HorizontalOverlap>
             <VerticalOverlap>0</VerticalOverlap>

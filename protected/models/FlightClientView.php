@@ -26,6 +26,13 @@
  * @property string $DepartureAirportName
  * @property string $DepartureAirportAddress
  * @property string $DepartureAirportTel
+ * @property integer $FlightClientId
+ * @property string $ClientName
+ * @property string $ClientFamily
+ * @property string $ClientSex
+ * @property string $PassportNumber
+ * @property string $Username
+ * @property string $AireplaneSpecificationType
  */
 class FlightClientView extends CActiveRecord
 {
@@ -55,16 +62,19 @@ class FlightClientView extends CActiveRecord
 		// NOTE: you should only define rules for those attributes that
 		// will receive user inputs.
 		return array(
-			array('SeatNumber, SeatType, Aireplane_specificationsName, AirlineName, AirlineTel, FlightNumber, TakeoffTime, TakeoffDate, LandingTime, LandingDate, DestinationCityName, DestinationAirportTel, DepartureCityName, DepartureAirportTel', 'required'),
-			array('SeatId, FlightId', 'numerical', 'integerOnly'=>true),
+			array('SeatNumber, SeatType, Aireplane_specificationsName, AirlineName, AirlineTel, FlightNumber, TakeoffTime, TakeoffDate, LandingTime, LandingDate, DestinationCityName, DestinationAirportTel, DepartureCityName, DepartureAirportTel, FlightClientId, ClientSex, Username, AireplaneSpecificationType', 'required'),
+			array('SeatId, FlightId, FlightClientId', 'numerical', 'integerOnly'=>true),
 			array('SeatNumber', 'length', 'max'=>20),
 			array('SeatType, AirlineTel, DestinationAirportTel, DepartureAirportTel', 'length', 'max'=>25),
-			array('Aireplane_specificationsName, AirplaneName, FlightNumber, DestinationCityName, DepartureCityName', 'length', 'max'=>50),
+			array('Aireplane_specificationsName, AirplaneName, FlightNumber, DestinationCityName, DepartureCityName, ClientName, PassportNumber, AireplaneSpecificationType', 'length', 'max'=>50),
 			array('AirlineName, AirlineCountry, DestinationAirportAddress, DepartureAirportAddress', 'length', 'max'=>255),
 			array('DestinationAirportName, DepartureAirportName', 'length', 'max'=>100),
+			array('ClientFamily', 'length', 'max'=>70),
+			array('ClientSex', 'length', 'max'=>10),
+			array('Username', 'length', 'max'=>256),
 			// The following rule is used by search().
 			// Please remove those attributes that should not be searched.
-			array('SeatId, SeatNumber, SeatType, Aireplane_specificationsName, AirplaneName, AirlineName, AirlineCountry, AirlineTel, FlightNumber, FlightId, TakeoffTime, TakeoffDate, LandingTime, LandingDate, DestinationCityName, DestinationAirportName, DestinationAirportAddress, DestinationAirportTel, DepartureCityName, DepartureAirportName, DepartureAirportAddress, DepartureAirportTel', 'safe', 'on'=>'search'),
+			array('SeatId, SeatNumber, SeatType, Aireplane_specificationsName, AirplaneName, AirlineName, AirlineCountry, AirlineTel, FlightNumber, FlightId, TakeoffTime, TakeoffDate, LandingTime, LandingDate, DestinationCityName, DestinationAirportName, DestinationAirportAddress, DestinationAirportTel, DepartureCityName, DepartureAirportName, DepartureAirportAddress, DepartureAirportTel, FlightClientId, ClientName, ClientFamily, ClientSex, PassportNumber, Username, AireplaneSpecificationType', 'safe', 'on'=>'search'),
 		);
 	}
 
@@ -107,6 +117,13 @@ class FlightClientView extends CActiveRecord
 			'DepartureAirportName' => 'Departure Airport Name',
 			'DepartureAirportAddress' => 'Departure Airport Address',
 			'DepartureAirportTel' => 'Departure Airport Tel',
+			'FlightClientId' => 'Flight Client',
+			'ClientName' => 'Client Name',
+			'ClientFamily' => 'Client Family',
+			'ClientSex' => 'Client Sex',
+			'PassportNumber' => 'Passport Number',
+			'Username' => 'Username',
+			'AireplaneSpecificationType' => 'Aireplane Specification Type',
 		);
 	}
 
@@ -143,9 +160,22 @@ class FlightClientView extends CActiveRecord
 		$criteria->compare('DepartureAirportName',$this->DepartureAirportName,true);
 		$criteria->compare('DepartureAirportAddress',$this->DepartureAirportAddress,true);
 		$criteria->compare('DepartureAirportTel',$this->DepartureAirportTel,true);
+		$criteria->compare('FlightClientId',$this->FlightClientId);
+		$criteria->compare('ClientName',$this->ClientName,true);
+		$criteria->compare('ClientFamily',$this->ClientFamily,true);
+		$criteria->compare('ClientSex',$this->ClientSex,true);
+		$criteria->compare('PassportNumber',$this->PassportNumber,true);
+		$criteria->compare('Username',$this->Username,true);
+		$criteria->compare('AireplaneSpecificationType',$this->AireplaneSpecificationType,true);
 
 		return new CActiveDataProvider($this, array(
 			'criteria'=>$criteria,
 		));
 	}
+    
+    //Kamran
+    public function primarykey()
+    {
+        return 'FlightClientId';
+    }
 }

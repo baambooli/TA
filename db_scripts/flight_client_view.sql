@@ -1,25 +1,32 @@
-SELECT seats.Id
-     , seats.SeatNumber
-     , seats.SeatType
-     , aireplane_specifications.Name
-     , airplanes.Name
-     , airlines.Name
-     , airlines.Country
-     , airlines.Tell1
-     , flights.FlightNumber
-     , flights.Id
-     , flights.TakeoffTime
-     , flights.TakeoffDate
-     , flights.LandingTime
-     , flights.LandingDate
-     , dest_cities.Name
-     , dest_airports.Name
-     , dest_airports.Address
-     , dest_airports.Tel1
-     , dep_cities.Name
-     , dep_airport.Name
-     , dep_airport.Address
-     , dep_airport.Tel1
+SELECT seats.Id AS SeatId
+     , seats.SeatNumber AS SeatNumber
+     , seats.SeatType AS SeatType
+     , aireplane_specifications.Name AS Aireplane_specificationsName
+     , airplanes.Name AS AirplaneName
+     , airlines.Name AS AirlineName
+     , airlines.Country AS AirlineCountry
+     , airlines.Tell1 AS AirlineTel
+     , flights.FlightNumber AS FlightNumber
+     , flights.Id AS FlightId
+     , flights.TakeoffTime AS TakeoffTime
+     , flights.TakeoffDate AS TakeoffDate
+     , flights.LandingTime AS LandingTime
+     , flights.LandingDate AS LandingDate
+     , dest_cities.Name AS DestinationCityName
+     , dest_airports.Name AS DestinationAirportName
+     , dest_airports.Address AS DestinationAirportAddress
+     , dest_airports.Tel1 AS DestinationAirportTel
+     , dep_cities.Name AS DepartureCityName
+     , dep_airport.Name AS DepartureAirportName
+     , dep_airport.Address AS DepartureAirportAddress
+     , dep_airport.Tel1 AS DepartureAirportTel
+     , flight_clients.Id
+     , clients.Name
+     , clients.Family
+     , clients.Sex
+     , clients.PassportNumber
+     , clients.Username
+     , aireplane_specifications.Type
 FROM
   flight_clients
 INNER JOIN clients

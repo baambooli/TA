@@ -55,6 +55,7 @@
                     array('label' => 'Airlines', 'url' => array('/airline/admin', 'view' => 'admin')),
                     array('label' => 'Seats', 'url' => array('/seat/admin', 'view' => 'admin')),
                     array('label' => 'Clients', 'url' => array('/client/admin', 'view' => 'admin')),
+                    array('label' => 'Flight/Clients', 'url' => array('/flightClient/admin', 'view' => 'admin')),
                 ),
             ),
             // show 'Hotel info' menu to admin and Hotel_operator users
