@@ -133,9 +133,17 @@ class Flight extends CActiveRecord
     {
         // get list of Airlines
         $airlines = Airline::model()->findAll();
+        
         // convert them to suitable format for comboBox or listbox
         $airlinesArray = CHtml::listData($airlines, 'Id', 'Name');
-        return $airlinesArray;
+        
+        // add 'please select' as the first item
+        $airlinesArray2[0] = 'Please select...';
+        foreach ($airlinesArray as $key => $value)
+        {
+            $airlinesArray2[$key] = $value;   
+        }
+        return $airlinesArray2;
     }
 
     // get name of the Airline related to the specific Id
@@ -170,7 +178,7 @@ class Flight extends CActiveRecord
         // convert them to suitable format for comboBox or listbox
         $airplanesArray = CHtml::listData($airplanes, 'Id', 'Name');
         return $airplanesArray;
-    }
+    } 
 
     // get name of the Airplane related to the specific Id
     public function getAirplaneName($id)

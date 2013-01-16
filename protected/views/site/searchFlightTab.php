@@ -67,7 +67,6 @@
         </div>
     </div>
     <div class="well KContent" id="searchFlightResults">
-        right panel
         <div id="jqxgrid">
         </div>
     </div>
