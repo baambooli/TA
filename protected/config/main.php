@@ -51,10 +51,12 @@ return array(
         'authManager' => array(
             'class' => 'RDbAuthManager', // Provides support authorization item sorting.
         ),
+        
         // enable APC cache
-        'cache' => array(
+        /*'cache' => array(
             'class' => 'system.caching.CApcCache',
-        ),
+        ), */
+        
         // uncomment the following to enable URLs in path-format
         /* 'urlManager' => array(
           'urlFormat' => 'path',

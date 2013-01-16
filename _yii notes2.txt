@@ -1085,7 +1085,7 @@ or
 	ON Persons (LastName, FirstName)
 	
 	
-73- MySQL Engines: InnoDB vs. MyISAM – A Comparison of Pros and Cons
+73- MySQL Engines: InnoDB vs. MyISAM \96 A Comparison of Pros and Cons
 
 	The 2 major types of table storage engines for MySQL databases are InnoDB and MyISAM. To summarize the differences of features and performance,
 
@@ -1102,12 +1102,12 @@ or
 	Advantages of InnoDB
 
 	InnoDB should be used where data integrity comes a priority because it inherently takes care of them by the help of relationship constraints and transactions.
-	Faster in write-intensive (inserts, updates) tables because it utilizes row-level locking and only hold up changes to the same row that’s being inserted or updated.
+	Faster in write-intensive (inserts, updates) tables because it utilizes row-level locking and only hold up changes to the same row that\92s being inserted or updated.
 	
 	Disadvantages of InnoDB
 
 	Because InnoDB has to take care of the different relationships between tables, database administrator and scheme creators have to take more time in designing the data models which are more complex than those of MyISAM.
-	Consumes more system resources such as RAM. As a matter of fact, it is recommended by many that InnoDB engine be turned off if there’s no substantial need for it after installation of MySQL.
+	Consumes more system resources such as RAM. As a matter of fact, it is recommended by many that InnoDB engine be turned off if there\92s no substantial need for it after installation of MySQL.
 	No full-text indexing.
 	
 	Advantages of MyISAM
@@ -1120,9 +1120,9 @@ or
 	Disadvantages of MyISAM
 
 	No data integrity (e.g. relationship constraints) check, which then comes a responsibility and overhead of the database administrators and application developers.
-	Doesn’t support transactions which is essential in critical data applications such as that of banking.
+	Doesn\92t support transactions which is essential in critical data applications such as that of banking.
 	Slower than InnoDB for tables that are frequently being inserted to or updated, because the entire table is locked for any insert or update.
-	The comparison is pretty straightforward. InnoDB is more suitable for data critical situations that require frequent inserts and updates. MyISAM, on the other hand, performs better with applications that don’t quite depend on the data integrity and mostly just select and display the data.
+	The comparison is pretty straightforward. InnoDB is more suitable for data critical situations that require frequent inserts and updates. MyISAM, on the other hand, performs better with applications that don\92t quite depend on the data integrity and mostly just select and display the data.
 			
 74-	a nice online website to create RBAC diagrams---> http://yuml.me/diagram/scruffy/class/draw
 
@@ -1164,7 +1164,7 @@ or
 	
 		IMPORTANT: configuration file is /protected/modules/rights/RightsModule.php
 		
-	d) Add the following lines to your application’s configuration (protected/config/main.php): 
+	d) Add the following lines to your application\92s configuration (protected/config/main.php): 
  
 		'import'=>array( 
 		   ...... 
@@ -1401,7 +1401,7 @@ or
 	
 81- Converting an Artisteer Theme to Yii ( http://www.yiiframework.com/wiki/188/converting-an-artisteer-theme-to-yii/ )
 	
-	There are two approaches to converting an Artisteer theme. The first is to simply copy an existing Artisteer – based Yii theme, overlay the CSS and images, then make any necessary tweaks to the layout files. This is undoubtedly the fastest route, but won't teach you as much as doing it from scratch. That's ok. Sometimes getting the job done is the top priority. The second approach is more general and will apply to some extent to other HTML templates that you may want to convert. I'll be covering the first approach in detail, while the second will be more of a general discussion.
+	There are two approaches to converting an Artisteer theme. The first is to simply copy an existing Artisteer \96 based Yii theme, overlay the CSS and images, then make any necessary tweaks to the layout files. This is undoubtedly the fastest route, but won't teach you as much as doing it from scratch. That's ok. Sometimes getting the job done is the top priority. The second approach is more general and will apply to some extent to other HTML templates that you may want to convert. I'll be covering the first approach in detail, while the second will be more of a general discussion.
 
 	Artisteer vs Yii 
 	Artisteer can be used to generate themes for Drupal, Joomla, and other CMSes. It can also generate HTML templates. It is the HTML template that can be converted to an Artisteer theme.
@@ -1432,7 +1432,7 @@ or
 	The Yii theme files are a little more involved. The css subdirectory is obvious. In many ways, CSS is like a structural foundation. The views, then, are the walls and the doors, the windows and the floors that complete the theme. Layouts are those special views that define the header, the footer, and column layouts. (see the Yii Definitive Guide for more info)
 
 	Approach #1: Fast and Furious 
-	So, you've generated an Artisteer theme that you like and exported it as an HTML template. Or you've downloaded one of the freebies online. Step 1: Download a copy of one of the Artisteer – based themes from http://yiithemes.mehesz.net/ If possible, find one that is structured close to the one that you want to convert. For example, if your menu position is below the header, you'll do less editing if the theme you download as a starting point already matches. Install the theme according to the instructions. When you're sure the theme works, move on to the next step.
+	So, you've generated an Artisteer theme that you like and exported it as an HTML template. Or you've downloaded one of the freebies online. Step 1: Download a copy of one of the Artisteer \96 based themes from http://yiithemes.mehesz.net/ If possible, find one that is structured close to the one that you want to convert. For example, if your menu position is below the header, you'll do less editing if the theme you download as a starting point already matches. Install the theme according to the instructions. When you're sure the theme works, move on to the next step.
 
 	Step 2: Make a copy of the working theme from Step 1 and give it a new name.
 
@@ -1449,7 +1449,7 @@ or
 
 	Step 1: Find a theme/template you like and download it.
 
-	Step 2: Find the “demo” page that shows the various CSS styles and formatting. Page.html, index.html, etc. and view the source.
+	Step 2: Find the \93demo\94 page that shows the various CSS styles and formatting. Page.html, index.html, etc. and view the source.
 
 	Step 3: Copy the header into a new text file. This will become your main.php file in the layout subdirectory. Replace any references to files on the filesystem with paths that take into account the location of the theme. For example,
 
@@ -2053,7 +2053,7 @@ or
 	This is how I installed APC on Xampp on Windows 7
 
 	Go to this webpage: http://downloads.php.net/pierre/
-	READ THIS BIT CAREFULLY AS THE WEBSITE ABOVE IS CONSTANTLY UPDATED. Look for a file that starts with “php_apc” and then something like “-3.1.10? (APC version) then “-5.3? (Your Xampp PHP version) then “-vc9? (unimportant) then “-x86? (32 bit pc) () .zip
+	READ THIS BIT CAREFULLY AS THE WEBSITE ABOVE IS CONSTANTLY UPDATED. Look for a file that starts with \93php_apc\94 and then something like \93-3.1.10? (APC version) then \93-5.3? (Your Xampp PHP version) then \93-vc9? (unimportant) then \93-x86? (32 bit pc) () .zip
 	At the time of writing if you were running xampp with php 5.3 then you would want this file http://downloads.php.net/pierre/php_apc-3.1.10-5.3-vc9-x86.zip
 	Download and unzip this file
 	Copy php_apc.dll to d:\xampp\php\ext
@@ -2087,9 +2087,9 @@ or
 	generated Opcode within shared memory using APC. APC works in the background of 
 	your code and contains no special functions to cache the generated Opcode 
 	
-	benefits of using APC within our application. The code shown in Listing 4–5 creates an 
+	benefits of using APC within our application. The code shown in Listing 4\965 creates an 
 	array with 10,000 elements and then displays the data on the screen.  
-	Listing 4–5. Sample Code to Test Using ab 
+	Listing 4\965. Sample Code to Test Using ab 
 	<?php 
 	$max = 10000; 
 	$x = 0; 
@@ -2108,9 +2108,9 @@ or
 	} 
 
 	We need to check on the improvement APC adds when applied to our PHP script. By 
-	taking two tests—the initial test to simulate the speed of our application while APC is 
+	taking two tests\97the initial test to simulate the speed of our application while APC is 
 	turned off and a secondary test to determine the change in performance while APC is 
-	turned on—we can accomplish this. We will test this by simulating 1,000 requests with 5 
+	turned on\97we can accomplish this. We will test this by simulating 1,000 requests with 5 
 	concurrent requests using ab, as shown in below
 
 	ab -n 1000 -c 5 http://kamran.dev.travelagancy.com:81/k1.php
@@ -2120,7 +2120,7 @@ or
 	To install the web interface, each APC installation includes an apc.php file. The file is the
 	only item that is required to run the web interface and must simply be installed within the
 	web server to access it.  
-	If you installed APC from source or if you’re on a Windows machine, you will need to
+	If you installed APC from source or if you\92re on a Windows machine, you will need to
 	download the installation package
 
 104- apache benchmark that is available in apache package can be used to benchmark a single page for example in xampp
@@ -2158,7 +2158,7 @@ or
 109- Smush.it 
 	Smush.it is a lossless compression tool created by Yahoo! to reduce the file size of your 
 	images even further. The tool is available at www.smushit.com and allows you to either 
-	upload your files or reference them using a list of URLs (Figure 2–15). There is a file size 
+	upload your files or reference them using a list of URLs (Figure 2\9615). There is a file size 
 	restriction of 1MB. 
 	
 111- decreasing the number of call to javascript files can reduce the load time of a page too. to do that merge all of your
@@ -2167,7 +2167,7 @@ or
 112- 	APC variable Caching 
 
 		In previous notes, we implemented APC to exclusively cache PHP Opcode. In this section, we 
-		will use APC to store information. To do so, we’re going to focus on a subset of internal 
+		will use APC to store information. To do so, we\92re going to focus on a subset of internal 
 		PHP APC methods shown below. Before we begin, make sure you have the APC 
 		PHP extension fully installed. 
 		
@@ -2224,35 +2224,35 @@ or
 		
 		the controler should be like:
 		
- 
+\A0
 		public function actionCreate()
 			{
 				$model=new Photos;
-		 
+		\A0
 				if(isset($_POST['Photos']))
 				{
 							$model->attributes=$_POST['Photos'];
 							$myfile = CUploadedFile::getInstance($model,'image');
 							$model->image=$myfile;
-		 
+		\A0
 							if($model->save())
 								$this->updatePhoto($model, $myfile);
-		 
+		\A0
 							$this->redirect('view'.'id'=>$model->id);
 				}
-		 
+		\A0
 				$this->render('create',array(
 					'model'=>$model,
 				));
 			}
-		 
+		\A0
 			/*------------------------------------------------
-	        * Upload and crunch an image
-	        ------------------------------------------------*/
+	\A0       * Upload and crunch an image
+	\A0       ------------------------------------------------*/
 			public function updatePhoto($model, $myfile ) {
 			   if (is_object($myfile) && get_class($myfile)==='CUploadedFile') {
 					$ext = $model->image->getExtensionName();
-	 
+	\A0
 			//generate a filename for the uploaded image based on a random number
 			// but check that the random number has not already been used
 					if ($model->filename=='' or is_null($model->filename)) {
@@ -2265,18 +2265,18 @@ or
 						}
 					$model->filename=$filename;
 					}
-	 
+	\A0
 					$model->save();
-	 
+	\A0
 					$model->image->saveAs($model->getPath());  //model->getPath see below
-	 
+	\A0
 					$image = Yii::app()->image->load($model->getPath());
 			//Crunch the photo to a size set in my System Options Table
 			//I hold the max size as 800 meaning to fit in an 800px x 800px square
 					$size=$this->getOption('PhotoLarge');
 					$image->resize($size[0], $size[0])->quality(75)->sharpen(20);
 					$image->save(); 
-	 
+	\A0
 			// Now create a thumb - again the thumb size is held in System Options Table
 			$size=$this->getOption('PhotoThumb');
 					$image->resize($size[0], $size[0])->quality(75)->sharpen(20);
@@ -3200,11 +3200,11 @@ or
 	3. Shut down MySQL servers.
 	4. Restart MySQL servers with correct server-ids.
 	5. Establish master-slave relationship from each slave.
-	Now we’ll explain the process in more detail.
+	Now we\92ll explain the process in more detail.
 	You will need to create an account on the master database for slaves to use, with the 
 	REPLICATE SLAVE privilege. You do not need to grant any other privileges to this account.
 	GRANT REPLICATE SLAVE ON *.*
-	TO replicant@’%’ IDENTIFIED BY ‘replpwd’;
+	TO replicant@\92%\92 IDENTIFIED BY \91replpwd\92;
 	Next, lock the master server and take a snapshot of its state immediately before the replica-
 	tion. On the master server, log in to a MySQL client session as the root user and issue the
 	commands:
@@ -3213,7 +3213,7 @@ or
 	This will prevent any changes from being made to the database until you are ready to bring
 	up the cluster. You may also (depending on whether this server has been run with binary 
 	logging) see some data about the location of the binary log file and offset. If so, write it down;
-	if not, use the default values ‘’ (empty string) and 4, respectively.
+	if not, use the default values \91\92 (empty string) and 4, respectively.
 	Next, copy the master database structure and data. There are two ways to do this. The first 
 	is to simply copy the mysql/data directory into a tarball or zip file by using one of these
 	commands or a GUI procedure:
@@ -3226,7 +3226,7 @@ or
 	mysqladmin -u root -p shutdown
 	on each server. The reason you are shutting the servers down is to give them unique server-
 	id values. They will use these values to find each other when they establish the master-slave
-	relationship. This value is set in each server’s my.cnf file and will be read in on startup. On
+	relationship. This value is set in each server\92s my.cnf file and will be read in on startup. On
 	Windows, the my.cnf file is located in one of two places: C:\my.cnf or C:\[Windows
 	directory]\my.ini. On Unix systems, the global my.cnf file is found in /etc/my.cnf and
 	the server-specific file (which is probably the one you want to use) is found in /path/to/
@@ -3238,9 +3238,9 @@ or
 	server-id=1276 Part II ?  PHP and MySQL
 	Restart the master server:
 	bin/mysqld_safe --user=mysql
-	In each slave server’s my.cnf files, you need only the server-id, not the log-bin line. The
+	In each slave server\92s my.cnf files, you need only the server-id, not the log-bin line. The
 	most important thing is that you are absolutely positive that all the server-id values in your
-	cluster are unique! If they are not, bad things will happen. So the first slave’s my.cnf file
+	cluster are unique! If they are not, bad things will happen. So the first slave\92s my.cnf file
 	would contain this line:
 	[mysqld]
 	server-id=2
@@ -3248,7 +3248,7 @@ or
 	Now, before you bring up each slave server, you may need to do a little bit of housekeeping. 
 	If this MySQL server has been used as a slave before, you may want to delete the files data/
 	master.info and data/relay-log.info. You may also want to delete the .err and .pid
-	files in the data directory. Also, if you copied the master’s data snapshot into a tarball or 
+	files in the data directory. Also, if you copied the master\92s data snapshot into a tarball or 
 	zipfile, now is the time to copy it to the slave with a command like one of these (from the
 	mysql directory):
 	tar -xvf master_snapshot.tar
@@ -3263,13 +3263,13 @@ or
 	enter the following commands, substituting the values you wrote down at the beginning of
 	the process:
 	CHANGE MASTER TO
-	MASTER_HOST=’masterhostname’,
-	MASTER_USER=’replicant’,
-	MASTER_PASSWORD=’replpwd’,
-	MASTER_LOG_FILE=’’,
+	MASTER_HOST=\92masterhostname\92,
+	MASTER_USER=\92replicant\92,
+	MASTER_PASSWORD=\92replpwd\92,
+	MASTER_LOG_FILE=\92\92,
 	MASTER_LOG_POS=4;
 	START SLAVE;
-	If there are problems, they will appear in the slave machine’s error log.
+	If there are problems, they will appear in the slave machine\92s error log.
 
 
 
@@ -3278,10 +3278,10 @@ or
 	Normally, MySQL does not require much attention. MySQL servers have happily puttered
 	away for months if not years with minimal administration. However, bad things do happen 
 	to data: Hard disks melt down, hosting centers lose power suddenly, and human error is a
-	constant and awful probability. If you have insufficient memory for all the applications you’re
+	constant and awful probability. If you have insufficient memory for all the applications you\92re
 	running on a server, or insufficient disk space on a partition, you may also get an error that
 	requires a recovery process. It must be admitted that MySQL seems to have minor database
-	corruption events with greater frequency than heavier-weight databases — or perhaps it’s
+	corruption events with greater frequency than heavier-weight databases \97 or perhaps it\92s
 	just easier for the administrator to notice these events.
 	
 145-  the method of adding jQuery UI tabs to a html or php page
@@ -4232,7 +4232,7 @@ or
 
 		a) in the remote host(khpec.biz) create a folder and call it 'kamran', then create two subfolders and call them
 			'yii' and 'travelagency' inside 'kamran' folder.
-		b) ftp yii 1.1.13 inside kamran/yii folder (MAYBE we do not need to upload yii framework at all)
+		b) ftp yii 1.1.13 inside kamran/yii folder ( we DO need to upload yii framework, otherwise it does not work)
 		c) ftp inside of travelagency folder on local pc to kamran/travelagency folder on khpec.biz 
 			Note:
 			we do not need to copy assets, .git, .settings, phpEd5.9, and db_scripts folders, but create an empty assets folder on 
@@ -4413,13 +4413,89 @@ or
 	 php.ini file. so you should have access to php/ext folder and php.ini file too.
 	 
 	 
-169-
+169- to create a symbliic link to g:\Github\travelagency on linux mint
+
+	sudo ln -s  /media/01CD9EA143AA4D10/GitHub/travelagency /var/www/travelagency
+
+170- but there is a software to decode all of them
+
+		http://dezender.net/  --> 1000 Euro
+		
+		this site says that ionCube is the best encryptor but they can break even it too.
+		
+		
+171- How to repair and optimize databases using phpMyAdmin:
+
+		Occasionally the MySQL database may run slower than desired. This issue can be fixed quickly through phpMyAdmin.
+
+		(Note: Please back up any database on the account before making changes)
+
+		Log into cPanel.
+		Click on phpMyAdmin.
+		On the left will be a list of databases. Select the one to repair/optimize.
+		This will load all of the tables in your database into the right side. At the bottom of this list, check the "Check All" checkbox.
+		Just to the right of the Check All link, select the "Repair" option in the drop-down list.
+		This will list all the tables, with "OK" listed next to them. When this is done, look up to the top of the page and click on the "Structure" tab.
+		Once the process has finished the page will revert back to step 4.
+		Click "Check All" again, and then choose "Optimize" in the drop down menu.
+		Now the process is done!
+		Many MySQL errors can be fixed by this process. It is recommended to perform these steps frequently to keep any database in good condition.
+
+		(Note:If you are using InnoDB as a storage engine, we have noticed an issue regarding database size: For various reasons, it occasionally occurs that memory allocated to a customer for database usage is not released when it is no longer required by the database. This memory does not appear as in use when database size is viewed using phpMyAdmin, but since it is still allocated to the customer account, the server-side administrative tools will include it in calculations of overall database memory usage and determinations of whether or not an account has exceeded the database memory limits specified in the Terms of Service. The easiest way to free this "hidden" memory is to export the database information, completely clear the database, and re-import the information. This will cause phpMyAdmin and the server-side tools to report the actual database usage and prevent account deactivation due to the "hidden" memory usage. The repair/optimize function in phpMyAdmin will not correct this issue. The server-side tools report complete memory usage which is the information required to determine overall performance of the server, and that is why the server-side tools are used to determine usage for ToS compliance purposes. phpMyAdmin does not correctly report all memory usage allocated to the account and is therefore not used for these calculations.
 
 
 
+172- increase php and apache response time
 
+		You may do 2 things:
 
+		Based on CGI/Server side engine increase timeout there
 
+		PHP : http://www.php.net/manual/en/info.configuration.php#ini.max-execution-time - default is 30 seconds
+
+		In php.ini:
+
+		max_execution_time = 60
+		
+		Increase apache timeout
+
+		http://httpd.apache.org/docs/2.0/mod/core.html#timeout - default is 300
+
+		In your httpd.conf (in server config or vhost config)
+
+		TimeOut = 600
+		
+		Note that first setting allows your PHP script to run longer, it will not interferre with network timeout.
+
+		Second setting modify maximum amount of time the server will wait for certain events before failing a request
+
+		
+173-    Create a Unique Composite Key (Unique index) in MySQL
+		or
+		specify unique constraint for multiple columns in MySQL
+	
+			I have a table:
+
+			table tbl_votes (
+				id,
+				user,
+				email,
+				address,
+				primary key(id),
+			);
+			Now I want to make the columns user, email, address unique (together). (DB is MySQL)
+		
+		answer:
+		
+			alter table tbl_votes add unique index(user, email, address);
+			
+		in TA project I used that like
+			
+				ALTER TABLE flight_clients
+				ADD UNIQUE INDEX (FlightId, SeatId);
+		
+		
+174- 
 
 
 
