@@ -13,9 +13,9 @@
 
 	<?php echo $form->textFieldRow($model,'FlightNumber',array('class'=>'span5','maxlength'=>50)); ?>
 
-    <?php echo $form->dropDownListRow($model, 'AirlineId', $model->getAirlines(), array('class' => 'span5', 'onclick' => 'ajaxGetAirplane();')); ?>
+    <?php echo $form->dropDownListRow($model, 'AirlineId', $model->getAirlines(), array('class' => 'span5', 'onchange' => 'ajaxGetAirplane();')); ?>
 
-    <?php echo $form->dropDownListRow($model, 'AirplaneId', array('0' => 'First select the Airline'), array('class' => 'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'AirplaneId', array(), array('class' => 'span5')); ?>
 
     <?php echo $form->datepickerRow($model, 'TakeoffDate', array('options'=>array('format' => 'yyyy-mm-dd'), 'hint'=>'Click inside to select a date! ', 'prepend'=>'<i class="icon-calendar"></i>')); ?>
     
@@ -51,6 +51,20 @@
 $('#save_update').click(function() {
     //$('#save_update').html('Saving, Please wait ....');
     
+    var airlineId= $('#Flight_AirlineId').val();
+    if (airlineId ==0 || airlineId.trim() == '' )
+    {
+        alert('Please select an airline.');
+        return;   
+    }
+    
+    var airplaneId= $('#Flight_AirplaneId').val();
+    if (airplaneId ==0 || airplaneId.trim() == '' )
+    {
+        alert('Please select an airplane.');
+        return;   
+    }
+    
     var startDate = $('#Flight_TakeoffDate').val();
     var endDate = $('#Flight_LandingDate').val();
     if (startDate > endDate)
@@ -58,9 +72,17 @@ $('#save_update').click(function() {
         alert('Take off date should be smaller than or equal to Landing date.');
         return;
     }
+    
+    var takeoffTime = $('#Flight_TakeoffTime').val();
+    var landingTime = $('#Flight_LandingTime').val();
+    if ((startDate == endDate) && (takeoffTime >= landingTime))
+    {
+        alert('Take off time should be smaller than to Landing time.');
+        return;
+    }
 
-    var depCity= $('#Flight_DepartureAirportId').val();
-    var desCity= $('#Flight_DestinationAirportId').val();
+    var depCity = $('#Flight_DepartureAirportId').val();
+    var desCity = $('#Flight_DestinationAirportId').val();
     if (depCity == desCity)
     {
         alert('departure and destination cities cannot be the same.');

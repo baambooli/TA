@@ -9,11 +9,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('AirlineId')); ?>:</b>
-	<?php echo CHtml::encode($data->AirlineId); ?>
+	<?php echo CHtml::encode($data->getAirlineName($data->AirlineId)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('AirplaneId')); ?>:</b>
-	<?php echo CHtml::encode($data->AirplaneId); ?>
+	<?php echo CHtml::encode($data->getAirplaneName($data->AirplaneId)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('TakeoffDate')); ?>:</b>
@@ -25,12 +25,11 @@
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('DepartureAirportId')); ?>:</b>
-	<?php echo CHtml::encode($data->DepartureAirportId); ?>
+	<?php echo CHtml::encode($data->getAirportName($data->DepartureAirportId)); ?>
 	<br />
 
-	<?php /*
 	<b><?php echo CHtml::encode($data->getAttributeLabel('DestinationAirportId')); ?>:</b>
-	<?php echo CHtml::encode($data->DestinationAirportId); ?>
+	<?php echo CHtml::encode($data->getAirportName($data->DestinationAirportId)); ?>
 	<br />
 
 	<b><?php echo CHtml::encode($data->getAttributeLabel('PriceOfFirstClassSeats')); ?>:</b>
@@ -44,7 +43,5 @@
 	<b><?php echo CHtml::encode($data->getAttributeLabel('PriceOfEconomyClassSeats')); ?>:</b>
 	<?php echo CHtml::encode($data->PriceOfEconomyClassSeats); ?>
 	<br />
-
-	*/ ?>
 
 </div>

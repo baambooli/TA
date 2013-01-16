@@ -20,12 +20,28 @@ $this->menu=array(
 	'attributes'=>array(
 		'Id',
 		'FlightNumber',
-		'AirlineId',
-		'AirplaneId',
+		//'AirlineId',
+        array(
+            'name' => 'AirlineId',
+            'value'=>CHtml::encode($model->getAirlineName($model->AirlineId)),
+        ),
+		//'AirplaneId',
+        array(
+            'name' => 'AirplaneId',
+            'value'=>CHtml::encode($model->getAirplaneName($model->AirplaneId)),
+        ),
 		'TakeoffDate',
 		'LandingDate',
-		'DepartureAirportId',
-		'DestinationAirportId',
+		//'DepartureAirportId',
+        array(
+            'name' => 'DepartureAirportId',
+            'value'=>CHtml::encode($model->getAirportName($model->DepartureAirportId)),
+        ),
+		//'DestinationAirportId',
+        array(
+            'name' => 'DestinationAirportId',
+            'value'=>CHtml::encode($model->getAirportName($model->DestinationAirportId)),
+        ),
 		'PriceOfFirstClassSeats',
 		'PriceOfBusinessClassSeats',
 		'PriceOfEconomyClassSeats',

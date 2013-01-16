@@ -27,13 +27,13 @@ $('.search-form form').submit(function(){
 <?php $this->widget('bootstrap.widgets.TbGridView',array(
 	'id'=>'flight-grid',
     'type'=>'striped bordered condensed',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
+	'dataProvider'=>$modelFlightView->search(),
+	'filter'=>$modelFlightView,
 	'columns'=>array(
-		'Id',
+		'FlightId',
 		'FlightNumber',
-		'AirlineId',
-		'AirplaneId',
+		'AirlineName',
+		'AirplaneName',
 		'TakeoffDate',
 		'LandingDate',
 		/*

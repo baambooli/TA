@@ -30,12 +30,6 @@ class FlightClientViewController extends RController
     }
 
     /**
-     * Specifies the access control rules.
-     * This method is used by the 'accessControl' filter.
-     * @return array access control rules
-     */
-    
-    /**
      * Displays a particular model.
      * @param integer $id the ID of the model to be displayed
      */

@@ -124,13 +124,13 @@ class FlightController extends RController
      */
     public function actionAdmin()
     {
-        $model = new Flight('search');
-        $model->unsetAttributes();  // clear any default values
-        if (isset($_GET['Flight']))
-            $model->attributes = $_GET['Flight'];
+        $modelFlightView = new FlightView('search');
+        $modelFlightView->unsetAttributes();  // clear any default values
+        if (isset($_GET['FlightView']))
+            $modelFlightView->attributes = $_GET['FlightView'];
 
         $this->render('admin', array(
-            'model' => $model,
+            'modelFlightView' => $modelFlightView,
         ));
     }
 
@@ -168,10 +168,9 @@ class FlightController extends RController
 
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
-        foreach ($airplanes as $value => $name)
+        foreach ($airplanes as $key => $value)
         {
-            echo CHtml::tag('option', array('value' => $value), CHtml::encode($airplanes[$value]->Name), true);
+            echo CHtml::tag('option', array('value' => $airplanes[$key]->Id), CHtml::encode($airplanes[$key]->Name), true);
         }
     }
-
 }
