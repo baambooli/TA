@@ -58,7 +58,7 @@ class SiteController extends Controller
         $airports = AirportView::model()->findAll();
         foreach ($airports as $key => $value)
         {
-            $airportsName[] = $airports[$key]->CityName.', '.$airports[$key]->AirportName;
+            $airportsName[] = $airports[$key]->CityName . ', ' . $airports[$key]->AirportName;
         }
 
         $this->render('index', array(
@@ -342,8 +342,8 @@ class SiteController extends Controller
     {
         $modelSearchHotelForm = new SearchHotelForm;
         $modelSearchHotelForm->cityName = $_POST['CityName'];
-        $modelSearchHotelForm->category = $_POST['HotelCategory'] != 'ALL' ? $_POST['HotelCategory']: NULL;
-        $modelSearchHotelForm->roomType = $_POST['RoomType'] != 'ALL' ? $_POST['RoomType']: NULL;
+        $modelSearchHotelForm->category = $_POST['HotelCategory'] != 'ALL' ? $_POST['HotelCategory'] : NULL;
+        $modelSearchHotelForm->roomType = $_POST['RoomType'] != 'ALL' ? $_POST['RoomType'] : NULL;
         $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
         $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
 
@@ -656,7 +656,7 @@ class SiteController extends Controller
         $res = $_POST;
         //debugbreak();
 
-        echo json_encode(array('a' =>'12345'));
+        echo json_encode(array('a' => '12345'));
         return true;
     }
 }

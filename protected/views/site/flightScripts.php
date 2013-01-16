@@ -1,4 +1,4 @@
- <link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/styles/jqx.base.css" type="text/css" />
+<link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/styles/jqx.base.css" type="text/css" />
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxcore.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxdata.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxbuttons.js"></script>
@@ -20,13 +20,13 @@
 
 <?php /*
   in this page we should delete this line
-  
+
   <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/scripts/jquery-1.8.2.min.js"></script>
-  
+
   to avoid with the scripts in index.php. but normally we need that
-  
+
   kamran
-*/ ?>
+ */ ?>
 
 <script >
     $(function() {
@@ -88,9 +88,9 @@
                 //alert('Success.');
 
                 // write new data on it (results of actionSearchFlight() function on siteController)
-                 var data = generatedata(500)
-                 showFlightResults(data);
-                 
+                var data = generatedata(500)
+                showFlightResults(data);
+
                 // restore the caption of button
                 $('#searchFlightButton').val('Search Flight');
             },
@@ -256,7 +256,7 @@
                 };
 
         var dataAdapter = new $.jqx.dataAdapter(source);
-        
+
         $("#jqxgrid").jqxGrid(
                 {
                     width: 800,
