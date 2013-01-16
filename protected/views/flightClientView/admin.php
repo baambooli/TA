@@ -1,12 +1,12 @@
 <?php
-$this->breadcrumbs=array(
-	'Flight Client Views'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array(
+    'Flight Client Views' => array('index'),
+    'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'List FlightClientView','url'=>array('index')),
-	array('label'=>'Create FlightClientView','url'=>array('create')),
+$this->menu = array(
+    array('label' => 'List FlightClientView', 'url' => array('index')),
+    array('label' => 'Create FlightClientView', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -25,45 +25,46 @@ $('.search-form form').submit(function(){
 
 <h1>Manage Flight Client Views</h1>
 
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'flight-client-view-grid',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'flight-client-view-grid',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
         'FlightNumber',
         'ClientName',
         'ClientFamily',
         'PassportNumber',
         'DepartureAirportName',
         'DestinationAirportName',
-        
         /*
-        'FlightClientId',
-        'ClientSex',
-		'SeatId',
-		'SeatNumber',
-		'SeatType',
-		'Aireplane_specificationsName',
-		'AirplaneName',
-		'AirlineName',
-		'AirlineCountry',
-		'AirlineTel',
-		'FlightId',
-		'TakeoffTime',
-		'TakeoffDate',
-		'LandingTime',
-		'LandingDate',
-		'DestinationCityName',
-		'DestinationAirportAddress',
-		'DestinationAirportTel',
-		'DepartureCityName',
-		'DepartureAirportAddress',
-		'DepartureAirportTel',
-		'Username',
-		'AireplaneSpecificationType',
-		 */
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
-	),
-)); ?>
+          'FlightClientId',
+          'ClientSex',
+          'SeatId',
+          'SeatNumber',
+          'SeatType',
+          'Aireplane_specificationsName',
+          'AirplaneName',
+          'AirlineName',
+          'AirlineCountry',
+          'AirlineTel',
+          'FlightId',
+          'TakeoffTime',
+          'TakeoffDate',
+          'LandingTime',
+          'LandingDate',
+          'DestinationCityName',
+          'DestinationAirportAddress',
+          'DestinationAirportTel',
+          'DepartureCityName',
+          'DepartureAirportAddress',
+          'DepartureAirportTel',
+          'Username',
+          'AireplaneSpecificationType',
+         */
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+        ),
+    ),
+));
+?>
