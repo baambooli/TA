@@ -15,11 +15,12 @@ $this->menu=array(
 
 <h1>View Client #<?php echo $model->Id; ?></h1>
 
-<?php 
+<?php
     $this->_decryptClient($model);
-    
+
     $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
+    'type' => 'striped bordered condensed',
 	'attributes'=>array(
 		'Id',
 		'Name',
@@ -45,4 +46,4 @@ $this->menu=array(
 	),
 )); ?>
 <!-- show Image here-->
-<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/client/'.$model->Image,'Image',array('width'=>200)); 
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/client/'.$model->Image,'Image',array('width'=>200));

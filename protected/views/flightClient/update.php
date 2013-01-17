@@ -6,10 +6,10 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List FlightClient','url'=>array('index')),
+	array('label'=>'List FlightClient','url'=>array('flightClientView/index')),
 	array('label'=>'Create FlightClient','url'=>array('create')),
 	array('label'=>'View FlightClient','url'=>array('view','id'=>$model->Id)),
-	array('label'=>'Manage FlightClient','url'=>array('admin')),
+	array('label'=>'Manage FlightClient','url'=>array('flightClientView/admin')),
 );
 ?>
 

@@ -6,7 +6,7 @@ $this->breadcrumbs = array(
 
 $this->menu = array(
     array('label' => 'List FlightClientView', 'url' => array('index')),
-    array('label' => 'Create FlightClientView', 'url' => array('create')),
+    array('label' => 'Create FlightClientView', 'url' => array('flightClient/create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "

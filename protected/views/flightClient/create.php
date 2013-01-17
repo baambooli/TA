@@ -5,8 +5,8 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List FlightClient','url'=>array('index')),
-	array('label'=>'Manage FlightClient','url'=>array('admin')),
+	array('label'=>'List FlightClient','url'=>array('flightClientView/index')),
+	array('label'=>'Manage FlightClient','url'=>array('flightClientView/admin')),
 );
 ?>
 

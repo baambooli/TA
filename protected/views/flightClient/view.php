@@ -5,11 +5,11 @@ $this->breadcrumbs=array(
 );
 
 $this->menu=array(
-	array('label'=>'List FlightClient','url'=>array('index')),
+	array('label'=>'List FlightClient','url'=>array('flightClientView/index')),
 	array('label'=>'Create FlightClient','url'=>array('create')),
 	array('label'=>'Update FlightClient','url'=>array('update','id'=>$model->Id)),
 	array('label'=>'Delete FlightClient','url'=>'#','linkOptions'=>array('submit'=>array('delete','id'=>$model->Id),'confirm'=>'Are you sure you want to delete this item?')),
-	array('label'=>'Manage FlightClient','url'=>array('admin')),
+	array('label'=>'Manage FlightClient','url'=>array('flightClientView/admin')),
 );
 ?>
 
@@ -17,6 +17,7 @@ $this->menu=array(
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
+    'type' => 'striped bordered condensed',
 	'attributes'=>array(
 		'Id',
 		'ClientId',

@@ -8,6 +8,8 @@
  * @property string $AirplaneName
  * @property string $AirlineName
  * @property string $StartDateOfWork
+ * @property string $AirplaneSpec
+ * @property string $AirplaneSpecType
  */
 class AirplaneView extends CActiveRecord
 {
@@ -38,14 +40,14 @@ class AirplaneView extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('AirlineName', 'required'),
+            array('AirlineName, AirplaneSpec, AirplaneSpecType', 'required'),
             array('Id', 'numerical', 'integerOnly' => true),
-            array('AirplaneName', 'length', 'max' => 50),
+            array('AirplaneName, AirplaneSpec, AirplaneSpecType', 'length', 'max' => 50),
             array('AirlineName', 'length', 'max' => 255),
             array('StartDateOfWork', 'safe'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, AirplaneName, AirlineName, StartDateOfWork', 'safe', 'on' => 'search'),
+            array('Id, AirplaneName, AirlineName, StartDateOfWork, AirplaneSpec, AirplaneSpecType', 'safe', 'on' => 'search'),
         );
     }
 
@@ -70,6 +72,8 @@ class AirplaneView extends CActiveRecord
             'AirplaneName' => 'Airplane Name',
             'AirlineName' => 'Airline Name',
             'StartDateOfWork' => 'Start Date Of Work',
+            'AirplaneSpec' => 'Airplane Spec',
+            'AirplaneSpecType' => 'Airplane Spec Type',
         );
     }
 
@@ -88,9 +92,11 @@ class AirplaneView extends CActiveRecord
         $criteria->compare('AirplaneName', $this->AirplaneName, true);
         $criteria->compare('AirlineName', $this->AirlineName, true);
         $criteria->compare('StartDateOfWork', $this->StartDateOfWork, true);
+        $criteria->compare('AirplaneSpec', $this->AirplaneSpec, true);
+        $criteria->compare('AirplaneSpecType', $this->AirplaneSpecType, true);
 
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
+            'criteria' => $criteria,
                 ));
     }
 
@@ -99,5 +105,4 @@ class AirplaneView extends CActiveRecord
     {
         return 'Id';
     }
-
 }
