@@ -4495,9 +4495,18 @@ or
 				ADD UNIQUE INDEX (FlightId, SeatId);
 		
 		
-174- 
+174-  a good article about using Views for insert and update query:
+
+			http://www.tutorialspoint.com/sql/sql-using-views.htm
+		
+		and more complete and professional reference
+			
+			http://dev.mysql.com/doc/refman/5.0/en/view-updatability.html
+		
+	in short drop, update and insert is not always possible on a view.
 
 
+175- 
 
 
 

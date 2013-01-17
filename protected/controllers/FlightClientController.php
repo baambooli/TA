@@ -159,5 +159,33 @@ class FlightClientController extends RController
             Yii::app()->end();
         }
     }
+    
+    public function actionGetFreeSeats()
+    {
+        $flightId = (int) $_GET['params'];
+        
+        $emptySeats = $this->findEmptySeatsOfFlight($flightId);
+        
+        // add one blank line
+        echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
+        foreach ($emptySeats as $key => $value)
+        {
+            echo CHtml::tag('option', array('value' => $emptySeats[$key]->SeatId), CHtml::encode($emptySeats[$key]->SeatNumber), true);
+        }
+         
+         return true;
+       
+    }
+    
+    public function findEmptySeatsOfFlight($flightId)
+    {
+        $criteria= new CDbCriteria;
+        $criteria->condition = "(FlightId = $flightId) AND ".
+                "SeatId NOT IN (select SeatId from flight_clients where FlightId = $flightId)";
+
+        $emptySeats = AllSeatsOfFlightView::model()->findAll($criteria);
+        
+        return $emptySeats;
+    }
 
 }

@@ -96,5 +96,35 @@ class FlightClient extends CActiveRecord
                     'criteria' => $criteria,
                 ));
     }
-
+    
+    public function getClientsFullName()
+    {
+        // get list of ClientFullnameView
+        $clients = ClientFullnameView::model()->findAll();
+        
+        
+        // convert them to suitable format for comboBox or listbox
+        $clientsArray = CHtml::listData($clients, 'ClientId', 'FullName');
+        
+        return $clientsArray;
+    }
+    
+    public function getOneClientFullName($id)
+    {
+        // get  ClientFullnameView
+        $client = ClientFullnameView::model()->find('ClientId = :id',
+                     array(':id' => $id));
+        return $client->FullName;
+    }
+    
+    public function getFlightsFullInfo()
+    {
+        $flights = FlightFullInfoView::model()->findAll();
+        
+        // convert them to suitable format for comboBox or listbox
+        $flightsArray = CHtml::listData($flights, 'FlightId', 'FullInfo');
+        
+        return $flightsArray;
+    }
+    
 }

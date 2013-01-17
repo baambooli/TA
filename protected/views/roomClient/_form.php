@@ -29,7 +29,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             'update' => '#city_id', //selector to update
         //'data'=>'js:javascript statement'
         //leave out the data key to pass all form values through
-            )));
+            )
+        ));
     ?>
 </div>
 <div class="span5">
@@ -44,7 +45,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             'update' => "#hotel_id"
         //'data'=>'js:javascript statement'
         //leave out the data key to pass all form values through
-            )));
+            )
+        ));
     ?>
 </div>
 <div class="span5">
@@ -59,7 +61,8 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
             'update' => "#room_id"
         //'data'=>'js:javascript statement'
         //leave out the data key to pass all form values through
-            )));
+            )
+        ));
     ?>
 </div>
 <div class="span5">

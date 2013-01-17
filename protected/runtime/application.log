@@ -2730,3 +2730,198 @@ REQUEST_URI=/index.php?r=flight/admin
 in G:\GitHub\travelagency\protected\controllers\FlightController.php (127)
 in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
 in g:\GitHub\travelagency\index.php (13)
+2013/01/17 04:13:04 [error] [exception.CException] exception 'CException' with message 'FlightClientViewController cannot find the requested view "create".' in G:\GitHub\yii\framework\web\CController.php:878
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#1 G:\GitHub\travelagency\protected\controllers\FlightClientViewController.php(63): CController->render('create', Array)
+#2 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): FlightClientViewController->actionCreate()
+#3 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#4 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#5 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#6 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#7 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#8 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#9 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#10 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#12 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flightClientVie...')
+#13 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#14 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#15 {main}
+REQUEST_URI=/index.php?r=flightClientView/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flightClientView/admin
+---
+2013/01/17 18:01:08 [error] [exception.CException] exception 'CException' with message 'Property "Client.username" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(159): CComponent->__set('username', '')
+#1 G:\GitHub\travelagency\protected\models\FlightClient.php(110): CActiveRecord->__set('username', '')
+#2 G:\GitHub\travelagency\protected\views\flightClient\_form.php(14): FlightClient->getClientsFullName()
+#3 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\travelagency\protected\views\flightClient\create.php(15): CController->renderPartial('_form', Array)
+#7 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#8 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#10 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#11 G:\GitHub\travelagency\protected\controllers\FlightClientController.php(64): CController->render('create', Array)
+#12 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): FlightClientController->actionCreate()
+#13 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flightClient/cr...')
+#23 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#24 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/index.php?r=flightClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flightClientView/admin&view=admin
+---
+2013/01/17 18:30:18 [error] [exception.CException] exception 'CException' with message 'Property "FlightFullInfoView.Id" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(159): CComponent->__set('Id', 0)
+#1 G:\GitHub\travelagency\protected\models\FlightClient.php(131): CActiveRecord->__set('Id', 0)
+#2 G:\GitHub\travelagency\protected\views\flightClient\_form.php(16): FlightClient->getFlightsFullInfo()
+#3 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\travelagency\protected\views\flightClient\create.php(15): CController->renderPartial('_form', Array)
+#7 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#8 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#9 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#10 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('create', Array, true)
+#11 G:\GitHub\travelagency\protected\controllers\FlightClientController.php(64): CController->render('create', Array)
+#12 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): FlightClientController->actionCreate()
+#13 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#14 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#15 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#16 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#18 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#19 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#20 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#21 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('create')
+#22 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flightClient/cr...')
+#23 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#24 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#25 {main}
+REQUEST_URI=/index.php?r=flightClient/create
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flightClientView/admin&view=admin
+---
+2013/01/17 19:15:20 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "getFreeSeats".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('getFreeSeats')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('getFreeSeats')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flightClient/ge...')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flightClient/create
+---
+2013/01/17 19:16:48 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "getFreeSeats".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('getFreeSeats')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('getFreeSeats')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('flightClient/ge...')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=1
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flightClient/create
+---
+2013/01/17 20:51:52 [error] [php] Non-static method CActiveRecord::findAll() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\controllers\FlightClientController.php:178)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightClientController->runAction()
+#2 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#4 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightClientController->filterRights()
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(265): FlightClientController->runActionWithFilters()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightClientController->run()
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=1
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (178)
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (167)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+2013/01/17 20:52:21 [error] [php] Non-static method CActiveRecord::findAll() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\controllers\FlightClientController.php:178)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightClientController->runAction()
+#2 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#4 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightClientController->filterRights()
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(265): FlightClientController->runActionWithFilters()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightClientController->run()
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=1
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (178)
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (167)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+2013/01/17 20:53:32 [error] [php] Non-static method CActiveRecord::findAll() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\controllers\FlightClientController.php:178)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightClientController->runAction()
+#2 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#4 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightClientController->filterRights()
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(265): FlightClientController->runActionWithFilters()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightClientController->run()
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=1
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (178)
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (167)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+2013/01/17 20:54:41 [error] [php] Non-static method CActiveRecord::findAll() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\controllers\FlightClientController.php:177)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightClientController->runAction()
+#2 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#4 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightClientController->filterRights()
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(265): FlightClientController->runActionWithFilters()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightClientController->run()
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=1
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (177)
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (167)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+2013/01/17 21:02:40 [error] [php] Non-static method CActiveRecord::findAll() should not be called statically, assuming $this from incompatible context (G:\GitHub\travelagency\protected\controllers\FlightClientController.php:177)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#1 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): FlightClientController->runAction()
+#2 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#3 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): RightsFilter->filter()
+#4 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): FlightClientController->filterRights()
+#5 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter()
+#6 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#7 G:\GitHub\yii\framework\web\CController.php(265): FlightClientController->runActionWithFilters()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(282): FlightClientController->run()
+#9 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#10 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#11 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=flightClient/getFreeSeats&params=2
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (177)
+in G:\GitHub\travelagency\protected\controllers\FlightClientController.php (167)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
