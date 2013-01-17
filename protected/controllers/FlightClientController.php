@@ -36,7 +36,8 @@ class FlightClientController extends RController
      */
     public function actionView($id)
     {
-        $this->render('view', array(
+        $url = Yii::app()->CreateAbsoluteUrl('flightClientView/view');
+        $this->redirect($url, array(
             'model' => $this->loadModel($id),
         ));
     }
@@ -56,7 +57,10 @@ class FlightClientController extends RController
         {
             $model->attributes = $_POST['FlightClient'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->Id));
+            {
+                $url = Yii::app()->CreateAbsoluteUrl('flightClientView/view'); 
+                $this->redirect(array($url, 'id' => $model->Id));
+            }
         }
 
         $this->render('create', array(
@@ -80,7 +84,10 @@ class FlightClientController extends RController
         {
             $model->attributes = $_POST['FlightClient'];
             if ($model->save())
-                $this->redirect(array('view', 'id' => $model->Id));
+            {
+                $url = Yii::app()->CreateAbsoluteUrl('flightClientView/view'); 
+                $this->redirect(array($url, 'id' => $model->Id));
+            }
         }
 
         $this->render('update', array(
@@ -102,7 +109,7 @@ class FlightClientController extends RController
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
-                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('admin'));
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('flightClientView/admin'));
         }
         else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
@@ -114,7 +121,8 @@ class FlightClientController extends RController
     public function actionIndex()
     {
         $dataProvider = new CActiveDataProvider('FlightClient');
-        $this->render('index', array(
+        $url = Yii::app()->CreateAbsoluteUrl('flightClientView/index'); 
+        $this->redirect($url, array(
             'dataProvider' => $dataProvider,
         ));
     }
@@ -159,24 +167,24 @@ class FlightClientController extends RController
             Yii::app()->end();
         }
     }
-    
+
     public function actionGetFreeSeats()
     {
         $flightId = (int) $_GET['params'];
-        
+
         $emptySeats = $this->findEmptySeatsOfFlight($flightId);
-        
+
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
         foreach ($emptySeats as $key => $value)
         {
             echo CHtml::tag('option', array('value' => $emptySeats[$key]->SeatId), CHtml::encode($emptySeats[$key]->SeatNumber), true);
         }
-         
+
          return true;
-       
+
     }
-    
+
     public function findEmptySeatsOfFlight($flightId)
     {
         $criteria= new CDbCriteria;
@@ -184,7 +192,7 @@ class FlightClientController extends RController
                 "SeatId NOT IN (select SeatId from flight_clients where FlightId = $flightId)";
 
         $emptySeats = AllSeatsOfFlightView::model()->findAll($criteria);
-        
+
         return $emptySeats;
     }
 

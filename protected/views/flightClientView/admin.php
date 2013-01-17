@@ -5,8 +5,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => 'List FlightClientView', 'url' => array('index')),
-    array('label' => 'Create FlightClientView', 'url' => array('flightClient/create')),
+    array('label' => 'List FlightClient', 'url' => array('index')),
+    array('label' => 'Create FlightClient', 'url' => array('flightClient/create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -32,16 +32,17 @@ $this->widget('bootstrap.widgets.TbGridView', array(
     'filter' => $model,
     'columns' => array(
         'FlightNumber',
+        'SeatNumber',
         'ClientName',
         'ClientFamily',
-        'PassportNumber',
+        //'PassportNumber',
         'DepartureAirportName',
         'DestinationAirportName',
+        'Status', 
         /*
           'FlightClientId',
           'ClientSex',
           'SeatId',
-          'SeatNumber',
           'SeatType',
           'Aireplane_specificationsName',
           'AirplaneName',

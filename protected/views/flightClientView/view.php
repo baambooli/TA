@@ -5,11 +5,12 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => 'List FlightClientView', 'url' => array('index')),
-    array('label' => 'Create FlightClientView', 'url' => array('create')),
-    array('label' => 'Update FlightClientView', 'url' => array('update', 'id' => $model->FlightClientId)),
-    array('label' => 'Delete FlightClientView', 'url' => '#', 'linkOptions' => array('submit' => array('delete', 'id' => $model->FlightClientId), 'confirm' => 'Are you sure you want to delete this item?')),
-    array('label' => 'Manage FlightClientView', 'url' => array('admin')),
+    array('label' => 'List FlightClient', 'url' => array('index')),
+    array('label' => 'Create FlightClient', 'url' => array('flightClient/create')),
+    array('label' => 'Update FlightClient', 'url' => array('flightClient/update', 'id' => $model->FlightClientId)),
+    // delete does not work with GET request, so I commented this line
+    //array('label' => 'Delete FlightClient', 'url' => 'flightClient/delete', 'linkOptions' => array('submit' => array('delete', 'id' => $model->FlightClientId), 'confirm' => 'Are you sure you want to delete this item?')),
+    array('label' => 'Manage FlightClient', 'url' => array('admin')),
 );
 ?>
 
@@ -20,16 +21,22 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
     'data' => $model,
     'type' => 'striped bordered condensed',
     'attributes' => array(
-        'SeatId',
+        //'SeatId',
+        'ClientName',
+        'ClientFamily',
+        //'ClientSex',
+        //'PassportNumber',
+        'Username',
+        'FlightNumber',
         'SeatNumber',
+        'Status',
         'SeatType',
         'Aireplane_specificationsName',
         'AirplaneName',
         'AirlineName',
         'AirlineCountry',
         'AirlineTel',
-        'FlightNumber',
-        'FlightId',
+        //'FlightId',
         'TakeoffTime',
         'TakeoffDate',
         'LandingTime',
@@ -42,12 +49,7 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
         'DepartureAirportName',
         'DepartureAirportAddress',
         'DepartureAirportTel',
-        'FlightClientId',
-        'ClientName',
-        'ClientFamily',
-        'ClientSex',
-        'PassportNumber',
-        'Username',
+        //'FlightClientId',
         'AireplaneSpecificationType',
     ),
 ));

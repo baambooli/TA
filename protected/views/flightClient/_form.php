@@ -1,50 +1,57 @@
-<?php $form=$this->beginWidget('bootstrap.widgets.TbActiveForm',array(
-	'id'=>'flight-client-form',
-	'enableClientValidation' => true,
+<?php
+$form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
+    'id' => 'flight-client-form',
+    'enableClientValidation' => true,
     'enableAjaxValidation' => false,
     'clientOptions' => array(
         'validateOnSubmit' => true,
     ),
-)); ?>                 
+        ));
+?>
 
-	<p class="help-block">Fields with <span class="required">*</span> are required.</p>
+<p class="help-block">Fields with <span class="required">*</span> are required.</p>
 
-	<?php echo $form->errorSummary($model); ?>
+<?php echo $form->errorSummary($model); ?>
 
-    <?php echo $form->dropDownListRow($model, 'ClientId', $model->getClientsFullName(), array('class' => 'span7')); ?>
+<?php echo $form->dropDownListRow($model, 'ClientId', $model->getClientsFullName(), array('class' => 'span7')); ?>
 
-	<?php echo $form->dropDownListRow($model, 'FlightId', $model->getFlightsFullInfo(), array('class' => 'span7')); ?>
-    
-    <br />
+<?php echo $form->dropDownListRow($model, 'FlightId', $model->getFlightsFullInfo(), array('class' => 'span7')); ?>
+
+<br />
+<?php
+//this is one method for ajax call (using normal html button)
+echo CHtml::Button('Get Empty Seats', array('class' => ' ui-button ui-widget ui-state-default ui-corner-all',
+    'id' => 'EmptySeats', 'onclick' => 'sendAjaxRequestGetEmptySeats();'));
+?>
+<br />
+<br />
+
+<?php echo $form->dropDownListRow($model, 'SeatId', array(0 => 'Click "Get Empty Seats" Button'), array('class' => 'span7')); ?>
+
+<?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
+
+
+<div class="form-actions">
     <?php
-        //this is one method for ajax call (using normal html button)
-        echo CHtml::Button('Get Empty Seats', array('class' => ' ui-button ui-widget ui-state-default ui-corner-all',
-        'id' => 'EmptySeats', 'onclick' => 'sendAjaxRequestGetEmptySeats();'));
+    $this->widget('bootstrap.widgets.TbButton', array(
+        'buttonType' => 'submit',
+        'type' => 'primary',
+        'label' => $model->isNewRecord ? 'Create' : 'Save',
+    ));
     ?>
-    <br />
-    <br />
-
-	   <?php echo $form->dropDownListRow($model, 'SeatId', array(), array('class' => 'span7')); ?>
-    
-	<div class="form-actions">
-		<?php $this->widget('bootstrap.widgets.TbButton', array(
-			'buttonType'=>'submit',
-			'type'=>'primary',
-			'label'=>$model->isNewRecord ? 'Create' : 'Save',
-		)); ?>
-	</div>
+</div>
 
 <?php $this->endWidget(); ?>
 
 <script>
- function sendAjaxRequestGetEmptySeats()
+    function sendAjaxRequestGetEmptySeats()
     {
         // find flightId
         var flightId = $('#FlightClient_FlightId').val();
-        
+
         var getData = 'params=' + flightId;
         var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('flightClient/getFreeSeats'); ?>';
-        
+
         // change the button caption
         $('#EmptySeats').val('Sending, Please wait...');
 
@@ -54,8 +61,8 @@
             url: urlAjax,
             data: getData,
             success: function(data) {
-                alert('success.');
-                
+                //alert('success.');
+
                 // empty combobox
                 $('#FlightClient_SeatId').empty();
                 // change the text on the screen with id = FlightClient_SeatId

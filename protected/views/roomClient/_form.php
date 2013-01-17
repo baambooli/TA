@@ -89,7 +89,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
     <!-- a hidden field -->
     <?php echo CHtml::hiddenField('roomClientId', '', array()); ?>
 
-    <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span5')); ?>
+    <?php echo $form->dropDownListRow($model, 'Status', $model->getStatus(), array('class' => 'span7')); ?>
 
     <div class="form-actions">
         <?php
