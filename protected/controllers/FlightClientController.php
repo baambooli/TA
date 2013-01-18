@@ -58,8 +58,7 @@ class FlightClientController extends RController
             $model->attributes = $_POST['FlightClient'];
             if ($model->save())
             {
-                $url = Yii::app()->CreateAbsoluteUrl('flightClientView/view'); 
-                $this->redirect(array($url, 'id' => $model->Id));
+                $this->redirect('index.php?r=flightClientView/view&id='.$model->Id);
             }
         }
 
@@ -85,8 +84,7 @@ class FlightClientController extends RController
             $model->attributes = $_POST['FlightClient'];
             if ($model->save())
             {
-                $url = Yii::app()->CreateAbsoluteUrl('flightClientView/view'); 
-                $this->redirect(array($url, 'id' => $model->Id));
+                $this->redirect('index.php?r=flightClientView/view&id='.$model->Id);
             }
         }
 

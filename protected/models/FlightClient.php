@@ -130,7 +130,10 @@ class FlightClient extends CActiveRecord
 
     public function getFlightsFullInfo()
     {
-        $flights = FlightFullInfoView::model()->findAll();
+        $today = date('Y/m/d');
+        // just find the flights that are belong to today or the future
+        $flights = FlightFullInfoView::model()->findAll('TakeoffDate >= :today'
+            , array(':today' => $today));
 
         // convert them to suitable format for comboBox or listbox
         $flightsArray = CHtml::listData($flights, 'FlightId', 'FullInfo');

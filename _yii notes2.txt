@@ -457,45 +457,56 @@ or
     
         $total  = number_format(12345.6,2);  //output is : 12,345.60
     
-28- an example of how to use DAO in Yii (the query is created by dbForge and then parametrized by me):
+28- Two examples of how to use DAO in Yii (the query is created by dbForge and then parametrized by me):
 
-        public static function getAccountBalance($userId, $year, $month)
-        {
-            // prevent SQL injection
-            if (!is_numeric($year))
-            {
-                return;
-            }
-            
-            if (!is_numeric($month))
-            {
-                return;
-            }
-            $sql = "SELECT count(*) as count1
-                    FROM
-                        User
-                    INNER JOIN Merchant
-                        ON User.merchantId = Merchant.id AND Merchant.ownerUserId = User.id
-                    INNER JOIN Subscription
-                        ON Subscription.merchantId = Merchant.id
-                    INNER JOIN Transaction
-                    INNER JOIN CustomerSubscription
-                        ON Transaction.customerSubscriptionId = CustomerSubscription.id 
-                        AND CustomerSubscription.subscriptionId = Subscription.id
-                    WHERE
-                        Transaction.type IN ('purchase', 'refund', 'cerdit')
-                        AND Transaction.result IN ('approved', 'declined')
-                        AND Transaction.createdOn BETWEEN str_to_date('$year-$month-01', '%Y-%m-%d') 
-                        AND str_to_date('$year-$month-31', '%Y-%m-%d')
-                        AND User.id = $userId 
-                    ";
+		a)
+			public static function myDelete($id)
+			{
+				$sql = " Delete from flight_clients where Id = $id";
+				$connection = Yii::app()->db;
+				$command = $connection->createCommand($sql);
+				$command->execute();
+			}
+		
+		b)
 
-            $connection = Yii::app()->db;
-            $command = $connection->createCommand($sql);
-            $dataReader = $command->query();
-            $numberOfTransactions = $dataReader->read();
-            return $numberOfTransactions['count1'];
-        }
+			public static function getAccountBalance($userId, $year, $month)
+			{
+				// prevent SQL injection
+				if (!is_numeric($year))
+				{
+					return;
+				}
+				
+				if (!is_numeric($month))
+				{
+					return;
+				}
+				$sql = "SELECT count(*) as count1
+						FROM
+							User
+						INNER JOIN Merchant
+							ON User.merchantId = Merchant.id AND Merchant.ownerUserId = User.id
+						INNER JOIN Subscription
+							ON Subscription.merchantId = Merchant.id
+						INNER JOIN Transaction
+						INNER JOIN CustomerSubscription
+							ON Transaction.customerSubscriptionId = CustomerSubscription.id 
+							AND CustomerSubscription.subscriptionId = Subscription.id
+						WHERE
+							Transaction.type IN ('purchase', 'refund', 'cerdit')
+							AND Transaction.result IN ('approved', 'declined')
+							AND Transaction.createdOn BETWEEN str_to_date('$year-$month-01', '%Y-%m-%d') 
+							AND str_to_date('$year-$month-31', '%Y-%m-%d')
+							AND User.id = $userId 
+						";
+
+				$connection = Yii::app()->db;
+				$command = $connection->createCommand($sql);
+				$dataReader = $command->query();
+				$numberOfTransactions = $dataReader->read();
+				return $numberOfTransactions['count1'];
+			}
 
 29- the above function can be written with query builder instead of DAO as bellow
         

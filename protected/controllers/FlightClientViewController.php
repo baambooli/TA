@@ -67,6 +67,17 @@ class FlightClientViewController extends RController
      */
     public function actionDelete($id)
     {
+        // we only allow deletion via POST request
+       if (Yii::app()->request->isPostRequest)
+        {
+            $this->loadModel($id)->myDeleteFlightClient($id);
+
+            // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
+            if (!isset($_GET['ajax']))
+                $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('flightClientView/admin'));
+        }
+        else
+            throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
         
     }
 

@@ -63,7 +63,7 @@ class FlightClientView extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('SeatNumber, SeatType, Aireplane_specificationsName, AirlineName, AirlineTel, FlightNumber, TakeoffTime, TakeoffDate, LandingTime, LandingDate, DestinationCityName, DestinationAirportTel, DepartureCityName, DepartureAirportTel, FlightClientId, ClientSex, Username, AireplaneSpecificationType', 'required'),
+            array('Status, SeatNumber, SeatType, Aireplane_specificationsName, AirlineName, AirlineTel, FlightNumber, TakeoffTime, TakeoffDate, LandingTime, LandingDate, DestinationCityName, DestinationAirportTel, DepartureCityName, DepartureAirportTel, FlightClientId, ClientSex, Username, AireplaneSpecificationType', 'required'),
             array('SeatId, FlightId, FlightClientId', 'numerical', 'integerOnly' => true),
             array('SeatNumber', 'length', 'max' => 20),
             array('SeatType, AirlineTel, DestinationAirportTel, DepartureAirportTel', 'length', 'max' => 25),
@@ -168,7 +168,8 @@ class FlightClientView extends CActiveRecord
         $criteria->compare('PassportNumber', $this->PassportNumber, true);
         $criteria->compare('Username', $this->Username, true);
         $criteria->compare('AireplaneSpecificationType', $this->AireplaneSpecificationType, true);
-
+        $criteria->compare('Status', $this->Status, true);
+        
         return new CActiveDataProvider($this, array(
             'criteria' => $criteria,
                 ));
@@ -178,5 +179,14 @@ class FlightClientView extends CActiveRecord
     public function primarykey()
     {
         return 'FlightClientId';
+    }
+    
+    public function myDeleteFlightClient($id)
+    {
+        $id = (int) $id;
+        $sql = " Delete from flight_clients where Id = $id";
+        $connection = Yii::app()->db;
+        $command = $connection->createCommand($sql);
+        $command->execute();
     }
 }
