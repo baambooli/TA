@@ -684,9 +684,17 @@ class SiteController extends Controller
     public function actionSearchFlight()
     {
         $res = $_POST;
-        //debugbreak();
 
         echo json_encode(array('a' => '12345'));
         return true;
+    }
+    
+    public function actionDbDiagram()
+    {
+       $this->render('dbDiagram');  
+    }
+    public function actionRbacDiagram()
+    {
+       $this->render('rbacDiagram');  
     }
 }
