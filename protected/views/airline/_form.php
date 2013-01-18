@@ -15,7 +15,7 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
 <?php echo $form->textFieldRow($model, 'Name', array('class' => 'span5', 'maxlength' => 255)); ?>
 
-<?php echo $form->textFieldRow($model, 'Country', array('class' => 'span5', 'maxlength' => 255)); ?>
+<?php echo $form->dropDownListRow($model,'CountryId',$model->getCountries(), array('class'=>'span5')); ?>
 
 <?php echo $form->textFieldRow($model, 'Address', array('class' => 'span5', 'maxlength' => 255)); ?>
 

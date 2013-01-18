@@ -22,7 +22,10 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
     'attributes' => array(
         'Id',
         'Name',
-        'Country',
+        array(
+            'name' => 'CountryId',
+            'value'=>CHtml::encode($model->getCountryName($model->CountryId)),
+        ),
         'Address',
         'Tell1',
         'Tell2',

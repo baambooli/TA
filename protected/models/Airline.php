@@ -6,7 +6,7 @@
  * The followings are the available columns in table 'airlines':
  * @property integer $Id
  * @property string $Name
- * @property string $Country
+ * @property integer $CountryId
  * @property string $Address
  * @property string $Tell1
  * @property string $Tell2
@@ -45,14 +45,14 @@ class Airline extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Name, Tell1', 'required'),
-            array('Name, Country, Address, Fax', 'length', 'max' => 255),
+            array('Name, Address, Tell1, Fax, CountryId', 'required'),
+            array('Name, Address, Fax', 'length', 'max' => 255),
             array('Tell1, Tell2', 'length', 'max' => 25),
             array('Email', 'length', 'max' => 100),
             array('Email', 'email'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, Name, Country, Address, Tell1, Tell2, Fax, Email', 'safe', 'on' => 'search'),
+            array('Id, Name, CountryId, Address, Tell1, Tell2, Fax, Email', 'safe', 'on' => 'search'),
         );
     }
 
@@ -76,7 +76,7 @@ class Airline extends CActiveRecord
         return array(
             'Id' => 'ID',
             'Name' => 'Name',
-            'Country' => 'Country',
+            'CountryId' => 'Country',
             'Address' => 'Address',
             'Tell1' => 'Telephone1',
             'Tell2' => 'Telephone2',
@@ -98,16 +98,36 @@ class Airline extends CActiveRecord
 
         $criteria->compare('Id', $this->Id);
         $criteria->compare('Name', $this->Name, true);
-        $criteria->compare('Country', $this->Country, true);
         $criteria->compare('Address', $this->Address, true);
         $criteria->compare('Tell1', $this->Tell1, true);
         $criteria->compare('Tell2', $this->Tell2, true);
         $criteria->compare('Fax', $this->Fax, true);
         $criteria->compare('Email', $this->Email, true);
-
+        $criteria->compare('CountryId', $this->CountryId, true);
+        
         return new CActiveDataProvider($this, array(
                     'criteria' => $criteria,
                 ));
+    }
+     /**
+     * Create list of countries and their id and return as a list
+     * This will be used easily in a comboBox or listbox on the view files
+     * By Kmaran
+     */
+    public function getCountries()
+    {
+        // get list of countries
+        $countries = Country::model()->findAll();
+        // convert them to suitable format for comboBox or listbox
+        $countriesArray = CHtml::listData($countries, 'Id', 'Name');
+        return $countriesArray;
+    }
+    // get name of the Country related to the specific Id
+    public function getCountryName($id)
+    {
+        // get name of Country
+        $CountryName = Country::model()->findByPK($id)->Name;
+        return $CountryName;
     }
 
 }

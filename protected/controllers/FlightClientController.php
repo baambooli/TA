@@ -13,7 +13,6 @@ class FlightClientController extends RController
         // if our class extends a class, we need this line too
         parent::init();
     }
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -58,7 +57,10 @@ class FlightClientController extends RController
             $model->attributes = $_POST['FlightClient'];
             if ($model->save())
             {
-                $this->redirect('index.php?r=flightClientView/view&id='.$model->Id);
+                $message = 'TA LOG: New FlightClient created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.FlightClientController');
+
+                $this->redirect('index.php?r=flightClientView/view&id=' . $model->Id);
             }
         }
 
@@ -84,7 +86,10 @@ class FlightClientController extends RController
             $model->attributes = $_POST['FlightClient'];
             if ($model->save())
             {
-                $this->redirect('index.php?r=flightClientView/view&id='.$model->Id);
+                $message = 'TA LOG: FlightClient ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.FlightClientController');
+
+                $this->redirect('index.php?r=flightClientView/view&id=' . $model->Id);
             }
         }
 
@@ -105,6 +110,9 @@ class FlightClientController extends RController
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
 
+            $message = 'TA LOG: FlightClient ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.FlightClientController');
+
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
                 $this->redirect(isset($_POST['returnUrl']) ? $_POST['returnUrl'] : array('flightClientView/admin'));
@@ -119,7 +127,7 @@ class FlightClientController extends RController
     public function actionIndex()
     {
         $dataProvider = new CActiveDataProvider('FlightClient');
-        $url = Yii::app()->CreateAbsoluteUrl('flightClientView/index'); 
+        $url = Yii::app()->CreateAbsoluteUrl('flightClientView/index');
         $this->redirect($url, array(
             'dataProvider' => $dataProvider,
         ));
@@ -179,19 +187,17 @@ class FlightClientController extends RController
             echo CHtml::tag('option', array('value' => $emptySeats[$key]->SeatId), CHtml::encode($emptySeats[$key]->SeatNumber), true);
         }
 
-         return true;
-
+        return true;
     }
 
     public function findEmptySeatsOfFlight($flightId)
     {
-        $criteria= new CDbCriteria;
-        $criteria->condition = "(FlightId = $flightId) AND ".
+        $criteria = new CDbCriteria;
+        $criteria->condition = "(FlightId = $flightId) AND " .
                 "SeatId NOT IN (select SeatId from flight_clients where FlightId = $flightId)";
 
         $emptySeats = AllSeatsOfFlightView::model()->findAll($criteria);
 
         return $emptySeats;
     }
-
 }

@@ -13,7 +13,6 @@ class CountryController extends RController
         // if our class extends a class, we need this line too
         parent::init();
     }
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -83,6 +82,9 @@ class CountryController extends RController
                     // image will uplode to rootDirectory/banner/
                     $uploadedFile->saveAs($flag);
                 }
+                $message = 'TA LOG: New Country created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.CountryController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
             }
         }
@@ -125,6 +127,9 @@ class CountryController extends RController
                     $flag = Yii::app()->basePath . '/../images/country/' . $model->FlagURL;
                     $uploadedFile->saveAs($flag);
                 }
+                $message = 'TA LOG: Country ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.CountryController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
             }
         }
@@ -145,6 +150,9 @@ class CountryController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: Country ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.CountryController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
@@ -205,5 +213,4 @@ class CountryController extends RController
             Yii::app()->end();
         }
     }
-
 }

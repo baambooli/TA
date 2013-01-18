@@ -55,7 +55,12 @@ class FlightController extends RController
         {
             $model->attributes = $_POST['Flight'];
             if ($model->save())
+            {
+                $message = 'TA LOG: New Flight created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.FlightController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
+            }
         }
 
         $this->render('create', array(
@@ -79,7 +84,12 @@ class FlightController extends RController
         {
             $model->attributes = $_POST['Flight'];
             if ($model->save())
+            {
+                $message = 'TA LOG: Flight ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.FlightController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
+            }
         }
 
         $this->render('update', array(
@@ -98,6 +108,9 @@ class FlightController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: Flight ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.FlightController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))

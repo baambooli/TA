@@ -46,6 +46,7 @@ class FlightClientViewController extends RController
      */
     public function actionCreate()
     {
+
     }
 
     /**
@@ -68,7 +69,7 @@ class FlightClientViewController extends RController
     public function actionDelete($id)
     {
         // we only allow deletion via POST request
-       if (Yii::app()->request->isPostRequest)
+        if (Yii::app()->request->isPostRequest)
         {
             $this->loadModel($id)->myDeleteFlightClient($id);
 
@@ -78,7 +79,6 @@ class FlightClientViewController extends RController
         }
         else
             throw new CHttpException(400, 'Invalid request. Please do not repeat this request again.');
-        
     }
 
     /**

@@ -13,7 +13,6 @@ class AirPlaneSpecificationController extends RController
         // if our class extends a class, we need this line too
         parent::init();
     }
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -56,7 +55,12 @@ class AirPlaneSpecificationController extends RController
         {
             $model->attributes = $_POST['AirPlaneSpecification'];
             if ($model->save())
+            {
+                $message = 'TA LOG: New AirPlaneSpec created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.AirPlaneSpecController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
+            }
         }
 
         $this->render('create', array(
@@ -80,7 +84,12 @@ class AirPlaneSpecificationController extends RController
         {
             $model->attributes = $_POST['AirPlaneSpecification'];
             if ($model->save())
+            {
+                $message = 'TA LOG: AireplaneSpec ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.AireplaneSpecController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
+            }
         }
 
         $this->render('update', array(
@@ -99,6 +108,9 @@ class AirPlaneSpecificationController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: AireplaneSpec ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.AireplaneSpecController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
@@ -159,5 +171,4 @@ class AirPlaneSpecificationController extends RController
             Yii::app()->end();
         }
     }
-
 }

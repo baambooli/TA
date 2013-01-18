@@ -13,7 +13,6 @@ class HotelController extends RController
         // if our class extends a class, we need this line too
         parent::init();
     }
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -83,6 +82,9 @@ class HotelController extends RController
                     // image will uplode to rootDirectory/images/hotel/
                     $uploadedFile->saveAs($image);
                 }
+                $message = 'TA LOG: New Hotel created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.HotelController');
+
                 $this->redirect(array('view', 'id' => $model->ID));
             }
         }
@@ -124,6 +126,9 @@ class HotelController extends RController
                     $image = Yii::app()->basePath . '/../images/hotel/' . $model->Image;
                     $uploadedFile->saveAs($image);
                 }
+                $message = 'TA LOG: Hotel ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.HotelController');
+
                 $this->redirect(array('view', 'id' => $model->ID));
             }
         }
@@ -144,6 +149,9 @@ class HotelController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: Hotel ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.HotelController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
@@ -204,5 +212,4 @@ class HotelController extends RController
             Yii::app()->end();
         }
     }
-
 }
