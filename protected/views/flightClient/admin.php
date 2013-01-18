@@ -1,12 +1,12 @@
 <?php
-$this->breadcrumbs=array(
-	'Flight Clients'=>array('index'),
-	'Manage',
+$this->breadcrumbs = array(
+    'Flight Clients' => array('index'),
+    'Manage',
 );
 
-$this->menu=array(
-	array('label'=>'List FlightClient','url'=>array('index')),
-	array('label'=>'Create FlightClient','url'=>array('create')),
+$this->menu = array(
+    array('label' => 'List FlightClient', 'url' => array('flightClientView/index')),
+    array('label' => 'Create FlightClient', 'url' => array('create')),
 );
 
 Yii::app()->clientScript->registerScript('search', "
@@ -24,18 +24,20 @@ $('.search-form form').submit(function(){
 ?>
 
 <h1>Manage Flight Clients</h1>
-<?php $this->widget('bootstrap.widgets.TbGridView',array(
-	'id'=>'flight-client-grid',
-    'type'=>'striped bordered condensed',
-	'dataProvider'=>$model->search(),
-	'filter'=>$model,
-	'columns'=>array(
-		'Id',
-		'ClientId',
-		'FlightId',
-		'SeatId',
-		array(
-			'class'=>'bootstrap.widgets.TbButtonColumn',
-		),
-	),
-)); ?>
+<?php
+$this->widget('bootstrap.widgets.TbGridView', array(
+    'id' => 'flight-client-grid',
+    'type' => 'striped bordered condensed',
+    'dataProvider' => $model->search(),
+    'filter' => $model,
+    'columns' => array(
+        'Id',
+        'ClientId',
+        'FlightId',
+        'SeatId',
+        array(
+            'class' => 'bootstrap.widgets.TbButtonColumn',
+        ),
+    ),
+));
+?>

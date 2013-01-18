@@ -13,7 +13,6 @@ class RoomController extends RController
         // if our class extends a class, we need this line too
         parent::init();
     }
-
     /**
      * @var string the default layout for the views. Defaults to '//layouts/column2', meaning
      * using two-column layout. See 'protected/views/layouts/column2.php'.
@@ -56,7 +55,12 @@ class RoomController extends RController
         {
             $model->attributes = $_POST['Room'];
             if ($model->save())
+            {
+                $message = 'TA LOG: New Room created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.RoomController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
+            }
         }
 
         $this->render('create', array(
@@ -80,7 +84,12 @@ class RoomController extends RController
         {
             $model->attributes = $_POST['Room'];
             if ($model->save())
+            {
+                $message = 'TA LOG: Room ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.RoomController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
+            }
         }
 
         $this->render('update', array(
@@ -99,6 +108,9 @@ class RoomController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: Room ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.RoomController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
@@ -159,5 +171,4 @@ class RoomController extends RController
             Yii::app()->end();
         }
     }
-
 }

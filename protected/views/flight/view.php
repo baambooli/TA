@@ -18,6 +18,7 @@ $this->menu = array(
 <?php
 $this->widget('bootstrap.widgets.TbDetailView', array(
     'data' => $model,
+    'type' => 'striped bordered condensed',
     'attributes' => array(
         'Id',
         'FlightNumber',

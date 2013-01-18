@@ -21,7 +21,6 @@ return array(
         'rights' => array(
             'install' => true, // Enables the installer.
         ),
-        
         'gii' => array(
             'class' => 'system.gii.GiiModule',
             'password' => '123',
@@ -51,12 +50,11 @@ return array(
         'authManager' => array(
             'class' => 'RDbAuthManager', // Provides support authorization item sorting.
         ),
-        
         // enable APC cache
-        /*'cache' => array(
-            'class' => 'system.caching.CApcCache',
-        ), */
-        
+        /* 'cache' => array(
+          'class' => 'system.caching.CApcCache',
+          ), */
+
         // uncomment the following to enable URLs in path-format
         /* 'urlManager' => array(
           'urlFormat' => 'path',
@@ -87,16 +85,22 @@ return array(
         'log' => array(
             'class' => 'CLogRouter',
             'routes' => array(
+                // send "error" type messages to /protected/runtime/application.log file.
                 array(
                     'class' => 'CFileLogRoute',
                     'levels' => 'error, warning',
                 ),
-            // uncomment the following to show log messages on web pages
-            /*
-              array(
-              'class'=>'CWebLogRoute',
-              ),
-             */
+                // send "info, trace" messages to /protected/runtime/infoMessages.log file.
+                array(
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'info, trace',
+                    'logFile' => 'infoMessages.log',
+                ),
+                // send "warning" messages to webpage(on screen message)
+                array(
+                    'class' => 'CWebLogRoute',
+                    'levels' => 'warning',
+                ),
             ),
         ),
     ),

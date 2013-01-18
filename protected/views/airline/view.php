@@ -18,10 +18,14 @@ $this->menu = array(
 <?php
 $this->widget('bootstrap.widgets.TbDetailView', array(
     'data' => $model,
+    'type' => 'striped bordered condensed',
     'attributes' => array(
         'Id',
         'Name',
-        'Country',
+        array(
+            'name' => 'CountryId',
+            'value'=>CHtml::encode($model->getCountryName($model->CountryId)),
+        ),
         'Address',
         'Tell1',
         'Tell2',

@@ -4,8 +4,8 @@ $this->breadcrumbs = array(
 );
 
 $this->menu = array(
-    array('label' => 'Create FlightClientView', 'url' => array('create')),
-    array('label' => 'Manage FlightClientView', 'url' => array('admin')),
+    array('label' => 'Create FlightClient', 'url' => array('flightClient/create')),
+    array('label' => 'Manage FlightClient', 'url' => array('flightClientView/admin')),
 );
 ?>
 

@@ -69,10 +69,14 @@ class RoomClientController extends RController
                 if ($model->save())
                 {
                     Yii::app()->user->setFlash('success', 'Data saved successfully!');
+                    $message = 'TA LOG: New RoomClient created by user = ' . Yii::app()->user->id;
+                    Yii::log($message, 'info', 'application.controllers.RoomClientController');
                 }
                 else
                 {
                     Yii::app()->user->setFlash('error', 'error in saving room!');
+                    $message = 'TA LOG: ERROR: New RoomClient Did not create by user = ' . Yii::app()->user->id;
+                    Yii::log($message, 'info', 'application.controllers.RoomClientController');
                 }
             }
             else
@@ -115,10 +119,14 @@ class RoomClientController extends RController
                 if ($model->save())
                 {
                     Yii::app()->user->setFlash('success', 'Data saved successfully!');
+                    $message = 'TA LOG: RoomClient ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                    Yii::log($message, 'info', 'application.controllers.RoomClientController');
                 }
                 else
                 {
                     Yii::app()->user->setFlash('error', 'error in saving room!');
+                    $message = 'TA LOG: ERROR:RoomClient ' . $id . ' di not edit by user = ' . Yii::app()->user->id;
+                    Yii::log($message, 'info', 'application.controllers.RoomClientController');
                 }
             }
             else
@@ -144,6 +152,9 @@ class RoomClientController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: RoomClient ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.RoomClientController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))
@@ -289,10 +300,10 @@ class RoomClientController extends RController
             $status = $roomClients[$key]->Status;
 
             // check that the room is taken or not
-            if ((($startDate >= $start) && ($startDate <= $end)) || 
-                (($endDate >= $start) && ($endDate <= $end)) || 
-                (($start >= $startDate) && ($start <= $endDate)) || 
-                (($end >= $startDate) && ($end <= $endDate))
+            if ((($startDate >= $start) && ($startDate <= $end)) ||
+                    (($endDate >= $start) && ($endDate <= $end)) ||
+                    (($start >= $startDate) && ($start <= $endDate)) ||
+                    (($end >= $startDate) && ($end <= $endDate))
             )
             {
 
@@ -332,7 +343,7 @@ class RoomClientController extends RController
         }
 
         if (!empty($_POST['RoomClient']['StartDate']))
-            $start = str_replace('/' ,'-', $_POST['RoomClient']['StartDate']);
+            $start = str_replace('/', '-', $_POST['RoomClient']['StartDate']);
         else
         {
             echo 'some of the input fields are empty. select all of the fields on screen';
@@ -340,7 +351,7 @@ class RoomClientController extends RController
         }
 
         if (!empty($_POST['RoomClient']['EndDate']))
-            $end = str_replace('/' ,'-', $_POST['RoomClient']['EndDate']);
+            $end = str_replace('/', '-', $_POST['RoomClient']['EndDate']);
         else
         {
             echo 'some of the input fields are empty. select all of the fields on screen';

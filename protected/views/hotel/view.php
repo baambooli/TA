@@ -17,6 +17,7 @@ $this->menu=array(
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
+    'type' => 'striped bordered condensed',
 	'attributes'=>array(
 		'ID',
 		'Name',
@@ -33,4 +34,4 @@ $this->menu=array(
 	),
 )); ?>
 <!-- show Image here-->
-<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/hotel/'.$model->Image,'Image',array('width'=>200)); 
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/hotel/'.$model->Image,'Image',array('width'=>200));

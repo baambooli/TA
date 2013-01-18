@@ -35,6 +35,7 @@ $this->widget('bootstrap.widgets.TbGridView', array(
         'AirplaneName',
         'StartDateOfWork',
         'AirlineName',
+        'AirplaneSpec',
         array(
             'class' => 'bootstrap.widgets.TbButtonColumn',
         ),
