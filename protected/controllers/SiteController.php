@@ -128,7 +128,12 @@ class SiteController extends Controller
             $model->attributes = $_POST['LoginForm'];
             // validate user input and redirect to the previous page if valid
             if ($model->validate() && $model->login())
+            {
+                $message = 'TA LOG: successful login by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.SiteController');
+
                 $this->redirect(Yii::app()->user->returnUrl);
+            }
         }
         // display the login form
         $this->render('login', array('model' => $model));
@@ -140,6 +145,9 @@ class SiteController extends Controller
     public function actionLogout()
     {
         Yii::app()->user->logout();
+        $message = 'TA LOG: logout by user = ' . Yii::app()->user->id;
+        Yii::log($message, 'info', 'application.controllers.SiteController');
+
         $this->redirect(Yii::app()->homeUrl);
     }
 
@@ -155,6 +163,9 @@ class SiteController extends Controller
 
         // save theme's name on the session variable
         Yii::app()->session['currentTheme'] = $name;
+        $message = 'TA LOG: Theme changed ' . $id . '  by user = ' . Yii::app()->user->id;
+        Yii::log($message, 'info', 'application.controllers.SiteController');
+
 
         $this->render('about');
     }
@@ -251,10 +262,16 @@ class SiteController extends Controller
                 $msg = 'Your have been successfully registered. An email will be sent to you soon.
                     (Email is disabled on win7, because it does not have SMTP support by default)';
                 Yii::app()->user->setFlash('success', $msg);
+
+                $message = 'TA LOG: registeration by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.SiteController');
             }
             catch (Exception $e)
             {
                 $transaction->rollback();
+                $message = 'TA LOG: fail in registration by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.SiteController');
+
 
                 // show error message
                 $msg = $e->getMessage();
@@ -321,11 +338,17 @@ class SiteController extends Controller
 
                 $msg = 'Password has been reseted successfully. An email will be sent to the user\'s email address containing new password.' . $pass;
                 Yii::app()->user->setFlash('success', $msg);
+
+                $message = 'TA LOG: password reseted for user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.SiteController');
             }
             else
             {
                 $msg = 'Error in saving data.';
                 Yii::app()->user->setFlash('error', $msg);
+
+                $message = 'TA LOG: Error in password reset for user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.SiteController');
             }
 
             $this->render('confirm');
@@ -522,6 +545,10 @@ class SiteController extends Controller
         );
 
         echo json_encode($result);
+
+        $message = 'TA LOG: Room reserved by user = ' . Yii::app()->user->id;
+        Yii::log($message, 'info', 'application.controllers.SiteController');
+
         return true;
     }
 
@@ -621,6 +648,9 @@ class SiteController extends Controller
             $this->render('confirm');
             return;
         }
+
+        $message = 'TA LOG: Room Cancelation by user = ' . Yii::app()->user->id;
+        Yii::log($message, 'info', 'application.controllers.SiteController');
 
         $this->actionShowMyHotelReservations();
     }

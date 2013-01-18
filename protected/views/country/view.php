@@ -17,6 +17,7 @@ $this->menu=array(
 
 <?php $this->widget('bootstrap.widgets.TbDetailView',array(
 	'data'=>$model,
+    'type' => 'striped bordered condensed',
 	'attributes'=>array(
 		'Id',
 		'Name',
@@ -24,4 +25,4 @@ $this->menu=array(
 	),
 )); ?>
 <!-- show flag here-->
-<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/country/'.$model->FlagURL,'FlagURL',array('width'=>200)); 
+<?php echo CHtml::image(Yii::app()->request->baseUrl.'/images/country/'.$model->FlagURL,'FlagURL',array('width'=>200));

@@ -86,6 +86,9 @@ class ClientController extends RController
                     // image will uplode to rootDirectory/images/client/
                     $uploadedFile->saveAs($image);
                 }
+                $message = 'TA LOG: New Client created by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.ClientController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
             }
         }
@@ -130,6 +133,9 @@ class ClientController extends RController
                     $image = Yii::app()->basePath . '/../images/client/' . $model->Image;
                     $uploadedFile->saveAs($image);
                 }
+                $message = 'TA LOG: Client ' . $id . ' edited by user = ' . Yii::app()->user->id;
+                Yii::log($message, 'info', 'application.controllers.ClientController');
+
                 $this->redirect(array('view', 'id' => $model->Id));
             }
         }
@@ -153,6 +159,9 @@ class ClientController extends RController
         {
             // we only allow deletion via POST request
             $this->loadModel($id)->delete();
+
+            $message = 'TA LOG: Client ' . $id . ' deleted by user = ' . Yii::app()->user->id;
+            Yii::log($message, 'info', 'application.controllers.ClientController');
 
             // if AJAX request (triggered by deletion via admin grid view), we should not redirect the browser
             if (!isset($_GET['ajax']))

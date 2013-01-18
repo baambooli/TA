@@ -142,8 +142,6 @@ class RoomClient extends CActiveRecord
         // convert them to suitable format for comboBox or listbox
         $clientsArray = CHtml::listData($clients, 'ClientId', 'FullName');
         
-        //add one blank line on the first of array
-        //array_unshift($clientsArray, 'Please select...');
         return $clientsArray;
     }
     

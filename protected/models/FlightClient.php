@@ -16,6 +16,10 @@
 class FlightClient extends CActiveRecord
 {
 
+    const RESERVED = 'Reserved';
+    const CANCELATION_REQUEST = 'Cancelation Request';
+    const RESERVATION_REQUEST = 'Reservation Request';
+    
     /**
      * Returns the static model of the specified AR class.
      * @param string $className active record class name.
@@ -42,11 +46,11 @@ class FlightClient extends CActiveRecord
         // NOTE: you should only define rules for those attributes that
         // will receive user inputs.
         return array(
-            array('Id, ClientId, FlightId, SeatId', 'required'),
-            array('Id, ClientId, FlightId, SeatId', 'numerical', 'integerOnly' => true),
+            array('ClientId, FlightId, SeatId, Status', 'required'),
+            array('ClientId, FlightId, SeatId', 'numerical', 'integerOnly' => true),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
-            array('Id, ClientId, FlightId, SeatId', 'safe', 'on' => 'search'),
+            array('ClientId, FlightId, SeatId', 'safe', 'on' => 'search'),
         );
     }
 
@@ -73,6 +77,7 @@ class FlightClient extends CActiveRecord
             'ClientId' => 'Client',
             'FlightId' => 'Flight',
             'SeatId' => 'Seat',
+            'Status' => 'Status',
         );
     }
 
@@ -91,10 +96,86 @@ class FlightClient extends CActiveRecord
         $criteria->compare('ClientId', $this->ClientId);
         $criteria->compare('FlightId', $this->FlightId);
         $criteria->compare('SeatId', $this->SeatId);
-
+        $criteria->compare('Status', $this->Status); 
+        
         return new CActiveDataProvider($this, array(
-                    'criteria' => $criteria,
+            'criteria' => $criteria,
                 ));
     }
 
+    public function getClientsFullName()
+    {
+        // get list of ClientFullnameView
+        $clients = ClientFullnameView::model()->findAll();
+
+
+        // convert them to suitable format for comboBox or listbox
+        $clientsArray = CHtml::listData($clients, 'ClientId', 'FullName');
+
+        //add one extra item
+        $clientsArray[0] = 'please select...';
+        
+        // sort according to key
+        ksort($clientsArray);
+
+        return $clientsArray;
+    }
+
+    public function getOneClientFullName($id)
+    {
+        // get  ClientFullnameView
+        $client = ClientFullnameView::model()->find('ClientId = :id', array(':id' => $id));
+        return $client->FullName;
+    }
+
+    public function getFlightsFullInfo()
+    {
+        $today = date('Y/m/d');
+        // just find the flights that are belong to today or the future
+        $flights = FlightFullInfoView::model()->findAll('TakeoffDate >= :today'
+            , array(':today' => $today));
+
+        // convert them to suitable format for comboBox or listbox
+        $flightsArray = CHtml::listData($flights, 'FlightId', 'FullInfo');
+
+        //add one extra item
+        $flightsArray[0] = 'please select...';
+        
+        // sort according to key
+        ksort($flightsArray);
+
+        return $flightsArray;
+    }
+
+    public function getSeats()
+    {
+        $seats = Seat::model()->findAll();
+
+        // convert them to suitable format for comboBox or listbox
+        $seatsArray = CHtml::listData($seats, 'Id', 'SeatNumber');
+
+        //add one extra item
+        $seatsArray[0] = 'please select...';
+        
+        // sort according to key
+        ksort($seatsArray);
+
+        return $seatsArray;
+    }
+
+    public function getSeat($id)
+    {
+        $seatId = Seat::model()->findByAttribute(array('Id' => $id));
+
+        return $seatId;
+    }
+   
+    public function getStatus()
+    {
+        return array(
+            self::RESERVED => self::RESERVED,
+            self::CANCELATION_REQUEST => self::CANCELATION_REQUEST,
+            self::RESERVATION_REQUEST => self::RESERVATION_REQUEST,
+        );
+    }
 }
