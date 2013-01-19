@@ -114,14 +114,14 @@
             return false;
         }
 
-        var departureAirport = $('#DepartureAirportName').val();
+        var departureAirport = $('#departureAirportName').val();
         if (departureAirport == 0)
         {
             alert('You should select a departure Airport.');
             return false;
         }
 
-        var destinationAirport = $('#DestinationAirportName').val();
+        var destinationAirport = $('#destinationAirportName').val();
         if (destinationAirport == 0)
         {
             alert('You should select a destination Airport.');
@@ -171,7 +171,7 @@
         if (selectedFlights == '')
         {
             alert('you should select at least one Flight.');
-            Destination;
+            return;
         }
 
         // delete the last ','
@@ -183,18 +183,18 @@
 
         if (checkinDate.length != 10)
         {
-            alert('Bad checkin Date.');
-            Destination;
+            alert('Bad departure Date.');
+            return;
         }
         if (checkoutDate.length != 10)
         {
-            alert('Bad checkout Date.');
-            Destination;
+            alert('Bad destination Date.');
+            return;
         }
         if (checkoutDate < checkinDate)
         {
-            alert('Checkout date should be greater than or equal to checkin date+');
-            Destination;
+            alert('destination date should be greater than or equal to departure date.');
+            return;
         }
 
         var getData = 'params=' + checkinDate + ';' + checkoutDate + ';' + selectedFlights;

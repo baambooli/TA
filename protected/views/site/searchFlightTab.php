@@ -20,7 +20,7 @@
 
                 <div >
                     Departure city and airport:<br>
-                    <select id="DepartureAirportName" name="DepartureAirportName"/>
+                    <select id="departureAirportName" name="departureAirportName"/>
                     <option value="0">Please select</option>
                     <?php
                     foreach ($airportsName as $key => $value)
@@ -32,7 +32,7 @@
                 </div>
                 <div >
                     Destination city and airport:<br>
-                    <select id="DestinationAirportName" name="DestinationAirportName"/>
+                    <select id="destinationAirportName" name="destinationAirportName"/>
                     <option value="0">Please select</option>
                     <?php
                     foreach ($airportsName as $key => $value)

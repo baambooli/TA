@@ -683,8 +683,23 @@ class SiteController extends Controller
 
     public function actionSearchFlight()
     {
-        $res = $_POST;
+        $departureAirport = explode(',', $_POST['departureAirportName']);
+        $destinationAirport = explode(',', $_POST['destinationAirportName']);
+        
+        $modelSearchFlightForm = new SearchFlightForm;
+        $modelSearchFlightForm->type = $_POST['flightType'];
+        $modelSearchFlightForm->departuteAirport = $departureAirport[1];
+        $modelSearchFlightForm->departureDate = $_POST['datepickerDepartureDate'];
+        $modelSearchFlightForm->destinationAirport = $destinationAirport[1];
+        $modelSearchFlightForm->destinationDate = $_POST['datepickerDestinationDate'];
 
+        if (!$modelSearchFlightForm->validate())
+        {
+            echo json_encode(array('ERROR' => 'ERROR in data validation.'));
+            return false;
+        }
+        DebugBreak();
+        
         echo json_encode(array('a' => '12345'));
         return true;
     }

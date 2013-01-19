@@ -3875,3 +3875,48 @@ REQUEST_URI=/index.php?r=site/dbDiagram
 in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (15)
 in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
 in g:\GitHub\travelagency\index.php (13)
+2013/01/19 01:22:58 [error] [exception.CException] exception 'CException' with message 'Property "SearchHotelForm.type" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(689): CComponent->__set('type', 'TWO_WAYS')
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('searchFlight')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/searchFlig...')
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/searchFlight
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/19 01:23:07 [error] [exception.CException] exception 'CException' with message 'Property "SearchHotelForm.type" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(689): CComponent->__set('type', 'TWO_WAYS')
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('searchFlight')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/searchFlig...')
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/searchFlight
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/19 01:25:05 [error] [exception.CException] exception 'CException' with message 'Property "SearchHotelForm.type" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(689): CComponent->__set('type', 'TWO_WAYS')
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('searchFlight')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/searchFlig...')
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/searchFlight
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
