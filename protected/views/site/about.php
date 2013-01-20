@@ -20,6 +20,8 @@ $this->breadcrumbs=array(
 <br />
 <li>RBAC + GUI</li>
 <br />
+<li>Templates</li>
+<br />
 <li>Twitter Bootstrap</li>
 <br />
 <li>jqxWidget</li>

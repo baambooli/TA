@@ -18,19 +18,19 @@ ActiveWorkset=
 [Files]
 File0=D:\xampp\htdocs\TA\protected\models\SearchFlightForm.php
 IsActive0=0
-ZIndex5=1
+ZIndex5=3
 File1=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
 IsActive1=0
-ZIndex4=2
+ZIndex4=1
 File2=D:\xampp\htdocs\TA\protected\views\site\searchFlightTab.php
 IsActive2=0
-ZIndex3=3
+ZIndex3=2
 File3=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
 IsActive3=1
 ZIndex1=0
 File4=D:\xampp\htdocs\TA\protected\models\Search4EmptyRoomView.php
 IsActive4=0
-ZIndex0=5
+ZIndex0=4
 Files=5
 
 [breakpoints]

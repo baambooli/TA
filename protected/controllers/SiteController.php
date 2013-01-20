@@ -688,9 +688,9 @@ class SiteController extends Controller
         
         $modelSearchFlightForm = new SearchFlightForm;
         $modelSearchFlightForm->type = $_POST['flightType'];
-        $modelSearchFlightForm->departuteAirport = $departureAirport[1];
+        $modelSearchFlightForm->departuteAirport = trim($departureAirport[1]);
         $modelSearchFlightForm->departureDate = $_POST['datepickerDepartureDate'];
-        $modelSearchFlightForm->destinationAirport = $destinationAirport[1];
+        $modelSearchFlightForm->destinationAirport = trim($destinationAirport[1]);
         $modelSearchFlightForm->destinationDate = $_POST['datepickerDestinationDate'];
 
         if (!$modelSearchFlightForm->validate())

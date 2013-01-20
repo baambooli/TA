@@ -5,7 +5,3 @@ ActiveProject=G:\GitHub\travelagency\phpEd 5.9\TA_prj.ppj
 [Expanded]
 TA=1
 TA:TA_prj=1
-TA:TA_prj:protected=1
-TA:TA_prj:protected:models=1
-TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:site=1
