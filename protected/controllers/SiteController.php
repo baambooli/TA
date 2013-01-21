@@ -435,7 +435,7 @@ class SiteController extends Controller
         NeverUsedRoomsView::model()->addUnusedRooms($modelSearchHotelForm, $freeRoomIds);
 
         $result = '';
-        $res = $this->createResultTable($freeRoomIds, $result);
+        $res = $this->createEmptyRoomsJsonOutput($freeRoomIds, $result);
 
         // send the results to ajax caller function
         echo $result;
@@ -444,7 +444,7 @@ class SiteController extends Controller
         return $res;
     }
 
-    private function createResultTable($freeRoomIds, &$result)
+    private function createEmptyRoomsJsonOutput($freeRoomIds, &$result)
     {
         $result = '';
         if (count($freeRoomIds) == 0)
@@ -698,7 +698,8 @@ class SiteController extends Controller
             echo json_encode(array('ERROR' => 'ERROR in data validation.'));
             return false;
         }
-        DebugBreak();
+        
+        SearchFlight::findEmptyFlights($modelSearchFlightForm);
         
         echo json_encode(array('a' => '12345'));
         return true;
@@ -708,6 +709,7 @@ class SiteController extends Controller
     {
        $this->render('dbDiagram');  
     }
+    
     public function actionRbacDiagram()
     {
        $this->render('rbacDiagram');  

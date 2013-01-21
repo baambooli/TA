@@ -6,7 +6,7 @@
 $this->pageTitle='About Us';
 $this->breadcrumbs=array(
 	'About',
-);
+);         
 ?>
 
 <h1>Features of website</h1>
@@ -14,7 +14,7 @@ $this->breadcrumbs=array(
 <h5>
 <ul>
 <br />
-<li>MVC </li>
+<li>Yii MVC Framework</li>
 <br />
 <li>MySQL DB</li>
 <br />
@@ -28,7 +28,9 @@ $this->breadcrumbs=array(
 <br />
 <li>Logging</li>
 <br />
-<li>Ajax</li>
+<li>jQuery + Ajax</li>
+<br />
+<li>AES-256 data encryption/decryption</li>
 <br />
 </ul>
 </h5> 
