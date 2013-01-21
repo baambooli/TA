@@ -74,6 +74,8 @@
                 'items' => array(
                     array('label' => 'Contact us', 'url' => array('/site/contact')),
                     array('label' => 'About us', 'url' => array('/site/about')),
+                    array('label' => 'DB Diagram', 'url' => array('/site/dbDiagram')),
+                    array('label' => 'RBAC Diagram', 'url' => array('/site/rbacDiagram')),
                 ),
             ),
             // show 'Admin' menu to all users

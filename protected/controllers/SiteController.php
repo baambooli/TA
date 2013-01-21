@@ -435,7 +435,7 @@ class SiteController extends Controller
         NeverUsedRoomsView::model()->addUnusedRooms($modelSearchHotelForm, $freeRoomIds);
 
         $result = '';
-        $res = $this->createResultTable($freeRoomIds, $result);
+        $res = $this->createEmptyRoomsJsonOutput($freeRoomIds, $result);
 
         // send the results to ajax caller function
         echo $result;
@@ -444,7 +444,7 @@ class SiteController extends Controller
         return $res;
     }
 
-    private function createResultTable($freeRoomIds, &$result)
+    private function createEmptyRoomsJsonOutput($freeRoomIds, &$result)
     {
         $result = '';
         if (count($freeRoomIds) == 0)
@@ -683,10 +683,32 @@ class SiteController extends Controller
 
     public function actionSearchFlight()
     {
-        $res = $_POST;
-        //debugbreak();
+        $departureAirport = explode(',', $_POST['departureAirportName']);
+        $destinationAirport = explode(',', $_POST['destinationAirportName']);
+        
+        $modelSearchFlightForm = new SearchFlightForm;
+        $modelSearchFlightForm->type = $_POST['flightType'];
+        $modelSearchFlightForm->departuteAirport = trim($departureAirport[1]);
+        $modelSearchFlightForm->departureDate = $_POST['datepickerDepartureDate'];
+        $modelSearchFlightForm->destinationAirport = trim($destinationAirport[1]);
+        $modelSearchFlightForm->destinationDate = $_POST['datepickerDestinationDate'];
 
-        echo json_encode(array('a' => '12345'));
-        return true;
+        if (!$modelSearchFlightForm->validate())
+        {
+            echo json_encode(array('ERROR' => 'ERROR in data validation.'));
+            return false;
+        }
+        
+        return SearchFlight::findEmptyFlights($modelSearchFlightForm);
+    }
+    
+    public function actionDbDiagram()
+    {
+       $this->render('dbDiagram');  
+    }
+    
+    public function actionRbacDiagram()
+    {
+       $this->render('rbacDiagram');  
     }
 }

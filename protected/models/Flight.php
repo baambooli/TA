@@ -56,6 +56,7 @@ class Flight extends CActiveRecord
             array('AirlineId, AirplaneId, DepartureAirportId, DestinationAirportId', 'numerical', 'integerOnly' => true),
             array('PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'numerical'),
             array('FlightNumber', 'length', 'max' => 50),
+            array('FlightNumber', 'unique'),
             // The following rule is used by search().
             // Please remove those attributes that should not be searched.
             array('Id, FlightNumber, AirlineId, AirplaneId, TakeoffDate, LandingDate, DepartureAirportId, DestinationAirportId, PriceOfFirstClassSeats, PriceOfBusinessClassSeats, PriceOfEconomyClassSeats', 'safe', 'on' => 'search'),

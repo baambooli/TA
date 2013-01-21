@@ -34,7 +34,7 @@ $this->widget('bootstrap.widgets.TbDetailView', array(
         'Aireplane_specificationsName',
         'AirplaneName',
         'AirlineName',
-        'AirlineCountry',
+        'AirlineCountryId',
         'AirlineTel',
         //'FlightId',
         'TakeoffTime',

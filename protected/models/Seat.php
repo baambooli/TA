@@ -103,18 +103,18 @@ class Seat extends CActiveRecord
     public function getTypes()
     {
         return array(
-            'FirstClass' => 'First Class',
-            'BusinessClass' => 'Business Class',
-            'EconomyClass' => 'Economy Class',
+            'FirstClass' => 'FirstClass',
+            'BusinessClass' => 'BusinessClass',
+            'EconomyClass' => 'EconomyClass',
         );
     }
 
     public function getTypeName($id)
     {
         $types = array(
-            'FirstClass' => 'First Class',
-            'BusinessClass' => 'Business Class',
-            'EconomyClass' => 'Economy Class',
+            'FirstClass' => 'FirstClass',
+            'BusinessClass' => 'BusinessClass',
+            'EconomyClass' => 'EconomyClass',
         );
         return $types[$id];
     }
