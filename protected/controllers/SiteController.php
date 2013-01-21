@@ -699,10 +699,7 @@ class SiteController extends Controller
             return false;
         }
         
-        SearchFlight::findEmptyFlights($modelSearchFlightForm);
-        
-        echo json_encode(array('a' => '12345'));
-        return true;
+        return SearchFlight::findEmptyFlights($modelSearchFlightForm);
     }
     
     public function actionDbDiagram()

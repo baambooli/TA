@@ -16,24 +16,24 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\models\SearchFlightForm.php
+File0=D:\xampp\htdocs\TA\protected\models\Seat.php
 IsActive0=0
-ZIndex6=5
-File1=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
+ZIndex5=1
+File1=D:\xampp\htdocs\TA\protected\models\Flight.php
 IsActive1=0
-ZIndex5=6
-File2=D:\xampp\htdocs\TA\protected\views\site\searchFlightTab.php
+ZIndex4=3
+File2=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
 IsActive2=0
-ZIndex4=4
+ZIndex3=2
 File3=D:\xampp\htdocs\TA\protected\components\SearchFlight.php
 IsActive3=1
 ZIndex2=0
-File4=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
+File4=D:\xampp\htdocs\TA\protected\controllers\FlightClientController.php
 IsActive4=0
-ZIndex1=1
-File5=D:\xampp\htdocs\TA\protected\models\Search4EmptyRoomView.php
+ZIndex1=4
+File5=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
 IsActive5=0
-ZIndex0=3
+ZIndex0=5
 Files=6
 
 [breakpoints]

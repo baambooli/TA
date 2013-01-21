@@ -178,7 +178,7 @@ class FlightClientController extends RController
     {
         $flightId = (int) $_GET['params'];
 
-        $emptySeats = $this->findEmptySeatsOfFlight($flightId);
+        $emptySeats = AllSeatsOfFlightView::findEmptySeatsOfTheFlight($flightId);
 
         // add one blank line
         echo CHtml::tag('option', array('value' => 0), CHtml::encode('Please select...'), true);
@@ -190,14 +190,5 @@ class FlightClientController extends RController
         return true;
     }
 
-    public function findEmptySeatsOfFlight($flightId)
-    {
-        $criteria = new CDbCriteria;
-        $criteria->condition = "(FlightId = $flightId) AND " .
-                "SeatId NOT IN (select SeatId from flight_clients where FlightId = $flightId)";
-
-        $emptySeats = AllSeatsOfFlightView::model()->findAll($criteria);
-
-        return $emptySeats;
-    }
+    
 }

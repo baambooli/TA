@@ -96,4 +96,17 @@ class AllSeatsOfFlightView extends CActiveRecord
             'criteria' => $criteria,
                 ));
     }
+    
+    public static function findEmptySeatsOfTheFlight($flightId)
+    {
+        $flightId = (int) $flightId;
+        
+        $criteria = new CDbCriteria;
+        $criteria->condition = "(FlightId = $flightId) AND " .
+                "SeatId NOT IN (select SeatId from flight_clients where FlightId = $flightId)";
+
+        $emptySeats = self::model()->findAll($criteria);
+
+        return $emptySeats;
+    }
 }
