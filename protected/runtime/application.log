@@ -3471,3 +3471,497 @@ Stack trace:
 REQUEST_URI=/index.php?r=http://kamran.dev.travelagancy.com:81/index.php?r=flightClientView/view&id=6&id=6
 HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=flightClient/create
 ---
+2013/01/18 16:36:23 [error] [application.controllers.AirLineController] New Airline created by user = 1
+in G:\GitHub\travelagency\protected\controllers\AirlineController.php (66)
+in G:\GitHub\travelagency\protected\modules\rights\components\RController.php (36)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/18 16:47:09 [error] [exception.CException] exception 'CException' with message 'Property "Airline.countryId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('countryId')
+#1 G:\GitHub\travelagency\protected\views\airline\view.php(27): CActiveRecord->__get('countryId')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\AirlineController.php(46): CController->render('view', Array)
+#7 [internal function]: AirlineController->actionView('4')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AirlineController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AirlineController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('airline/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=airline/view&id=4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/create
+---
+2013/01/18 16:49:15 [error] [exception.CException] exception 'CException' with message 'Property "Airline.countryId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('countryId')
+#1 G:\GitHub\travelagency\protected\views\airline\view.php(27): CActiveRecord->__get('countryId')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\AirlineController.php(46): CController->render('view', Array)
+#7 [internal function]: AirlineController->actionView('4')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AirlineController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AirlineController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('airline/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=airline/view&id=4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/create
+---
+2013/01/18 16:50:25 [error] [exception.CException] exception 'CException' with message 'Property "Airline.countryId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('countryId')
+#1 G:\GitHub\travelagency\protected\views\airline\view.php(27): CActiveRecord->__get('countryId')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\AirlineController.php(46): CController->render('view', Array)
+#7 [internal function]: AirlineController->actionView('4')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AirlineController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AirlineController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('airline/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=airline/view&id=4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/create
+---
+2013/01/18 16:50:45 [error] [exception.CException] exception 'CException' with message 'Property "Airline.countryId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('countryId')
+#1 G:\GitHub\travelagency\protected\views\airline\view.php(27): CActiveRecord->__get('countryId')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\AirlineController.php(46): CController->render('view', Array)
+#7 [internal function]: AirlineController->actionView('4')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AirlineController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AirlineController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('airline/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=airline/view&id=4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/create
+---
+2013/01/18 16:51:49 [error] [exception.CException] exception 'CException' with message 'Property "Airline.countryId" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(143): CComponent->__get('countryId')
+#1 G:\GitHub\travelagency\protected\views\airline\view.php(27): CActiveRecord->__get('countryId')
+#2 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#4 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#6 G:\GitHub\travelagency\protected\controllers\AirlineController.php(46): CController->render('view', Array)
+#7 [internal function]: AirlineController->actionView('4')
+#8 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AirlineController), Array)
+#9 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AirlineController), Object(ReflectionMethod), Array)
+#10 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#11 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#12 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#13 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#14 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#17 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#18 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('airline/view')
+#20 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#21 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#22 {main}
+REQUEST_URI=/index.php?r=airline/view&id=4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/create
+---
+2013/01/18 16:52:36 [error] [exception.CException] exception 'CException' with message 'Airline and its behaviors do not have a method or closure named "getCountryName".' in G:\GitHub\yii\framework\base\CComponent.php:265
+Stack trace:
+#0 G:\GitHub\yii\framework\db\ar\CActiveRecord.php(225): CComponent->__call('getCountryName', Array)
+#1 G:\GitHub\travelagency\protected\views\airline\view.php(27): CActiveRecord->__call('getCountryName', Array)
+#2 G:\GitHub\travelagency\protected\views\airline\view.php(27): Airline->getCountryName('1')
+#3 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#4 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#5 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#6 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('view', Array, true)
+#7 G:\GitHub\travelagency\protected\controllers\AirlineController.php(46): CController->render('view', Array)
+#8 [internal function]: AirlineController->actionView('4')
+#9 G:\GitHub\yii\framework\web\actions\CAction.php(108): ReflectionMethod->invokeArgs(Object(AirlineController), Array)
+#10 G:\GitHub\yii\framework\web\actions\CInlineAction.php(47): CAction->runWithParamsInternal(Object(AirlineController), Object(ReflectionMethod), Array)
+#11 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 G:\GitHub\yii\framework\web\filters\CFilterChain.php(133): CController->runAction(Object(CInlineAction))
+#13 G:\GitHub\yii\framework\web\filters\CFilter.php(40): CFilterChain->run()
+#14 G:\GitHub\travelagency\protected\modules\rights\components\RController.php(36): CFilter->filter(Object(CFilterChain))
+#15 G:\GitHub\yii\framework\web\filters\CInlineFilter.php(58): RController->filterRights(Object(CFilterChain))
+#16 G:\GitHub\yii\framework\web\filters\CFilterChain.php(130): CInlineFilter->filter(Object(CFilterChain))
+#17 G:\GitHub\yii\framework\web\CController.php(291): CFilterChain->run()
+#18 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#19 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('view')
+#20 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('airline/view')
+#21 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#22 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#23 {main}
+REQUEST_URI=/index.php?r=airline/view&id=4
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php?r=airline/create
+---
+2013/01/18 19:56:30 [error] [exception.CException] exception 'CException' with message 'Property "LoginForm.username" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\web\helpers\CHtml.php(2255): CComponent->__get('username')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(LoginForm), 'username')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(LoginForm), 'username', Array)
+#3 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(LoginForm), 'username', Array)
+#4 G:\GitHub\travelagency\protected\views\site\login.php(29): CActiveForm->textField(Object(LoginForm), 'username', Array)
+#5 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#6 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#8 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('login', Array, true)
+#9 G:\GitHub\travelagency\protected\controllers\SiteController.php(139): CController->render('login', Array)
+#10 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#11 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#16 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/18 20:10:37 [error] [exception.CException] exception 'CException' with message 'Property "LoginForm.username" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\web\helpers\CHtml.php(2255): CComponent->__get('username')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(LoginForm), 'username')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(LoginForm), 'username', Array)
+#3 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(LoginForm), 'username', Array)
+#4 G:\GitHub\travelagency\protected\views\site\login.php(29): CActiveForm->textField(Object(LoginForm), 'username', Array)
+#5 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#6 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#8 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('login', Array, true)
+#9 G:\GitHub\travelagency\protected\controllers\SiteController.php(139): CController->render('login', Array)
+#10 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#11 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#16 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/site/login
+---
+2013/01/18 20:11:40 [error] [exception.CException] exception 'CException' with message 'Property "LoginForm.username" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\web\helpers\CHtml.php(2255): CComponent->__get('username')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(LoginForm), 'username')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(LoginForm), 'username', Array)
+#3 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(LoginForm), 'username', Array)
+#4 G:\GitHub\travelagency\protected\views\site\login.php(29): CActiveForm->textField(Object(LoginForm), 'username', Array)
+#5 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#6 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#8 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('login', Array, true)
+#9 G:\GitHub\travelagency\protected\controllers\SiteController.php(140): CController->render('login', Array)
+#10 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#11 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#16 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/18 20:14:35 [error] [exception.CException] exception 'CException' with message 'Property "LoginForm.username" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:130
+Stack trace:
+#0 G:\GitHub\yii\framework\web\helpers\CHtml.php(2255): CComponent->__get('username')
+#1 G:\GitHub\yii\framework\web\helpers\CHtml.php(1980): CHtml::resolveValue(Object(LoginForm), 'username')
+#2 G:\GitHub\yii\framework\web\helpers\CHtml.php(1257): CHtml::activeInputField('text', Object(LoginForm), 'username', Array)
+#3 G:\GitHub\yii\framework\web\widgets\CActiveForm.php(657): CHtml::activeTextField(Object(LoginForm), 'username', Array)
+#4 G:\GitHub\travelagency\protected\views\site\login.php(29): CActiveForm->textField(Object(LoginForm), 'username', Array)
+#5 G:\GitHub\yii\framework\web\CBaseController.php(126): require('G:\GitHub\trave...')
+#6 G:\GitHub\yii\framework\web\CBaseController.php(95): CBaseController->renderInternal('G:\GitHub\trave...', Array, true)
+#7 G:\GitHub\yii\framework\web\CController.php(869): CBaseController->renderFile('G:\GitHub\trave...', Array, true)
+#8 G:\GitHub\yii\framework\web\CController.php(782): CController->renderPartial('login', Array, true)
+#9 G:\GitHub\travelagency\protected\controllers\SiteController.php(139): CController->render('login', Array)
+#10 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionLogin()
+#11 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#12 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#13 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#14 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('login')
+#15 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/login')
+#16 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#17 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#18 {main}
+REQUEST_URI=/index.php/site/login
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/18 20:24:25 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'The system is unable to find the requested action "diagram".' in G:\GitHub\yii\framework\web\CController.php:483
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(270): CController->missingAction('diagram')
+#1 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('diagram')
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/diagram')
+#3 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#4 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#5 {main}
+REQUEST_URI=/index.php?r=site/diagram
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/index.php
+---
+2013/01/18 20:28:01 [error] [php] include(Chtml.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\site\dbDiagram.php(15): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(126): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(694): SiteController->render()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionDbDiagram()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/DbDiagram
+in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (15)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/18 20:29:56 [error] [php] include(Chtml.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\site\dbDiagram.php(15): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(126): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(694): SiteController->render()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionDbDiagram()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/dbDiagram
+in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (15)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/18 20:31:02 [error] [php] include(Chtml.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\site\dbDiagram.php(16): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(126): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(694): SiteController->render()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionDbDiagram()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/dbDiagram
+in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (16)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/18 20:32:11 [error] [exception.CHttpException.404] exception 'CHttpException' with message 'Unable to resolve the request "images/system/diagram.png".' in G:\GitHub\yii\framework\web\CWebApplication.php:286
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('images/system/d...')
+#1 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#2 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#3 {main}
+REQUEST_URI=/index.php?r=images/system/diagram.png
+---
+2013/01/18 20:35:20 [error] [php] include(Chtml.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\site\dbDiagram.php(18): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(126): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(694): SiteController->render()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionDbDiagram()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/dbDiagram
+in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (18)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/18 20:37:13 [error] [php] include(Chtml.php) [<a href='function.include'>function.include</a>]: failed to open stream: No such file or directory (G:\GitHub\yii\framework\YiiBase.php:421)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\views\site\dbDiagram.php(17): spl_autoload_call()
+#1 G:\GitHub\yii\framework\web\CBaseController.php(126): require()
+#2 G:\GitHub\yii\framework\web\CBaseController.php(95): SiteController->renderInternal()
+#3 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#4 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#5 G:\GitHub\travelagency\protected\controllers\SiteController.php(694): SiteController->render()
+#6 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionDbDiagram()
+#7 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#8 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#9 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#10 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#11 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#12 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#13 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/dbDiagram
+in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (17)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/18 20:41:00 [error] [php] Undefined variable: url (G:\GitHub\travelagency\protected\views\site\dbDiagram.php:15)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(869): SiteController->renderFile()
+#1 G:\GitHub\yii\framework\web\CController.php(782): SiteController->renderPartial()
+#2 G:\GitHub\travelagency\protected\controllers\SiteController.php(694): SiteController->render()
+#3 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionDbDiagram()
+#4 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#5 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#6 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#7 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#8 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#9 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#10 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/dbDiagram
+in G:\GitHub\travelagency\protected\views\site\dbDiagram.php (15)
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (694)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/19 01:22:58 [error] [exception.CException] exception 'CException' with message 'Property "SearchHotelForm.type" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(689): CComponent->__set('type', 'TWO_WAYS')
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('searchFlight')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/searchFlig...')
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/searchFlight
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/19 01:23:07 [error] [exception.CException] exception 'CException' with message 'Property "SearchHotelForm.type" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(689): CComponent->__set('type', 'TWO_WAYS')
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('searchFlight')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/searchFlig...')
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/searchFlight
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/19 01:25:05 [error] [exception.CException] exception 'CException' with message 'Property "SearchHotelForm.type" is not defined.' in G:\GitHub\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(689): CComponent->__set('type', 'TWO_WAYS')
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#3 G:\GitHub\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#4 G:\GitHub\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): CController->run('searchFlight')
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('site/searchFlig...')
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CApplication->run()
+#9 {main}
+REQUEST_URI=/index.php?r=site/searchFlight
+HTTP_REFERER=http://kamran.dev.travelagancy.com:81/
+---
+2013/01/21 23:05:09 [error] [php] Undefined offset: 0 (G:\GitHub\travelagency\protected\models\Seat.php:119)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(702): findEmptyFlights()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchFlight
+in G:\GitHub\travelagency\protected\models\Seat.php (119)
+in G:\GitHub\travelagency\protected\components\SearchFlight.php (68)
+in G:\GitHub\travelagency\protected\components\SearchFlight.php (9)
+2013/01/21 23:06:03 [error] [php] Undefined offset: 0 (G:\GitHub\travelagency\protected\models\Seat.php:119)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(702): findEmptyFlights()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchFlight
+in G:\GitHub\travelagency\protected\models\Seat.php (119)
+in G:\GitHub\travelagency\protected\components\SearchFlight.php (68)
+in G:\GitHub\travelagency\protected\components\SearchFlight.php (9)
+2013/01/21 23:06:42 [error] [php] Undefined offset: 0 (G:\GitHub\travelagency\protected\models\Seat.php:119)
+Stack trace:
+#0 G:\GitHub\travelagency\protected\controllers\SiteController.php(702): findEmptyFlights()
+#1 G:\GitHub\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionSearchFlight()
+#2 G:\GitHub\yii\framework\web\CController.php(308): CInlineAction->runWithParams()
+#3 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#4 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#5 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#6 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#7 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#8 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchFlight
+in G:\GitHub\travelagency\protected\models\Seat.php (119)
+in G:\GitHub\travelagency\protected\components\SearchFlight.php (68)
+in G:\GitHub\travelagency\protected\components\SearchFlight.php (9)

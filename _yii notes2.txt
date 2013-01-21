@@ -4640,9 +4640,48 @@ or
 		for more details see FlightController and FlightClientController in TravelAgency project
 
 
-181- 
+181- SEO in Yii
 
+	http://www.yiiframework.com/extension/yii-seo/
+	
+	
+182- one example of using log() function in Yii: 
 
+		Yii::log('There are errors in the signup process...', 'error', 'application.controllers.FrontController');
+		
+	or
+		
+		$message = 'TA LOG: Airline '.$id.' deleted by user = '. Yii::app()->user->id;
+        Yii::log($message, 'info', 'application.controllers.AirLineController');
+                
+
+183- for logging, the protected/config/main.php should have
+
+		'log' => array(
+            'class' => 'CLogRouter',
+            'routes' => array(
+                // send "error" type messages to /protected/runtime/application.log file.
+                array(
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'error, warning',
+                ),
+                
+                // send "info, trace" messages to /protected/runtime/infoMessages.log file.
+                array(
+                    'class' => 'CFileLogRoute',
+                    'levels' => 'info, trace',
+                    'logFile' => 'infoMessages.log',
+                ),
+                
+                // send "warning" messages to webpage(on screen message)
+                array(
+                        'class' => 'CWebLogRoute',
+                        'levels' => 'warning',
+                ),
+            ),
+        ),
+		
+184- 
 
 
 

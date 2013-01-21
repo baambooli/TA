@@ -178,4 +178,5 @@ class FlightClient extends CActiveRecord
             self::RESERVATION_REQUEST => self::RESERVATION_REQUEST,
         );
     }
+    
 }

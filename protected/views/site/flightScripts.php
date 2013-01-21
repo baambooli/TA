@@ -85,10 +85,7 @@
             url: urlAjax,
             data: data,
             success: function(data) {
-                //alert('Success.');
 
-                // write new data on it (results of actionSearchFlight() function on siteController)
-                var data = generatedata(500)
                 showFlightResults(data);
 
                 // restore the caption of button
@@ -114,14 +111,14 @@
             return false;
         }
 
-        var departureAirport = $('#DepartureAirportName').val();
+        var departureAirport = $('#departureAirportName').val();
         if (departureAirport == 0)
         {
             alert('You should select a departure Airport.');
             return false;
         }
 
-        var destinationAirport = $('#DestinationAirportName').val();
+        var destinationAirport = $('#destinationAirportName').val();
         if (destinationAirport == 0)
         {
             alert('You should select a destination Airport.');
@@ -171,7 +168,7 @@
         if (selectedFlights == '')
         {
             alert('you should select at least one Flight.');
-            Destination;
+            return;
         }
 
         // delete the last ','
@@ -183,18 +180,18 @@
 
         if (checkinDate.length != 10)
         {
-            alert('Bad checkin Date.');
-            Destination;
+            alert('Bad departure Date.');
+            return;
         }
         if (checkoutDate.length != 10)
         {
-            alert('Bad checkout Date.');
-            Destination;
+            alert('Bad destination Date.');
+            return;
         }
         if (checkoutDate < checkinDate)
         {
-            alert('Checkout date should be greater than or equal to checkin date+');
-            Destination;
+            alert('destination date should be greater than or equal to departure date.');
+            return;
         }
 
         var getData = 'params=' + checkinDate + ';' + checkoutDate + ';' + selectedFlights;
@@ -212,8 +209,8 @@
                 // change the text on the screen with id = searchFlightResults
                 $('#searchFlightResults').text('');  //clear div
 
-                //alert(data[0].result);
-                $('#searchFlightResults').append(data[0].result);
+                alert(data);
+                $('#searchFlightResults').append(data);
 
                 // hide the button
                 $('#reserveFlight').hide();
@@ -244,15 +241,19 @@
         var source =
                 {
                     localdata: data,
+                    datatype: "json",
                     datafields:
                             [
-                                {name: 'name', type: 'string'},
-                                {name: 'productname', type: 'string'},
-                                {name: 'available', type: 'bool'},
-                                {name: 'date', type: 'date'},
-                                {name: 'quantity', type: 'number'}
+                                {name: 'FlightNumber', type: 'string'},
+                                {name: 'SeatNumber', type: 'string'},
+                                {name: 'SeatType', type: 'string'},
+                                {name: 'TakeoffDate', type: 'date'},
+                                {name: 'TakeoffTime', type: 'string'},
+                                {name: 'LandingDate', type: 'date'},
+                                {name: 'LandingTime', type: 'string'},
+                                {name: 'Price', type: 'Number'},
+                                {name: 'Reserve', type: 'boolean'}
                             ],
-                    datatype: "array"
                 };
 
         var dataAdapter = new $.jqx.dataAdapter(source);
@@ -266,14 +267,17 @@
                     theme: theme,
                     selectionmode: 'multiplecellsextended',
                     columns: [
-                        {text: 'Name', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'name', width: 115},
-                        {
-                            text: 'Product', filtertype: 'checkedlist', datafield: 'productname', width: 220
-                        },
-                        {text: 'Available', datafield: 'available', columntype: 'checkbox', filtertype: 'bool', width: 67},
-                        {text: 'Ship Date', datafield: 'date', filtertype: 'date', width: 210, cellsalign: 'right', cellsformat: 'd'},
-                        {text: 'Qty.', datafield: 'quantity', filtertype: 'number', cellsalign: 'right'}
+                        {text: 'Flight Number', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'FlightNumber', width: 115},
+                        {text: 'Seat Number', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'SeatNumber', width: 115},
+                        {text: 'Seat Type', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'SeatType', width: 115},
+                        {text: 'Takeoff Date', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'TakeoffDate', width: 115},
+                        {text: 'Takeoff Time', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'TakeoffTime', width: 115},
+                        {text: 'Landing Date', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'LandingDate', width: 115},
+                        {text: 'Landing Time', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'LandingTime', width: 115},
+                        {text: 'Price (CND)', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Price', width: 115},
+                        {text: 'Reserve', datafield: 'reserve', columntype: 'checkbox', filtertype: 'bool', width: 67},
                     ]
+                     
                 });
     }
 </script>
