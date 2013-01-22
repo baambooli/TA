@@ -88,6 +88,7 @@
             data: data,
             success: function(data) {
 
+                $('#jqxgrid').show();
                 showFlightResults(data);
 
                 // restore the caption of button
@@ -96,8 +97,9 @@
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');
 
-                // show error message
-                $('#flightGridHeader').append(data[0].result);
+                $('#flightGridHeader').text('');  //clear div
+                $('#flightGridfooter').text('');  //clear div
+                $('#jqxgrid').hide();
 
                 // restore the caption of button
                 $('#searchFlightButton').val('Search Flight');

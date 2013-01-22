@@ -5,13 +5,30 @@ class SearchFlight
 
     public static function findEmptyFlights(SearchFlightForm $searchFlightForm)
     {
+        $emptySeats = array();
         if ($searchFlightForm->type == 'ONE_WAY')
         {
-            return self::showOneWayFlights($searchFlightForm);
+            if (self::showOneWayFlights($searchFlightForm, $emptySeats))
+            {
+                echo json_encode($emptySeats);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         elseif ($searchFlightForm->type == 'TWO_WAYS')
         {
-
+            if (self::showTwoWaysFlights($searchFlightForm, $emptySeats))
+            {
+                echo json_encode($emptySeats);
+                return true;
+            }
+            else
+            {
+                return false;
+            } 
         }
         else
         {
@@ -20,13 +37,13 @@ class SearchFlight
         }
     }
 
-    private static function showOneWayFlights($searchFlightForm)
+    
+    private static function showOneWayFlights($searchFlightForm, &$emptySeats)
     {
         $flights = NULL;
         self::getFlights($searchFlightForm, $flights);
 
         // find empty seats in each flight
-        $emptySeats = array();
         foreach ($flights as $flight)
         {
             $emptySeats1 = AllSeatsOfFlightView::findEmptySeatsOfTheFlight($flight->Id);
@@ -49,10 +66,80 @@ class SearchFlight
             }
         }
 
-        echo json_encode($emptySeats);
         return true;
     }
 
+    private static function showTwoWaysFlights($searchFlightForm, &$emptySeats)
+    {
+        // add title 
+        self::addTitle('Departure Flights', $emptySeats );
+        
+        // add departure flights data
+        self::showOneWayFlights($searchFlightForm, $emptySeats);
+        
+        // add title 
+        self::addTitle('Return Flights', $emptySeats );
+        
+        // create return data
+        $searchFlightFormReturn = self::createReturnFlightData($searchFlightForm);
+        
+        // add destination flights data
+        self::showOneWayFlights($searchFlightFormReturn, $emptySeats);
+        
+        return true;
+        
+    }  
+    
+    // changes the destination and departure informations
+    private static function createReturnFlightData($searchFlightForm)
+    {
+        $searchFlightFormReturn = new SearchFlightForm;
+        $searchFlightFormReturn->type = $searchFlightForm->type;
+        $searchFlightFormReturn->departuteAirport = $searchFlightForm->destinationAirport;
+        $searchFlightFormReturn->destinationAirport = $searchFlightForm->departuteAirport;
+        $searchFlightFormReturn->departureDate = $searchFlightForm->destinationDate;
+        $searchFlightFormReturn->destinationDate = $searchFlightForm->departureDate;
+        
+        return $searchFlightFormReturn; 
+    }
+      
+    private static function addTitle($title, &$emptySeats )
+    {
+        // add one blanck row
+        $emptySeats[] = array(
+            'FlightNumber' => '',
+            'SeatNumber' => '',
+            'SeatType' => '',
+            'TakeoffDate' => '',
+            'LandingDate' => '',
+            'Price' => '',
+            'Reserve' => '',
+        );
+        
+        // add title
+        $emptySeats[] = array(
+            'FlightNumber' => $title,
+            'SeatNumber' => '',
+            'SeatType' => '',
+            'TakeoffDate' => '',
+            'LandingDate' => '',
+            'Price' => '',
+            'Reserve' => '',
+        );
+        
+        // add one blanck row
+        $emptySeats[] = array(
+            'FlightNumber' => '',
+            'SeatNumber' => '',
+            'SeatType' => '',
+            'TakeoffDate' => '',
+            'LandingDate' => '',
+            'Price' => '',
+            'Reserve' => '',
+        );
+    }
+
+   
     private static function getFlights($searchFlightForm, &$flights)
     {
         // find departure airportId

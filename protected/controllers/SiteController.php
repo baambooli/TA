@@ -450,13 +450,12 @@ class SiteController extends Controller
         $modelSearchFlightForm->departureDate = $_POST['datepickerDepartureDate'];
         $modelSearchFlightForm->destinationAirport = trim($destinationAirport[1]);
         $modelSearchFlightForm->destinationDate = $_POST['datepickerDestinationDate'];
-
+        
         if (!$modelSearchFlightForm->validate())
         {
             echo json_encode(array('ERROR' => 'ERROR in data validation.'));
             return false;
         }
-
         return SearchFlight::findEmptyFlights($modelSearchFlightForm);
     }
 
