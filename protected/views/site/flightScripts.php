@@ -7,6 +7,8 @@
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxdropdownlist.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxmenu.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.pager.js"></script>
+<script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.columnsresize.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.filter.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.sort.js"></script>
 <script type="text/javascript" src="<?php echo Yii::app()->baseUrl; ?>/jqwidgets-ver2.6.0/jqwidgets/jqxgrid.selection.js"></script>
@@ -233,7 +235,8 @@
 
 <script type="text/javascript">
 
-    function showFlightResults(data) {
+    function showFlightResults(data)
+    {
         var theme = getTheme();
 
         //alert('data length is '+ data.length);
@@ -247,13 +250,16 @@
                                 {name: 'FlightNumber', type: 'string'},
                                 {name: 'SeatNumber', type: 'string'},
                                 {name: 'SeatType', type: 'string'},
-                                {name: 'TakeoffDate', type: 'date'},
+                                {name: 'TakeoffDate', type: 'date', format: 'yyyy-MM-dd'},
                                 {name: 'TakeoffTime', type: 'string'},
-                                {name: 'LandingDate', type: 'date'},
+                                {name: 'LandingDate', type: 'date', format: 'yyyy-MM-dd'},
                                 {name: 'LandingTime', type: 'string'},
                                 {name: 'Price', type: 'Number'},
-                                {name: 'Reserve', type: 'boolean'}
+                                {name: 'Reserve', type: 'string'}
                             ],
+                     pager: function (pagenum, pagesize, oldpagenum) {
+                                // callback called when a page or page size is changed.
+                            }
                 };
 
         var dataAdapter = new $.jqx.dataAdapter(source);
@@ -267,17 +273,41 @@
                     theme: theme,
                     selectionmode: 'multiplecellsextended',
                     columns: [
-                        {text: 'Flight Number', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'FlightNumber', width: 115},
+                        {text: 'Flight Number', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'FlightNumber', width: 115},
                         {text: 'Seat Number', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'SeatNumber', width: 115},
-                        {text: 'Seat Type', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'SeatType', width: 115},
-                        {text: 'Takeoff Date', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'TakeoffDate', width: 115},
+                        {text: 'Seat Type', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'SeatType', width: 115},
+                        {text: 'Takeoff Date', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'TakeoffDate', width: 135},
                         {text: 'Takeoff Time', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'TakeoffTime', width: 115},
-                        {text: 'Landing Date', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'LandingDate', width: 115},
+                        {text: 'Landing Date', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'LandingDate', width: 135},
                         {text: 'Landing Time', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'LandingTime', width: 115},
                         {text: 'Price (CND)', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Price', width: 115},
-                        {text: 'Reserve', datafield: 'reserve', columntype: 'checkbox', filtertype: 'bool', width: 67},
+                        {text: 'Reserve', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Reserve', width: 115},
                     ]
-                     
+
                 });
+
+        $('#events').jqxPanel({width: 300, height: 300, theme: theme});
+        $("#jqxgrid").bind("pagechanged", function(event) {
+            $("#eventslog").css('display', 'block');
+            if ($("#events").find('.logged').length >= 5) {
+                $("#events").jqxPanel('clearcontent');
+            }
+            var args = event.args;
+            var eventData = "pagechanged <div>Page:" + args.pagenum + ", Page Size: " + args.pagesize + "</div>";
+            $('#events').jqxPanel('prepend', '<div class="logged" style="margin-top: 5px;">' + eventData + '</div>');
+            // get page information.
+            var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
+            $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
+        });
+        $("#jqxgrid").bind("pagesizechanged", function(event) {
+            $("#eventslog").css('display', 'block');
+            $("#events").jqxPanel('clearcontent');
+            var args = event.args;
+            var eventData = "pagesizechanged <div>Page:" + args.pagenum + ", Page Size: " + args.pagesize + ", Old Page Size: " + args.oldpagesize + "</div>";
+            $('#events').jqxPanel('prepend', '<div style="margin-top: 5px;">' + eventData + '</div>');
+            // get page information.
+            var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
+            $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
+        });
     }
 </script>

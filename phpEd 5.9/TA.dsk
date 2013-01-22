@@ -16,25 +16,16 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\models\Seat.php
+File0=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
 IsActive0=0
-ZIndex5=1
-File1=D:\xampp\htdocs\TA\protected\models\Flight.php
+ZIndex2=1
+File1=D:\xampp\htdocs\TA\protected\views\site\searchFlightTab.php
 IsActive1=0
-ZIndex4=3
-File2=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
-IsActive2=0
-ZIndex3=2
-File3=D:\xampp\htdocs\TA\protected\components\SearchFlight.php
-IsActive3=1
-ZIndex2=0
-File4=D:\xampp\htdocs\TA\protected\controllers\FlightClientController.php
-IsActive4=0
-ZIndex1=4
-File5=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
-IsActive5=0
-ZIndex0=5
-Files=6
+ZIndex1=2
+File2=D:\xampp\htdocs\TA\protected\components\SearchFlight.php
+IsActive2=1
+ZIndex0=0
+Files=3
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

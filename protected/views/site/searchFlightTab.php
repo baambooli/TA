@@ -67,7 +67,21 @@
         </div>
     </div>
     <div class="well KContent" id="searchFlightResults">
-        <div id="jqxgrid">
+        <div id='jqxWidget' style="font-size: 13px; font-family: Verdana; float: left;">
+            <div id="jqxgrid">
+            </div>
+            <div id="eventslog" style="display: none; margin-top: 30px;">
+                <div style="float: left;">
+                    Event Log:
+                    <div style="border: none;" id="events">
+                    </div>
+                </div>
+                <div style="float: left;">
+                    Paging Details:
+                    <div id="paginginfo">
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

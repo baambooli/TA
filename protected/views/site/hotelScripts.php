@@ -16,7 +16,7 @@
         });
     });
 </script>
-<script> 
+<script>
     function sendAjaxRequestSearchHotel()
     {
         var cityName = $('#CityName').val();
@@ -105,7 +105,7 @@
             result += '<td style="padding: .3em; border: 1px #ccc solid;">' + data[i].RoomType + '</td><td style="padding: .3em; border: 1px #ccc solid;">'
                     + data[i].PricePerDay + '</td>';
             result += '<td style="padding: .3em; border: 1px #ccc solid;">';
-            result += '<input type="checkbox" name="reserveRoom" " value="' + data[i].RoomId + '"></td></tr>';
+            result += '<input type="checkbox" name="reserveRoom" value="' + data[i].RoomId + '"></td></tr>';
         }
 
         result += '</table><br><br>';
