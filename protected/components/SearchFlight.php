@@ -24,7 +24,7 @@ class SearchFlight
     {
         $flights = NULL;
         self::getFlights($searchFlightForm, $flights);
-         
+
         // find empty seats in each flight
         $emptySeats = array();
         foreach ($flights as $flight)
@@ -34,17 +34,15 @@ class SearchFlight
             {
                 $price = self::getPrice($emptySeat);
 
-                // create unique identifier for the row -->  'FlightId,SeatId'
-                $id = $emptySeat->FlightId . ',' . $emptySeat->SeatId;
+                // create unique identifier for the row -->  'FlightId-SeatId'
+                $id = $emptySeat->FlightId . '-' . $emptySeat->SeatId;
 
                 $emptySeats[] = array(
                     'FlightNumber' => $emptySeat->FlightNumber,
                     'SeatNumber' => $emptySeat->SeatNumber,
                     'SeatType' => $emptySeat->SeatType,
-                    'TakeoffDate' => $emptySeat->TakeoffDate,
-                    'TakeoffTime' => $emptySeat->TakeoffTime,
-                    'LandingDate' => $emptySeat->LandingDate,
-                    'LandingTime' => $emptySeat->LandingTime,
+                    'TakeoffDate' => $emptySeat->TakeoffDate.', '.$emptySeat->TakeoffTime,
+                    'LandingDate' => $emptySeat->LandingDate.', '.$emptySeat->LandingTime,
                     'Price' => $price,
                     'Reserve' => "<input type='checkbox' value='{$id}' name='reserveFlight'>",
                 );

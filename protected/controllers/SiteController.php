@@ -685,7 +685,7 @@ class SiteController extends Controller
     {
         $departureAirport = explode(',', $_POST['departureAirportName']);
         $destinationAirport = explode(',', $_POST['destinationAirportName']);
-        
+
         $modelSearchFlightForm = new SearchFlightForm;
         $modelSearchFlightForm->type = $_POST['flightType'];
         $modelSearchFlightForm->departuteAirport = trim($departureAirport[1]);
@@ -698,17 +698,23 @@ class SiteController extends Controller
             echo json_encode(array('ERROR' => 'ERROR in data validation.'));
             return false;
         }
-        
+
         return SearchFlight::findEmptyFlights($modelSearchFlightForm);
     }
-    
+
     public function actionDbDiagram()
     {
-       $this->render('dbDiagram');  
+       $this->render('dbDiagram');
     }
-    
+
     public function actionRbacDiagram()
     {
-       $this->render('rbacDiagram');  
+       $this->render('rbacDiagram');
+    }
+
+    public function actionReserveFlights()
+    {
+        debugbreak();
+        $params = explode(';', $_GET['params']); 
     }
 }

@@ -158,8 +158,10 @@
         return true;
     }
 
-    function reserveFlightsUsingAjax()
+    function reserveFlightSeatsUsingAjax()
     {
+        var type = $('#flightType').val();
+
         // find all checkboxes
         var selectedFlights = '';
 
@@ -177,28 +179,30 @@
         var strLen = selectedFlights.length;
         selectedFlights = selectedFlights.slice(0, strLen - 1);
 
-        var checkinDate = $('#datepickerDepartureDate').val();
-        var checkoutDate = $('#datepickerDestinationDate').val();
+        var departureDate = $('#datepickerDepartureDate').val();
+        var destinationDate = $('#datepickerDestinationDate').val();
 
-        if (checkinDate.length != 10)
+        if (departureDate.length != 10)
         {
             alert('Bad departure Date.');
             return;
         }
-        if (checkoutDate.length != 10)
+        if (destinationDate.length != 10 && type == 'TWO_WAYS')
         {
             alert('Bad destination Date.');
             return;
         }
-        if (checkoutDate < checkinDate)
+        if (destinationDate < departureDate && type == 'TWO_WAYS')
         {
             alert('destination date should be greater than or equal to departure date.');
             return;
         }
 
-        var getData = 'params=' + checkinDate + ';' + checkoutDate + ';' + selectedFlights;
+        var data1 = 'params=' + type + ';' + departureDate + ';' + destinationDate + ';' + selectedFlights;
         var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/reserveFlights'); ?>';
 
+        alert(urlAjax);
+        
         // change the button caption
         $('#reserveFlight').val('Sending, Please wait...');
 
@@ -206,8 +210,9 @@
         $.ajax({
             type: 'GET',
             url: urlAjax,
-            data: getData,
+            data: data1,
             success: function(data) {
+                alert('success');
                 // change the text on the screen with id = searchFlightResults
                 $('#searchFlightResults').text('');  //clear div
 
@@ -237,6 +242,8 @@
 
     function showFlightResults(data)
     {
+        $('#flightGridHeader').html('<h3 style= "text-align: center"> Search Results</h3><br/>');
+
         var theme = getTheme();
 
         //alert('data length is '+ data.length);
@@ -250,23 +257,23 @@
                                 {name: 'FlightNumber', type: 'string'},
                                 {name: 'SeatNumber', type: 'string'},
                                 {name: 'SeatType', type: 'string'},
-                                {name: 'TakeoffDate', type: 'date', format: 'yyyy-MM-dd'},
-                                {name: 'TakeoffTime', type: 'string'},
-                                {name: 'LandingDate', type: 'date', format: 'yyyy-MM-dd'},
-                                {name: 'LandingTime', type: 'string'},
+                                {name: 'TakeoffDate', type: 'string'},
+                                {name: 'LandingDate', type: 'string'},
                                 {name: 'Price', type: 'Number'},
                                 {name: 'Reserve', type: 'string'}
                             ],
-                     pager: function (pagenum, pagesize, oldpagenum) {
-                                // callback called when a page or page size is changed.
-                            }
+                    pager: function(pagenum, pagesize, oldpagenum) {
+                        // callback called when a page or page size is changed.
+                    }
                 };
 
         var dataAdapter = new $.jqx.dataAdapter(source);
 
         $("#jqxgrid").jqxGrid(
                 {
-                    width: 800,
+                    width: 783,
+                    height: 355,
+                    pageable: true,
                     source: dataAdapter,
                     showfilterrow: true,
                     filterable: true,
@@ -274,40 +281,32 @@
                     selectionmode: 'multiplecellsextended',
                     columns: [
                         {text: 'Flight Number', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'FlightNumber', width: 115},
-                        {text: 'Seat Number', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'SeatNumber', width: 115},
+                        {text: 'Seat Number', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'SeatNumber', width: 105},
                         {text: 'Seat Type', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'SeatType', width: 115},
-                        {text: 'Takeoff Date', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'TakeoffDate', width: 135},
-                        {text: 'Takeoff Time', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'TakeoffTime', width: 115},
-                        {text: 'Landing Date', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'LandingDate', width: 135},
-                        {text: 'Landing Time', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'LandingTime', width: 115},
-                        {text: 'Price (CND)', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Price', width: 115},
-                        {text: 'Reserve', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Reserve', width: 115},
+                        {text: 'Takeoff Date', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'TakeoffDate', width: 160},
+                        {text: 'Landing Date', columntype: 'textbox', filtertype: 'checkedlist', filtercondition: 'starts_with', datafield: 'LandingDate', width: 160},
+                        {text: 'Price($)', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Price', width: 65},
+                        {text: 'Reserve', columntype: 'textbox', filtertype: 'textbox', filtercondition: 'starts_with', datafield: 'Reserve', width: 65},
                     ]
+                }
+        );
 
-                });
+        showGridFooter();
+    }
 
-        $('#events').jqxPanel({width: 300, height: 300, theme: theme});
-        $("#jqxgrid").bind("pagechanged", function(event) {
-            $("#eventslog").css('display', 'block');
-            if ($("#events").find('.logged').length >= 5) {
-                $("#events").jqxPanel('clearcontent');
-            }
-            var args = event.args;
-            var eventData = "pagechanged <div>Page:" + args.pagenum + ", Page Size: " + args.pagesize + "</div>";
-            $('#events').jqxPanel('prepend', '<div class="logged" style="margin-top: 5px;">' + eventData + '</div>');
-            // get page information.
-            var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
-            $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
-        });
-        $("#jqxgrid").bind("pagesizechanged", function(event) {
-            $("#eventslog").css('display', 'block');
-            $("#events").jqxPanel('clearcontent');
-            var args = event.args;
-            var eventData = "pagesizechanged <div>Page:" + args.pagenum + ", Page Size: " + args.pagesize + ", Old Page Size: " + args.oldpagesize + "</div>";
-            $('#events').jqxPanel('prepend', '<div style="margin-top: 5px;">' + eventData + '</div>');
-            // get page information.
-            var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
-            $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
-        });
+    function showGridFooter()
+    {
+        var footer = '<br/>';
+
+        if ('<?php echo Yii::app()->user->isGuest; ?>')
+        {
+            footer += 'You are not loggen in. To reserve a flight you should login to website.';
+            footer += ' Click <a href="<?php echo Yii::app()->createAbsoluteUrl('site/login'); ?>" ><span style="color:red"> here</span></a> to login.';
+        }
+        else
+        {
+            footer += '<div class="KOuterDiv"> <div class="KCenter"> <input class="ui-button ui-widget ui-state-default ui-corner-all" id="reserveFlight" name="reserveFlight" type="button" value="Reserve selected Flight Seat(s)" onclick="reserveFlightSeatsUsingAjax();" /></div></div>';
+        }
+        $('#flightGridFooter').html(footer);
     }
 </script>

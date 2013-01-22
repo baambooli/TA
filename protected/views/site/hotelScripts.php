@@ -88,7 +88,7 @@
             return '<h3 style= "text-align: center"> Sorry, there is not any room available.</h3>';
         }
         // create output table
-        var result = '<h1 style= "text-align: center"> Search Results</h1><br>';
+        var result = '<h3 style= "text-align: center"> Search Results</h3><br>';
         result += '<table class="Ktable"><tr><td style="padding: .3em; border: 1px #ccc solid;">';
         result += 'Room #</td><td style="padding: .3em; border: 1px #ccc solid;">City Name</td><td style="padding: .3em; border: 1px #ccc solid;">Hotel Name</td><td style="padding: .3em; border: 1px #ccc solid;">Category</td>';
         result += '<td style= "padding: .3em; border: 1px #ccc solid;">Room Type</td><td style="padding: .3em; border: 1px #ccc solid;">Price/day (CND)</td>';
