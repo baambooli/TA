@@ -2,7 +2,8 @@
 
 class SearchHotel
 {
-   public static function findRoomsUsingCriteria($modelSearchHotelForm, &$rooms)
+
+    public static function findRoomsUsingCriteria($modelSearchHotelForm, &$rooms)
     {
         $criteria = new CDbCriteria;
         $criteria->select = array('RoomId');
@@ -116,7 +117,7 @@ class SearchHotel
         $result = json_encode($result);
         return true;
     }
-    
+
     public static function reserveRooms($params)
     {
         $checkinDate = $params[0];
@@ -158,11 +159,11 @@ class SearchHotel
                     'result' => '<h3>Error in saving data.</h3>'
                 );
                 echo json_encode($result);
-                $message = 'TA LOG: ERROR in reserving roomss by user = ' . 
-                    Yii::app()->user->id.', reserved room is = '.
-                    $rooms[$key];
+                $message = 'TA LOG: ERROR in reserving roomss by user = ' .
+                        Yii::app()->user->id . ', reserved room is = ' .
+                        $rooms[$key];
                 Yii::log($message, 'error', 'application.components.searchHotel');
- 
+
                 return true;
             }
         }
@@ -178,7 +179,7 @@ class SearchHotel
 
         return true;
     }
-    
+
     public static function showMyRoomReservations()
     {
         // first check the client is authorized or not
@@ -207,13 +208,13 @@ class SearchHotel
         if (isset($_GET['SearchHotelView']))
             $modelSearchHotelView->attributes = $_GET['SearchHotelView'];
 
-        return array($modelSearchHotelView, $clientId) ;
+        return array($modelSearchHotelView, $clientId);
     }
-    
+
     public static function cancelMyRoomReservation($roomClientId)
     {
         $roomClientId = (int) $roomClientId;
-        
+
         // check that this roomClientId is related to current user or not
         if (Yii::app()->user->isGuest)
         {
@@ -240,14 +241,14 @@ class SearchHotel
         {
             $result = '<h3>No data is found for this room.</h3>';
             Yii::app()->user->setFlash('error', $result);
-            return false ;
+            return false;
         }
 
         if ($roomClient->ClientId != $clientId)
         {
             $result = '<h3>You are not allowed to change data that is not related to you.</h3>';
             Yii::app()->user->setFlash('error', $result);
-            return false ;
+            return false;
         }
 
         if ($roomClient->Status != RoomClient::CANCELATION_REQUEST)
@@ -263,10 +264,10 @@ class SearchHotel
         {
             $result = '<h3> Error in canceling your reservation.</h3>';
             Yii::app()->user->setFlash('error', $result);
-            
-            $message = 'TA LOG: ERROR in reserving rooms by user = ' . 
-                Yii::app()->user->id.', reserved flight-seat pairs are = '.
-                $flightIds[$key].'-'.$seatIds[$key];
+
+            $message = 'TA LOG: ERROR in reserving rooms by user = ' .
+                    Yii::app()->user->id . ', reserved flight-seat pairs are = ' .
+                    $flightIds[$key] . '-' . $seatIds[$key];
             Yii::log($message, 'error', 'application.components.searchFlight');
 
             return false;

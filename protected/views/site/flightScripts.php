@@ -98,7 +98,7 @@
 
                 // show error message
                 $('#flightGridHeader').append(data[0].result);
-                
+
                 // restore the caption of button
                 $('#searchFlightButton').val('Search Flight');
             },
@@ -218,7 +218,7 @@
                 $('#flightGridHeader').text('');  //clear div
                 $('#flightGridfooter').text('');  //clear div
                 $('#jqxgrid').hide();  //hide grid
-                
+
                 // show results
                 $('#flightGridHeader').append(data[0].result);
 

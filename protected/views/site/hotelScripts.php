@@ -1,4 +1,4 @@
- <script >
+<script >
     $(function() {
         $('#datepickerCheckin').datepicker({
             changeMonth: true, //user can change month

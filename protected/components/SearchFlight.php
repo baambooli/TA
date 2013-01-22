@@ -41,8 +41,8 @@ class SearchFlight
                     'FlightNumber' => $emptySeat->FlightNumber,
                     'SeatNumber' => $emptySeat->SeatNumber,
                     'SeatType' => $emptySeat->SeatType,
-                    'TakeoffDate' => $emptySeat->TakeoffDate.', '.$emptySeat->TakeoffTime,
-                    'LandingDate' => $emptySeat->LandingDate.', '.$emptySeat->LandingTime,
+                    'TakeoffDate' => $emptySeat->TakeoffDate . ', ' . $emptySeat->TakeoffTime,
+                    'LandingDate' => $emptySeat->LandingDate . ', ' . $emptySeat->LandingTime,
                     'Price' => $price,
                     'Reserve' => "<input type='checkbox' value='{$id}' name='reserveFlight'>",
                 );
@@ -115,27 +115,27 @@ class SearchFlight
         }
         return $price;
     }
-    
+
     public static function reserveFlights($params)
     {
-        $type = $params[0]; 
+        $type = $params[0];
         $departureDate = $params[1];
         $destinationDate = $params[2];
         $flightSeats = explode(',', $params[3]);
         foreach ($flightSeats as $flightSeat)
         {
             $flightSeat2 = explode('-', $flightSeat);
-            $flightIds[] = $flightSeat2[0]; 
+            $flightIds[] = $flightSeat2[0];
             $seatIds[] = $flightSeat2[1];
         }
-        
+
         // first check the client is authorized
         if (Yii::app()->user->isGuest)
         {
             $result[] = array(
                 'result' => '<h3>You are not an authorized user. So you cannot reserve a flight.</h3>'
             );
-            echo json_encode($result); 
+            echo json_encode($result);
             return false;
         }
 
@@ -144,10 +144,10 @@ class SearchFlight
         if (empty($client))
         {
             $result[] = array(
-                    'result' => '<h3>No data found for this client.</h3>'
-                );
-                echo json_encode($result); 
-                return false;
+                'result' => '<h3>No data found for this client.</h3>'
+            );
+            echo json_encode($result);
+            return false;
         }
         $clientId = $client->Id;
 
@@ -165,11 +165,11 @@ class SearchFlight
                     'result' => '<h3>Error in saving data.</h3>'
                 );
                 echo json_encode($result);
-                $message = 'TA LOG: ERROR in reserving flights by user = ' . 
-                    Yii::app()->user->id.', reserved flight-seat pairs are = '.
-                    $flightIds[$key].'-'.$seatIds[$key];
+                $message = 'TA LOG: ERROR in reserving flights by user = ' .
+                        Yii::app()->user->id . ', reserved flight-seat pairs are = ' .
+                        $flightIds[$key] . '-' . $seatIds[$key];
                 Yii::log($message, 'error', 'application.components.searchFlight');
- 
+
                 return false;
             }
         }
@@ -180,13 +180,13 @@ class SearchFlight
 
         echo json_encode($result);
 
-        $message = 'TA LOG: Flight(s) reserved by user = ' . 
-            Yii::app()->user->id.', reserved flight-seat pairs are = '.$flightSeats;
+        $message = 'TA LOG: Flight(s) reserved by user = ' .
+                Yii::app()->user->id . ', reserved flight-seat pairs are = ' . $flightSeats;
         Yii::log($message, 'info', 'application.components.searchFlight');
 
         return true;
     }
-    
+
     public static function ShowMyFlightSeatReservations()
     {
         // first check the client is authorized or not
@@ -215,13 +215,13 @@ class SearchFlight
         if (isset($_GET['SearchFlightView']))
             $modelSearchFlightView->attributes = $_GET['SearchFlightView'];
 
-        return array($modelSearchFlightView, $clientId) ;
+        return array($modelSearchFlightView, $clientId);
     }
-    
+
     public static function cancelMyFlightReservation($flightClientId)
     {
         $flightClientId = (int) $flightClientId;
-        
+
         // check that this flightClientId is related to current user or not
         if (Yii::app()->user->isGuest)
         {
@@ -248,14 +248,14 @@ class SearchFlight
         {
             $result = '<h3>No data is found for this flight.</h3>';
             Yii::app()->user->setFlash('error', $result);
-            return false ;
+            return false;
         }
 
         if ($flightClient->ClientId != $clientId)
         {
             $result = '<h3>You are not allowed to change data that is not related to you.</h3>';
             Yii::app()->user->setFlash('error', $result);
-            return false ;
+            return false;
         }
 
         if ($flightClient->Status != FlightClient::CANCELATION_REQUEST)
@@ -271,10 +271,10 @@ class SearchFlight
         {
             $result = '<h3> Error in canceling your reservation.</h3>';
             Yii::app()->user->setFlash('error', $result);
-            
-            $message = 'TA LOG: ERROR in reserving flights by user = ' . 
-                Yii::app()->user->id.', reserved flight-seat pairs are = '.
-                $flightIds[$key].'-'.$seatIds[$key];
+
+            $message = 'TA LOG: ERROR in reserving flights by user = ' .
+                    Yii::app()->user->id . ', reserved flight-seat pairs are = ' .
+                    $flightIds[$key] . '-' . $seatIds[$key];
             Yii::log($message, 'error', 'application.components.searchFlight');
 
             return false;

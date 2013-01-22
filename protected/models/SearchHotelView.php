@@ -156,18 +156,18 @@ class SearchHotelView extends CActiveRecord
     }
 
     // kamran
-    
-     public function searchMyHotelReservations($clientId)
+
+    public function searchMyHotelReservations($clientId)
     {
         $clientId = (int) $clientId;
-        
+
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
         $criteria = new CDbCriteria;
 
         // just show the logged in user info
         $criteria->condition = "ClientId = $clientId";
-         
+
         $criteria->compare('HotelName', $this->HotelName, true);
         $criteria->compare('HotelCategory', $this->HotelCategory);
         $criteria->compare('HotelTel', $this->HotelTel, true);
@@ -178,7 +178,7 @@ class SearchHotelView extends CActiveRecord
         $criteria->compare('RoomNumber', $this->RoomNumber, true);
         $criteria->compare('RoomTel', $this->RoomTel, true);
         $criteria->compare('RoomClientId', $this->RoomClientId);
-        
+
         $criteria->compare('StartDate', $this->StartDate, true);
         $criteria->compare('EndDate', $this->EndDate, true);
         $criteria->compare('Status', $this->Status, true);
@@ -194,7 +194,7 @@ class SearchHotelView extends CActiveRecord
             'criteria' => $criteria,
                 ));
     }
-    
+
     // primary key of view
     Public function primaryKey()
     {
