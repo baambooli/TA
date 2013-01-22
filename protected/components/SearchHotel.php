@@ -158,6 +158,11 @@ class SearchHotel
                     'result' => '<h3>Error in saving data.</h3>'
                 );
                 echo json_encode($result);
+                $message = 'TA LOG: ERROR in reserving roomss by user = ' . 
+                    Yii::app()->user->id.', reserved room is = '.
+                    $rooms[$key];
+                Yii::log($message, 'error', 'application.components.searchHotel');
+ 
                 return true;
             }
         }
@@ -169,7 +174,7 @@ class SearchHotel
         echo json_encode($result);
 
         $message = 'TA LOG: Room reserved by user = ' . Yii::app()->user->id;
-        Yii::log($message, 'info', 'application.components.searcHotel');
+        Yii::log($message, 'info', 'application.components.searchHotel');
 
         return true;
     }
@@ -207,6 +212,8 @@ class SearchHotel
     
     public static function cancelMyRoomReservation($roomClientId)
     {
+        $roomClientId = (int) $roomClientId;
+        
         // check that this roomClientId is related to current user or not
         if (Yii::app()->user->isGuest)
         {
@@ -219,7 +226,7 @@ class SearchHotel
         $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
         if (empty($client))
         {
-            $result = '<h3>No data is found for this client.</h3>';
+            $result = '<h3>No data has been found for this client.</h3>';
             Yii::app()->user->setFlash('error', $result);
             return false;
         }
@@ -256,11 +263,17 @@ class SearchHotel
         {
             $result = '<h3> Error in canceling your reservation.</h3>';
             Yii::app()->user->setFlash('error', $result);
+            
+            $message = 'TA LOG: ERROR in reserving rooms by user = ' . 
+                Yii::app()->user->id.', reserved flight-seat pairs are = '.
+                $flightIds[$key].'-'.$seatIds[$key];
+            Yii::log($message, 'error', 'application.components.searchFlight');
+
             return false;
         }
 
         $message = 'TA LOG: Room Cancelation by user = ' . Yii::app()->user->id;
-        Yii::log($message, 'info', 'application.components.searcHotel');
+        Yii::log($message, 'info', 'application.components.searchHotel');
 
         return true;
     }

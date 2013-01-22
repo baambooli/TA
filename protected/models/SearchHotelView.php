@@ -159,6 +159,8 @@ class SearchHotelView extends CActiveRecord
     
      public function searchMyHotelReservations($clientId)
     {
+        $clientId = (int) $clientId;
+        
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.
         $criteria = new CDbCriteria;

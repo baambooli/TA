@@ -413,6 +413,31 @@ class SiteController extends Controller
             $this->actionShowMyHotelReservations();
         }
     }
+    
+    public function actionShowMyFlightSeatReservations()
+    {
+        list($modelSearchFlightView, $clientId) = SearchFlight::ShowMyFlightSeatReservations();
+
+        $this->render('myFlightReservation', array(
+            'modelSearchFlightView' => $modelSearchFlightView,
+            'clientId' => $clientId,
+        ));
+    }
+    
+    public function actionCancelMyFlightReservation()
+    {
+        $FlightClientId = (int) $_GET['id'];
+        $result = SearchFlight::cancelMyFlightReservation($FlightClientId);
+        
+        if (!$result)
+        {
+            $this->render('confirm');
+        }
+        else
+        {
+            $this->actionShowMyFlightSeatReservations();
+        }
+    }
 
     public function actionSearchFlight()
     {
@@ -447,7 +472,11 @@ class SiteController extends Controller
 
     public function actionReserveFlights()
     {
-        debugbreak();
-        $params = explode(';', $_GET['params']); 
+        $params = explode(';', $_GET['params']);
+        $result = SearchFlight::reserveFlights($params);
+        if (!$result)
+        {
+            $this->render('confirm');
+        }
     }
 }

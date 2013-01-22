@@ -96,6 +96,9 @@
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');
 
+                // show error message
+                $('#flightGridHeader').append(data[0].result);
+                
                 // restore the caption of button
                 $('#searchFlightButton').val('Search Flight');
             },
@@ -210,12 +213,14 @@
             url: urlAjax,
             data: data1,
             success: function(data) {
-                alert('success');
-                // change the text on the screen with id = searchFlightResults
-                $('#searchFlightResults').text('');  //clear div
-
-                alert(data);
-                $('#searchFlightResults').append(data);
+                //alert('success');
+                // change the text on the screen with id = flightGridHeader
+                $('#flightGridHeader').text('');  //clear div
+                $('#flightGridfooter').text('');  //clear div
+                $('#jqxgrid').hide();  //hide grid
+                
+                // show results
+                $('#flightGridHeader').append(data[0].result);
 
                 // hide the button
                 $('#reserveFlight').hide();
