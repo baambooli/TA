@@ -157,7 +157,7 @@ class SearchHotelView extends CActiveRecord
 
     // kamran
     
-     public function searchMyHoelReservations($clientId)
+     public function searchMyHotelReservations($clientId)
     {
         // Warning: Please modify the following code to remove attributes that
         // should not be searched.

@@ -201,8 +201,6 @@
         var data1 = 'params=' + type + ';' + departureDate + ';' + destinationDate + ';' + selectedFlights;
         var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/reserveFlights'); ?>';
 
-        alert(urlAjax);
-        
         // change the button caption
         $('#reserveFlight').val('Sending, Please wait...');
 
@@ -300,7 +298,7 @@
 
         if ('<?php echo Yii::app()->user->isGuest; ?>')
         {
-            footer += 'You are not loggen in. To reserve a flight you should login to website.';
+            footer += 'You are not logged in. To reserve a flight you should login to website.';
             footer += ' Click <a href="<?php echo Yii::app()->createAbsoluteUrl('site/login'); ?>" ><span style="color:red"> here</span></a> to login.';
         }
         else
