@@ -295,6 +295,30 @@
                     ]
                 }
         );
+        
+        // add functionality to page navigation and other grid options
+        $("#jqxgrid").bind("pagechanged", function (event) {
+            $("#eventslog").css('display', 'block');
+            if ($("#events").find('.logged').length >= 5) {
+                $("#events").jqxPanel('clearcontent');
+            }
+            var args = event.args;
+            var eventData = "pagechanged <div>Page:" + args.pagenum + ", Page Size: " + args.pagesize + "</div>";
+            $('#events').jqxPanel('prepend', '<div class="logged" style="margin-top: 5px;">' + eventData + '</div>');
+            // get page information.
+            var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
+            $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
+        });
+        $("#jqxgrid").bind("pagesizechanged", function (event) {
+            $("#eventslog").css('display', 'block');
+            $("#events").jqxPanel('clearcontent');
+            var args = event.args;
+            var eventData = "pagesizechanged <div>Page:" + args.pagenum + ", Page Size: " + args.pagesize + ", Old Page Size: " + args.oldpagesize + "</div>";
+            $('#events').jqxPanel('prepend', '<div style="margin-top: 5px;">' + eventData + '</div>');
+            // get page information.          
+            var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
+            $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
+        });
 
         showGridFooter();
     }
