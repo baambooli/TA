@@ -31,6 +31,7 @@
  */ ?>
 
 <script >
+    // after page load ...
     $(function() {
         $('#datepickerDepartureDate').datepicker({
             changeMonth: true, //user can change month
@@ -51,7 +52,6 @@
     function flightTypeChanged()
     {
         var selectedType = $('#flightType').val();
-
         if (selectedType == 'ONE_WAY')
         {
             $('#destinationDiv').hide();
@@ -77,7 +77,6 @@
 
         var data = $('#SearchFlightTabForm').serialize();
         urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('site/searchFlight'); ?>'
-        //alert(urlAjax);
 
         // change the caption of button
         $('#searchFlightButton').val('Please wait...');
@@ -87,7 +86,6 @@
             url: urlAjax,
             data: data,
             success: function(data) {
-
                 $('#jqxgrid').show();
                 showFlightResults(data);
 
@@ -140,7 +138,6 @@
 
         var depDate = $('#datepickerDepartureDate').val();
         var desDate = $('#datepickerDestinationDate').val();
-
         if (depDate.length != 10)
         {
             alert('Bad departure Date.');
@@ -186,7 +183,6 @@
 
         var departureDate = $('#datepickerDepartureDate').val();
         var destinationDate = $('#datepickerDestinationDate').val();
-
         if (departureDate.length != 10)
         {
             alert('Bad departure Date.');
@@ -240,7 +236,6 @@
             timeout: 60000
         });
     }
-
 </script>
 
 <script type="text/javascript">
@@ -250,9 +245,6 @@
         $('#flightGridHeader').html('<h3 style= "text-align: center"> Search Results</h3><br/>');
 
         var theme = getTheme();
-
-        //alert('data length is '+ data.length);
-
         var source =
                 {
                     localdata: data,
@@ -327,15 +319,12 @@
             $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
         });
     
-        
-        
         showGridFooter();
     }
 
     function showGridFooter()
     {
         var footer = '<br/>';
-
         if ('<?php echo Yii::app()->user->isGuest; ?>')
         {
             footer += 'You are not logged in. To reserve a flight you should login to website.';
