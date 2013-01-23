@@ -4461,3 +4461,102 @@ Stack trace:
 REQUEST_URI=/index.php?r=site/searchFlight
 in G:\GitHub\travelagency\protected\controllers\SiteController.php (459)
 in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:07:13 [error] [php] Undefined variable: attribute (G:\GitHub\travelagency\protected\controllers\SiteController.php:375)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (375)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:09:17 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:376)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (376)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:11:48 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:376)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (376)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:12:33 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:376)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (376)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:13:27 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:376)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (376)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:18:49 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:379)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (379)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:20:18 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:378)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (378)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:22:04 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:378)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (378)
+in g:\GitHub\travelagency\index.php (13)
+2013/01/23 17:22:16 [error] [php] Use of undefined constant flase - assumed 'flase' (G:\GitHub\travelagency\protected\controllers\SiteController.php:378)
+Stack trace:
+#0 G:\GitHub\yii\framework\web\CController.php(286): SiteController->runAction()
+#1 G:\GitHub\yii\framework\web\CController.php(265): SiteController->runActionWithFilters()
+#2 G:\GitHub\yii\framework\web\CWebApplication.php(282): SiteController->run()
+#3 G:\GitHub\yii\framework\web\CWebApplication.php(141): CWebApplication->runController()
+#4 G:\GitHub\yii\framework\base\CApplication.php(169): CWebApplication->processRequest()
+#5 g:\GitHub\travelagency\index.php(13): CWebApplication->run()
+REQUEST_URI=/index.php?r=site/searchHotel
+in G:\GitHub\travelagency\protected\controllers\SiteController.php (378)
+in g:\GitHub\travelagency\index.php (13)

@@ -365,11 +365,17 @@ class SiteController extends Controller
     {
         $modelSearchHotelForm = new SearchHotelForm;
         $modelSearchHotelForm->cityName = $_POST['CityName'];
-        $modelSearchHotelForm->category = $_POST['HotelCategory'] != 'ALL' ? $_POST['HotelCategory'] : NULL;
+        $modelSearchHotelForm->category = $_POST['HotelCategory'] != 'ALL' ? (int) $_POST['HotelCategory'] : NULL;
         $modelSearchHotelForm->roomType = $_POST['RoomType'] != 'ALL' ? $_POST['RoomType'] : NULL;
-        $modelSearchHotelForm->checkinDate = $_POST['datepickerCheckin'];
-        $modelSearchHotelForm->checkoutDate = $_POST['datepickerCheckout'];
+        $modelSearchHotelForm->checkinDate = substr($_POST['datepickerCheckin'], 0, 10);
+        $modelSearchHotelForm->checkoutDate = substr($_POST['datepickerCheckout'], 0, 10);
 
+        if (!$modelSearchHotelForm->validate())
+        {
+           echo json_encode(array('ERROR' => 'Bad date format.'));
+           return false; 
+        }
+        
         // send information for getting availability of the rooms
         $res = SearchHotel::checkAvailabilityOfRoom($modelSearchHotelForm);
 
@@ -447,9 +453,9 @@ class SiteController extends Controller
         $modelSearchFlightForm = new SearchFlightForm;
         $modelSearchFlightForm->type = $_POST['flightType'];
         $modelSearchFlightForm->departuteAirport = trim($departureAirport[1]);
-        $modelSearchFlightForm->departureDate = $_POST['datepickerDepartureDate'];
+        $modelSearchFlightForm->departureDate = substr($_POST['datepickerDepartureDate'], 0, 10);;
         $modelSearchFlightForm->destinationAirport = trim($destinationAirport[1]);
-        $modelSearchFlightForm->destinationDate = $_POST['datepickerDestinationDate'];
+        $modelSearchFlightForm->destinationDate = substr($_POST['datepickerDestinationDate'], 0 ,10);
         
         if (!$modelSearchFlightForm->validate())
         {
