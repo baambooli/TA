@@ -67,7 +67,11 @@
         </div>
     </div>
     <div class="well KContent" id="searchFlightResults">
+        <div id="flightGridHeader">
+        </div>
         <div id="jqxgrid">
+        </div>
+        <div id="flightGridFooter">
         </div>
     </div>
 </div>

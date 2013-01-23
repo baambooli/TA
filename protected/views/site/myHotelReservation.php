@@ -12,7 +12,7 @@ $data = $modelSearchHotelView;
 $this->widget('bootstrap.widgets.TbGridView', array(
     'type' => 'striped bordered condensed',
     'id' => 'room-client-grid',
-    'dataProvider' => $modelSearchHotelView->searchMyHoelReservations($clientId),
+    'dataProvider' => $modelSearchHotelView->searchMyHotelReservations($clientId),
     'filter' => $modelSearchHotelView,
     'columns' => array(
         //'RoomClientId',

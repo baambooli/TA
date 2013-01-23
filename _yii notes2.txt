@@ -1390,14 +1390,14 @@ or
 		
 78- some global variables in yii
 
-		Yii::app()->homeUrl           ---->/index.php
-		Yii::app()->user->isGuest     ---->1
-		Yii::app()->user->name        ---->Guest
-		Yii::app()->user->id          ---->
-		Yii::app()->request->baseUrl  ---->
-		Yii::app()->theme->baseUrl    ---->/themes/kamran_theme1
-		Yii::app()->createAbsoluteUrl('') ---->http://kamran.dev.travelagancy.com:81/index.php
-		Yii::app()->basePath         ---->G:\GitHub\travelagency\protected 
+		Yii::app()->homeUrl           		---->  /index.php
+		Yii::app()->user->isGuest     		---->  1
+		Yii::app()->user->name        		---->  Guest
+		Yii::app()->user->id          		---->
+		Yii::app()->request->baseUrl  		---->  http://kamran.dev.travelagancy.com:81/
+		Yii::app()->theme->baseUrl    		---->  /themes/kamran_theme1
+		Yii::app()->createAbsoluteUrl('') 	---->  http://kamran.dev.travelagancy.com:81/index.php
+		Yii::app()->basePath         		---->  G:\GitHub\travelagency\protected 
 
 
 79- an example of findByAttributes()
@@ -3443,16 +3443,15 @@ or
 
 147- some global variables in yii
 
-		Yii::app()->homeUrl           ---->/index.php
-		Yii::app()->user->isGuest     ---->1
-		Yii::app()->user->name        ---->Guest
-		Yii::app()->user->id          ---->
-		Yii::app()->request->baseUrl  ---->
-		Yii::app()->theme->baseUrl    ---->/themes/kamran_theme1
-		Yii::app()->createAbsoluteUrl('hotel/admin') ---->http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin
-		Yii::app()->basePath          ---->G:\GitHub\travelagency\protected 
-		Yii::app()->baseUrl           ---->
-		
+		Yii::app()->homeUrl           		---->  /index.php
+		Yii::app()->user->isGuest     		---->  1
+		Yii::app()->user->name        		---->  Guest
+		Yii::app()->user->id          		---->
+		Yii::app()->request->baseUrl  		---->  http://kamran.dev.travelagancy.com:81/
+		Yii::app()->theme->baseUrl    		---->  /themes/kamran_theme1
+		Yii::app()->createAbsoluteUrl('') 	---->  http://kamran.dev.travelagancy.com:81/index.php
+		Yii::app()->basePath         		---->  G:\GitHub\travelagency\protected 
+		Yii::app()->createAbsoluteUrl('hotel/admin') ---->  http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin
 		
 		
 148- the way we can use zii.widgets.jui.CJuiButton button for ajax call
@@ -4278,26 +4277,29 @@ or
 			it is because that in windows, tables names are case insensitive but in linux it is. so we should adjust the case sensitivity of
 			table names for linux and change the name of tables to correct case using commands like
 				
-				RENAME TABLE `authassignment` TO `AuthAssignment` ; 
+				RENAME TABLE `authassignment` TO `AuthAssignment` ;
+				RENAME TABLE `authitem` TO `AuthItem` ;
+				RENAME TABLE `authitemchild` TO `AuthItemChild` ;
+				RENAME TABLE `rights` TO `Rights` ;				
 				
-				on mysqladmin of remote site. In addition, model classes related to these tables should be changed too:
+			on mysqladmin of remote site. In addition, model classes related to these tables should be changed too:
 					
-					public function tableName()
-					{
-						return 'authassignment';
-					}
-					
-					'authassignment' ---> 'AuthAssignment'
-					
-					the same process for these tables too:
-					
-					AuthItem
-					AuthItemChild
-					Rights
+				public function tableName()
+				{
+					return 'authassignment';
+				}
+				
+				'authassignment' ---> 'AuthAssignment'
+				
+				the same process for these tables too:
+				
+				AuthItem
+				AuthItemChild
+				Rights
 					
 		m) navigate to http://ta.khpec.biz now everything should be ok
 		
-		SO:WE CAN REALIZE HOW MUCH IT IS IMPORTANT TO DEVELOPE ON REAL LINUX OR USE VAGRANT TO DEVELOPE PHP SOFTWARE.
+		SO WE CAN REALIZE HOW MUCH IT IS IMPORTANT TO DEVELOP ON REAL LINUX OR USE VAGRANT TO DEVELOP PHP SOFTWARE.
 				
 				
 		
@@ -4368,14 +4370,14 @@ or
 					//alert(airlineId);
 					$('#Flight_AirplaneId').empty().append('please wait...');
 					
-					var getData = 'airlineId=' + airlineId;
+					var data1 = 'airlineId=' + airlineId;
 					var urlAjax = '<?php echo Yii::app()->createAbsoluteUrl('flight/dynamicAirplane'); ?>';
 					
 					// send Ajax request
 					$.ajax({
 						type: 'GET',
 						url: urlAjax,
-						data: getData,
+						data: data1,
 						success: function(data) {
 							//alert('success');
 							//alert(data);
@@ -4681,8 +4683,63 @@ or
             ),
         ),
 		
-184- 
 
+184- seo tools
+		There are a lot of repetitive tasks to be done when optimizing your site for the search engines. To make your life easier, we've compiled a list of the most popular SEO Tools (nearly all 100% free) and categorized them into the following:
+
+		keyword discovery
+
+		Before you can begin to optimize your site for search engines, you must first know which keywords you are going after. Use these tools to find which things people are searching for in your industry!
+
+		Google Adwords - Google's tool is probably the easiest to use and maybe the best if you think about the fact that Google is the most used search engine in the world (meaning they have access to the most data).
+		AdCenter Keyword Group Detection - Microsoft's unique tool that will analyze a word or phrase that you give it and determine related phrases.
+		Term Extractor - This tool will take a URL that you give it and return the relevant keywords from that page. It might be smart to insert an article about your industry and see what keywords they're using.
+		KeyCompete - This program finds out what terms a site is advertising on with their Pay Per Click campaigns. Let them continue to pay for those keywords while you work on ranking #1 in the search engines and getting all your traffic for free!
+		Popular Searches - If you have no idea what you want to have your site be about, consider using this tool which keeps track of the most popular search terms overall.
+
+		keyword volume
+
+		Almost as important as knowing what people are searching for is determining how many people are searching for it. Use these tools to get a rough estimate of the number of people searching for a keyword or phrase.
+
+		Google Adwords External Tool - This has become a lot more helpful, as it now displays the actual volume of searches in a month.
+		SEO Book Keyword Suggestion Tool - This tool uses wordtracker's API to get the estimated number of searches a keyword receives on each search engine (Google, Microsft, Yahoo).
+
+		keyword density
+
+		Term Target - This tool takes a URL and the keyword you're attempting to target and returns a letter score (A-F) on how well you have done. Fun, but it's hard to determine exactly how accurate it is as the search engines have not released their formulas for dterming how relevant pages are for a given keyword.
+
+		backlink tracker
+
+		Site Explorer - Yahoo's extensive backlink tracker tool. It has become the first choice of many who like to keep an eye on who's linking to them and how many links they have.
+		Keyword Ranking - Digitalpoint's keyword tracking tool also has an option for you to look at how many backlinks your site has. It's a little hard to find, but it's there.
+		Google "link:" query prepend - By typing "link:" followed by a domain name like espn.com, you can see a sample of backlinks that Google knows link to that site. It should be noted that this is only a sample, not a complete list.
+		Domain Stats - Looks at the top three search engines to see how many backlinks to your site are showing up in for each.
+		Backlink Analyzer - Currently in beta, this is something that you have to install on your computer. It is a computer application that does not run through a website and you can feel safer that no one is spying on your data.
+
+		site popularity
+
+		Alexa - Using toolbars installed on people's browsers, Alexa measures how popular your site is compared to every other site on the web. It tends to be accurate only for sites in the top 100,000.
+		Trifecta - Determines how strong your page is based on several factors, such as: age of domain, page rank, backlinks and a few more metrics.
+		keyword rankings
+		Rank Checker - Keeps track of your ranks in the search engines without sharing it with anyone but yourself. However, you do have to download it and install it to your computer.
+		Keyword Rankings - One of the first popular keyword trackers out there. It will tell you your daily, weekly, and monthly changes for each term that you enter. It also has a nice graph feature so you can see your progress graphically!
+		Rank Checker - A very unique name, and it does what it says.
+
+		firefox addons
+
+		SEO for FireFox - An extension for your browser that changes your Google search results into MIT dissertation. Well maybe not that awesome, but it really does give you a lot of information relevant to why certain sites are showing up in the top 10 results of Google and what kind of competition you'd experience trying to get into those ranks. Also a nice way to find sites that are using the nofollow attribute.
+		Greasemonkey - Used by more advanced users who would like to create their own scripts or use other Greasemonkey scripts for SEO purposes.
+
+		other
+
+		Google Analytics - Although this isn't really related to SEO, Google Analytics has a section that displays all the search terms that your visitors used to get to your site.
+		Advanced Google Searches - A bunch of advanced Google searches that are done automatically with this nifty little tool.
+		Crawl Test - Looks at a given URL to check for any common problems that might prevent your site being crawled properly by a search engine.
+		Google Webmaster Tools - A decent collection of tools from Google that also will notify you if your website is being penalized (if you verify yourself as the site owner).
+		SEOToolbox - A bunch of random tools from Seomoz. 
+
+
+185-
 
 
 

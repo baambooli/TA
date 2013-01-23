@@ -1,30 +1,151 @@
 <?php
+
 class SearchFlight
 {
-  
+
     public static function findEmptyFlights(SearchFlightForm $searchFlightForm)
     {
+        $emptySeats = array();
         if ($searchFlightForm->type == 'ONE_WAY')
         {
-            return self::showOneWayFlights($searchFlightForm);
+            if (self::showOneWayFlights($searchFlightForm, $emptySeats))
+            {
+                echo json_encode($emptySeats);
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         elseif ($searchFlightForm->type == 'TWO_WAYS')
         {
+            if (self::showTwoWaysFlights($searchFlightForm, $emptySeats))
+            {
+                echo json_encode($emptySeats);
+                return true;
+            }
+            else
+            {
+                return false;
+            } 
         }
         else
         {
             echo json_encode(array('ERROR' => 'ERROR in type of flight.'));
             return false;
         }
+    }
+
+    
+    private static function showOneWayFlights($searchFlightForm, &$emptySeats)
+    {
+        $flights = NULL;
+        self::getFlights($searchFlightForm, $flights);
+
+        // find empty seats in each flight
+        foreach ($flights as $flight)
+        {
+            $emptySeats1 = AllSeatsOfFlightView::findEmptySeatsOfTheFlight($flight->Id);
+            foreach ($emptySeats1 as $emptySeat)
+            {
+                $price = self::getPrice($emptySeat);
+
+                // create unique identifier for the row -->  'FlightId-SeatId'
+                $id = $emptySeat->FlightId . '-' . $emptySeat->SeatId;
+
+                $emptySeats[] = array(
+                    'FlightNumber' => $emptySeat->FlightNumber,
+                    'SeatNumber' => $emptySeat->SeatNumber,
+                    'SeatType' => $emptySeat->SeatType,
+                    'TakeoffDate' => $emptySeat->TakeoffDate . ', ' . $emptySeat->TakeoffTime,
+                    'LandingDate' => $emptySeat->LandingDate . ', ' . $emptySeat->LandingTime,
+                    'Price' => $price,
+                    'Reserve' => "<input type='checkbox' value='{$id}' name='reserveFlight'>",
+                );
+            }
+        }
+
+        return true;
+    }
+
+    private static function showTwoWaysFlights($searchFlightForm, &$emptySeats)
+    {
+        // add title 
+        self::addTitle('Departure Flights', $emptySeats );
+        
+        // add departure flights data
+        self::showOneWayFlights($searchFlightForm, $emptySeats);
+        
+        // add title 
+        self::addTitle('Return Flights', $emptySeats );
+        
+        // create return data
+        $searchFlightFormReturn = self::createReturnFlightData($searchFlightForm);
+        
+        // add destination flights data
+        self::showOneWayFlights($searchFlightFormReturn, $emptySeats);
+        
+        return true;
+        
     }  
     
-    private static function showOneWayFlights($searchFlightForm)
+    // changes the destination and departure informations
+    private static function createReturnFlightData($searchFlightForm)
+    {
+        $searchFlightFormReturn = new SearchFlightForm;
+        $searchFlightFormReturn->type = $searchFlightForm->type;
+        $searchFlightFormReturn->departuteAirport = $searchFlightForm->destinationAirport;
+        $searchFlightFormReturn->destinationAirport = $searchFlightForm->departuteAirport;
+        $searchFlightFormReturn->departureDate = $searchFlightForm->destinationDate;
+        $searchFlightFormReturn->destinationDate = $searchFlightForm->departureDate;
+        
+        return $searchFlightFormReturn; 
+    }
+      
+    private static function addTitle($title, &$emptySeats )
+    {
+        // add one blanck row
+        $emptySeats[] = array(
+            'FlightNumber' => '',
+            'SeatNumber' => '',
+            'SeatType' => '',
+            'TakeoffDate' => '',
+            'LandingDate' => '',
+            'Price' => '',
+            'Reserve' => '',
+        );
+        
+        // add title
+        $emptySeats[] = array(
+            'FlightNumber' => '',
+            'SeatNumber' => '',
+            'SeatType' => '***********',
+            'TakeoffDate' => $title,
+            'LandingDate' => '***********',
+            'Price' => '',
+            'Reserve' => '',
+        );
+        
+        // add one blanck row
+        $emptySeats[] = array(
+            'FlightNumber' => '',
+            'SeatNumber' => '',
+            'SeatType' => '',
+            'TakeoffDate' => '',
+            'LandingDate' => '',
+            'Price' => '',
+            'Reserve' => '',
+        );
+    }
+   
+    private static function getFlights($searchFlightForm, &$flights)
     {
         // find departure airportId
         $departureAirport = Airport::model()->findByAttributes(array(
             'Name' => $searchFlightForm->departuteAirport
-        ));
-        
+                ));
+
         if (empty($departureAirport))
         {
             echo json_encode(array('ERROR' => 'ERROR. Bad departure airport name.'));
@@ -32,13 +153,13 @@ class SearchFlight
         }
         else
         {
-            $departureAirportId = $departureAirport->Id;    
+            $departureAirportId = $departureAirport->Id;
         }
-        
+
         $destinationAirport = Airport::model()->findByAttributes(array(
             'Name' => $searchFlightForm->destinationAirport
-        ));
-        
+                ));
+
         if (empty($destinationAirport))
         {
             echo json_encode(array('ERROR' => 'ERROR. Bad destination airport name.'));
@@ -46,59 +167,209 @@ class SearchFlight
         }
         else
         {
-            $destinationAirportId = $destinationAirport->Id;    
+            $destinationAirportId = $destinationAirport->Id;
         }
-          
+
         // find all flights departuring at departureDate
         $flights = Flight::model()->findAllByAttributes(array(
-            'TakeoffDate' => $searchFlightForm->departureDate, 
+            'TakeoffDate' => $searchFlightForm->departureDate,
             'DepartureAirportId' => $departureAirportId,
             'DestinationAirportId' => $destinationAirportId,
-        ));
-        
-        // find empty seats in each flight
-        $seat = new Seat;
-        $emptySeats = array();
+                ));
 
-        foreach ($flights as $flight)
+        return true;
+    }
+
+    private static function getPrice($emptySeat)
+    {
+        $seat = new Seat;
+        if ($emptySeat->SeatType == $seat->getTypeName('FirstClass'))
         {
-            $emptySeats1 = AllSeatsOfFlightView::findEmptySeatsOfTheFlight($flight->Id);   
-            foreach ($emptySeats1 as $emptySeat)
+            $price = $emptySeat->PriceOfFirstClassSeats;
+        }
+        elseif ($emptySeat->SeatType == $seat->getTypeName('BusinessClass'))
+        {
+            $price = $emptySeat->PriceOfBusinessClassSeats;
+        }
+        elseif ($emptySeat->SeatType == $seat->getTypeName('EconomyClass'))
+        {
+            $price = $emptySeat->PriceOfBusinessClassSeats;
+        }
+        else
+        {
+            $price = 0;
+        }
+        return $price;
+    }
+
+    public static function reserveFlights($params)
+    {
+        $type = $params[0];
+        $departureDate = $params[1];
+        $destinationDate = $params[2];
+        $flightSeats = explode(',', $params[3]);
+        foreach ($flightSeats as $flightSeat)
+        {
+            $flightSeat2 = explode('-', $flightSeat);
+            $flightIds[] = $flightSeat2[0];
+            $seatIds[] = $flightSeat2[1];
+        }
+
+        // first check the client is authorized
+        if (Yii::app()->user->isGuest)
+        {
+            $result[] = array(
+                'result' => '<h3>You are not an authorized user. So you cannot reserve a flight.</h3>'
+            );
+            echo json_encode($result);
+            return false;
+        }
+
+        // get clientId
+        $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result[] = array(
+                'result' => '<h3>No data found for this client.</h3>'
+            );
+            echo json_encode($result);
+            return false;
+        }
+        $clientId = $client->Id;
+
+        // Reserve the flights
+        foreach ($seatIds as $key => $value)
+        {
+            $flightClient = new FlightClient();
+            $flightClient->ClientId = $clientId;
+            $flightClient->FlightId = $flightIds[$key];
+            $flightClient->SeatId = $seatIds[$key];
+            $flightClient->Status = flightClient::RESERVATION_REQUEST;
+            if (!$flightClient->save())
             {
-                if ($emptySeat->SeatType == $seat->getTypeName('FirstClass'))
-                {
-                    $price = $emptySeat->PriceOfFirstClassSeats;
-                }
-                elseif ($emptySeat->SeatType == $seat->getTypeName('BusinessClass'))
-                {
-                    $price = $emptySeat->PriceOfBusinessClassSeats;
-                }
-                elseif ($emptySeat->SeatType == $seat->getTypeName('EconomyClass'))
-                {
-                    $price = $emptySeat->PriceOfBusinessClassSeats;
-                }
-                else
-                {
-                    $price = 0;
-                }
-                   
-                $emptySeats[] = array(
-                    'FlightNumber' => $emptySeat->FlightNumber,
-                    'SeatNumber' => $emptySeat->SeatNumber,
-                    'SeatType' => $emptySeat->SeatType,
-                    'TakeoffDate' => $emptySeat->TakeoffDate,
-                    'TakeoffTime' => $emptySeat->TakeoffTime,
-                    'LandingDate' => $emptySeat->LandingDate,
-                    'LandingTime' => $emptySeat->LandingTime,
-                    'Price' => $price,
-                    'Reserve' => false,
-                );    
+                $result[] = array(
+                    'result' => '<h3>Error in saving data.</h3>'
+                );
+                echo json_encode($result);
+                $message = 'TA LOG: ERROR in reserving flights by user = ' .
+                        Yii::app()->user->id . ', reserved flight-seat pairs are = ' .
+                        $flightIds[$key] . '-' . $seatIds[$key];
+                Yii::log($message, 'error', 'application.components.searchFlight');
+
+                return false;
             }
         }
-        
-        echo  json_encode($emptySeats);
+
+        $result[] = array(
+            'result' => '<h3>Your reservation request(s) saved successfully.</h3>'
+        );
+
+        echo json_encode($result);
+
+        $message = 'TA LOG: Flight(s) reserved by user = ' .
+                Yii::app()->user->id . ', reserved flight-seat pairs are = ' . $flightSeats;
+        Yii::log($message, 'info', 'application.components.searchFlight');
+
+        return true;
+    }
+
+    public static function ShowMyFlightSeatReservations()
+    {
+        // first check the client is authorized or not
+        if (Yii::app()->user->isGuest)
+        {
+            $result = 'You are not an authorized user. So you cannot reserve a flight.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            return false;
+        }
+
+        // get clientId
+        $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data is found for this client.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            return false;
+        }
+        $clientId = $client->Id;
+
+        $modelSearchFlightView = new SearchFlightView('searchMyFlightReservations');
+        $modelSearchFlightView->unsetAttributes();  // clear any default values
+        // just show information of logged in user
+        $modelSearchFlightView->searchMyFlightReservations($clientId);
+
+        if (isset($_GET['SearchFlightView']))
+            $modelSearchFlightView->attributes = $_GET['SearchFlightView'];
+
+        return array($modelSearchFlightView, $clientId);
+    }
+
+    public static function cancelMyFlightReservation($flightClientId)
+    {
+        $flightClientId = (int) $flightClientId;
+
+        // check that this flightClientId is related to current user or not
+        if (Yii::app()->user->isGuest)
+        {
+            $result = '<h3>You are not an authorized user. So you cannot reserve a flight.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            return false;
+        }
+
+        // get clientId
+        $client = Client::model()->find('UserId = :userId', array(':userId' => Yii::app()->user->id));
+        if (empty($client))
+        {
+            $result = '<h3>No data has been found for this client.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            return false;
+        }
+        $clientId = $client->Id;
+
+        // get clientId related to the submitted reservation
+
+        $flightClient = FlightClient::model()->find(' Id = :flightClientId', array(':flightClientId' => $flightClientId));
+
+        if (empty($flightClient))
+        {
+            $result = '<h3>No data is found for this flight.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            return false;
+        }
+
+        if ($flightClient->ClientId != $clientId)
+        {
+            $result = '<h3>You are not allowed to change data that is not related to you.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+            return false;
+        }
+
+        if ($flightClient->Status != FlightClient::CANCELATION_REQUEST)
+        {
+            $flightClient->Status = FlightClient::CANCELATION_REQUEST;
+        }
+        else if ($flightClient->Status == FlightClient::CANCELATION_REQUEST)
+        {
+            $flightClient->Status = FlightClient::RESERVATION_REQUEST;
+        }
+
+        if (!$flightClient->save())
+        {
+            $result = '<h3> Error in canceling your reservation.</h3>';
+            Yii::app()->user->setFlash('error', $result);
+
+            $message = 'TA LOG: ERROR in reserving flights by user = ' .
+                    Yii::app()->user->id . ', reserved flight-seat pairs are = ' .
+                    $flightIds[$key] . '-' . $seatIds[$key];
+            Yii::log($message, 'error', 'application.components.searchFlight');
+
+            return false;
+        }
+
+        $message = 'TA LOG: Flight Cancelation by user = ' . Yii::app()->user->id;
+        Yii::log($message, 'info', 'application.components.searchFlight');
+
         return true;
     }
 }
-
 ?>
