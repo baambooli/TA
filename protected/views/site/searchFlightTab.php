@@ -12,16 +12,16 @@
                 <div >
                     Select type of flight:<br>
                     <select id="flightType" name="flightType" onchange="flightTypeChanged();"/>
-                    <option value="0">Please select</option>
+                    <option value="0">Please select...</option>
                     <option value="ONE_WAY">One way</option>
-                    <option value="TWO_WAYS">Two ways</option>
+                    <option value="TWO_WAYS">Round Trip</option>
                     </select>
                 </div>
 
                 <div >
                     Departure city and airport:<br>
                     <select id="departureAirportName" name="departureAirportName"/>
-                    <option value="0">Please select</option>
+                    <option value="0">Please select...</option>
                     <?php
                     foreach ($airportsName as $key => $value)
                     {
@@ -33,7 +33,7 @@
                 <div >
                     Destination city and airport:<br>
                     <select id="destinationAirportName" name="destinationAirportName"/>
-                    <option value="0">Please select</option>
+                    <option value="0">Please select...</option>
                     <?php
                     foreach ($airportsName as $key => $value)
                     {
