@@ -296,7 +296,14 @@
                 }
         );
         
+        // refresh grid'd data:
+        // this is very important to write this line
+        // otherwise after the first searc, the navigation and
+        // pagination keys do not work correctly
+        $('#jqxgrid').jqxGrid('refreshdata');
+        
         // add functionality to page navigation and other grid options
+        $('#events').jqxPanel({ width: 300, height: 300, theme: theme });
         $("#jqxgrid").bind("pagechanged", function (event) {
             $("#eventslog").css('display', 'block');
             if ($("#events").find('.logged').length >= 5) {
@@ -319,7 +326,9 @@
             var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
             $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
         });
-
+    
+        
+        
         showGridFooter();
     }
 

@@ -118,11 +118,11 @@ class SearchFlight
         
         // add title
         $emptySeats[] = array(
-            'FlightNumber' => $title,
+            'FlightNumber' => '',
             'SeatNumber' => '',
-            'SeatType' => '',
-            'TakeoffDate' => '',
-            'LandingDate' => '',
+            'SeatType' => '***********',
+            'TakeoffDate' => $title,
+            'LandingDate' => '***********',
             'Price' => '',
             'Reserve' => '',
         );
@@ -138,7 +138,6 @@ class SearchFlight
             'Reserve' => '',
         );
     }
-
    
     private static function getFlights($searchFlightForm, &$flights)
     {
