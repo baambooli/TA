@@ -95,9 +95,9 @@
             error: function(data) { // if error occured
                 alert('Error occured. please try again.');
 
-                $('#flightGridHeader').text('');  //clear div
-                $('#flightGridfooter').text('');  //clear div
-                $('#jqxgrid').hide();
+                //$('#flightGridHeader').text('');  //clear div
+                //$('#flightGridfooter').text('');  //clear div
+                //$('#jqxgrid').hide();
 
                 // restore the caption of button
                 $('#searchFlightButton').val('Search Flight');
@@ -317,7 +317,7 @@
             // get page information.          
             var paginginformation = $("#jqxgrid").jqxGrid('getpaginginformation');
             $('#paginginfo').html("<div style='margin-top: 5px;'>Page:" + paginginformation.pagenum + ", Page Size: " + paginginformation.pagesize + ", Pages Count: " + paginginformation.pagescount);
-        });
+        }); 
     
         showGridFooter();
     }
