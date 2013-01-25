@@ -244,6 +244,8 @@
     {
         $('#flightGridHeader').html('<h3 style= "text-align: center"> Search Results</h3><br/>');
 
+        //alert('data length = ' + data.length);
+        
         var theme = getTheme();
         var source =
                 {

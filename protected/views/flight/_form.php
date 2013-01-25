@@ -79,7 +79,10 @@ $form = $this->beginWidget('bootstrap.widgets.TbActiveForm', array(
 
         var takeoffTime = $('#Flight_TakeoffTime').val();
         var landingTime = $('#Flight_LandingTime').val();
-        if ((startDate == endDate) && (takeoffTime >= landingTime))
+        if ((startDate == endDate) && 
+             (Date.parse(startDate + ' ' + takeoffTime) >= 
+              Date.parse(endDate + ' ' + landingTime))
+        )
         {
             alert('Take off time should be smaller than to Landing time.');
             return;
