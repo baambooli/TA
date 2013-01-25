@@ -7,6 +7,4 @@ TA=1
 TA:TA_prj=1
 TA:TA_prj:protected=1
 TA:TA_prj:protected:models=1
-TA:TA_prj:protected:views=1
-TA:TA_prj:protected:views:site=1
 TA:TA_prj:themes=1

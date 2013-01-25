@@ -12,7 +12,7 @@ Class SearchFlightForm extends CFormModel
     {
         return array(
             array('type, departuteAirport, departureDate, destinationAirport', 'required'),
-            array('departureDate, destinationDate', 'type', 'type' => 'date', 'message' => 'Not a valid date!', 'dateFormat' => 'yyyy/MM/dd'),
+            //array('departureDate, destinationDate', 'type', 'type' => 'date', 'message' => 'Not a valid date!', 'dateFormat' => 'yyyy/MM/dd'),
             array('destinationDate', 'safe'), // for bunch assignment we need this line
             //array('type, departuteCity, departureDate, destinationCity, destinationDate', 'safe', 'on' => 'search'),
         );

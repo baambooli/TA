@@ -163,7 +163,7 @@ class SiteController extends Controller
 
         // save theme's name on the session variable
         Yii::app()->session['currentTheme'] = $name;
-        $message = 'TA LOG: Theme changed ' . $id . '  by user = ' . Yii::app()->user->id;
+        $message = 'TA LOG: Theme changed by user = ' . Yii::app()->user->id;
         Yii::log($message, 'info', 'application.controllers.SiteController');
 
 
