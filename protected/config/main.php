@@ -8,8 +8,10 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Kamran Travel Agency',
     'theme' => 'kamran_theme1',
+    
     // preloading 'log' component
     'preload' => array('log', 'bootstrap'),
+    
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -31,6 +33,7 @@ return array(
             'ipFilters' => array('127.0.0.*', '*'),
         ),
     ),
+    
     // application components
     'components' => array(
         'user' => array(
@@ -41,6 +44,7 @@ return array(
             // for RBAC (Rights module)
             'class' => 'RWebUser',
         ),
+        
         // for sending email (Email extension)
         'email' => array(
             'class' => 'application.extensions.email.Email',
@@ -66,19 +70,10 @@ return array(
         // enable APC cache
         /* 'cache' => array(
           'class' => 'system.caching.CApcCache',
-          ), */
-
-        // uncomment the following to enable URLs in path-format
-        /* 'urlManager' => array(
-          'urlFormat' => 'path',
-          'rules' => array(
-          'commentfeed' => array('comment/feed', 'urlSuffix' => '.xml', 'caseSensitive' => false),
-          '<pid:\d+>/commentfeed' => array('comment/feed', 'urlSuffix' => '.xml', 'caseSensitive' => false),
-          ),
-          'showScriptName' => false,
-          ),
-         */
-         
+          ), 
+        */
+          
+        
         // Yii booster
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
@@ -121,6 +116,7 @@ return array(
             ),
         ),
     ),
+    
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params' => array(

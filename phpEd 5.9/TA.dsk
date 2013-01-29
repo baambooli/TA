@@ -16,13 +16,13 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\views\flight\_form.php
+File0=D:\xampp\htdocs\TA\restfull_test.php
 IsActive0=1
 ZIndex2=0
-File1=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
+File1=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
 IsActive1=0
 ZIndex1=1
-File2=D:\xampp\htdocs\TA\protected\components\SearchFlight.php
+File2=D:\xampp\htdocs\TA\protected\config\main.php
 IsActive2=0
 ZIndex0=2
 Files=3
