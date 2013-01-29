@@ -8,8 +8,10 @@ return array(
     'basePath' => dirname(__FILE__) . DIRECTORY_SEPARATOR . '..',
     'name' => 'Kamran Travel Agency',
     'theme' => 'kamran_theme1',
+    
     // preloading 'log' component
     'preload' => array('log', 'bootstrap'),
+    
     // autoloading model and component classes
     'import' => array(
         'application.models.*',
@@ -31,6 +33,7 @@ return array(
             'ipFilters' => array('127.0.0.*', '*'),
         ),
     ),
+    
     // application components
     'components' => array(
         'user' => array(
@@ -41,6 +44,7 @@ return array(
             // for RBAC (Rights module)
             'class' => 'RWebUser',
         ),
+        
         // for sending email (Email extension)
         'email' => array(
             'class' => 'application.extensions.email.Email',
@@ -50,26 +54,32 @@ return array(
         'authManager' => array(
             'class' => 'RDbAuthManager', // Provides support authorization item sorting.
         ),
+        
+        //paypal componet
+        'Paypal' => array(
+            'class'=>'application.components.Paypal',
+            'apiUsername' => 'baambo_1359062345_biz_api1.yahoo.com',
+            'apiPassword' => '1359062366',
+            'apiSignature' => 'A-s-vwNCAoth.LoWmD7POnvaSJ5-A4Uq8rzmzD-zhCOe1qR3TyyabubY',
+            'apiLive' => false,
+            
+            'returnUrl' => 'paypal/confirm/',
+            'cancelUrl' => 'paypal/cancel/',
+        ), 
+        
         // enable APC cache
         /* 'cache' => array(
           'class' => 'system.caching.CApcCache',
-          ), */
-
-        // uncomment the following to enable URLs in path-format
-        /* 'urlManager' => array(
-          'urlFormat' => 'path',
-          'rules' => array(
-          'commentfeed' => array('comment/feed', 'urlSuffix' => '.xml', 'caseSensitive' => false),
-          '<pid:\d+>/commentfeed' => array('comment/feed', 'urlSuffix' => '.xml', 'caseSensitive' => false),
-          ),
-          'showScriptName' => false,
-          ),
-         */
+          ), 
+        */
+          
+        
         // Yii booster
         'bootstrap' => array(
             'class' => 'ext.bootstrap.components.Bootstrap',
             'responsiveCss' => true,
         ),
+        
         // uncomment the following to use a MySQL database
         'db' => array(
             'connectionString' => 'mysql:host=127.0.0.1;dbname=travelagency',
@@ -78,10 +88,12 @@ return array(
             'password' => '123',
             'charset' => 'utf8',
         ),
+        
         'errorHandler' => array(
             // use 'site/error' action to display errors
             'errorAction' => 'site/error',
         ),
+        
         'log' => array(
             'class' => 'CLogRouter',
             'routes' => array(
@@ -104,6 +116,7 @@ return array(
             ),
         ),
     ),
+    
     // application-level parameters that can be accessed
     // using Yii::app()->params['paramName']
     'params' => array(
