@@ -4739,8 +4739,26 @@ or
 		SEOToolbox - A bunch of random tools from Seomoz. 
 
 
-185-
+185- to add date validation, in the model class we should write
 
+		public function rules()
+		{
+			return array(
+				............
+				array('checkinDate, checkoutDate', 'type', 'type' => 'date', 'message' => 'Not a valid date!', 'dateFormat' => 'yyyy/MM/dd'),
+				............
+			);
+		}
 
+	and in controller class
+	
+		if (!$modelSearchHotelForm->validate())
+        {
+           echo json_encode(array('ERROR' => 'Bad date format.'));
+           return false; 
+        }
+		
+		
+186- 
 
 Kamran

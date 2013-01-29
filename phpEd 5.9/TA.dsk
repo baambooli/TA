@@ -16,28 +16,16 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\themes\cheese\css\screen.css
+File0=D:\xampp\htdocs\TA\restfull_test.php
 IsActive0=1
-ZIndex6=0
-File1=D:\xampp\htdocs\TA\css\screen.css
+ZIndex2=0
+File1=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
 IsActive1=0
-ZIndex5=1
-File2=D:\xampp\htdocs\TA\themes\kamran_theme1\css\screen.css
+ZIndex1=1
+File2=D:\xampp\htdocs\TA\protected\config\main.php
 IsActive2=0
-ZIndex4=2
-File3=D:\xampp\htdocs\TA\protected\views\site\flightScripts.php
-IsActive3=0
-ZIndex3=3
-File4=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
-IsActive4=0
-ZIndex2=6
-File5=D:\xampp\htdocs\TA\protected\components\SearchHotel.php
-IsActive5=0
-ZIndex1=5
-File6=D:\xampp\htdocs\TA\protected\components\SearchFlight.php
-IsActive6=0
-ZIndex0=4
-Files=7
+ZIndex0=2
+Files=3
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

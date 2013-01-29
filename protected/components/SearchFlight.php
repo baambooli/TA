@@ -140,7 +140,7 @@ class SearchFlight
     }
    
     private static function getFlights($searchFlightForm, &$flights)
-    {
+    {     
         // find departure airportId
         $departureAirport = Airport::model()->findByAttributes(array(
             'Name' => $searchFlightForm->departuteAirport
