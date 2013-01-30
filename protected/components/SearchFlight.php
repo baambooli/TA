@@ -87,7 +87,6 @@ class SearchFlight
         self::showOneWayFlights($searchFlightFormReturn, $emptySeats);
         
         return true;
-        
     }  
     
     // changes the destination and departure informations

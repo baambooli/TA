@@ -12,7 +12,13 @@
 class Browser {
 
     public static function detect() {
-        $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
+        // edited by kamran to support using curl() function
+        // when we use curl, there is not any $_SERVER['HTTP_USER_AGENT']
+        if (isset($_SERVER['HTTP_USER_AGENT']))
+            $userAgent = strtolower($_SERVER['HTTP_USER_AGENT']);
+        else
+            $userAgent = '';
+            
 
         // Identify the browser. Check Opera and Safari first in case of spoof. Let Google Chrome be identified as Safari.
         if (preg_match('/opera/', $userAgent)) {
