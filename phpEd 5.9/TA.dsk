@@ -16,22 +16,19 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\extensions\mbmenu\Browser.php
+File0=D:\xampp\htdocs\TA\protected\config\console.php
 IsActive0=0
-ZIndex4=1
-File1=D:\xampp\htdocs\TA\curl_test2.php
-IsActive1=1
-ZIndex3=0
-File2=D:\xampp\htdocs\TA\protected\components\SearchFlight.php
-IsActive2=0
+ZIndex3=1
+File1=D:\xampp\htdocs\TA\protected\config\test.php
+IsActive1=0
 ZIndex2=2
-File3=D:\xampp\htdocs\TA\protected\controllers\SiteController.php
+File2=D:\xampp\htdocs\TA\protected\config\main.php
+IsActive2=1
+ZIndex1=0
+File3=D:\xampp\htdocs\TA\curl_test.php
 IsActive3=0
-ZIndex1=3
-File4=D:\xampp\htdocs\TA\protected\config\main.php
-IsActive4=0
-ZIndex0=4
-Files=5
+ZIndex0=3
+Files=4
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

@@ -51,6 +51,7 @@ return array(
             'delivery' => 'php', //Will use the php mailing function.
         //May also be set to 'debug' to instead dump the contents of the email into the view
         ),
+        
         'authManager' => array(
             'class' => 'RDbAuthManager', // Provides support authorization item sorting.
         ),
