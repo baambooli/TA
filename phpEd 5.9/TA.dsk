@@ -16,19 +16,7 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-File0=D:\xampp\htdocs\TA\protected\config\console.php
-IsActive0=0
-ZIndex3=1
-File1=D:\xampp\htdocs\TA\protected\config\test.php
-IsActive1=0
-ZIndex2=2
-File2=D:\xampp\htdocs\TA\protected\config\main.php
-IsActive2=1
-ZIndex1=0
-File3=D:\xampp\htdocs\TA\curl_test.php
-IsActive3=0
-ZIndex0=3
-Files=4
+Files=0
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

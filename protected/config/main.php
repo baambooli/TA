@@ -9,7 +9,7 @@ return array(
     'name' => 'Kamran Travel Agency',
     'theme' => 'kamran_theme1',
     
-    // preloading 'log' component
+    // preloading 'log' and 'bootstrap' components
     'preload' => array('log', 'bootstrap'),
     
     // autoloading model and component classes
