@@ -4,8 +4,13 @@ $this->pageTitle=Yii::app()->name;
 ?>
 
 <!-- we need these two lines for tabs-->
+<!--
 <link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
 <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+-->
+<!-- we need these two lines for tabs-->
+<link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/js/jquery-ui-1.10.0.custom/development-bundle/themes/base/jquery-ui.css" />
+<script src="<?php echo Yii::app()->baseUrl; ?>/js/jquery-ui-1.10.0.custom/js/jquery-ui-1.10.0.custom.js"></script>
 
 <!-- tabs function call -->
 <script>
