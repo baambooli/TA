@@ -16,7 +16,19 @@ Worksets=0
 ActiveWorkset=
 
 [Files]
-Files=0
+File0=D:\xampp\htdocs\TA\themes\kamran_theme1\views\layouts\column1.php
+IsActive0=0
+ZIndex3=1
+File1=D:\xampp\htdocs\TA\themes\kamran_theme1\css\main.css
+IsActive1=0
+ZIndex2=3
+File2=D:\xampp\htdocs\TA\themes\kamran_theme1\css\screen.css
+IsActive2=1
+ZIndex1=0
+File3=D:\xampp\htdocs\TA\index.php
+IsActive3=0
+ZIndex0=2
+Files=4
 
 [breakpoints]
 bp_0_file=G:\GitHub\travelagency\protected\controllers\CountryController.php

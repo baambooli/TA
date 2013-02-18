@@ -287,3 +287,32 @@ hr.space {background:#fff;color:#fff;visibility:hidden;}
 {
     display: inline-block;
 }
+
+#logo
+{
+    padding: 40px 30px;
+    font-size: 300%;
+    font-family: lotus;
+    font-weight: bold;
+    color: #ff0000;
+	display:none;
+}
+
+#content
+{
+	padding: 20px;
+	background-color: #F0F0F0;
+}
+
+#footer {
+	font-size: 0.8em;
+	margin: 10px 20px;
+	padding: 10px;
+	text-align: center;
+	border-top-width: 1px;
+	border-top-style: solid;
+	border-top-color: #233640;
+	background-color: #ff8a00;
+	color: #FFF;
+}
+

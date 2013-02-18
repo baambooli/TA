@@ -89,6 +89,7 @@
                     array('label' => 'Themes',
                         'items' => array(
                             array('label' => 'Theme Kamran', 'url' => array('/site/changeTheme/name/kamran_theme1')),
+							array('label' => 'Theme Kamran 2', 'url' => array('/site/changeTheme/name/kamran_theme2')),
                             array('label' => 'Theme cheese', 'url' => array('/site/changeTheme/name/cheese')),
                             array('label' => 'Theme classic', 'url' => array('/site/changeTheme/name/classic')),
                         ),

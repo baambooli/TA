@@ -1,17 +1,15 @@
 body
 {
-    margin: 0;
-    padding: 0;
-    color: #555;
-    font: normal 10pt Arial,Helvetica,sans-serif;
-    /*background: #EFEFEF;*/
+	margin: 0;
+	padding: 0;
+	color: #555;
+	font: normal 10pt Arial,Helvetica,sans-serif;
+	/*background: #EFEFEF;*/
 
     /* background picture (kamran)*/
-    background-image: url( 'background.jpg' );
-    background-repeat: no-repeat;
-    background-attachment: fixed;
-    background-position: top center;
-
+	background-image: url('background.png');
+	background-repeat: repeat;
+	background-position: center top;
     /* backgound transparency (kamran)*/
     /*opacity:0.9;
     filter:alpha(opacity=90); */
@@ -28,11 +26,11 @@ body
 
 #header
 {
-    margin: 0;
-    padding: 0;
-    background-image: url( 'vampircsepp.jpg' );
-    background-repeat: no-repeat;
-    height: 175px;
+	margin: 0;
+	padding: 0;
+	background-image: url('header.jpg');
+	background-repeat: no-repeat;
+	height: 175px;
 }
 
 #content

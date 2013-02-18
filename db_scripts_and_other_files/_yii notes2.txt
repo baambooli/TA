@@ -1386,18 +1386,19 @@ or
 		
 77-	get baseURL in Yii
 
-	 $a = Yii::app()->request->baseUrl;
+	 $a = Yii::app()->baseUrl;  
 		
 78- some global variables in yii
 
 		Yii::app()->homeUrl           		---->  /index.php
 		Yii::app()->user->isGuest     		---->  1
 		Yii::app()->user->name        		---->  Guest
-		Yii::app()->user->id          		---->
-		Yii::app()->request->baseUrl  		---->  http://kamran.dev.travelagancy.com:81/
+		Yii::app()->user->id          		---->  4
+		Yii::app()->request->baseUrl  		---->  nothing   or   http://kamran.dev.travelagancy.com:81/
 		Yii::app()->theme->baseUrl    		---->  /themes/kamran_theme1
 		Yii::app()->createAbsoluteUrl('') 	---->  http://kamran.dev.travelagancy.com:81/index.php
-		Yii::app()->basePath         		---->  G:\GitHub\travelagency\protected 
+		Yii::app()->basePath         		---->  G:\GitHub\travelagency\protected
+		Yii::app()->baseUrl                 ---->  
 
 
 79- an example of findByAttributes()
@@ -3452,6 +3453,7 @@ or
 		Yii::app()->createAbsoluteUrl('') 	---->  http://kamran.dev.travelagancy.com:81/index.php
 		Yii::app()->basePath         		---->  G:\GitHub\travelagency\protected 
 		Yii::app()->createAbsoluteUrl('hotel/admin') ---->  http://kamran.dev.travelagancy.com:81/index.php?r=hotel/admin
+		Yii::app()->baseUrl                 ---->   
 		
 		
 148- the way we can use zii.widgets.jui.CJuiButton button for ajax call
@@ -3459,8 +3461,9 @@ or
 		IMPORTANT NOTE: DatePicker that is included in Yiibooster has bug, that is why I have used datepicker of jQuery UI
 
 		<!-- we need these two lines for tabs and datepickers-->
-		<link rel="stylesheet" href="http://code.jquery.com/ui/1.9.2/themes/base/jquery-ui.css" />
-		<script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+		<link rel="stylesheet" href="<?php echo Yii::app()->baseUrl; ?>/js/jquery-ui-1.10.0.custom/development-bundle/themes/base/jquery-ui.css" />
+		<script src="<?php echo Yii::app()->baseUrl; ?>/js/jquery-ui-1.10.0.custom/js/jquery-ui-1.10.0.custom.js"></script>
+
 
 		<!-- datepicker function call-->
 		<script>
@@ -4814,7 +4817,13 @@ or
 			
 		
 187- using curl in php to post data to controller
-
+		
+		first we should enable curl extension on php.ini file by adding this line to it
+		
+			; enable curl
+			extension=php_curl.dll;
+			
+		then create a php file and write this code inside it
 	
 		<?php
 
@@ -4889,7 +4898,7 @@ or
 			  echo $data;
 			}
 
-		get_data('http://kamran.dev.travelagancy.com:81/');
+			get_data('http://kamran.dev.travelagancy.com:81/');
 
 		?>
 
@@ -4898,7 +4907,7 @@ or
 
 		http://www.yiiframework.com/extension/ehttpclient/
 		
-190- adding shp capability to yii
+190- adding shop capability to yii
 
 		http://www.yiiframework.com/extension/yiishop/
 		
@@ -4906,7 +4915,11 @@ or
 
 		http://www.yiiframework.com/extension/imagesgallerymanager
 		
-192-
+192- mongodb support in yii
+
+		http://www.yiiframework.com/extension/yiimongodbsuite/
+		
+193- 
 		
   
 
