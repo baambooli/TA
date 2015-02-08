@@ -4831,3 +4831,110 @@ REQUEST_URI=/
 in G:\GitHub\travelagency\protected\extensions\mbmenu\Browser.php (15)
 in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (135)
 in G:\GitHub\travelagency\protected\extensions\mbmenu\MbMenu.php (214)
+2015/02/07 22:11:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'user1'@'localhost' (using password: YES)' in D:\xampp183\htdocs\yii\framework\db\CDbConnection.php:399
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 D:\xampp183\htdocs\yii\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(394): CDbConnection->init()
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(458): CModule->getComponent('db')
+#4 D:\xampp183\htdocs\yii\framework\db\ar\CActiveRecord.php(637): CApplication->getDb()
+#5 D:\xampp183\htdocs\yii\framework\db\ar\CActiveRecord.php(670): CActiveRecord->getDbConnection()
+#6 D:\xampp183\htdocs\yii\framework\db\ar\CActiveRecord.php(1474): CActiveRecord->getCommandBuilder()
+#7 D:\xampp183\htdocs\travelagency-final\protected\controllers\SiteController.php(44): CActiveRecord->findAll()
+#8 D:\xampp183\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#9 D:\xampp183\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 D:\xampp183\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 D:\xampp183\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp183\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#13 D:\xampp183\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 D:\xampp183\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 D:\xampp183\htdocs\travelagency-final\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/travelagency-final/
+---
+2015/02/07 22:12:00 [error] [exception.CDbException] exception 'CDbException' with message 'CDbConnection failed to open the DB connection: SQLSTATE[HY000] [1045] Access denied for user 'root'@'localhost' (using password: NO)' in D:\xampp183\htdocs\yii\framework\db\CDbConnection.php:399
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\db\CDbConnection.php(347): CDbConnection->open()
+#1 D:\xampp183\htdocs\yii\framework\db\CDbConnection.php(325): CDbConnection->setActive(true)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(394): CDbConnection->init()
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(458): CModule->getComponent('db')
+#4 D:\xampp183\htdocs\yii\framework\db\ar\CActiveRecord.php(637): CApplication->getDb()
+#5 D:\xampp183\htdocs\yii\framework\db\ar\CActiveRecord.php(670): CActiveRecord->getDbConnection()
+#6 D:\xampp183\htdocs\yii\framework\db\ar\CActiveRecord.php(1474): CActiveRecord->getCommandBuilder()
+#7 D:\xampp183\htdocs\travelagency-final\protected\controllers\SiteController.php(44): CActiveRecord->findAll()
+#8 D:\xampp183\htdocs\yii\framework\web\actions\CInlineAction.php(49): SiteController->actionIndex()
+#9 D:\xampp183\htdocs\yii\framework\web\CController.php(308): CInlineAction->runWithParams(Array)
+#10 D:\xampp183\htdocs\yii\framework\web\CController.php(286): CController->runAction(Object(CInlineAction))
+#11 D:\xampp183\htdocs\yii\framework\web\CController.php(265): CController->runActionWithFilters(Object(CInlineAction), Array)
+#12 D:\xampp183\htdocs\yii\framework\web\CWebApplication.php(282): CController->run('')
+#13 D:\xampp183\htdocs\yii\framework\web\CWebApplication.php(141): CWebApplication->runController('')
+#14 D:\xampp183\htdocs\yii\framework\base\CApplication.php(184): CWebApplication->processRequest()
+#15 D:\xampp183\htdocs\travelagency-final\index.php(13): CApplication->run()
+#16 {main}
+REQUEST_URI=/travelagency-final/
+---
+2015/02/08 06:38:59 [error] [exception.CException] exception 'CException' with message 'Alias "ext.bootstrap.components.Bootstrap" is invalid. Make sure it points to an existing PHP file and the file is readable.' in D:\xampp183\htdocs\yii\framework\YiiBase.php:323
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 D:\xampp183\htdocs\yii\framework\base\CModule.php(393): YiiBase::createComponent(Array)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(530): CModule->getComponent('bootstrap')
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(167): CModule->preloadComponents()
+#4 D:\xampp183\htdocs\yii\framework\YiiBase.php(125): CApplication->__construct('D:\\xampp183\\htd...')
+#5 D:\xampp183\htdocs\yii\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\\xampp183\\htd...')
+#6 D:\xampp183\htdocs\travelagency-final\index.php(13): YiiBase::createWebApplication('D:\\xampp183\\htd...')
+#7 {main}
+REQUEST_URI=/travelagency-final/index.php?r=site/index
+HTTP_REFERER=http://localhost:81/travelagency-final/index.php
+---
+2015/02/08 06:42:06 [error] [exception.CException] exception 'CException' with message 'Alias "ext.bootstrap.components.Bootstrap" is invalid. Make sure it points to an existing PHP file and the file is readable.' in D:\xampp183\htdocs\yii\framework\YiiBase.php:323
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 D:\xampp183\htdocs\yii\framework\base\CModule.php(393): YiiBase::createComponent(Array)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(530): CModule->getComponent('bootstrap')
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(167): CModule->preloadComponents()
+#4 D:\xampp183\htdocs\yii\framework\YiiBase.php(125): CApplication->__construct('D:\\xampp183\\htd...')
+#5 D:\xampp183\htdocs\yii\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\\xampp183\\htd...')
+#6 D:\xampp183\htdocs\travelagency-final\index.php(13): YiiBase::createWebApplication('D:\\xampp183\\htd...')
+#7 {main}
+REQUEST_URI=/travelagency-final/index.php?r=site/index
+HTTP_REFERER=http://localhost:81/travelagency-final/index.php
+---
+2015/02/08 06:42:08 [error] [exception.CException] exception 'CException' with message 'Alias "ext.bootstrap.components.Bootstrap" is invalid. Make sure it points to an existing PHP file and the file is readable.' in D:\xampp183\htdocs\yii\framework\YiiBase.php:323
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\YiiBase.php(196): YiiBase::import('ext.bootstrap.c...', true)
+#1 D:\xampp183\htdocs\yii\framework\base\CModule.php(393): YiiBase::createComponent(Array)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(530): CModule->getComponent('bootstrap')
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(167): CModule->preloadComponents()
+#4 D:\xampp183\htdocs\yii\framework\YiiBase.php(125): CApplication->__construct('D:\\xampp183\\htd...')
+#5 D:\xampp183\htdocs\yii\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\\xampp183\\htd...')
+#6 D:\xampp183\htdocs\travelagency-final\index.php(13): YiiBase::createWebApplication('D:\\xampp183\\htd...')
+#7 {main}
+REQUEST_URI=/travelagency-final/index.php?r=site/index
+HTTP_REFERER=http://localhost:81/travelagency-final/index.php
+---
+2015/02/08 06:44:38 [error] [exception.CException] exception 'CException' with message 'Property "Bootstrap.responsiveCss" is not defined.' in D:\xampp183\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\YiiBase.php(220): CComponent->__set('responsiveCss', true)
+#1 D:\xampp183\htdocs\yii\framework\base\CModule.php(393): YiiBase::createComponent(Array)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(530): CModule->getComponent('bootstrap')
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(167): CModule->preloadComponents()
+#4 D:\xampp183\htdocs\yii\framework\YiiBase.php(125): CApplication->__construct('D:\\xampp183\\htd...')
+#5 D:\xampp183\htdocs\yii\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\\xampp183\\htd...')
+#6 D:\xampp183\htdocs\travelagency-final\index.php(13): YiiBase::createWebApplication('D:\\xampp183\\htd...')
+#7 {main}
+REQUEST_URI=/travelagency-final/index.php?r=site/index
+HTTP_REFERER=http://localhost:81/travelagency-final/index.php
+---
+2015/02/08 06:44:56 [error] [exception.CException] exception 'CException' with message 'Property "Bootstrap.responsiveCss" is not defined.' in D:\xampp183\htdocs\yii\framework\base\CComponent.php:173
+Stack trace:
+#0 D:\xampp183\htdocs\yii\framework\YiiBase.php(220): CComponent->__set('responsiveCss', true)
+#1 D:\xampp183\htdocs\yii\framework\base\CModule.php(393): YiiBase::createComponent(Array)
+#2 D:\xampp183\htdocs\yii\framework\base\CModule.php(530): CModule->getComponent('bootstrap')
+#3 D:\xampp183\htdocs\yii\framework\base\CApplication.php(167): CModule->preloadComponents()
+#4 D:\xampp183\htdocs\yii\framework\YiiBase.php(125): CApplication->__construct('D:\\xampp183\\htd...')
+#5 D:\xampp183\htdocs\yii\framework\YiiBase.php(98): YiiBase::createApplication('CWebApplication', 'D:\\xampp183\\htd...')
+#6 D:\xampp183\htdocs\travelagency-final\index.php(13): YiiBase::createWebApplication('D:\\xampp183\\htd...')
+#7 {main}
+REQUEST_URI=/travelagency-final/index.php?r=site/index
+HTTP_REFERER=http://localhost:81/travelagency-final/index.php
+---

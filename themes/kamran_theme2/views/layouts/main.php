@@ -16,7 +16,7 @@
 
 	<title><?php echo CHtml::encode($this->pageTitle); ?></title>
 </head>
-
+<?php Yii::app()->bootstrap->register(); ?>
 <body>
 
 <div class="container" id="page">

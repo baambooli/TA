@@ -69,7 +69,7 @@
                     array('label' => 'Reserve Room', 'url' => array('/roomClient/create')),
                 ),
             ),
-            // show 'Contact' menu to all users
+            // show 'Contact' menu 
             array('label' => 'Contact', 'url' => array('/site/contact'),
                 'items' => array(
                     array('label' => 'Contact us', 'url' => array('/site/contact')),
@@ -78,11 +78,12 @@
                     array('label' => 'RBAC Diagram', 'url' => array('/site/rbacDiagram')),
                 ),
             ),
-            // show 'Admin' menu to all users
+            // show 'Admin' menu
             array('label' => 'Admin Tasks', 'visible' => $visibility['Admin'],
                 'items' => array(
                     array('label' => 'RBAC', 'url' => array('/rights/assignment/', 'view' => 'view')),
                     array('label' => 'Users\' Management', 'url' => array('/user/admin', 'view' => 'admin')),
+					array('label' => 'Audit trail', 'url' => array('/audit')),
                     array('label' => 'Create Reports', 'url' => array('/report/admin', 'view' => 'admin')),
                     array('label' => 'Change Forms', 'url' => array('/changeForm/admin', 'view' => 'admin')),
                     array('label' => 'Reset users\' password', 'url' => array('/site/resetPassword')),

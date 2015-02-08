@@ -18,7 +18,7 @@
 </head>
 
 <body>
-
+<?php Yii::app()->bootstrap->register(); ?>
 <div class="container" id="page">
 
 	<div id="header">
